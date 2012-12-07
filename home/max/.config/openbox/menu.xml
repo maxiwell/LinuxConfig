@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+	<menu id="apps-net-menu" label="Internet">
+		<item label="Chrome">
+			<action name="Execute">
+				<command>google-chrome</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Transmission">
+			<action name="Execute">
+				<command>transmission-gtk</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Skype">
+			<action name="Execute">
+				<command>skype</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-accessories-menu" label="Accessories">
+		<item label="Calculator">
+			<action name="Execute">
+				<command>gcalctool</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="File Archiver">
+			<action name="Execute">
+				<command>file-roller</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Gedit">
+			<action name="Execute">
+				<command>gedit</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Nautilus">
+			<action name="Execute">
+				<command>nautilus --no-desktop</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Screenshot">
+			<action name="Execute">
+				<command>gnome-screenshot -i</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Terminal">
+			<action name="Execute">
+				<command>gnome-terminal</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-office-menu" label="Office">
+		<item label="Abiword">
+			<action name="Execute">
+				<execute>abiword</execute>
+			</action>
+		</item>
+		<item label="Gnumeric">
+			<action name="Execute">
+				<execute>gnumeric</execute>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-multimedia-menu" label="Multimedia">
+		<item label="Brasero">
+			<action name="Execute">
+				<command>brasero</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Gimp">
+			<action name="Execute">
+				<command>gimp</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+	</menu>
+	<menu id="apps-term-menu" label="Terminals">
+	</menu>
+	<menu id="apps-editors-menu" label="Editors">
+	</menu>
+	<menu id="apps-fileman-menu" label="File Managers">
+	</menu>
+	<menu id="apps-graphics-menu" label="Graphics">
+	</menu>
+	<menu id="system-menu" label="System">
+		<item label="Openbox Configuration Manager">
+			<action name="Execute">
+				<command>obconf</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Manage Cups Printers">
+			<action name="Execute">
+				<command>xdg-open http://localhost:631/</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<separator/>
+		<item label="Reconfigure Openbox">
+			<action name="Reconfigure"/>
+		</item>
+	</menu>
+	<menu id="root-menu" label="Openbox 3">
+		<item label="Terminal">
+			<action name="Execute">
+				<command>gnome-terminal</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="Chrome">
+			<action name="Execute">
+				<command>google-chrome</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<separator label="Applications"/>
+		<menu id="apps-accessories-menu"/>
+		<menu id="apps-net-menu"/>
+		<menu id="apps-multimedia-menu"/>
+		<menu id="apps-office-menu"/>
+		<!--menu id="apps-term-menu"/-->
+		<!--menu id="apps-editors-menu"/-->
+		<!--menu id="apps-graphics-menu"/-->
+		<!--menu id="apps-fileman-menu"/-->
+		<separator label="System"/>
+		<menu id="system-menu"/>
+		<separator/>
+		<item label="Log out">
+			<action name="Exit">
+				<prompt>yes</prompt>
+			</action>
+		</item>
+		<item label="Lock screen">
+			<action name="Execute">
+				<command>xscreensaver-command --lock</command>
+			</action>
+		</item>
+		<item label="Reboot">
+			<action name="Execute">
+				<command>shutdown now -r</command>
+				<prompt>yes</prompt>
+			</action>
+		</item>
+		<item label="Power off">
+			<action name="Execute">
+				<command>shutdown now -h</command>
+				<prompt>yes</prompt>
+			</action>
+		</item>
+	</menu>
+</openbox_menu>
