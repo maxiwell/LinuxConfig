@@ -13,9 +13,9 @@ for k in $allfil; do
 	if [ "$1" != "-p" ]; then
 		cp ./$dir$fil $dir$fil
 	fi
-	if [ "$1" == "-v" ]; then
-		echo "cp ./$dir$fil $dir$fil"
-	fi
+#	if [ "$1" == "-v" ]; then
+	echo "cp ./$dir$fil $dir$fil"
+#	fi
 done
 
 for k in $alllnk; do
