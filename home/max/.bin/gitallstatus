@@ -1,0 +1,17 @@
+#!/bin/bash
+
+
+alldir=`find /home/max/ -type d | egrep -e "\.git$"`
+home=$PWD
+
+for k in $alldir; do
+        dir=`echo $k | sed -e "s/\.git$//"`
+        echo "========================================="
+        echo $dir
+        echo "========================================="
+        cd $dir
+        git status 
+        echo ""
+done
+
+
