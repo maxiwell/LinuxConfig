@@ -10,6 +10,12 @@ for k in $alldir; do
         echo $dir
         echo "========================================="
         cd $dir
+
+        if [ "$1" == "-f" ]; then
+                git fetch
+                echo "Git fetch... OK"
+        fi
+
         git status 
         echo ""
 done
