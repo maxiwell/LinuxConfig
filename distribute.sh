@@ -11,7 +11,7 @@ for k in $allfil; do
 		continue
 	fi
 	if [ ! -d $dir ]; then
-		mkdir $dir
+		mkdir -p $dir
 	fi
 	cp ./$dir$fil $dir$fil
 	echo "cp ./$dir$fil $dir$fil"
