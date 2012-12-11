@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+if [ "$1" == "" ]; then
+        echo "Abort. Repository Name not found"
+        exit 0
+fi
+
+
+curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 
+
