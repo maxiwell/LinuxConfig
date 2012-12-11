@@ -10,12 +10,11 @@ for k in $allfil; do
 		echo "skipping .gitconfig"
 		continue
 	fi
-	if [ "$1" != "-p" ]; then
-		cp ./$dir$fil $dir$fil
+	if [ ! -d $dir ]; then
+		mkdir $dir
 	fi
-#	if [ "$1" == "-v" ]; then
+	cp ./$dir$fil $dir$fil
 	echo "cp ./$dir$fil $dir$fil"
-#	fi
 done
 
 for k in $alllnk; do
