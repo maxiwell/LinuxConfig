@@ -449,6 +449,33 @@
         <command>gnome-screensaver-command --lock</command>
       </action>
     </keybind>
+    <keybind key="0x7A">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name/>
+        </startupnotify>
+        <command>pa-vol.sh minus</command>
+      </action>
+    </keybind>
+    <keybind key="0x7B">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name/>
+        </startupnotify>
+        <command>pa-vol.sh plus</command>
+      </action>
+    </keybind>
+    <keybind key="0x79">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name/>
+        </startupnotify>
+        <command>pa-vol.sh mute</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
