@@ -1,9 +1,10 @@
 #!/bin/bash
 
 
-
 TIME=$(date +"%yy%mm%dd%Hh%Mm%Ss")
 FOLDER=$(echo ${PWD##*/})
+PATHFOLDER=$PWD
+
 
 if [ -d ".git" ]; then
         echo "Abort: Git directory detect."
@@ -16,7 +17,19 @@ else
         REPOS_NAME=$1
 fi
 
-curl -L -u 'maxiwell' https://api.github.com/user/repos -d '{"name":"'$REPOS_NAME'"}' > /dev/null
+if [ ! -f /usr/bin/curl ]; then
+        echo "I require \"curl\" but it's not installed.  Aborting."
+        exit 1;
+fi
+
+curl -sS -L -u 'maxiwell' https://api.github.com/user/repos -d '{"name":"'$REPOS_NAME'","description":"'$PATHFOLDER'"}'  > temp
+badcredentials=`cat temp | grep -c "Bad credentials"`
+rm temp
+if [ "$badcredentials" != 0 ]; then
+        echo "GitHub: Bad credentials. Aborting"
+        exit 1;
+fi
+        
 git init
 git add *
 git commit -m "Initial commit"
