@@ -1,3 +1,7 @@
+" TODO: tex.vim file syntax by 2008, found on the net. The 2012 file is with bug in
+" italic and lstlisting syntax
+"
+"
 " Vim syntax file
 " Language:	TeX
 " Maintainer:	Dr. Charles E. Campbell, Jr. <NdrchipO@ScampbellPfamily.AbizM>
