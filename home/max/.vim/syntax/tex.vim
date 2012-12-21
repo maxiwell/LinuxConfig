@@ -1,7 +1,3 @@
-" TODO Arquivo que peguei na net pois o tex.vim de 2012 estava com problema no
-" lstlisting e nos italicos
-" 
-"
 " Vim syntax file
 " Language:	TeX
 " Maintainer:	Dr. Charles E. Campbell, Jr. <NdrchipO@ScampbellPfamily.AbizM>
