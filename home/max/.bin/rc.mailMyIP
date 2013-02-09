@@ -3,6 +3,12 @@
 ##########################################################
 # Para acessar o gmail, eh necessario configurar o msmtp #
 # e usar as chaves em $HOME/.certs                       #
+#                                                        #
+# Esse script eh adicionado no cron, para executar a     #
+# cada 1 hora, com timeout de 120s:                      #
+#                                                        #
+# $crontab -e                                            #
+# 0 * * * * timeout 120s /home/max/.bin/rc.mailMyIP      #
 ##########################################################
 
 FILE=/tmp/mailMyIP
