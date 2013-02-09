@@ -1,0 +1,21 @@
+########################################################## 
+##                                                      ##    
+## Diretorio criado para acessar o gmail pelo terminal, ##
+## por meio do msmtp                                    ##
+##                                                      ##
+##########################################################
+                                                          
+# Executar esse comando para dizer ao openssl que      
+# temos as chaves                                     
+
+c_rehash $HOME/.certs/
+
+# Um vez gerado os links e com o .msmtprc corretamente
+# configurado, pode-se testar: 
+
+
+echo -e "Subject: Teste 1 Can you read me?" | msmtp maxiwell@gmail.com 
+
+
+
+ 

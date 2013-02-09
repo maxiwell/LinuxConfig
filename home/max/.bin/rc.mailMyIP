@@ -1,5 +1,10 @@
 #!/bin/bash
 
+##########################################################
+# Para acessar o gmail, eh necessario configurar o msmtp #
+# e usar as chaves em $HOME/.certs                       #
+##########################################################
+
 FILE=/tmp/mailMyIP
 DATE=`date +"%F %H:%M:%S"`
 ADDRS="maxiwell@gmail.com"

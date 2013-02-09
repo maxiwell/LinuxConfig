@@ -30,10 +30,17 @@ for k in $allfil; do
 	dir=`echo $k | sed -e "s/\/[^\/]*$/\//" | sed -e "s/^\.//"`
 	fil=`echo $k | sed -e "s/.*\///"`
 	imm="._file_"
+
     if [ $fil == ".gitconfig" ]; then
 		echo "skipping .gitconfig"
 		continue
 	fi
+    if [ $fil == ".msmtprc" ]; then
+		echo "skipping .msmtprc"
+		continue
+	fi
+
+
 	if [ ! -f $dir$fil ]; then
 		echo "$dir$fil does not exist"
     else
