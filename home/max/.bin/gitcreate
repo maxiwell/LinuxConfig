@@ -29,7 +29,11 @@ if [ "$badcredentials" != 0 ]; then
         echo "GitHub: Bad credentials. Aborting"
         exit 1;
 fi
-        
+
+if [  `ls -1 | wc -l` -eq 0 ]; then
+        touch README.md
+fi
+
 git init
 git add *
 git commit -m "Initial commit"

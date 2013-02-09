@@ -1,0 +1,33 @@
+#!/bin/bash
+
+FILE=/tmp/mailMyIP
+DATE=`date +"%F %H:%M:%S"`
+ADDRS="maxiwell@gmail.com"
+MSMTP=`which msmtp`
+PING=`which ping`
+SED=`which sed`
+PRINTF=`which printf`
+IFCONFIG=`which ifconfig`
+
+
+IP=`curl -s ifconfig.me`
+
+MSG(){
+   BODY="Subject: NAVI has booted, check your IP Date: $DATE NAVI was booted at $DATE NAVI IP=$IP "
+   echo "$BODY" | $MSMTP -C /home/max/.msmtprc $ADDRS
+}
+
+
+if [ -f $FILE ]; then
+         OLDIP=`cat $FILE`
+         if [ $IP != $OLDIP ]; then
+                MSG
+         fi
+else
+        echo "$IP" > $FILE
+        MSG
+fi
+
+
+
+
