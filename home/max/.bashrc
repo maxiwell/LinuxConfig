@@ -91,6 +91,7 @@ else
 fi
 #ssh-add ~/.ssh/github
 
-
+# add /home/max/.bin in PATH
+PATH=$PATH:~/.bin
 
 
