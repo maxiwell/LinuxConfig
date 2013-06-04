@@ -14,8 +14,8 @@ while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
  
 # Show various information about this git directory
 if [ -d .git ]; then
-  echo "== Remote URL: `git remote -v`"
- 
+  echo -e "== Remote URL: \n`git remote -v` \n"
+
   echo "== Remote Branches: "
   git branch -r
   echo
@@ -29,7 +29,7 @@ if [ -d .git ]; then
   echo
  
   echo "== Most Recent Commit"
-  git —no-pager log —max-count=1
+  git --no-pager log --max-count=1
   echo
  
   echo "Type 'git log' for more commits, or 'git show' for full commit details."
