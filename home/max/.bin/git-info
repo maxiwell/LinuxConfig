@@ -16,14 +16,23 @@ while [ ! -d .git ] && [ ! `pwd` = "/" ]; do cd ..; done
 if [ -d .git ]; then
   echo -e "== Remote URL: \n`git remote -v` \n"
 
-  echo "== Remote Branches: "
-  git branch -r
-  echo
- 
   echo "== Local Branches:"
   git branch
   echo
+
+  echo "== Remote Branches: "
+  git branch -r
+  echo
+
+  echo "== Local Tags:"
+  git tag -l -n
+  echo
+
+  echo "== Remote Tags:"
+  echo "*Type 'git ls-remote --tags'"
+  echo
  
+
   echo "== Configuration (.git/config)"
   cat .git/config
   echo
