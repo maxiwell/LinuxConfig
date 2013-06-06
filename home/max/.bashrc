@@ -77,6 +77,7 @@ fi
 
 
 alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
+alias ll="ls -lh"
 
 export SVN_SSH="ssh -p 6868"
 
