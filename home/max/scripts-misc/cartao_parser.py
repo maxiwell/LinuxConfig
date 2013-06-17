@@ -55,15 +55,17 @@ while True:
         for key in places_dic:
             if re.match(".*"+key, place):
                 line = line+str(places_dic.get(key))
+                break
 
 
 
-#        result.write(line)
-        print line
+        result.write(line+"\n")
+#        print line
     except StopIteration:
         break
     
-
+cartao.close()
+result.close()
 
 
 
