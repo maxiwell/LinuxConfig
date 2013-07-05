@@ -23,8 +23,8 @@ places_dic = {
 'ACAIZEIRO' : 'Comida:Lanches',
 'AC UNICAMP' : 'Vendas',
 'AC BARAO DE GERALDO' : 'Vendas',
-'MERCADOS' : 'Mercado'
-
+'MERCADOS' : 'Mercado',
+'POSTO' : 'Carro:Combustivel'
 }
 
 
@@ -34,7 +34,7 @@ if len(sys.argv) <= 1 :
 else:
     print 'Carregando: ', sys.argv[1]
 
-result = open(sys.argv[1]+".out", "w")
+result = open(sys.argv[1]+".csv", "w")
 
 cartao = open(sys.argv[1], 'r')
 readingFile = cartao.read()
@@ -46,7 +46,8 @@ i = iter(readingFile)
 while True:
     try:
         lsplit = i.next().split("\t")
-        line = lsplit[0]+"/2013;1;;;"+lsplit[-1]+";-"+i.next()+";"
+        lsplit[0] = lsplit[0].replace("/","-")
+        line = lsplit[0]+"-13;1;;;"+lsplit[-1]+";-"+i.next()+";"
         line = line.replace("(","").replace(")","")
 
         place = lsplit[-1] #Pegar o lugar 
@@ -59,7 +60,7 @@ while True:
 
 
 
-        result.write(line+"\n")
+        result.write(line+";\n")
 #        print line
     except StopIteration:
         break
