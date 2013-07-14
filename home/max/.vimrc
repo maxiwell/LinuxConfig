@@ -33,8 +33,11 @@ imap <down> <esc>gj<insert><right>
 map <up> gk
 map <down> gj
 
+set smartindent
 set tabstop=4
+set shiftwidth=4
 set expandtab
+
 set mouse=a
 
 "set hlsearch
