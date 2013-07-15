@@ -95,4 +95,6 @@ fi
 # add /home/max/.bin in PATH
 PATH=$PATH:~/.bin
 
+# Nautilus desktop crash openbox
+alias nautilus="nautilus --no-desktop"
 
