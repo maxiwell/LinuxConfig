@@ -53,3 +53,9 @@ map ´ ''
 au BufRead,BufNewFile *.gplot set filetype=gnuplot
 au BufRead,BufNewFile *.gnuplot set filetype=gnuplot
 au BufRead,BufNewFile *.gnu set filetype=gnuplot
+
+
+" Saving folds
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
