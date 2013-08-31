@@ -1,8 +1,12 @@
 #!/bin/bash
 
+ignorelist="-path /home/max/ArchC -o 
+            -path /home/max/.subversion -o 
+            -path /home/max/.cache"
 
-alldir=`find /home/max/ -type d | egrep -e "\.git$"`
+alldir=`find /home/max/ -type d \( $ignorelist \) -prune -o -print  | egrep -e "\.git$"`
 home=$PWD
+
 
 for k in $alldir; do
         dir=`echo $k | sed -e "s/\.git$//"`
