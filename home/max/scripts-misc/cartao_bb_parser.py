@@ -1,11 +1,12 @@
 #!/usr/bin/env python
+# -*- coding: UTF-8 -*-
 
 import re
 import sys
 
 places_dic = {
 
-'AUTO POSTO':'Carro:Combustivel',
+'POSTO':'Carro:Combustivel',
 'CINEMAS':'Shopping:Cinemas',
 'SUPERMERCADOS' : 'Mercado',
 'SUPERMERCADO' : 'Mercado',
@@ -24,10 +25,31 @@ places_dic = {
 'AC UNICAMP' : 'Vendas',
 'AC BARAO DE GERALDO' : 'Vendas',
 'MERCADOS' : 'Mercado',
-'POSTO' : 'Carro:Combustivel'
+'POSTO' : 'Carro:Combustivel',
+'AC UNICAMP' : 'Vendas',
+'REDE GOAL' : 'Carro:Combustivel',
+'SPOLETO' : 'Comida',
+'TEMPERO' : 'Comida',
+'PRO MUSIC' : 'Vendas'
+
 }
 
 
+def get_cotacao(i):
+        lsplit = i.next()
+        while (lsplit[0].find("convertido") == -1):
+            lsplit = i.next().split("\t")
+        
+        # escape the dotted line
+        i.next().split()
+        
+        lsplit = i.next().split()
+        cotacao_dolar = lsplit[-3]
+        return cotacao_dolar.replace(",", ".")
+
+#----------------
+# Main
+#----------------
 
 if len(sys.argv) <= 1 :
     print 'Falando o parametro'
@@ -41,30 +63,60 @@ readingFile = cartao.read()
 readingFile = readingFile.split('\n')
 
 i = iter(readingFile)
+lsplit = i.next()
+while (lsplit[0].find("Compras a vista") == -1):
+    lsplit = i.next().split("\t")
 
-#for l in readingFile:
+
+i_temp = iter(readingFile)
+cotacao_dolar = float(format(float(get_cotacao(i_temp)),'.4f'))
+IOF = 0.0638
+
 while True:
     try:
-        lsplit = i.next().split("\t")
-        lsplit[0] = lsplit[0].replace("/","-")
-        line = lsplit[0]+"-13;1;;;"+lsplit[-1]+";-"+i.next()+";"
-        line = line.replace("(","").replace(")","")
+        lsplit = i.next().split()
 
-        place = lsplit[-1] #Pegar o lugar 
+        if (not lsplit):
+            break
+
+        if (lsplit[0] == "**"):
+            continue
+        
+       
+        data = lsplit[0].replace("/","-")
+        # set list in string, with whitespace between each element
+        descricao = ' '.join(lsplit[1:-4])
+
+        pais = lsplit[-3]
+        if (pais != "BR"):
+            valor = float(format(float(lsplit[-1].replace(",",".")), '.2f'))
+            valor = float(format(((valor * IOF)+valor), '.2f'))
+            valor = str(valor * cotacao_dolar).replace(".", ",")
+
+            # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
+            dot_index = valor.find(",")
+            valor = valor[0:dot_index+3]
+            cidade = "Cotacao U$: "+str(cotacao_dolar)
+        else:
+            cidade = lsplit[-4]
+            valor = lsplit[-2] 
+
+        line = data+";1;;;"+descricao+", "+cidade+";-"+valor+";"
       
         # search the place name in the key 
         for key in places_dic:
-            if re.match(".*"+key, place):
+            if re.match(".*"+key, descricao):
                 line = line+str(places_dic.get(key))
                 break
 
-
-
         result.write(line+";\n")
-#        print line
+ #       print line
     except StopIteration:
         break
-    
+
+
+
+
 cartao.close()
 result.close()
 
