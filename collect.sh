@@ -39,6 +39,11 @@ for k in $allfil; do
 		echo "skipping .msmtprc"
 		continue
 	fi
+    if [ $fil == "inadyn" ]; then
+		echo "skipping inadyn"
+		continue
+	fi
+
 
 
 	if [ ! -f $dir$fil ]; then
