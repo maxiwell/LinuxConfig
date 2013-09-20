@@ -59,3 +59,7 @@ au BufRead,BufNewFile *.gnu set filetype=gnuplot
 au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 
+
+"tmux tabs with name of file open in vim
+autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+
