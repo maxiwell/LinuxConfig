@@ -63,3 +63,13 @@ au BufWinEnter * silent loadview
 "tmux tabs with name of file open in vim
 autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+set runtimepath^=~/.vim/bundle/tagbar
+
+"shortcut to CtrlPTag
+nnoremap <leader>. :CtrlPTag<cr> 
+
+"shortcut to TabBar
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+
