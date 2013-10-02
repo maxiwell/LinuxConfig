@@ -7,7 +7,7 @@ import sys
 places_dic = {
 
 'POSTO':'Carro:Combustivel',
-'CINEMAS':'Shopping:Cinemas',
+'CINEMAS':'Shopping:Cinema',
 'SUPERMERCADOS' : 'Mercado',
 'SUPERMERCADO' : 'Mercado',
 'DONALDS' : 'Comida:Lanches',
@@ -30,7 +30,14 @@ places_dic = {
 'REDE GOAL' : 'Carro:Combustivel',
 'SPOLETO' : 'Comida',
 'TEMPERO' : 'Comida',
-'PRO MUSIC' : 'Vendas'
+'PRO MUSIC' : 'Vendas',
+'SKYPE' : 'Celular:Voip',
+'STAR BOWLING' : 'Diversao',
+'ALMANAQUE BAR' : 'Diversao',
+'PIER 4' : 'Comida',
+'GOOGLE' : 'Tecnologia',
+'RECARGA TIM' : 'Celular:TIM',
+'HENRIQUE MAT' : 'Tecnologias'
 
 }
 
@@ -89,9 +96,16 @@ while True:
 
         pais = lsplit[-3]
         if (pais != "BR"):
-            valor = float(format(float(lsplit[-1].replace(",",".")), '.2f'))
+            if (lsplit[-1] == "0,00"):
+                valor = lsplit[-2]
+                cotacao_dolar_temp = 1;  # Valor ja convertido pela administradora
+            else:
+                valor = lsplit[-1]
+                cotacao_dolar_temp = cotacao_dolar
+
+            valor = float(format(float(valor.replace(",",".")), '.2f'))
             valor = float(format(((valor * IOF)+valor), '.2f'))
-            valor = str(valor * cotacao_dolar).replace(".", ",")
+            valor = str(valor * cotacao_dolar_temp).replace(".", ",")
 
             # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
             dot_index = valor.find(",")
