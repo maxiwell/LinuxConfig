@@ -66,6 +66,8 @@ autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set runtimepath^=~/.vim/bundle/tagbar
 
+set tags=tags,ctags,.tags,.ctags;   
+
 "shortcut to CtrlPTag
 nnoremap <leader>. :CtrlPTag<cr> 
 
