@@ -9,5 +9,6 @@ LinuxConfig
     - Recover with: sudo  dpkg --set-selections < Package.list && sudo apt-get dselect-upgrade -y
 
 
-
+* Cloning GIT with HTTPS and using the SSH keys
+    - git remote set-url origin git@github.com:maxiwell/LinuxConfig.git
 
