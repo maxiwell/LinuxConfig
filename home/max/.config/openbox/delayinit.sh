@@ -6,7 +6,7 @@ sleep 2
 
 #nm-applet & 
 #/home/max/.dzenconky.sh &
-conky -c /home/max/.conky/meu2.conkyrc &
+#conky -c /home/max/.conky/meu2.conkyrc &
 tint2 &
 #gnome-volume-control-applet &
 gnome-sound-applet &

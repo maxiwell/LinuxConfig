@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#
+# To list cards and profiles
+# $ pacmd list
+#
 
 
 if [ "$1" == "-c" ]; 
@@ -7,10 +11,10 @@ then # connect mode
 
     hdmi_on=`xrandr | grep -c "HDMI2 connected"`
     if [ $hdmi_on -eq 1 ]; then
-        pactl set-card-profile 0 output:hdmi-stereo
+        pactl set-card-profile 1 output:hdmi-stereo
         echo "card: hdmi-stereo"
     else
-        pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+        pactl set-card-profile 1 output:analog-stereo+input:analog-stereo
         echo "card: analog-stereo"
     fi
 
@@ -18,10 +22,10 @@ else  # toggle mode
 
     mode=`pactl stat | grep -c hdmi-stereo`
     if [ $mode -eq 0 ]; then
-         pactl set-card-profile 0 output:hdmi-stereo
+         pactl set-card-profile 1 output:hdmi-stereo
          echo "card: hdmi-stereo"
     else   
-         pactl set-card-profile 0 output:analog-stereo+input:analog-stereo
+         pactl set-card-profile 1 output:analog-stereo+input:analog-stereo
          echo "card: analog-stereo"
     fi
 
