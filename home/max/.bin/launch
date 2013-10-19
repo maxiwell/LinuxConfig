@@ -1,0 +1,18 @@
+
+#!/bin/bash  
+  # there has to be at least one parameter, the name of the file to execute  
+  if [ $# -lt 1 ]  
+  then  
+   echo "Usage: `basename $0` {executable_name parameters}"  
+   exit 1  
+  fi  
+  # if the program is not running (being managed by wmctrl), then start it  
+  [ "`wmctrl -lx | tr -s ' ' | cut -d' ' -f1-3 | grep -i $1`" ] || (($*&) && (sleep 1))  
+  # now let's make sure all related windows are raised and brought to the front  
+  for win in `wmctrl -lx | tr -s ' ' | cut -d' ' -f1-3 | grep -i $1 | cut -d' ' -f1`  
+  do  
+    wmctrl -i -a $win  
+  done  
+  exit 0   
+
+
