@@ -44,11 +44,11 @@ taskbar_background_id = 1
 # TASKS
 #---------------------------------------------
 task_icon = 1
-task_text = 1
-#task_width = 40
-task_maximum_size = 140 35
+task_text = 0
+task_width = 40
+#task_maximum_size = 140 35
 task_centered = 1
-task_padding = 4 4
+task_padding = 0 0
 task_font = sans 7
 task_font_color = #ffffff 70
 task_active_font_color = #ffffff 85

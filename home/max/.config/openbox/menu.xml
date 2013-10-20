@@ -169,6 +169,12 @@
 			<action name="Exit">
 				<prompt>yes</prompt>
 			</action>
+        </item>
+		<item label="Switch User">
+			<action name="Execute">
+				<command>dm-tool switch-to-greeter</command>
+				<prompt>yes</prompt>
+			</action>
 		</item>
 		<item label="Lock screen">
 			<action name="Execute">
@@ -180,7 +186,7 @@
 				<command>shutdown now -r</command>
 				<prompt>yes</prompt>
 			</action>
-		</item>
+        </item>
 		<item label="Power off">
 			<action name="Execute">
 				<command>shutdown now -h</command>

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+xrandr --output HDMI2 --same-as LVDS1
+
+
+# xrandr --auto --output HDMI2
+
+
