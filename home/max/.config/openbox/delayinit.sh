@@ -6,8 +6,8 @@ sleep 1
 
 #nm-applet & 
 #/home/max/.dzenconky.sh &
-#conky -c /home/max/.conky/meu2.conkyrc &
-hdmiclone
+hdmiclone &
+conky -d -c /home/max/.conky/conkyrc_seamod &
 tint2 &
 gnome-sound-applet &
 

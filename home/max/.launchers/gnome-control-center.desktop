@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=System Settings
+Icon=/home/max/.icons/gnome-control-center.png
+Exec=gnome-control-center --overview
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;System;
+OnlyShowIn=GNOME;Unity;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-control-center
+X-GNOME-Bugzilla-Component=shell
+X-GNOME-Bugzilla-Version=3.6.3
+Keywords=Preferences;Settings;
+X-Ubuntu-Gettext-Domain=gnome-control-center-2.0
