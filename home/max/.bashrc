@@ -92,11 +92,8 @@ else
 fi
 #ssh-add ~/.ssh/github
 
-# add /home/max/.bin in PATH
-#PATH=$PATH:~/.bin
-
 # Nautilus desktop crash openbox
 alias nautilus="nautilus --no-desktop"
 
 # ArchC Var
-export LD_LIBRARY_PATH=/home/max/ArchC/tools/systemc-2.3.0/lib-linux64/
+export LD_LIBRARY_PATH=$HOME/ArchC/tools/systemc-2.3.0/lib-linux64/

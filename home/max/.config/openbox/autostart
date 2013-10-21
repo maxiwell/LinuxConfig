@@ -2,5 +2,5 @@
 
 xsetroot -solid "#000000"
 
-/home/max/.config/openbox/delayinit.sh &
+$HOME/.config/openbox/delayinit.sh &
 

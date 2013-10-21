@@ -25,7 +25,7 @@ IP=`curl -s ifconfig.me`
 
 MSG(){
    BODY="Subject: NAVI has booted, check your IP Date: $DATE NAVI was booted at $DATE NAVI IP=$IP "
-   echo "$BODY" | $MSMTP -C /home/max/.msmtprc $ADDRS
+   echo "$BODY" | $MSMTP -C $HOME/.msmtprc $ADDRS
 }
 
 

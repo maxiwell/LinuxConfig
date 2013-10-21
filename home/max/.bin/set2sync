@@ -23,6 +23,7 @@ else
                    echo "| | $GITDIR/$PWD/$i"
                fi
             done
+            echo ""
         fi
     else
         for i; do 
