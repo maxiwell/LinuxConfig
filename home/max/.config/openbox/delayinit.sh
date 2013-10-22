@@ -9,3 +9,11 @@ gnome-sound-applet &
 
 sleep 2
 conky  -c $HOME/.conky/conkyrc_seamod &
+
+# I mounted with etc/fstab because samba doesn't works with udisks 
+#if [[ `uname -n` == "max-p150hm" ]]; then
+#    udisks --mount /dev/sdc1 --mount-options umask=0007
+#    udisks --mount /dev/sdd1 --mount-options umask=0007
+#    udisks --mount /dev/sde1 --mount-options umask=0007
+#fi
+

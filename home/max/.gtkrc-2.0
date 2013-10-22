@@ -1,4 +1,9 @@
 
+#
+# Config necessary for pcmanfm and thunar file manager 
+#
+# Install lxappearance for theme gtk-2.0
+#
 
 gtk-icon-theme-name = "Humanity"
 

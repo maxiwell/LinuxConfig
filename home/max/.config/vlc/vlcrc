@@ -2585,10 +2585,10 @@ equalizer-preamp=0.000000
 #compressor-rms-peak=0.000000
 
 # Attack time (float)
-compressor-attack=1.400000
+compressor-attack=1.500000
 
 # Release time (float)
-compressor-release=1.900000
+compressor-release=2.000000
 
 # Threshold level (float)
 compressor-threshold=0.000000
