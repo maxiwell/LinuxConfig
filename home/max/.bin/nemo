@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+# I moved the /usr/bin/nemo to /usr/bin/nemo_ because the gmrun don't suport alias like bashrc
+# and I need call nemo with --no-desktop in openbox
+
+nemo_ --no-desktop .
+
+

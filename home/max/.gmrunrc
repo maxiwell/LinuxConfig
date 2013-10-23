@@ -1,0 +1,6 @@
+
+
+
+URL_google = google-chrome 'http://www.google.com.ph/search?q=%s'
+
+
