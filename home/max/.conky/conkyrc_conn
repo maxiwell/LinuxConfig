@@ -8,12 +8,14 @@ temperature_unit celsius
 
 double_buffer yes
 no_buffers yes
-text_buffer_size 4096
+text_buffer_size 7100
+max_specials 2048
 
 gap_x 430
 gap_y 70
 minimum_size 300 900
 maximum_width 400
+
 own_window yes
 own_window_type override
 own_window_transparent yes
@@ -55,7 +57,9 @@ ${font Ubuntu:size=10,weight:bold}${color4}CONNECTIONS ${hr 2}
 ${offset 15}${color1}Inbound:  ${color2}${tcp_portmon 1 32767 count} ${color1} Outbound:  ${color2}${tcp_portmon 32768 61000 count}${alignr}${color1}Total:  ${color2}${tcp_portmon 1 65535 count}
 
 ${offset 15}${color}Process${goto 110}${goto 200}${color}Dest.
-${execpi 1 lsof -n -i | awk -F '[ :]+|->' '$NF == "(ESTABLISHED)" && $11 != "127.0.0.1" {printf "${offset 15}${color5}%s${goto 110}${color2}%s  ${goto 150}%d  ${goto 200}${color3}%s ${goto 310}${color4}%s\n", $1, $8, $10, $11, $12}'}
+${execpi 1 lsof -n -i | awk 'NR >= 0 && NR <= 74 { print }' | awk -F '[ :]+|->' '$NF == "(ESTABLISHED)" && $11 != "127.0.0.1" {printf "${offset 15}${color5}%s${goto 110}${color2}%s${goto 150}%d${goto 200}${color3}%s${goto 310}${color4}%s\n", $1, $8, $10, $11, $12}'}
+
+
 
 
 
