@@ -71,6 +71,8 @@ time2_font = sans 6
 clock_font_color = #ffffff 76
 clock_padding = 4 4
 clock_background_id = 1
+clock_rclick_command = wmctrl-show-desktop
+clock_lclick_command = gsimplecal
 
 #---------------------------------------------
 # BATTERY

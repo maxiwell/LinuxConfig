@@ -94,6 +94,7 @@ fi
 
 # Nautilus desktop crash openbox
 alias nautilus="nautilus --no-desktop"
+alias nemo="nemo --no-desktop"
 
 # ArchC Var
 export LD_LIBRARY_PATH=$HOME/ArchC/tools/systemc-2.3.0/lib-linux64/

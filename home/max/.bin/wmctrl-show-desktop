@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+# This script is call by tint2.
+# Right click on the clock will show desktop
+
+
+if wmctrl -m | grep "mode: ON"; then
+    exec wmctrl -k off
+else
+    exec wmctrl -k on
+fi
+
+
