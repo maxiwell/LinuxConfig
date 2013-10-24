@@ -27,7 +27,8 @@ if [ x"$DE" = x"" ]; then
 * To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers
 
 ```bash
-%users ALL=(ALL) NOPASSWD:/sbin/shutdown,/sbin/halt,/sbin/reboot
+# replace 'myusers' group by your users group
+%myusers ALL=(ALL) NOPASSWD:/sbin/shutdown,/sbin/halt,/sbin/reboot
 ```
 
 
