@@ -70,7 +70,7 @@ lua_draw_hook_post main
 # Header with base system info
 TEXT
 ${font Ubuntu:size=10,weight:bold}${color4}SYSTEM ${hr 2}
-${offset 15}${font Ubuntu:size=10,weight:normal}${color1}$sysname $kernel
+${offset 15}${font Ubuntu:size=10,weight:normal}${color1}${pre_exec lsb_release -d | cut -f 2} - $sysname $kernel
 ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}$nodename
 ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}Uptime: $uptime
 

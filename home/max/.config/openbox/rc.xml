@@ -344,7 +344,7 @@
         <wrap>no</wrap>
       </action>
     </keybind>-->
-    <keybind key="W-d">
+    <keybind key="C-A-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
