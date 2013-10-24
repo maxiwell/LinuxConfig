@@ -371,6 +371,12 @@
         </finalactions>
       </action>
     </keybind>
+    <!-- dead_grave == ` -->
+    <keybind key="A-dead_grave"> 
+      <action name="execute">
+        <execute>wmctrl-switch-by-application</execute>
+      </action>
+    </keybind>
     <keybind key="A-S-Tab">
       <action name="PreviousWindow">
         <finalactions>

@@ -172,7 +172,7 @@
         </item>
 		<item label="Switch User">
 			<action name="Execute">
-				<command>dm-tool switch-to-greeter</command>
+				<command>dm-tool lock</command>
 				<prompt>yes</prompt>
 			</action>
 		</item>
@@ -183,13 +183,13 @@
 		</item>
 		<item label="Reboot">
 			<action name="Execute">
-				<command>shutdown now -r</command>
+				<command>sudo shutdown -r now</command>
 				<prompt>yes</prompt>
 			</action>
         </item>
 		<item label="Power off">
 			<action name="Execute">
-				<command>shutdown now -h</command>
+				<command>sudo shutdown -h now</command>
 				<prompt>yes</prompt>
 			</action>
 		</item>

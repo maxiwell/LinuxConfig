@@ -14,7 +14,7 @@
 background yes
 update_interval 1
 
-cpu_avg_samples 1
+cpu_avg_samples 2
 net_avg_samples 2
 temperature_unit celsius
 
@@ -76,7 +76,7 @@ ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}Uptime: $uptime
 
 # Showing CPU Graph
 ${voffset 20}
-${offset 120}${cpugraph 40,183 666666 666666}${voffset -25}
+${offset 120}${cpugraph cpu0 40,183 666666 666666 100}${voffset -25}
 ${offset 90}${font Ubuntu:size=10,weight:bold}${color5}CPU
 # Showing TOP 5 CPU-consumers
 ${offset 105}${font Ubuntu:size=10,weight:normal}${color4}${top name 1}${alignr}${top cpu 1}%
@@ -109,10 +109,10 @@ ${offset 180}${font Ubuntu:size=10,weight:bold}${color1}Ext IP: ${alignr}$color3
 ${voffset 10}
 ${offset 90}${font Ubuntu:size=10,weight:bold}${color5}ETHERNET
 ${voffset 40}             
-${offset 15}${color1}${font Ubuntu:size=9,weight:bold}Up: ${alignr}${font Ubuntu:size=9,weight:normal}$color2${upspeed wlan0} / ${totalup}
-${offset 15}${upspeedgraph wlan0 40,285 4B1B0C FF5C2B 100 -l}
-${offset 15}${color1}${font Ubuntu:size=9,weight:bold}Down: ${alignr}${font Ubuntu:size=9,weight:normal}$color2${downspeed wlan0} / ${totaldown}
-${offset 15}${downspeedgraph wlan0 40,285 324D23 77B753 100 -l}
+${offset 15}${color1}${font Ubuntu:size=9,weight:bold}Up: ${alignr}${font Ubuntu:size=9,weight:normal}$color2${upspeed wlan0} / ${totalup wlan0}
+${offset 15}${upspeedgraph wlan0 40,285 4B1B0C FF5C2B 1280KiB -l}
+${offset 15}${color1}${font Ubuntu:size=9,weight:bold}Down: ${alignr}${font Ubuntu:size=9,weight:normal}$color2${downspeed wlan0} / ${totaldown wlan0}
+${offset 15}${downspeedgraph wlan0 40,285 324D23 77B753 1280KiB -l}
 
 ${color4}${hr 2}
 
