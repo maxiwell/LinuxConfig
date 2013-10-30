@@ -54,6 +54,8 @@ task_font_color = #ffffff 70
 task_active_font_color = #ffffff 85
 task_background_id = 3
 task_active_background_id = 2
+task_icon_asb = 50 0 10
+task_active_icon_asb = 100 0 0
 
 #---------------------------------------------
 # SYSTRAYBAR

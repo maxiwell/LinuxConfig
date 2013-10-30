@@ -24,7 +24,8 @@ if [ x"$DE" = x"" ]; then
    DE=generic
 ```
 
-* To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers
+* To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers.
+Add "nethogs" to your user if you want call him in "conkyrc".
 
 ```bash
 # replace 'myusers' group by your users group
