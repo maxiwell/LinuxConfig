@@ -1,0 +1,17 @@
+[Default Applications]
+video/x-msvideo=vlc.desktop
+application/vnd.rn-realmedia=vlc.desktop
+video/x-matroska=smplayer.desktop
+video/mp4=vlc.desktop
+application/x-bittorrent=deluge.desktop
+x-scheme-handler/magnet=deluge.desktop
+video/x-ms-wmv=smplayer.desktop
+inode/directory=nemo.desktop
+application/x-gnome-saved-search=nemo.desktop
+
+[Added Associations]
+video/x-msvideo=vlc.desktop;
+application/vnd.rn-realmedia=vlc.desktop;
+video/x-matroska=vlc.desktop;smplayer.desktop;
+video/mp4=vlc.desktop;
+video/x-ms-wmv=smplayer.desktop;
