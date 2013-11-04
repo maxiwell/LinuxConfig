@@ -3,10 +3,13 @@
 
 import json
 import urllib
-import urllib2
+import gzip
+import os
 from BeautifulSoup import BeautifulSoup
 from StringIO import StringIO
-import gzip
+
+
+
 
 def showsome(searchfor):
     query = urllib.urlencode({'q': searchfor})
@@ -21,10 +24,7 @@ def showsome(searchfor):
   #  for h in hits: print ' ', h['url']
   #  print 'For more results, see %s' % data['cursor']['moreResultsUrl']
   
-    print hits[0]['url']
-
-#    html_page = urllib2.urlopen('http://kickass.to/homeland-s03e06-720p-hdtv-x264-2hd-publichd-t8118978.html')
-    html_page = urllib.urlopen('http://kickass.to')
+    html_page = urllib.urlopen(hits[0]['url'])
     if (html_page.headers['content-encoding'] == 'gzip'):
         buf = StringIO(html_page.read())
         f = gzip.GzipFile(fileobj=buf)
@@ -34,7 +34,14 @@ def showsome(searchfor):
 
     soup = BeautifulSoup(data)
     for link in soup.findAll('a'):
-        print link.get('href')
+        sling = link.get('href')
+        if sling and link.get('href').find('magnet') == 0:
+            magnet = link.get('href')
+            print magnet
+            break
+
+    os.system("xdg-open %s" % magnet)
+
 
 showsome('Homeland S03E06 720 Torrent')
 
