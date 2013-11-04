@@ -1,0 +1,41 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import json
+import urllib
+import urllib2
+from BeautifulSoup import BeautifulSoup
+from StringIO import StringIO
+import gzip
+
+def showsome(searchfor):
+    query = urllib.urlencode({'q': searchfor})
+    url = 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&%s' % query
+    search_response = urllib.urlopen(url)
+    search_results = search_response.read()
+    results = json.loads(search_results)
+    data = results['responseData']
+    print 'Total results: %s' % data['cursor']['estimatedResultCount']
+    hits = data['results']
+    print 'Top %d hits:' % len(hits)
+  #  for h in hits: print ' ', h['url']
+  #  print 'For more results, see %s' % data['cursor']['moreResultsUrl']
+  
+    print hits[0]['url']
+
+#    html_page = urllib2.urlopen('http://kickass.to/homeland-s03e06-720p-hdtv-x264-2hd-publichd-t8118978.html')
+    html_page = urllib.urlopen('http://kickass.to')
+    if (html_page.headers['content-encoding'] == 'gzip'):
+        buf = StringIO(html_page.read())
+        f = gzip.GzipFile(fileobj=buf)
+        data = f.read()
+    else:
+        data = html_page.read()
+
+    soup = BeautifulSoup(data)
+    for link in soup.findAll('a'):
+        print link.get('href')
+
+showsome('Homeland S03E06 720 Torrent')
+
+
