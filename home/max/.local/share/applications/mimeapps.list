@@ -8,6 +8,8 @@ x-scheme-handler/magnet=deluge.desktop
 video/x-ms-wmv=smplayer.desktop
 inode/directory=nemo.desktop
 application/x-gnome-saved-search=nemo.desktop
+video/mpeg=smplayer.desktop
+video/x-flv=smplayer.desktop
 
 [Added Associations]
 video/x-msvideo=vlc.desktop;smplayer.desktop;
@@ -15,3 +17,5 @@ application/vnd.rn-realmedia=vlc.desktop;
 video/x-matroska=vlc.desktop;smplayer.desktop;
 video/mp4=vlc.desktop;
 video/x-ms-wmv=smplayer.desktop;
+video/mpeg=smplayer.desktop;
+video/x-flv=smplayer.desktop;

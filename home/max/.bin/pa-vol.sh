@@ -13,7 +13,6 @@ eval $(pactl stat | awk -F'[ ]' '{if (match($0, "Default Sink")) print "SINK_NAM
 
 VOL_STEP="0x01000"
 VOL_NOW=`pacmd dump | grep -P "^set-sink-volume $SINK_NAME\s+" | perl -p -i -e 's/.+\s(.x.+)$/$1/'`
-echo $VOL_NOW
 
 case "$1" in
 	plus)
