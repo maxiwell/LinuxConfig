@@ -1,4 +1,6 @@
-# color modo in bash on SSH
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+# set .profile config in 'SSH' and 'su' session
+[[ -f ~/.profile ]] && . ~/.profile
+
+
 
 
