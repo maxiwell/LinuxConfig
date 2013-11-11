@@ -5,11 +5,7 @@
 XML_PATH="/home/max/Ubuntu\ One/Gasto.xhb"
 
 
-if  [ "$#" -ne 1 ]; then
-    eval grep -i $1 $XML_PATH | grep -i "key" | grep -i $2
-else
-    eval grep -i $1 $XML_PATH
-fi
+eval grep -i $1 $XML_PATH
 
 
 
