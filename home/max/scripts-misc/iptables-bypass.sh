@@ -2,6 +2,8 @@
 
 # Este script limpa todas as regras do IPTABLES e deixa o Padrao ACCEPT em todas as Chains
 # Deve ser executado como root
+# Se passar -n, o modo iterativo sera desabilitado negando qualquer pergunta
+
 
 function cleanRules {
    echo -e " - Limpando as Regras..."
@@ -14,12 +16,15 @@ function cleanRules {
 }
 
 
-read -p  "Deseja salvar as regras vigentes? (s/N) " salvar
 
-case $salvar in
-    [Ss]* ) sudo iptables-save > firewall.rules; echo -e "Regras salvas em: firewall.rules";;
-    * ) echo -e "Atencao: As regras nao serao salvas!";;
-esac
+if [[ $# -eq 0 ]]; then
+    read -p  "Deseja salvar as regras vigentes? (s/N) " salvar
+    
+    case $salvar in
+        [Ss]* ) sudo iptables-save > firewall.rules; echo -e "Regras salvas em: firewall.rules";;
+        * ) echo -e "Atencao: As regras nao serao salvas!";;
+    esac
+fi
 
 cleanRules
 
