@@ -22,4 +22,3 @@ if [ -d "$HOME/.bin" ] ; then
 fi
 
 
-
