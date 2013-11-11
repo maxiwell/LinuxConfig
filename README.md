@@ -34,5 +34,4 @@ Add "nethogs" to your user if you want call him in "conkyrc".
 
 * The **/usr/bin/nemo** was renamed to **/usr/bin/_nemo** and that is launched by **~/.bin/nemo** 
 
-* The file **/home/max/script-misc/backup.sh** must be moved to the backup directory and executed from there.
 
