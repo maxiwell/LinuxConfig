@@ -1,11 +1,29 @@
 #!/bin/bash
 
 
+
 if [ "$1" == "" ]; then
-        echo "Abort. Repository Name not found"
-        exit 0
+        echo "Abort: Input the Name of the Repository"
+        exit 1
 fi
 
+# Get the Repository Name from the current directory
+DIR_RNAME=$(basename $(git remote show -n origin | grep Fetch | cut -d: -f2-))
+if [ $DIR_RNAME != $1 ] ; then
+    echo "This current path ($PWD) does not belong to the Repository '$1'"
+    exit 1
+fi
 
-curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 
+if git info | grep github > /dev/null ; then
+    echo "Server: Github.com"
+    echo "Repository: $1"
+    curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 
+    rm -rf .git
+else
+    echo "Server: Digital Ocean VM"
+    echo "Repository: $1"
+    ssh maxdo "rm -r /root/git/$1"
+    rm -rf .git
+fi
+
 

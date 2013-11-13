@@ -11,23 +11,48 @@ if [ -d ".git" ]; then
         exit 0
 fi
 
-if [ "$1" == "" ]; then
-        REPOS_NAME=$FOLDER-$TIME
+
+if [ "$1" == "-vm" ]; then
+    SERVER="maxdo:/root/git"
 else
+    SERVER="git@github.com:maxiwell"
+fi
+
+echo "Server: $SERVER"
+
+
+if [ "$1" == "-vm" ]; then
+    if  [ "$2" == "" ]; then
+        REPOS_NAME=$FOLDER-$TIME
+    else
+        REPOS_NAME=$2
+    fi
+else
+    if [ "$1" == "" ]; then
+        REPOS_NAME=$FOLDER-$TIME
+    else
         REPOS_NAME=$1
+    fi
 fi
 
-if [ ! -f /usr/bin/curl ]; then
-        echo "I require \"curl\" but it's not installed.  Aborting."
-        exit 1;
-fi
+echo "Repository: $REPOS_NAME"
 
-curl -sS -L -u 'maxiwell' https://api.github.com/user/repos -d '{"name":"'$REPOS_NAME'","description":"'$PATHFOLDER'"}'  > temp
-badcredentials=`cat temp | grep -c "Bad credentials"`
-rm temp
-if [ "$badcredentials" != 0 ]; then
-        echo "GitHub: Bad credentials. Aborting"
-        exit 1;
+
+if echo "$SERVER" | grep github > /dev/null ; then
+    if [ ! -f /usr/bin/curl ]; then
+            echo "I require \"curl\" but it's not installed.  Aborting."
+            exit 1;
+    fi
+    
+    curl -sS -L -u 'maxiwell' https://api.github.com/user/repos -d '{"name":"'$REPOS_NAME'","description":"'$PATHFOLDER'"}'  > temp
+    badcredentials=`cat temp | grep -c "Bad credentials"`
+    rm temp
+    if [ "$badcredentials" != 0 ]; then
+            echo "GitHub: Bad credentials. Aborting"
+            exit 1;
+    fi
+else
+    ssh maxdo "mkdir /root/git/$REPOS_NAME && cd /root/git/$REPOS_NAME && git --bare init"
 fi
 
 if [  `ls -1 | wc -l` -eq 0 ]; then
@@ -37,7 +62,7 @@ fi
 git init
 git add *
 git commit -m "Initial commit"
-git remote add origin git@github.com:maxiwell/$REPOS_NAME 
+git remote add origin $SERVER/$REPOS_NAME 
 git push -u origin master
 
 
