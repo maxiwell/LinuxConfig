@@ -1,7 +1,11 @@
 #!/bin/bash
 
 
+# Working with Local Server or SSH Server
+# 'ayarrr' is a SSH host in ~/.ssh/config file
+
 SERVER="/backup/_BackupManual_/"
+#SERVER="ayarrr:/home/max/"
 
 # load ~/.backup file
 while read line
@@ -10,7 +14,7 @@ do
     [[  -z $line   ]] && continue
 
     if [ -d "$line" ]; then
-        rsync -CRravzp $line $SERVER
+        rsync -CRravzp -e ssh $line $SERVER
     else
         echo -e "ERROR: The path '$line' don't exists\n"
     fi

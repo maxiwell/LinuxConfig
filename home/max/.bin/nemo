@@ -1,6 +1,0 @@
-#!/bin/bash
-
-
-_nemo --no-desktop .
-
-

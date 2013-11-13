@@ -7,18 +7,18 @@
 #---------------------------------------------
 rounded = 0
 border_width = 1
-background_color = #1A1A1A 0
+background_color = #000000 100
 border_color = #979797 100
 
 rounded = 0
 border_width = 0
-background_color = #ffffff 20
-border_color = #ffffff 20
+background_color = #000000 100
+border_color = #ffffff 100
 
 rounded = 0
 border_width = 0
-background_color = #ffffff 0
-border_color = #ffffff 0
+background_color = #000000 100
+border_color = #ffffff 100
 
 #---------------------------------------------
 # PANEL
