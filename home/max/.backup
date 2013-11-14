@@ -1,8 +1,6 @@
 # The destiny server path is between [...] 
 # The lines below are the paths to backup
 
-/oi
-
 [/backup/_BackupManual_/]
 
 /files/academico

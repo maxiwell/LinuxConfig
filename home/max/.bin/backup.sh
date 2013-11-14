@@ -18,8 +18,7 @@ do
 
     [[ $SERVER == "" ]] && echo "[Server] not found in ~/.backup to $line" && continue
     if [ -d "$line" ]; then
-        echo $line $SERVER
-#        rsync -CRravzp -e ssh $line $SERVER
+        rsync -CRravzp -e ssh $line $SERVER
     else
         echo -e "ERROR: The path '$line' don't exists\n"
     fi
