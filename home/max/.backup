@@ -1,4 +1,9 @@
-# My files for backup
+# The destiny server path is between [...] 
+# The lines below are the paths to backup
+
+/oi
+
+[/backup/_BackupManual_/]
 
 /files/academico
 /files/dupla
@@ -9,6 +14,16 @@
 /files/pessoal
 /files/temp
 /files/VMs
+
+[ayarrr:/home/max]
+
+
+
+
+[maxdo:/root/backup]
+
+
+
 
 
 
