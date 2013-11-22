@@ -13,7 +13,7 @@ fi
 
 
 if [ "$1" == "-vm" ]; then
-    SERVER="maxdo:/root/git"
+    SERVER="maxdo:/home/max/git"
 else
     SERVER="git@github.com:maxiwell"
 fi
