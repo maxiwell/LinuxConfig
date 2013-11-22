@@ -32,5 +32,6 @@ Add "nethogs" to your user if you want call him in "conkyrc".
 %myusers ALL=(ALL) NOPASSWD:/sbin/shutdown,/sbin/halt,/sbin/reboot
 ```
 
+* The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
 
 
