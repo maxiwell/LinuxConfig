@@ -2,9 +2,19 @@
 
 
 
-if [ "$1" == "" ]; then
-        echo "Abort: Input the Name of the Repository"
+if [ "$1" == "-h" ]; then
+        echo "usage : ./gitdelete    <repository name>"
         exit 1
+fi
+
+if [ "$1" == "" ]; then
+        echo "usage : ./gitdelete   <repository name>"
+        exit 1
+fi
+
+if [ ! -d ".git" ]; then
+    echo "fatal: Not a git repository"
+    exit 1
 fi
 
 # Get the Repository Name from the current directory
@@ -14,16 +24,22 @@ if [ $DIR_RNAME != $1 ] ; then
     exit 1
 fi
 
+
+SERVER=$(git config --get remote.origin.url | cut -d: -f1)
 if git info | grep github > /dev/null ; then
+    echo "Deleting..."
     echo "Server: Github.com"
     echo "Repository: $1"
     curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 
     rm -rf .git
+    echo "Deleted."
 else
-    echo "Server: Digital Ocean VM"
+    echo "Deleting..."
+    echo "Server: $SERVER"
     echo "Repository: $1"
-    ssh maxdo "rm -r /home/max/git/$1"
+    ssh $SERVER "rm -r /home/max/git/$1"
     rm -rf .git
+    echo "Deleted."
 fi
 
 

@@ -11,9 +11,13 @@ if [ -d ".git" ]; then
         exit 0
 fi
 
+if [ "$1" == "-h" ]; then
+    echo "usage: gitcreate  [-s server]  [repository_name]"
+    exit 0
+fi
 
-if [ "$1" == "-vm" ]; then
-    SERVER="max.do:/home/max/git"
+if [ "$1" == "-s" ]; then
+    SERVER="$2:/home/max/git"
 else
     SERVER="git@github.com:maxiwell"
 fi
@@ -21,11 +25,11 @@ fi
 echo "Server: $SERVER"
 
 
-if [ "$1" == "-vm" ]; then
-    if  [ "$2" == "" ]; then
+if [ "$1" == "-s" ]; then
+    if  [ "$3" == "" ]; then
         REPOS_NAME=$FOLDER-$TIME
     else
-        REPOS_NAME=$2
+        REPOS_NAME=$3
     fi
 else
     if [ "$1" == "" ]; then
@@ -52,7 +56,7 @@ if echo "$SERVER" | grep github > /dev/null ; then
             exit 1;
     fi
 else
-    ssh maxdo "mkdir /root/git/$REPOS_NAME && cd /root/git/$REPOS_NAME && git --bare init"
+    ssh $2 "mkdir /home/max/git/$REPOS_NAME && cd /home/max/git/$REPOS_NAME && git --bare init"
 fi
 
 if [  `ls -1 | wc -l` -eq 0 ]; then
