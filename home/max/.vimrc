@@ -115,6 +115,22 @@ set conceallevel=2
 let g:clang_snippets=1
 let g:clang_conceal_snippets=1
 
-"--------------------------------------------------------------------------
+"--clasetag.vim-----------------------------------------------------------------
+
+" Hitting ctrl-_ will initiate a search for the most recent open tag above 
+" that is not closed in the intervening space and then insert the matching 
+" close tag at the cursor.
+" au Filetype html,xml,xsl source ~/.vim/plugin/closetag.vim 
+
+" I disabled closetag. I am use omni completation, with <C-X> <C-O>, native
+" support.
+
+"--vim-latex--------------------------------------------------------------------
+
+" set runtimepath^=~/.vim/bundle/vim-latex
+"
+" I disabled the vim-latex plugin for now. The tex_autoclose.vim is enough
+" <C-\>c close the tex env
+au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
 
 
