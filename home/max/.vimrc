@@ -111,9 +111,10 @@ set completeopt-=preview
 highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=darkgray  ctermbg=white
 
+set conceallevel=2
+let g:clang_snippets=1
+let g:clang_conceal_snippets=1
+
 "--------------------------------------------------------------------------
-
-
-
 
 
