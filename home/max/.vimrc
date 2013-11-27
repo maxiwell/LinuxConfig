@@ -1,7 +1,7 @@
 set number
 set title
 
-
+" Request sudo password to modify root files
 cmap w!! %!sudo tee % > /dev/null 
 
 "VIM-LatexSuite
@@ -56,9 +56,11 @@ au BufRead,BufNewFile *.gnu set filetype=gnuplot
 
 
 " Saving folds
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
 
+" set the ctags file name
+set tags=tags,ctags,.tags,.ctags;   
 
 "tmux tabs with name of file open in vim
 autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
@@ -66,12 +68,52 @@ autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set runtimepath^=~/.vim/bundle/tagbar
 
-set tags=tags,ctags,.tags,.ctags;   
-
 "shortcut to CtrlPTag
 nnoremap <leader>. :CtrlPTag<cr> 
 
 "shortcut to TabBar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
+
+"-- autocomplete with tab: priceless -------------------------------------
+
+set dictionary+=/usr/share/dict/words
+set complete=.,w,k
+
+function AutoCompletar(direcao)
+   let posicao = col(".") - 1
+   if ! posicao || getline(".")[posicao - 1] !~ '\k'
+      return "\<Tab>"
+   elseif a:direcao == "avancar" 
+      return "\<C-n>"
+   else
+      return "\<C-p>"
+   endif
+endfunction
+
+inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
+inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
+
+"--clang_complete------------------------------------------------------------
+"
+set runtimepath^=~/.vim/bundle/clang_complete
+let g:clang_library_path = '/usr/lib/llvm-3.2/lib'
+let g:clang_sort_algo = 'alpha'
+
+" If you prefer the Omni-Completion tip window to close when a selection is
+" made, these lines close it on movement in insert mode or when leaving
+" insert mode
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"Prevent Pydoc preview window
+set completeopt-=preview
+
+highlight Pmenu ctermfg=white ctermbg=darkgray
+highlight PmenuSel ctermfg=darkgray  ctermbg=white
+
+"--------------------------------------------------------------------------
+
+
+
 
 

@@ -27,7 +27,7 @@ else
         fi
     else
         for i; do 
-           cp --parents $PWD/$i $GITDIR
+           cp -r --parents $PWD/$i $GITDIR
            echo "$GITDIR/$PWD/$i"
         done
     fi
