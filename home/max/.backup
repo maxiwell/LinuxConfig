@@ -20,6 +20,7 @@
 
 [max.ec2:/home/max/backup/]
 
+/files/pessoal -exclude .bitcoin .litecoin equipamentos fotos audios videos
 /files/pessoal/.bitcoin/wallet.dat
 /files/pessoal/.litecoin/wallet.dat
 
