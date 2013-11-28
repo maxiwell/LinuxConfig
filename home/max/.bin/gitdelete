@@ -37,7 +37,8 @@ else
     echo "Deleting..."
     echo "Server: $SERVER"
     echo "Repository: $1"
-    ssh $SERVER "rm -r /home/max/git/$1"
+    SERVERPATH=$(dirname $(git config --get remote.origin.url | cut -d: -f2 ))
+    ssh $SERVER "rm -r $SERVERPATH/$1"
     rm -rf .git
     echo "Deleted."
 fi

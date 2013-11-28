@@ -4,6 +4,7 @@
 TIME=$(date +"%yy%mm%dd%Hh%Mm%Ss")
 FOLDER=$(echo ${PWD##*/})
 PATHFOLDER=$PWD
+GITCONFIG=$HOME/.github/git.conf
 
 
 if [ -d ".git" ]; then
@@ -17,7 +18,8 @@ if [ "$1" == "-h" ]; then
 fi
 
 if [ "$1" == "-s" ]; then
-    SERVER="$2:/home/max/git"
+    SERVERPATH=`grep $2 $GITCONFIG | cut -d= -f2`
+    SERVER="$2:$SERVERPATH"
 else
     SERVER="git@github.com:maxiwell"
 fi
@@ -56,7 +58,7 @@ if echo "$SERVER" | grep github > /dev/null ; then
             exit 1;
     fi
 else
-    ssh $2 "mkdir /home/max/git/$REPOS_NAME && cd /home/max/git/$REPOS_NAME && git --bare init"
+    ssh $2 "mkdir $SERVERPATH/$REPOS_NAME && cd $SERVERPATH/$REPOS_NAME && git --bare init"
 fi
 
 if [  `ls -1 | wc -l` -eq 0 ]; then
