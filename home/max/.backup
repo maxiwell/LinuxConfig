@@ -8,8 +8,9 @@
 /files/eBooks
 /files/hacks
 /files/musicas
-/files/pessoal -exclude .bitcoin 
+/files/pessoal -exclude .bitcoin .litecoin 
 /files/pessoal/.bitcoin/wallet.dat
+/files/pessoal/.litecoin/wallet.dat
 /files/temp
 /files/VMs
 
@@ -20,7 +21,7 @@
 [max.ec2:/home/max/backup/]
 
 /files/pessoal/.bitcoin/wallet.dat
-
+/files/pessoal/.litecoin/wallet.dat
 
 
 
