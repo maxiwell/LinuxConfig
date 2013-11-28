@@ -7,9 +7,9 @@
 /files/dupla
 /files/eBooks
 /files/hacks
-/files/jogos
 /files/musicas
-/files/pessoal
+/files/pessoal -exclude .bitcoin 
+/files/pessoal/.bitcoin/wallet.dat
 /files/temp
 /files/VMs
 
@@ -17,8 +17,10 @@
 
 
 
+[max.ec2:/home/max/backup/]
 
-[maxdo:/root/backup]
+/files/pessoal/.bitcoin/wallet.dat
+
 
 
 
