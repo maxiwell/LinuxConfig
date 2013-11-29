@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Front end to u1sdtool
+
+
+usage()
+{
+    echo -e "\nusage: $0 <option>\n"
+    echo "option: "
+    echo -e "\t-c <dir>  : create ubuntu one folder sync"
+    echo -e "\t-l        : list all ubuntu one folders"
+    echo -e "\t-d <dir>  : delete ubuntu one folder"
+    echo -e "\t-a        : check the folders in current path"
+    echo ""
+}
+
+if [ -z $1 ]; then
+    usage
+    exit 
+fi
+   
+folders_current_path()
+{
+    for x in `ls`
+    do
+        [[ ! -d $x ]] && continue  
+        CUR=$PWD/$x 
+        u1sdtool --list-folder | grep $CUR | cut -d= -f4
+    done
+
+}
+    
+
+DIR=
+while getopts "hc:ld:a" OPTION
+do
+    case $OPTION in
+        h)
+            usage
+            exit 1
+            ;;
+        c)
+            DIR=$OPTARG
+            u1sdtool --create-folder $DIR
+            ;;
+        l)
+            u1sdtool --list-folder
+            ;;
+        d)
+            DIR=`echo "$OPTARG" | cut -d/ -f1`
+            ID=`u1sdtool --list-folder | grep $PWD/$DIR | cut -d=  -f2 | cut -d\  -f1`
+            if [ -z $ID ]; then
+                echo "'$DIR' is not a ubuntu one folder"
+            else
+                u1sdtool --delete-folder $ID
+            fi
+            ;;
+        a)
+            folders_current_path
+            ;;
+        ?)
+            exit 1
+            ;;
+    esac      
+done
+
+
+
+
+
+
+
+
+
+
+
+
