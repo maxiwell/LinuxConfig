@@ -59,6 +59,7 @@ do
             folders_current_path
             ;;
         ?)
+            usage
             exit 1
             ;;
     esac      
