@@ -57,6 +57,7 @@ def get_cotacao(i):
     return cotacao_dolar.replace(",", ".")
 
 
+IOF = 0.0638
 # Tipo: pode ser Compras ou Creditos
 def dump(i, tipo):
     while True:
@@ -70,6 +71,7 @@ def dump(i, tipo):
                continue
                    
            data = lsplit[0].replace("/","-")
+
            # set list in string, with whitespace between each element
            descricao = ' '.join(lsplit[1:-4])
 
@@ -77,30 +79,29 @@ def dump(i, tipo):
            if (pais != "BR"):
                if (lsplit[-1] == "0,00"):
                    valor = lsplit[-2]
-                   cotacao_dolar_temp = 1;  # Valor ja convertido pela administradora
+                   valor = float(format(float(valor.replace(",",".")), '.2f'))*-1
+                   cidade = ""
                else:
                    valor = lsplit[-1]
-                   cotacao_dolar_temp = cotacao_dolar
-
-               valor = float(format(float(valor.replace(",",".")), '.2f'))*-1
-   
-               if (tipo == "Compras"):
-                  valor = float(format(((valor * IOF)+valor), '.2f'))
-
-               valor = str(valor * cotacao_dolar_temp).replace(".", ",")
+                   valor = float(format(float(valor.replace(",",".")), '.2f'))*-1
+                   cotacao_dolar_temp = 1
+                   if (tipo == "Compras"):
+                       cotacao_dolar_temp = cotacao_dolar
+                       valor = float(format(((valor * IOF)+valor), '.2f'))   
+                   valor = str(valor * cotacao_dolar_temp).replace(".", ",")
+                   cidade = "Cotacao U$: "+str(cotacao_dolar)
 
                # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
                dot_index = valor.find(",")
                valor = valor[0:dot_index+3]
 
-               if (tipo == "Compras"):
-                   cidade = "Cotacao U$: "+str(cotacao_dolar)
            else:
                cidade = lsplit[-4]
                valor = str(float(lsplit[-2].replace(",","."))*-1).replace(".",",")
 
+
            line = data+";1;;;"+descricao+", "+cidade+";"+valor+";"
-         
+
            # search the place name in the key 
            for key in places_dic:
                if re.match(".*"+key, descricao):
@@ -119,10 +120,11 @@ def dump(i, tipo):
 
 if len(sys.argv) <= 1 :
     print 'Falando o parametro'
+    sys.exit(1)
 else:
     print 'Carregando: ', sys.argv[1]
 
-result = open(sys.argv[1]+".csv", "r+w")
+result = open(sys.argv[1]+".csv", "w+")
 
 cartao = open(sys.argv[1], 'r')
 readingFile = cartao.read()
@@ -130,7 +132,6 @@ readingFile = readingFile.split('\n')
 
 i_temp = iter(readingFile)
 cotacao_dolar = float(format(float(get_cotacao(i_temp)),'.4f'))
-IOF = 0.0638
 
 i = iter(readingFile)
 lsplit = i.next()
@@ -142,7 +143,9 @@ if (lsplit[0].find("Creditos diversos")):
 dump(i, "Compras");
 
 cartao.close()
+result.close()
 
+result = open(sys.argv[1]+".csv","r+")
 # Checando o Valor total
 somatorio = 0.0;
 for line in result:
