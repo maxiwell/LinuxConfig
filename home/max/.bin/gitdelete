@@ -30,7 +30,13 @@ if git info | grep github > /dev/null ; then
     echo "Deleting..."
     echo "Server: Github.com"
     echo "Repository: $1"
-    curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 
+    curl -X DELETE -u 'maxiwell' https://api.github.com/repos/maxiwell/$1 > temp
+    badcredentials=`cat temp | grep -c "Bad credentials"`
+    rm temp
+    if [ "$badcredentials" != 0 ]; then
+            echo "GitHub: Bad credentials. Aborting"
+            exit 1;
+    fi
     rm -rf .git
     echo "Deleted."
 else
