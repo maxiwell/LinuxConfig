@@ -1,23 +1,4 @@
 #!/usr/bin/env bash
-#
-# Dropbox Uploader
-#
-# Copyright (C) 2010-2013 Andrea Fabrizi <andrea.fabrizi@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-#
 
 #Default configuration file
 CONFIG_FILE=~/.dropbox_uploader
@@ -51,6 +32,7 @@ API_DELETE_URL="https://api.dropbox.com/1/fileops/delete"
 API_MOVE_URL="https://api.dropbox.com/1/fileops/move"
 API_COPY_URL="https://api.dropbox.com/1/fileops/copy"
 API_METADATA_URL="https://api.dropbox.com/1/metadata"
+API_DELTA_URL="https://api.dropbox.com/1/delta"
 API_INFO_URL="https://api.dropbox.com/1/account/info"
 API_MKDIR_URL="https://api.dropbox.com/1/fileops/create_folder"
 API_SHARES_URL="https://api.dropbox.com/1/shares"
@@ -206,7 +188,8 @@ function usage
     echo -e "\t move     [REMOTE_FILE/DIR] [REMOTE_FILE/DIR]"
     echo -e "\t copy     [REMOTE_FILE/DIR] [REMOTE_FILE/DIR]"
     echo -e "\t mkdir    [REMOTE_DIR]"
-    echo -e "\t list     <REMOTE_DIR>"
+    echo -e "\t list"
+    echo -e "\t ls       <REMOTE_DIR>"
     echo -e "\t share    [REMOTE_FILE]"
     echo -e "\t info"
     echo -e "\t unlink"
@@ -934,6 +917,49 @@ function db_list
     fi
 }
 
+#List remote directory
+#$1 = Remote directory
+function db_delta
+{
+    local DIR_DST=$(normalize_path "$1")
+
+#    print " > Listing \"$DIR_DST\"... "
+
+    $CURL_BIN $CURL_ACCEPT_CERTIFICATES -s --show-error --globoff  -o "$RESPONSE_FILE" --data "oauth_consumer_key=$APPKEY&oauth_token=$OAUTH_ACCESS_TOKEN&oauth_signature_method=PLAINTEXT&oauth_signature=$APPSECRET%26$OAUTH_ACCESS_TOKEN_SECRET&oauth_timestamp=$(utime)&oauth_nonce=$RANDOM" "$API_DELTA_URL" 2> /dev/null
+    check_http_response
+
+    echo -ne "#!/usr/bin/env python
+
+import json
+import sys
+from collections import namedtuple
+
+json_data=open(sys.argv[1])
+j = json.load(json_data)
+
+
+tuple = namedtuple('MyStruct', 'path is_dir')
+mylist = []
+for entry in j['entries']:
+    mylist.append(tuple(entry[0], entry[1]['is_dir']))
+
+# get the files
+for entry in sorted(mylist):
+    if ( entry[1] == "False" ):
+        print \" [F]\",entry[0]
+    else:
+        print \" [D]\",entry[0]
+
+    " > pfile
+    chmod u+x pfile
+    ./pfile $RESPONSE_FILE
+    /bin/rm pfile
+
+
+
+}
+
+
 #Share remote file
 #$1 = Remote file
 function db_share
@@ -1233,9 +1259,24 @@ case $COMMAND in
             DIR_DST="/"
         fi
 
+        db_delta "/$DIR_DST"
+
+    ;;
+
+   ls)
+
+        DIR_DST=$ARG1
+
+        #Checking DIR_DST
+        if [[ $DIR_DST = "" ]]; then
+            DIR_DST="/"
+        fi
+
         db_list "/$DIR_DST"
 
     ;;
+
+
 
     unlink)
 
