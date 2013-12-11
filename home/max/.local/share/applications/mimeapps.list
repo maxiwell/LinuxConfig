@@ -11,6 +11,7 @@ application/x-gnome-saved-search=nemo.desktop
 video/mpeg=smplayer.desktop
 video/x-flv=smplayer.desktop
 video/quicktime=smplayer.desktop
+audio/mpeg=clementine.desktop
 
 [Added Associations]
 video/x-msvideo=vlc.desktop;smplayer.desktop;
@@ -21,3 +22,4 @@ video/x-ms-wmv=smplayer.desktop;
 video/mpeg=smplayer.desktop;
 video/x-flv=smplayer.desktop;
 video/quicktime=smplayer.desktop;
+audio/mpeg=clementine.desktop;

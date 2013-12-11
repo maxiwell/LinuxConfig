@@ -1,12 +1,12 @@
 #------------------------------------------------------
 # Script created by maxiwell@gmail.com
 #
-# The 'clevo-wmi-code' kernel module is necessary
+# The 'clevo-wmi' kernel module is necessary
 # 
 # Git 'clovo-wmi-code': 
 # git clone git://git.code.sf.net/p/clevo-wmi/code clevo-wmi-code
 #
-# Test if the module works:
+# Compile it and test if the module works:
 # sudo insmod ~/clevo-wmi-code/clevo_wmi.ko
 # 
 # if it worked, you should now have a new directory called: 
@@ -18,15 +18,6 @@
 # 
 # edit your /etc/modules and added 'clevo_wmi'
 #------------------------------------------------------
-
-
-
-
-
-
-
-
-
 
 #!/bin/bash 
 
