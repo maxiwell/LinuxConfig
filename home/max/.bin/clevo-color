@@ -1,0 +1,113 @@
+#------------------------------------------------------
+# Script created by maxiwell@gmail.com
+#
+# The 'clevo-wmi-code' kernel module is necessary
+# 
+# Git 'clovo-wmi-code': 
+# git clone git://git.code.sf.net/p/clevo-wmi/code clevo-wmi-code
+#
+# Test if the module works:
+# sudo insmod ~/clevo-wmi-code/clevo_wmi.ko
+# 
+# if it worked, you should now have a new directory called: 
+# /sys/devices/platform/clevo_wmi/kbled
+#
+# install this kernel module permanently:
+# sudo cp ~/clevo-wmi-code/clevo_wmi.ko /lib/modules/`uname -r`/kernel/drivers/platform/x86/
+# sudo depmod -a
+# 
+# edit your /etc/modules and added 'clevo_wmi'
+#------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+#!/bin/bash 
+
+
+
+FILES="/sys/devices/platform/clevo_wmi/kbled"
+
+OFF="0000"
+WHITE="0111"
+GREEN="0100"
+RED="0010"
+BLUE="0001"
+YELLOW="0110"
+PURPLE="0011"
+AQUA="0101"
+
+
+usage(){
+    echo "usage:"
+    echo -e "\tclevo-color <color>"
+    echo -e "\tclevo-color <left> <middle> <right>"
+    echo -e "colors:"
+    echo -e "\toff"
+    echo -e "\twhite"
+    echo -e "\tgreen"
+    echo -e "\tred"
+    echo -e "\tblue"
+    echo -e "\tyellow"
+    echo -e "\tpurple"
+    echo -e "\taqua"
+}
+
+one_color() {
+
+    COLOR=$(echo "$1" | tr '[a-z]' '[A-Z]')
+    COLOR_COD=$(eval echo \$$COLOR)
+
+    sudo echo $COLOR_COD > $FILES/left
+    sudo echo $COLOR_COD > $FILES/middle
+    sudo echo $COLOR_COD > $FILES/right
+}
+
+
+colors(){
+
+    #left
+    COLOR=$(echo "$1" | tr '[a-z]' '[A-Z]')
+    COLOR_L_COD=$(eval echo \$$COLOR)
+
+    #middle
+    COLOR=$(echo "$2" | tr '[a-z]' '[A-Z]')
+    COLOR_M_COD=$(eval echo \$$COLOR)
+
+    #right
+    COLOR=$(echo "$3" | tr '[a-z]' '[A-Z]')
+    COLOR_R_COD=$(eval echo \$$COLOR)
+
+    sudo echo $COLOR_L_COD > $FILES/left
+    sudo echo $COLOR_M_COD > $FILES/middle
+    sudo echo $COLOR_R_COD > $FILES/right
+}
+
+
+## Main
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+
+if [ $# -eq 1 ]; then
+    one_color $1
+fi
+
+if [ $# -eq 2 ]; then
+    usage
+fi
+
+if [ $# -eq 3 ]; then
+    colors $1 $2 $3
+fi
+
+
+
+
