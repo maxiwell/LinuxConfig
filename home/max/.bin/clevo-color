@@ -55,9 +55,12 @@ one_color() {
     COLOR=$(echo "$1" | tr '[a-z]' '[A-Z]')
     COLOR_COD=$(eval echo \$$COLOR)
 
-    sudo echo $COLOR_COD > $FILES/left
-    sudo echo $COLOR_COD > $FILES/middle
-    sudo echo $COLOR_COD > $FILES/right
+#    sudo su -c 'echo $COLOR_COD > $FILES/left'
+#    sudo su -c 'echo $COLOR_COD > $FILES/middle'
+#    sudo su -c 'echo $COLOR_COD > $FILES/right'
+    echo $COLOR_COD | sudo tee -a $FILES/left > /dev/null
+    echo $COLOR_COD | sudo tee -a $FILES/middle > /dev/null
+    echo $COLOR_COD | sudo tee -a $FILES/right > /dev/null
 }
 
 
@@ -75,9 +78,12 @@ colors(){
     COLOR=$(echo "$3" | tr '[a-z]' '[A-Z]')
     COLOR_R_COD=$(eval echo \$$COLOR)
 
-    sudo echo $COLOR_L_COD > $FILES/left
-    sudo echo $COLOR_M_COD > $FILES/middle
-    sudo echo $COLOR_R_COD > $FILES/right
+#    sudo su -c 'echo $COLOR_L_COD > $FILES/left'
+#    sudo su -c 'echo $COLOR_M_COD > $FILES/middle'
+#    sudo su -c 'echo $COLOR_R_COD > $FILES/right'
+    echo $COLOR_L_COD | sudo tee -a $FILES/left > /dev/null
+    echo $COLOR_M_COD | sudo tee -a $FILES/middle > /dev/null
+    echo $COLOR_R_COD | sudo tee -a $FILES/right > /dev/null
 }
 
 
