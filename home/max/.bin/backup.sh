@@ -9,6 +9,8 @@
 
 SERVER=""
 
+FILTER_FILE="$HOME/.rsync-filter"
+
 # load ~/.backup file
 while read line
 do
@@ -32,14 +34,16 @@ do
        done
        if [ -e "$P1" ]; then
            echo -e "\n[RSYNC] $P1 -> $SERVER [EXCLUDE] $EXCLUDE_LIST"
-           rsync -CRravzp --delete --exclude-from excluded.txt -e ssh $P1 $SERVER
+           # -C : Ignore like CVS
+           rsync -Rrazpn -v  --delete --exclude-from excluded.txt --exclude-from="$FILTER_FILE" -e ssh $P1 $SERVER
        else
            echo -e "ERROR: The path '$line' don't exists\n"
        fi
        rm -f excluded.txt
     elif [ -e "$line" ]; then
         echo -e "\n[RSYNC] $line -> $SERVER"
-        rsync -CRravzp --delete -e ssh $line $SERVER
+        # -C : Ignore like CVS 
+        rsync -Rranzp -v  --delete --exclude-from="$FILTER_FILE" -e ssh $line $SERVER
     else
         echo -e "ERROR: The path '$line' don't exists\n"
     fi

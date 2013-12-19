@@ -1,0 +1,24 @@
+# filter file for rsync backup
+
+.git/
+.svn/
+*~ 
+#* 
+.#* 
+,* 
+_$* 
+*$ 
+*.old
+*.orig 
+*.rej 
+.del-* 
+*.a 
+*.olb 
+*.o 
+*.obj
+*.so
+
+
+
+
+
