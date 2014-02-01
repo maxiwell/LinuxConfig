@@ -35,7 +35,7 @@ do
        if [ -e "$P1" ]; then
            echo -e "\n[RSYNC] $P1 -> $SERVER [EXCLUDE] $EXCLUDE_LIST"
            # -C : Ignore like CVS
-           rsync -Rrazpn -v  --delete --exclude-from excluded.txt --exclude-from="$FILTER_FILE" -e ssh $P1 $SERVER
+           rsync -Rrazp -v  --delete --exclude-from excluded.txt --exclude-from="$FILTER_FILE" -e ssh $P1 $SERVER
        else
            echo -e "ERROR: The path '$line' don't exists\n"
        fi
@@ -43,7 +43,7 @@ do
     elif [ -e "$line" ]; then
         echo -e "\n[RSYNC] $line -> $SERVER"
         # -C : Ignore like CVS 
-        rsync -Rranzp -v  --delete --exclude-from="$FILTER_FILE" -e ssh $line $SERVER
+        rsync -Rrazp -v  --delete --exclude-from="$FILTER_FILE" -e ssh $line $SERVER
     else
         echo -e "ERROR: The path '$line' don't exists\n"
     fi

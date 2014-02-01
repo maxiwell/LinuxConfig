@@ -40,83 +40,146 @@ places_dic = {
 'HENRIQUE MAT' : 'Tecnologias',
 'AJUSTE' : 'Banco',
 'REDE CAMPEAO' : 'Carro:Combustivel',
-'CARNES AMERICA' : 'Mercado'
+'CARNES AMERICA' : 'Mercado',
+'RESTAURANTE' : 'Comida',
+'LANCHES' : 'Comida:Lanches',
+'RODOSNACK' : 'Comida:Lanches',
+'BOB' : 'Comida:Lanches',
+'BK' : 'Comida:Lanches',
+'PIZZERIA' : 'Comida:Lanches',
+'VAR.CAMBIAL' : 'Banco'
+
 }
 
-
-def get_cotacao(i):
-    lsplit = i.next()
-    while (lsplit[0].find("convertido") == -1):
-        lsplit = i.next().split("\t")
-    
-    # escape the dotted line
-    i.next().split()
-    
-    lsplit = i.next().split()
-    cotacao_dolar = lsplit[-3]
-    return cotacao_dolar.replace(",", ".")
-
-
 IOF = 0.0638
-# Tipo: pode ser Compras ou Creditos
-def dump(i, tipo):
-    while True:
-       try:
-           lsplit = i.next().split()
-
-           if (not lsplit):
-               return
-
-           if (lsplit[0].find("/") == -1):
-               continue
-                   
-           data = lsplit[0].replace("/","-")
-
-           # set list in string, with whitespace between each element
-           descricao = ' '.join(lsplit[1:-4])
-
-           pais = lsplit[-3]
-           if (pais != "BR"):
-               if (lsplit[-1] == "0,00"):
-                   valor = lsplit[-2]
-                   valor = float(format(float(valor.replace(",",".")), '.2f'))*-1
-                   cidade = ""
-               else:
-                   valor = lsplit[-1]
-                   valor = float(format(float(valor.replace(",",".")), '.2f'))*-1
-                   cotacao_dolar_temp = 1
-                   if (tipo == "Compras"):
-                       cotacao_dolar_temp = cotacao_dolar
-                       valor = float(format(((valor * IOF)+valor), '.2f'))   
-                   valor = str(valor * cotacao_dolar_temp).replace(".", ",")
-                   cidade = "Cotacao U$: "+str(cotacao_dolar)
-
-               # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
-               dot_index = valor.find(",")
-               valor = valor[0:dot_index+3]
-
-           else:
-               cidade = lsplit[-4]
-               valor = str(float(lsplit[-2].replace(",","."))*-1).replace(".",",")
 
 
-           line = data+";1;;;"+descricao+", "+cidade+";"+valor+";"
+#################################################################
+def get_cotacao(cartao):
+    readingFile = cartao.read().split('\n')
+    i = iter(readingFile)
+    line = i.next()
+    while (line.find("convertido") == -1):
+        line = i.next();
 
-           # search the place name in the key 
-           for key in places_dic:
-               if re.match(".*"+key, descricao):
-                   line = line+str(places_dic.get(key))
-                   break
+    i.next(); # escape the dotted line
+    cotacao = i.next().split()[-3];
 
-           result.write(line+";\n")
-       except StopIteration:
-           break
+    cartao.seek(0);
+    return float(format(float(cotacao.replace(",",".")),'.4f'))
 
-          
 
-#----------------
+#################################################################
+def Pagamentos(pos):
+    line = pos.next()
+    return pos
+
+
+#################################################################
+def Compras(pos):
+
+    while True:  # ate encontrar uma linha vazia
+  
+        line = pos.next().split()
+        
+        if not line:
+            return pos
+
+        # escapado de linhas que nao comecam com dias
+        if (line[0].find("/") == -1):
+            continue
+
+        dia = line[0].replace("/","-")
+        descricao = ' '.join(line[1:-3])  # set list in string, with whitespace between each element 
+        pais = line[-3]
+    
+        if (line[-2] == "0,00"):
+            moeda = float(line[-1].replace(",","."))*-1
+            reais = False
+        else:
+            moeda = float(line[-2].replace(",","."))*-1
+            reais = True
+    
+        if (pais != "BR"):
+            if (reais != True):
+               moeda = ((moeda * IOF) + moeda) * cotacao_dolar
+               descricao = descricao + ", Cotoacao U$: " + str(format(cotacao_dolar, '.4f'))
+         
+        # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
+        moeda = str(format(moeda, '.2f')).replace('.',',')
+        dot_index = moeda.find(",")
+        moeda = moeda[0:dot_index+3]
+    
+        tupla = dia+";1;;;"+descricao+";"+moeda+";"
+    
+        # search the place name in the key 
+        for key in places_dic:
+            if re.match(".*"+key, descricao):
+                tupla = tupla+str(places_dic.get(key))
+                break
+  
+        print tupla
+        result.write(tupla+";\n")
+    return pos
+
+
+#################################################################
+def Debitos_diversos(pos):
+
+    while True:  # ate encontrar uma linha vazia
+  
+        line = pos.next().split()
+        
+        if not line:
+            return pos
+
+        # escapado de linhas que nao comecam com dias
+        if (line[0].find("/") == -1):
+            continue
+
+        if (line[1].find("IOF") != -1):
+            continue
+
+        dia = line[0].replace("/","-")
+        descricao = ' '.join(line[1:-3])  # set list in string, with whitespace between each element 
+        pais = line[-3]
+    
+        if (line[-2] == "0,00"):
+            moeda = float(line[-1].replace(",","."))*-1
+            reais = False
+        else:
+            moeda = float(line[-2].replace(",","."))*-1
+            reais = True
+    
+        if (pais != "BR"):
+            if (reais != True):
+               moeda = ((moeda * IOF) + moeda) * cotacao_dolar
+               descricao = descricao + ", Cotoacao U$: " + str(format(cotacao_dolar, '.4f'))
+         
+        # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
+        moeda = str(format(moeda, '.2f')).replace('.',',')
+        dot_index = moeda.find(",")
+        moeda = moeda[0:dot_index+3]
+    
+        tupla = dia+";1;;;"+descricao+";"+moeda+";"
+
+        # search the place name in the key 
+        for key in places_dic:
+            if re.match(".*"+key, descricao):
+                tupla = tupla+str(places_dic.get(key))
+                break
+
+        print tupla
+        result.write(tupla+";\n")
+
+    
+    line = pos.next()
+    return pos
+
+
+##########################################
 # Main
-#----------------
+##########################################
 
 if len(sys.argv) <= 1 :
     print 'Falando o parametro'
@@ -124,28 +187,33 @@ if len(sys.argv) <= 1 :
 else:
     print 'Carregando: ', sys.argv[1]
 
+cartao = open(sys.argv[1], 'r')
 result = open(sys.argv[1]+".csv", "w+")
 
-cartao = open(sys.argv[1], 'r')
-readingFile = cartao.read()
-readingFile = readingFile.split('\n')
+cotacao_dolar = get_cotacao(cartao)
 
-i_temp = iter(readingFile)
-cotacao_dolar = float(format(float(get_cotacao(i_temp)),'.4f'))
-
+readingFile = cartao.read().split('\n')
 i = iter(readingFile)
-lsplit = i.next()
-while ((lsplit[0].find("Compras a vista") == -1) and (lsplit[0].find("Creditos diversos") == -1)):
-    lsplit = i.next().split("\t")
+line = i.next();
 
-if (lsplit[0].find("Creditos diversos")):
-    dump(i, "Creditos");
-dump(i, "Compras");
+# REUMO EM REAL eh a ultima linha analisada
+while (line.find("RESUMO EM REAL") == -1):
+
+    if "Pagamentos" in line:
+        i = Pagamentos(i)
+    if "Compras a vista" in line:
+        i = Compras(i)
+    if "Compras diversas" in line:
+        i = Compras(i)
+    if "Debitos diversos" in line:
+        i = Debitos_diversos(i)
+    line = i.next();
 
 cartao.close()
 result.close()
 
 result = open(sys.argv[1]+".csv","r+")
+
 # Checando o Valor total
 somatorio = 0.0;
 for line in result:

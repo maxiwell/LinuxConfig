@@ -24,3 +24,4 @@ video/x-flv=smplayer.desktop;
 video/quicktime=smplayer.desktop;
 audio/mpeg=clementine.desktop;
 application/pdf=evince.desktop;
+application/x-php=google-chrome.desktop;firefox.desktop;
