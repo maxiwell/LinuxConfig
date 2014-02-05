@@ -21,4 +21,11 @@ if [ -d "$HOME/.bin" ] ; then
     PATH="$HOME/.bin:$PATH"
 fi
 
+PATH="$PATH:/l/archc/compilers/mips/bin"
+PATH="$PATH:/l/archc/compilers/powerpc/bin"
+PATH="$PATH:/l/archc/compilers/arm/bin"
+PATH="$PATH:/l/archc/compilers/sparc/bin"
+PATH="$PATH:/usr/local/mipsel-linux/bin"
+
+
 
