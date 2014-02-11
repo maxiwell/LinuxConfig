@@ -23,7 +23,7 @@ fi
 
 
 # Android
-PATH=$PATH:/home/max/dev-android/sdks/platform-tools:/home/max/dev-android/sdks/tools
+PATH=$PATH:/opt/android/sdks/platform-tools:/opt/android/sdks/tools
 
 
 

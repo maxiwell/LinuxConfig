@@ -74,6 +74,34 @@ nnoremap <leader>. :CtrlPTag<cr>
 "shortcut to TabBar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+"-- F1-F12 Map -----------------------------------------------------------
+" <F1>   <c-x><c-L> completion: whole line
+" <F2>   <c-x><c-N> completion: keywords using current file
+" <F3>   <c-x><c-K> completion: keywords using dictionary
+" <F4>   <c-x><c-T> completion: keywords using thesaurus
+" <F5>   <c-x><c-I> completion: keywords in current and included files
+" <F6>   <c-x><c-]> completion: tags
+" <F7>   <c-x><c-F> completion: file names
+" <F8>   <c-x><c-D> completion: definitions or macros
+" <F9>   <c-x><c-V> completion: vim command line
+" <F10>  <c-x><c-O> completion: omni completion
+" F1, F10, F11 and F12 only works in Vim with X server (e.g) vim-gtk
+
+ino <silent> <F1>      <c-x><c-L>
+ino <silent> <F2>      <c-x><c-N>
+ino <silent> <F3>      <c-x><c-K>
+ino <silent> <F4>      <c-x><c-T>
+ino <silent> <F5>      <c-x><c-I>
+ino <silent> <F6>      <c-x><c-]>
+ino <silent> <F7>      <c-x><c-F>
+ino <silent> <F8>      <c-x><c-D>
+ino <silent> <F9>      <c-x><c-V>
+ino <silent> <F10>     <c-x><c-O>
+ino <silent> <F11>     <C-O>ma<C-O>yiw<C-O>:ptag <C-R>"<CR><C-O>`a
+ino <silent> <s-left>  <c-x><c-p>
+ino <silent> <s-right> <c-x><c-n>
+ino <silent> <F12>     <c-o>:echo 'completes[ F1:line F2:keywrd F3:dict F4:thes - F5:fromfile F6:tags F7:fname F8:defns - F9:vimcmd F10:omni ] F11:ptag-iw F12:funkey help'<CR>
+
 "-- autocomplete with tab: priceless -------------------------------------
 
 set dictionary+=/usr/share/dict/words
@@ -94,7 +122,7 @@ inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
 inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 
 "--clang_complete------------------------------------------------------------
-"
+
 set runtimepath^=~/.vim/bundle/clang_complete
 let g:clang_library_path = '/usr/lib/llvm-3.2/lib'
 let g:clang_sort_algo = 'alpha'
@@ -132,5 +160,12 @@ let g:clang_conceal_snippets=1
 " I disabled the vim-latex plugin for now. The tex_autoclose.vim is enough
 " <C-\>c close the tex env
 au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
+
+"--eclim------------------------------------------------------------------------
+
+"set runtimepath^=~/.vim/bundle/eclim
+
+
+
 
 
