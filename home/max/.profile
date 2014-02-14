@@ -25,5 +25,10 @@ fi
 # Android
 PATH=$PATH:/opt/android/sdks/platform-tools:/opt/android/sdks/tools
 
+#ArchC
+PATH=$PATH:/opt/archc/compilers/mips/bin
+PATH=$PATH:/opt/archc/compilers/arm/bin
+PATH=$PATH:/opt/archc/compilers/powerpc/bin
+PATH=$PATH:/opt/archc/compilers/sparc/bin
 
 
