@@ -64,6 +64,7 @@ set tags=tags,ctags,.tags,.ctags;
 
 "tmux tabs with name of file open in vim
 autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+autocmd VimLeave * call system("tmux rename-window bash")
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set runtimepath^=~/.vim/bundle/tagbar
