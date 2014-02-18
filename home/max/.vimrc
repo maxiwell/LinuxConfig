@@ -28,6 +28,9 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
+" HTML: You can jump a tag to the matching tag by typing %
+runtime macros/matchit.vim
+
 imap <up> <esc>gk<insert><right>
 imap <down> <esc>gj<insert><right>
 map <up> gk
