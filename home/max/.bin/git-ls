@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+GITCONFIG=$HOME/.github/git.conf
+USER=git
+
+if [ "$1" == "-h" ]; then
+    echo "usage: git ls -s 'server'"
+    exit 0
+fi
+
+if [ "$1" == "-s" ]; then
+    SERVERPATH=`grep $2 $GITCONFIG | cut -d: -f2`
+    SERVER="$USER@$2:$SERVERPATH"
+else
+   # SERVER="git@github.com:maxiwell"
+    echo "usage:  git ls -s 'server'"
+    exit
+fi
+
+echo "Server: $SERVER"
+ssh $USER@$2 "ls $SERVERPATH"
+
+echo "-"
+
