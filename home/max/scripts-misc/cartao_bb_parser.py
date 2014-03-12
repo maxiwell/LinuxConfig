@@ -103,7 +103,7 @@ def Compras(pos):
         if (pais != "BR"):
             if (reais != True):
                moeda = ((moeda * IOF) + moeda) * cotacao_dolar
-               descricao = descricao + ", Cotoacao U$: " + str(format(cotacao_dolar, '.4f'))
+               descricao = descricao + ", Cotacao U$: " + str(format(cotacao_dolar, '.4f'))
          
         # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
         moeda = str(format(moeda, '.2f')).replace('.',',')
@@ -154,7 +154,7 @@ def Debitos_diversos(pos):
         if (pais != "BR"):
             if (reais != True):
                moeda = ((moeda * IOF) + moeda) * cotacao_dolar
-               descricao = descricao + ", Cotoacao U$: " + str(format(cotacao_dolar, '.4f'))
+               descricao = descricao + ", Cotacao U$: " + str(format(cotacao_dolar, '.4f'))
          
         # Truncando o valor duas casas apos o ponto. Arredontamento nao pode!
         moeda = str(format(moeda, '.2f')).replace('.',',')
