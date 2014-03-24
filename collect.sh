@@ -27,10 +27,10 @@ for k in $allfil; do
 		echo "$dir$fil does not exist"
     else   
 	if [ ! -f ./$dir$fil ]; then
-    		cp $dir$fil ./$dir$fil
+    		cp -p $dir$fil ./$dir$fil
 		echo "cp $dir$fil"
 	elif [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
-		cp $dir$fil ./$dir$fil
+		cp -p $dir$fil ./$dir$fil
 		echo "cp $dir$fil"
 	fi
     fi
