@@ -15,8 +15,10 @@ if [ 0 -ne `diff $PAGE_PATH/mc911.html $PAGE_PATH/.mc911.html.tmp | wc -l` ]; th
 	cp $PAGE_PATH/.mc911.html.tmp $PAGE_PATH/.mc911.html.old
 fi
 rm $PAGE_PATH/.mc911.html.tmp
+cd $HOME/public_html
+git add -A
+git commit -a -m "update cursos/mc911"
+git push
 ENDSSH
-
-
 
 

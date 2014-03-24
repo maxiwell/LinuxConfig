@@ -33,8 +33,6 @@ for k in $allfil; do
 		cp $dir$fil ./$dir$fil
 		echo "cp $dir$fil"
 	fi
-
-	
     fi
 done
 

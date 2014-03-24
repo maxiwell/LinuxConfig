@@ -13,8 +13,11 @@ for k in $allfil; do
 	if [ ! -d $dir ]; then
 		mkdir -p $dir
 	fi
-	cp ./$dir$fil $dir$fil
-	echo "cp ./$dir$fil $dir$fil"
+
+	if [ ./$dir$fil -nt $dir$fil ]; then # f1 is newer than f2
+		cp ./$dir$fil $dir$fil
+		echo "cp $dir$fil"
+	fi
 done
 
 for k in $alllnk; do
