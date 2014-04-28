@@ -131,7 +131,7 @@ inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 "--clang_complete------------------------------------------------------------
 
 set runtimepath^=~/.vim/bundle/clang_complete
-let g:clang_library_path = '/usr/lib/llvm-3.2/lib'
+let g:clang_library_path = '/usr/lib/llvm-3.3/lib'
 let g:clang_sort_algo = 'alpha'
 
 " If you prefer the Omni-Completion tip window to close when a selection is
@@ -170,7 +170,12 @@ au Filetype tex source ~/.vim/plugin/tex_autoclose.vim
 
 "--eclim------------------------------------------------------------------------
 
-"set runtimepath^=~/.vim/bundle/eclim
+set runtimepath^=~/.vim/bundle/eclim
+
+"--supertab------------------------------------------------------------------------
+
+"set runtimepath^=~/.vim/bundle/supertab
+"let g:SuperTabDefaultCompletionType = 'context'
 
 
 

@@ -97,3 +97,8 @@ alias nautilus="nautilus --no-desktop"
 alias nemo="nemo --no-desktop"
 alias rm='trash-put'
 
+
+# eclim daemon
+#/opt/eclipse/eclimd
+
+

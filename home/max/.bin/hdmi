@@ -1,8 +1,16 @@
 #!/bin/bash
 
 
-xrandr --output HDMI2 --same-as LVDS1
+case $1 in
 
+clone)
+xrandr --output HDMI2 --same-as LVDS1
+;;
+
+right)
+xrandr --output HDMI2 --right-of LVDS1
+
+esac
 
 # xrandr --auto --output HDMI2
 

@@ -12,6 +12,15 @@ video/mpeg=smplayer.desktop
 video/x-flv=smplayer.desktop
 video/quicktime=smplayer.desktop
 audio/mpeg=clementine.desktop
+application/pdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/vnd.adobe.xfdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/vnd.fdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/vnd.adobe.xdp+xml=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/vnd.adobe.pdx=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/fdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/xdp=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/xfdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
+application/pdx=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
 
 [Added Associations]
 video/x-msvideo=vlc.desktop;smplayer.desktop;
