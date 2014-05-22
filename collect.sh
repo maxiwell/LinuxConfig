@@ -1,37 +1,39 @@
 #!/bin/bash
 
-allfil=`find ./home/*/ -type f`
+allfil=`find ./home/ -type f`
+
+base=$HOME
 
 for k in $allfil; do
-	dir=`echo $k | sed -e "s/\/[^\/]*$/\//" | sed -e "s/^\.//"`
-	fil=`echo $k | sed -e "s/.*\///"`
+#	dir=`echo $k | sed -e "s/\/[^\/]*$/\//" | sed -e "s/^\.//"`
+#	fil=`echo $k | sed -e "s/.*\///"`
 
-    if [ $fil == ".gitconfig" ]; then
+	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//"`
+	fil=`basename $k`
+
+	if [ $fil == ".gitconfig" ]; then
 		continue
     fi
     if [ $fil == ".msmtprc" ]; then
-	if [ -f $dir$fil ] && [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
-		echo "New .msmtprc config ($dir$fil). Check yourserlf"
 		continue
 	fi
-    fi
 
-    if [ $fil == "inadyn" ]; then
-	if [ -f $dir$fil ] && [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
-		echo "New inadyn config ($dir$fil). Check yourserlf"
-		continue
-	fi
-    fi
-
-    if [ ! -f $dir$fil ]; then
-		echo "$dir$fil does not exist"
+#    if [ $fil == "inadyn" ]; then
+#	if [ -f $dir$fil ] && [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
+#		echo "New inadyn config ($dir$fil). Check yourserlf"
+#		continue
+#	fi
+#    fi
+#
+    if [ ! -f $base$dir$fil ]; then
+		echo "$base$dir$fil does not exist"
     else   
-	if [ ! -f ./$dir$fil ]; then
-    		cp -p $dir$fil ./$dir$fil
-		echo "cp $dir$fil"
-	elif [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
-		cp -p $dir$fil ./$dir$fil
-		echo "cp $dir$fil"
+	if [ ! -f ./home/$dir$fil ]; then
+    		cp -p $base$dir$fil ./home/$dir$fil
+		echo "cp $base$dir$fil"
+	elif [ $base$dir$fil -nt ./home/$dir$fil ]; then # f1 is newer than f2
+		cp -p $base$dir$fil ./home/$dir$fil
+		echo "cp $base$dir$fil"
 	fi
     fi
 done

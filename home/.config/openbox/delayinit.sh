@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-hdmiclone &
+hdmi clone &
 tint2 &
 gnome-sound-applet &
 

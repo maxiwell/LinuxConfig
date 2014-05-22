@@ -25,7 +25,7 @@ application/pdx=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
 [Added Associations]
 video/x-msvideo=vlc.desktop;smplayer.desktop;
 application/vnd.rn-realmedia=vlc.desktop;
-video/x-matroska=vlc.desktop;smplayer.desktop;
+video/x-matroska=totem.desktop;vlc.desktop;smplayer.desktop;
 video/mp4=vlc.desktop;smplayer.desktop;
 video/x-ms-wmv=smplayer.desktop;
 video/mpeg=smplayer.desktop;
@@ -34,3 +34,4 @@ video/quicktime=smplayer.desktop;
 audio/mpeg=clementine.desktop;
 application/pdf=evince.desktop;
 application/x-php=google-chrome.desktop;firefox.desktop;
+application/xml=gvim.desktop;
