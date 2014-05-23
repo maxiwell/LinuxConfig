@@ -6,8 +6,6 @@ base=$HOME
 computer=$HOSTNAME
 config="./special.conf"
 
-
-
 while read line
 do
 	[[ $line == \#* ]] && continue
