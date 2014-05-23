@@ -18,7 +18,8 @@ do
 			allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
 			;;
 		unique)
-			allfil=`echo $allfil | sed -e "s@./home/$line-$computer@@g"`
+			# remove the unique files
+			allfil=`echo $allfil | sed -e "s/\.\/home\/${line}--[^ ]* //g"`
 
 			# for first run after inserting a new file in [unique] case
 			# remove the name without $HOSTNAME termination
@@ -30,9 +31,9 @@ do
 			fil="/$line"
 			if [ ! -f $base$fil ]; then
 				echo "$base$fil does not exist"
-			elif [ ! -f ./home/$fil-$computer ] || [ $base$fil -nt ./home/$fil-$computer ]; then
-				cp -p $base$fil ./home/$fil-$computer
-				echo "cp $base$fil as $line-$computer"	
+			elif [ ! -f ./home/$fil--$computer ] || [ $base$fil -nt ./home/$fil--$computer ]; then
+				cp -p $base$fil ./home/$fil--$computer
+				echo "cp $base$fil as $line--$computer"	
 			fi
 			;;
 	esac

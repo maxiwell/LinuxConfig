@@ -18,18 +18,19 @@ do
 			allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
 			;;
 		unique)
-			allfil=`echo $allfil | sed -e "s@./home/$line-$computer@@g"`
+			# remove the unique files2
+			allfil=`echo $allfil | sed -e "s/\.\/home\/${line}--[^ ]* //g"`
 
 			fil="/$line"
 
-			if [ ! -f ./home/$fil-$computer ]; then
+			if [ ! -f ./home/$fil--$computer ]; then
 				echo "$line without specific version for the machine $computer."
 				continue
 			fi
 
-			if [ ! -f $base$fil ] || [ ./home/$fil-$computer -nt $base$fil ]; then
-				cp -p ./home/$fil-$computer $base$fil
-				echo "cp $base$fil from $line-$computer"
+			if [ ! -f $base$fil ] || [ ./home/$fil--$computer -nt $base$fil ]; then
+				cp -p ./home/$fil--$computer $base$fil
+				echo "cp $base$fil from $line--$computer"
 			fi
 			;;
 	esac
