@@ -22,12 +22,6 @@
 /home/max/src
 /home/max/tests
 
-
-
-[ayarrr:/home/max]
-
-
-
 [max.ec2:/home/max/backup-powernote/]
 
 /files/pessoal -exclude .bitcoin .litecoin equipamentos fotos audios videos

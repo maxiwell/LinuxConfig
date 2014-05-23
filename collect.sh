@@ -20,17 +20,19 @@ do
 		unique)
 			allfil=`echo $allfil | sed -e "s@./home/$line-$computer@@g"`
 
+			# for first run after inserting a new file in [unique] case
+			# remove the name without $HOSTNAME termination
+			if [ -f ./home/$line ]; then
+				rm -f ./home/$line
+				allfil=`echo $allfil | sed -e "s@./home/$line@@g"`
+			fi
+
 			fil="/$line"
 			if [ ! -f $base$fil ]; then
 				echo "$base$fil does not exist"
-			else   
-				if [ ! -f ./home/$fil-$computer ]; then
-					cp -p $base$fil ./home/$fil-$computer
-					echo "cp $base$fil as $line-$computer"
-				elif [ $base$fil -nt ./home/$fil-$computer ]; then # f1 is newer than f2
-					cp -p $base$fil ./home/$fil-$computer
-					echo "cp $base$fil as $line-$computer"
-				fi
+			elif [ ! -f ./home/$fil-$computer ] || [ $base$fil -nt ./home/$fil-$computer ]; then
+				cp -p $base$fil ./home/$fil-$computer
+				echo "cp $base$fil as $line-$computer"	
 			fi
 			;;
 	esac

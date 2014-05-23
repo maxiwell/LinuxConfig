@@ -21,11 +21,13 @@ do
 			allfil=`echo $allfil | sed -e "s@./home/$line-$computer@@g"`
 
 			fil="/$line"
-			
-			if [ ! -f $base$fil ]; then
-				cp -p ./home/$fil-$computer $base$fil
-				echo "cp $base$fil from $line-$computer"
-			elif [ ./home/$fil-$computer -nt $base$fil ]; then # f1 is newer than f2
+
+			if [ ! -f ./home/$fil-$computer ]; then
+				echo "$line without specific version for the machine $computer."
+				continue
+			fi
+
+			if [ ! -f $base$fil ] || [ ./home/$fil-$computer -nt $base$fil ]; then
 				cp -p ./home/$fil-$computer $base$fil
 				echo "cp $base$fil from $line-$computer"
 			fi
@@ -40,6 +42,11 @@ for k in $allfil; do
 
 	if [ ! -d $base$dir ]; then
 		mkdir -p $base$dir
+	fi
+
+	if [[ $fil == *$computer* ]]; then
+		echo "$dir$fil was in the [unique] case. Now, it is not. Fix it manually."
+		continue
 	fi
 
 	if [ ./home/$dir$fil -nt $base$dir$fil ]; then # f1 is newer than f2
