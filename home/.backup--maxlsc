@@ -1,0 +1,10 @@
+# The destination server is between [...] 
+# The lines below are the paths to backup
+
+[max.ec2:/home/max/backup-maxlsc]
+
+/home/max/academico
+
+
+
+
