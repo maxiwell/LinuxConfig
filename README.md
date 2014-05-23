@@ -4,10 +4,6 @@ LinuxConfig
 
 * /etc is not in "collect" and "distribute" script.
 
-* Package.list
-    - Created with: dpkg --get-selections > Package.list
-    - Recover with: sudo  dpkg --set-selections < Package.list && sudo apt-get dselect-upgrade -y
-
 
 * Cloning GIT with HTTPS and using the SSH keys
 
@@ -25,7 +21,6 @@ if [ x"$DE" = x"" ]; then
 ```
 
 * To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers.
-Add "nethogs" to your user if you want call him in "conkyrc".
 
 ```bash
 # replace 'myusers' group by your users group

@@ -3,28 +3,45 @@
 allfil=`find ./home/ -type f`
 
 base=$HOME
+computer=$HOSTNAME
+config="./special.conf"
+
+
+
+while read line
+do
+	[[ $line == \#* ]] && continue
+	[[ -z $line ]] && continue
+	[[ $line == \[* ]] && cond=`echo $line | cut -d[ -f 2 | cut -d] -f 1` && continue
+
+	case $cond in
+		ignore)
+			# simply remove the file from find list 
+			allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
+			;;
+		unique)
+			allfil=`echo $allfil | sed -e "s@./home/$line-$computer@@g"`
+
+			fil="/$line"
+			if [ ! -f $base$fil ]; then
+				echo "$base$fil does not exist"
+			else   
+				if [ ! -f ./home/$fil-$computer ]; then
+					cp -p $base$fil ./home/$fil-$computer
+					echo "cp $base$fil as $line-$computer"
+				elif [ $base$fil -nt ./home/$fil-$computer ]; then # f1 is newer than f2
+					cp -p $base$fil ./home/$fil-$computer
+					echo "cp $base$fil as $line-$computer"
+				fi
+			fi
+			;;
+	esac
+done < $config
 
 for k in $allfil; do
-#	dir=`echo $k | sed -e "s/\/[^\/]*$/\//" | sed -e "s/^\.//"`
-#	fil=`echo $k | sed -e "s/.*\///"`
-
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//"`
 	fil=`basename $k`
 
-	if [ $fil == ".gitconfig" ]; then
-		continue
-    fi
-    if [ $fil == ".msmtprc" ]; then
-		continue
-	fi
-
-#    if [ $fil == "inadyn" ]; then
-#	if [ -f $dir$fil ] && [ $dir$fil -nt ./$dir$fil ]; then # f1 is newer than f2
-#		echo "New inadyn config ($dir$fil). Check yourserlf"
-#		continue
-#	fi
-#    fi
-#
     if [ ! -f $base$dir$fil ]; then
 		echo "$base$dir$fil does not exist"
     else   
