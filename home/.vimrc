@@ -178,6 +178,3 @@ set runtimepath^=~/.vim/bundle/eclim
 "let g:SuperTabDefaultCompletionType = 'context'
 
 
-
-
-

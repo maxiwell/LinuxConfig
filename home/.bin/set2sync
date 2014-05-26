@@ -5,7 +5,7 @@
 
 # -c : check if files are synchronized
 
-GITDIR=$HOME/.github/LinuxConfig
+GITDIR=$HOME/.github/LinuxConfig/home
 
 if [[ $1 == '' ]]; then
     echo "File or folder missing..."
@@ -16,19 +16,27 @@ else
             echo "File of folder missing..."
         else
             shift # discards the $1 (-c) args
-            for i; do 
-               if [[ -e $GITDIR/$PWD/$i ]]; then # if file exists
-                   echo "|*| $GITDIR/$PWD/$i"
-               else
-                   echo "| | $GITDIR/$PWD/$i"
-               fi
+            for i; do
+			   if [[ -d	$PWD/$i ]]; then
+				   if [[ -d $GITDIR/${PWD#$HOME}/$i ]]; then
+					   	echo "|*| $GITDIR/${PWD#$HOME}/$i"
+					else
+						echo "| | $GITDIR/${PWD#$HOME}/$i"
+					fi
+			   else
+               		if [[ -e $GITDIR/${PWD#$HOME}/$i ]]; then # if file exists
+               		    echo "|*| $GITDIR/${PWD#$HOME}/$i"
+               		else
+               		    echo "| | $GITDIR/${PWD#$HOME}/$i"
+               		fi
+			   fi
             done
             echo ""
         fi
     else
         for i; do 
-           cp -r --parents $PWD/$i $GITDIR
-           echo "$GITDIR/$PWD/$i"
+           cp -r  $PWD/$i $GITDIR/${PWD#$HOME}
+           echo "$GITDIR/${PWD#$HOME}"
         done
     fi
 fi
