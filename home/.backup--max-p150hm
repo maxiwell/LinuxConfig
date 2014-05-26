@@ -8,8 +8,7 @@
 /files/eBooks
 /files/hacks
 /files/musicas
-/files/pessoal -exclude .bitcoin .litecoin 
-/files/pessoal/.bitcoin/wallet.dat
+/files/pessoal -exclude .litecoin 
 /files/pessoal/.litecoin/wallet.dat
 /files/temp
 /media/Toshiba/Softwares
@@ -24,8 +23,7 @@
 
 [max.ec2:/home/max/backup-powernote/]
 
-/files/pessoal -exclude .bitcoin .litecoin equipamentos fotos audios videos
-/files/pessoal/.bitcoin/wallet.dat
+/files/pessoal -exclude .litecoin equipamentos fotos audios videos
 /files/pessoal/.litecoin/wallet.dat
 
 
