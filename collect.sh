@@ -21,7 +21,7 @@ do
 			;;
 		unique)
 			# remove the unique files
-			allfil=`echo $allfil | sed -e "s/\.\/home\/${line}--[^ ]* //g"`
+			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^ ]* ||g'`
 
 			# for first run after inserting a new file in [unique] case
 			# remove the name without $HOSTNAME termination

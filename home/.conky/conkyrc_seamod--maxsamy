@@ -71,7 +71,7 @@ lua_draw_hook_post main
 TEXT
 ${font Ubuntu:size=10,weight:bold}${color4}SYSTEM ${hr 2}
 ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}${pre_exec lsb_release -d | cut -f 2} - $sysname $kernel
-${offset 15}${font Ubuntu:size=10,weight:normal}${color1}Battery:  ${color3}${battery_bar 5,150 BAT0} ${color3}${battery_percent BAT0}%
+${offset 15}${font Ubuntu:size=10,weight:normal}${color1}Battery:  ${color3}${battery_bar 5,150 BAT1} ${color3}${battery_percent BAT1}%
 ${offset 15}${font Ubuntu:size=10,weight:normal}${color1}Uptime: ${color3}$uptime
 
 # Showing CPU Graph
