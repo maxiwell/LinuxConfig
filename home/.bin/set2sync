@@ -27,7 +27,11 @@ else
                		if [[ -e $GITDIR/${PWD#$HOME}/$i ]]; then # if file exists
                		    echo "|*| $GITDIR/${PWD#$HOME}/$i"
                		else
-               		    echo "| | $GITDIR/${PWD#$HOME}/$i"
+						if [[ -e $GITDIR/${PWD#$HOME}/$i--${HOSTNAME} ]]; then
+							echo "|*| $GITDIR/${PWD#$HOME}/$i--${HOSTNAME}"
+						else
+    	           		    echo "| | $GITDIR/${PWD#$HOME}/$tmp"
+						fi
                		fi
 			   fi
             done
