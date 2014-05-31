@@ -96,7 +96,7 @@ fi
 alias nautilus="nautilus --no-desktop"
 alias nemo="nemo --no-desktop"
 alias rm='trash-put'
-
+alias tmux='tmux -u'
 
 # eclim daemon
 #/opt/eclipse/eclimd
