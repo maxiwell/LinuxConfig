@@ -96,8 +96,9 @@ ${offset 105}${font Ubuntu:size=10,weight:normal}${color3}${top_mem name 4}${ali
 
 # Showing disk partitions: root, home and files
 ${voffset 12}
-${offset 200}${color1}${font Ubuntu:size=9,weight:bold}Disk IO: ${alignr}${font Ubuntu:size=9,weight:normal}${color2}${diskio}
-${voffset -15}
+${offset 200}${color1}${font Ubuntu:size=9,weight:bold}Disk Read: ${alignr}${font Ubuntu:size=9,weight:normal}${color2}${diskio_read}
+${offset 200}${color1}${font Ubuntu:size=9,weight:bold}Disk Write: ${alignr}${font Ubuntu:size=9,weight:normal}${color2}${diskio_write}
+${voffset -30}
 ${offset 90}${font Ubuntu:size=10,weight:bold}${color5}DISKS
 ${offset 120}${diskiograph 33,183 666666 666666}${voffset -30}
 ${voffset 20}
