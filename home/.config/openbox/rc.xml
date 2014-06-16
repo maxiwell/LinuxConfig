@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Cyclism</name>
+    <name>Onyx</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -372,7 +372,7 @@
       </action>
     </keybind>
     <!-- dead_grave == ` -->
-    <keybind key="A-dead_grave"> 
+    <keybind key="A-dead_grave">
       <action name="execute">
         <execute>wmctrl-switch-by-application</execute>
       </action>
@@ -744,7 +744,7 @@
       </mousebind>
     </context>
     <context name="Desktop">
-        <!--
+      <!--
       <mousebind button="Up" action="Click">
         <action name="GoToDesktop">
           <to>previous</to>
