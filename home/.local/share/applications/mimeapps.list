@@ -1,8 +1,8 @@
 [Default Applications]
 video/x-msvideo=smplayer.desktop
 application/vnd.rn-realmedia=vlc.desktop
-video/x-matroska=smplayer.desktop
-video/mp4=smplayer.desktop
+video/x-matroska=vlc.desktop
+video/mp4=vlc.desktop
 application/x-bittorrent=deluge.desktop
 x-scheme-handler/magnet=deluge.desktop
 video/x-ms-wmv=smplayer.desktop
@@ -26,7 +26,7 @@ application/pdx=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
 video/x-msvideo=vlc.desktop;smplayer.desktop;
 application/vnd.rn-realmedia=vlc.desktop;
 video/x-matroska=totem.desktop;vlc.desktop;smplayer.desktop;
-video/mp4=vlc.desktop;smplayer.desktop;
+video/mp4=vlc.desktop;smplayer.desktop;mplayer.desktop;
 video/x-ms-wmv=smplayer.desktop;
 video/mpeg=smplayer.desktop;
 video/x-flv=smplayer.desktop;
