@@ -135,7 +135,8 @@
 		<item label="Reconfigure Openbox">
 			<action name="Reconfigure"/>
 		</item>
-	</menu>
+    </menu>
+
 	<menu id="root-menu" label="Openbox 3">
 		<item label="Terminal">
 			<action name="Execute">
@@ -162,11 +163,18 @@
 		<!--menu id="apps-editors-menu"/-->
 		<!--menu id="apps-graphics-menu"/-->
 		<!--menu id="apps-fileman-menu"/-->
-		<separator label="System"/>
-		<menu id="system-menu"/>
+        <separator label="System"/>
+        <menu id="system-menu"/>
+        <item label="Sound">
+            <action name="Execute">
+                <command>unity-control-center sound</command>
+            </action>
+        </item>
+
 		<separator/>
 		<item label="Log out">
-			<action name="Exit">
+            <action name="Execute">
+                <command>openbox --exit</command>
 				<prompt>yes</prompt>
 			</action>
         </item>
