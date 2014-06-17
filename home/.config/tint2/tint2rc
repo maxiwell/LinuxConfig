@@ -108,4 +108,4 @@ launcher_item_app = /home/max/.launchers/nautilus.desktop
 launcher_item_app = /home/max/.launchers/nemo.desktop 
 launcher_item_app = /usr/share/applications/google-chrome.desktop
 launcher_item_app = /usr/share/applications/firefox.desktop  
-launcher_item_app = /home/max/.launchers/gnome-control-center.desktop 
+launcher_item_app = /home/max/.launchers/unity-control-center.desktop 
