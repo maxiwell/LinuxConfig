@@ -1,7 +1,7 @@
 # The destination server is between [...] 
 # The lines below are the paths to backup
 
-[/backup/_BackupManual_/]
+[/media/seagate4t/backup/powernote/]
 
 /files/academico
 /files/dupla
