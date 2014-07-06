@@ -170,6 +170,12 @@
                 <command>unity-control-center sound</command>
             </action>
         </item>
+        <item label="Veromix">
+            <action name="Execute">
+                <command>veromix</command>
+            </action>
+        </item>
+
 
 		<separator/>
 		<item label="Log out">

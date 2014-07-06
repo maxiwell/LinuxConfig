@@ -3,8 +3,6 @@
 
 hdmi clone &
 tint2 &
-gnome-sound-applet &
-volumeicon &
 
 #feh --bg-tile Pictures/Emily_Blunt.jpg &
 
