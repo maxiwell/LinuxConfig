@@ -482,6 +482,17 @@
         <command>pa-vol.sh mute</command>
       </action>
     </keybind>
+    <keybind key="C-0x6B">
+        <action name="Execute">
+            <command>ss2cb.sh</command>
+        </action>
+    </keybind>
+    <keybind key="0x6B">
+        <action name="Execute">
+            <command>scrot</command>
+        </action>
+    </keybind>
+
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
