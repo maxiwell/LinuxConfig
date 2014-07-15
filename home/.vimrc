@@ -16,6 +16,8 @@ filetype plugin on
 " can be called correctly.
 set shellslash
 
+set clipboard^=unnamed
+
 " IMPORTANT: grep will sometimes skip displaying the file name if you
 " search in a singe file. This will confuse Latex-Suite. Set your grep
 " program to always generate a file-name.
