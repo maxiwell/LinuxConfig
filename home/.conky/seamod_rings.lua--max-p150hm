@@ -19,7 +19,7 @@ require 'cairo'
 --                                                                    gauge DATA
 gauge = {
 {
-    name='cpu',                    arg='cpu0',                  max_value=100,
+    name='cpu',                    arg='cpu1',                  max_value=100,
     x=70,                          y=130,
     graph_radius=54,
     graph_thickness=5,
@@ -40,7 +40,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu1',                  max_value=100,
+    name='cpu',                    arg='cpu2',                  max_value=100,
     x=70,                          y=130,
     graph_radius=48,
     graph_thickness=5,
@@ -61,7 +61,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu2',                  max_value=100,
+    name='cpu',                    arg='cpu3',                  max_value=100,
     x=70,                          y=130,
     graph_radius=42,
     graph_thickness=5,
@@ -82,7 +82,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu3',                  max_value=100,
+    name='cpu',                    arg='cpu4',                  max_value=100,
     x=70,                          y=130,
     graph_radius=36,
     graph_thickness=5,
@@ -103,7 +103,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu4',                  max_value=100,
+    name='cpu',                    arg='cpu5',                  max_value=100,
     x=70,                          y=130,
     graph_radius=30,
     graph_thickness=5,
@@ -124,7 +124,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu5',                  max_value=100,
+    name='cpu',                    arg='cpu6',                  max_value=100,
     x=70,                          y=130,
     graph_radius=24,
     graph_thickness=5,
@@ -145,7 +145,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu6',                  max_value=100,
+    name='cpu',                    arg='cpu7',                  max_value=100,
     x=70,                          y=130,
     graph_radius=18,
     graph_thickness=5,
@@ -166,7 +166,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='cpu',                    arg='cpu7',                  max_value=100,
+    name='cpu',                    arg='cpu8',                  max_value=100,
     x=70,                          y=130,
     graph_radius=12,
     graph_thickness=5,

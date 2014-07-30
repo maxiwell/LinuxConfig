@@ -26,10 +26,10 @@ fi
 PATH=$PATH:/opt/android/sdks/platform-tools:/opt/android/sdks/tools
 
 #ArchC
-export PATH=$PATH:/opt/archc/compilers/mips/bin
-export PATH=$PATH:/opt/archc/compilers/arm/bin
-export PATH=$PATH:/opt/archc/compilers/powerpc/bin
-export PATH=$PATH:/opt/archc/compilers/sparc/bin
+export PATH=$PATH:/opt/archc/compilers/mips-newlib-elf/bin
+export PATH=$PATH:/opt/archc/compilers/arm-newlib-eabi/bin
+export PATH=$PATH:/opt/archc/compilers/powerpc-newlib-elf/bin
+export PATH=$PATH:/opt/archc/compilers/sparc-newlib-elf/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc-2.3.0/lib-linux64/
 
 
