@@ -8,6 +8,8 @@ cmap w!! %!sudo tee % > /dev/null
 autocmd BufEnter * :syntax sync fromstart
 
 "VIM-LatexSuite
+set encoding=utf-8 
+" set fileencoding=utf-8 
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
