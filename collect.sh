@@ -48,16 +48,10 @@ for k in $allfil; do
     if [ ! -f $base$dir$fil ]; then
 		echo "$base$dir$fil does not exist"
     else   
-	if [ ! -f ./home/$dir$fil ]; then
-			rsync -razp  --delete --exclude-from="$filter" $base$dir$fil ./home/$dir
-			# cp -p $base$dir$fil ./home/$dir$fil
-			echo "rsync $base$dir$fil"
-	elif [ $base$dir$fil -nt ./home/$dir$fil ]; then # f1 is newer than f2	
-			rsync -razp --delete --exclude-from="$filter" $base$dir$fil ./home/$dir
-			# cp  -p $base$dir$fil ./home/$dir$fil
-			echo "rsync $base$dir$fil"
+		rsync -razp  --delete --exclude-from="$filter" $base$dir$fil ./home/$dir
+		# cp -p $base$dir$fil ./home/$dir$fil
+		# echo "rsync $base$dir$fil"
 	fi
-    fi
 done
 
 exit 0
