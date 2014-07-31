@@ -2,6 +2,12 @@ LinuxConfig
 ===========
 
 
+* Para configurar o teclado do Powernote via terminal
+
+```bash
+ setxkbmap -layout us -variant intl
+```
+
 * /etc is not in "collect" and "distribute" script.
 
 
