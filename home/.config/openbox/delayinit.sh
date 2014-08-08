@@ -11,3 +11,5 @@ conky  -c $HOME/.conky/conkyrc_seamod &
 
 killall ssh-agent
 
+setxkbmap -layout us -variant intl
+

@@ -2,7 +2,13 @@ LinuxConfig
 ===========
 
 
-* Para configurar o teclado do Powernote via terminal
+* Mapping the "comma key" in the "dot numpad".
+
+```bash
+xmodmap -e "keycode 91 = comma"
+``` 
+
+* Config the Powernote keyboard to USA with dead keys
 
 ```bash
  setxkbmap -layout us -variant intl
