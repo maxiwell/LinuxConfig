@@ -182,4 +182,7 @@ set runtimepath^=~/.vim/bundle/eclim
 "set runtimepath^=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
+  augroup filetype
+    au! BufRead,BufNewFile *.ll     set filetype=llvm
+  augroup END
 
