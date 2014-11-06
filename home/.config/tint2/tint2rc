@@ -106,6 +106,6 @@ launcher_background_id = 1
 launcher_icon_size = 45
 launcher_item_app = /home/max/.launchers/nautilus.desktop 
 launcher_item_app = /home/max/.launchers/nemo.desktop 
-launcher_item_app = /usr/share/applications/google-chrome-beta.desktop
+launcher_item_app = /usr/share/applications/google-chrome-stable.desktop
 launcher_item_app = /usr/share/applications/firefox.desktop  
 launcher_item_app = /home/max/.launchers/unity-control-center.desktop 
