@@ -21,10 +21,10 @@
 /home/max/src
 /home/max/tests
 
-[max.ec2:/home/max/backup-powernote/]
-
-/files/pessoal -exclude .litecoin equipamentos fotos audios videos
-/files/pessoal/.litecoin/wallet.dat
+#[max.ec2:/home/max/backup-powernote/]
+#
+#/files/pessoal -exclude .litecoin equipamentos fotos audios videos
+#/files/pessoal/.litecoin/wallet.dat
 
 
 
