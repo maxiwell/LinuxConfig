@@ -1,6 +1,14 @@
 LinuxConfig
 ===========
 
+* /etc is not in "collect" and "distribute" script.
+
+
+* The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
+
+Scripts 
+===========
+
 
 * Mapping the "comma key" in the "dot numpad".
 
@@ -14,10 +22,13 @@ xmodmap -e "keycode 91 = comma"
  setxkbmap -layout us -variant intl
 ```
 
-* /etc is not in "collect" and "distribute" script.
+* GIT: remove files from the repository based on your .gitignore without deleting them from the local file system
 
+```bash
+git rm --cached `git ls-files -i -X .gitignore`
+```
 
-* Cloning GIT with HTTPS and using the SSH keys
+* GIT: Cloning with HTTPS and using the SSH keys
 
 ```bash
 git remote set-url origin git@github.com:maxiwell/LinuxConfig.git
@@ -39,6 +50,5 @@ if [ x"$DE" = x"" ]; then
 %myusers ALL=(ALL) NOPASSWD:/sbin/shutdown,/sbin/halt,/sbin/reboot
 ```
 
-* The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
 
 
