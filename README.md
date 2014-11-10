@@ -7,10 +7,6 @@ LinuxConfig
 * The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
 
 
-Notes
-===========
-
-
 * Mapping the "comma key" in the "dot numpad".
 
 ```bash
