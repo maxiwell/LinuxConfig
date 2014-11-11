@@ -65,7 +65,6 @@ au BufRead,BufNewFile *.gplot set filetype=gnuplot
 au BufRead,BufNewFile *.gnuplot set filetype=gnuplot
 au BufRead,BufNewFile *.gnu set filetype=gnuplot
 
-
 augroup filetype
   au! BufRead,BufNewFile *.ll     set filetype=llvm
 augroup END
@@ -78,8 +77,11 @@ au BufWinEnter ?* silent loadview 1
 set tags=tags,ctags,.tags,.ctags;   
 
 "tmux tabs with name of file open in vim
-autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-autocmd VimLeave * call system("tmux rename-window bash")
+"autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
+"autocmd VimLeave * call system("tmux rename-window bash")
+
+autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
+set title
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 set runtimepath^=~/.vim/bundle/tagbar

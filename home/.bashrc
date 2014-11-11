@@ -106,4 +106,10 @@ alias tmux='tmux -u'
 # eclim daemon
 #/opt/eclipse/eclimd
 
+# Test if is into TMUX env
+if [ ! -z $TMUX ]; then
+    PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
+fi
+
+
 
