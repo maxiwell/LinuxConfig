@@ -23,7 +23,7 @@
 
 [ayarrr:/files/backup-powernote/]
 
-/files/pessoal -exclude .litecoin equipamentos audios videos
+/files/pessoal -exclude .litecoin equipamentos fotos audios videos
 /files/pessoal/.litecoin/wallet.dat
 
 

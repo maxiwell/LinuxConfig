@@ -31,6 +31,13 @@ git rm --cached `git ls-files -i -X .gitignore`
 git remote set-url origin git@github.com:maxiwell/LinuxConfig.git
 ```
 
+* GIT: pull/push from multiple remote locations
+```bash
+git remote add <N> <N-Machine>:/path/to/repo
+git remote update
+# Edit .git/config and change how are the "origin" remote (aka, the default repo).
+```
+
 * xdg-open don't works with torrent magnet links in the openbox. That only works with gnome, kde, xfce, or lxde.
 To fix that, find the code below in the file /usr/bin/xdg-open and set **gnome**  in the var **DE** 
 
