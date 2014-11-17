@@ -35,7 +35,7 @@ git remote set-url origin git@github.com:maxiwell/LinuxConfig.git
 ```bash
 git remote add <N> <N-Machine>:/path/to/repo
 git remote update
-# Edit .git/config and change how are the "origin" remote (aka, the default repo).
+# Edit .git/config and change who are the "origin" remote (aka, the default repo).
 ```
 
 * xdg-open don't works with torrent magnet links in the openbox. That only works with gnome, kde, xfce, or lxde.
