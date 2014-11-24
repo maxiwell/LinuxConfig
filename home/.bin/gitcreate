@@ -66,7 +66,7 @@ if [  `ls -1 | wc -l` -eq 0 ]; then
 fi
 
 git init
-git add *
+git add .
 git commit -m "Initial commit"
 git remote add origin $SERVER/$REPOS_NAME 
 git push -u origin master
