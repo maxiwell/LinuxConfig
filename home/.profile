@@ -33,6 +33,7 @@ export PATH=$PATH:/home/max/x-tools/sparc-newlib-elf/bin
 export PATH=$PATH:/home/max/x-tools/arm-unknown-linux-gnueabi/bin
 export PATH=$PATH:/home/max/x-tools/mips-unknown-linux-gnu/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc-2.3.0/lib-linux64/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc-2.3.1/lib-linux64/
 export AC_LIBRARY_PATH=$AC_LIBRARY_PATH:/lib/x86_64-linux-gnu
 
 
