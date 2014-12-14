@@ -4,11 +4,11 @@
 case $1 in
 
 clone)
-xrandr --output HDMI2 --same-as LVDS1
+xrandr --output HDMI2 --mode 1920x1080 --same-as LVDS1 --mode 1920x1080
 ;;
 
 right)
-xrandr --output HDMI2 --right-of LVDS1
+xrandr --output HDMI2 --mode 1920x1080 --right-of LVDS1 --mode 1920x1080
 
 esac
 
