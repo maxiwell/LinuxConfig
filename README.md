@@ -47,6 +47,12 @@ if [ x"$DE" = x"" ]; then
    DE=generic
 ```
 
+* Disable nemo desktop
+
+```bash
+gsettings set org.nemo.desktop show-desktop-icons false
+```
+
 * To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers.
 
 ```bash
