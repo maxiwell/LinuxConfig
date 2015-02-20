@@ -12,7 +12,9 @@ if [ -d ".git" ]; then
 fi
 
 if [ "$1" == "-h" ]; then
-    echo "usage: gitcreate  [-s server]  [repository_name]"
+    echo -ne "usage: gitcreate  [option]  repository_name\n\n"
+    echo -ne "option:\n"
+    echo -ne " -s\t USER@HOST:DEST\n"
     exit 0
 fi
 
