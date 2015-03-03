@@ -42,3 +42,4 @@ application/pdf=evince.desktop;
 application/x-php=google-chrome.desktop;firefox.desktop;
 application/xml=gvim.desktop;
 text/csv=wine-extension-txt.desktop;gedit.desktop;
+application/vnd.ms-publisher=gedit.desktop;

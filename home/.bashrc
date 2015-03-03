@@ -88,13 +88,13 @@ export SVN_SSH="ssh -p 6868"
 
 
 # ssh-agent shared 
-SSH_ENV="$HOME/.ssh/ssh.env"
-if [[ -z $(pgrep ssh-agent) ]]; then
-    ssh-agent | head -n 2 > $SSH_ENV
-    eval "$(cat $SSH_ENV)"
-else
-    [[ -f $SSH_ENV ]] && eval $(cat $SSH_ENV) 
-fi
+#SSH_ENV="$HOME/.ssh/ssh.env"
+#if [[ -z $(pgrep ssh-agent) ]]; then
+#    ssh-agent | head -n 2 > $SSH_ENV
+#    eval "$(cat $SSH_ENV)"
+#else
+#    [[ -f $SSH_ENV ]] && eval $(cat $SSH_ENV) 
+#fi
 #ssh-add ~/.ssh/github
 
 # Nautilus desktop crash openbox
