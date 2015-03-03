@@ -1,5 +1,5 @@
 [Default Applications]
-video/x-msvideo=smplayer.desktop
+video/x-msvideo=mpv.desktop
 application/vnd.rn-realmedia=mpv.desktop
 video/x-matroska=mpv.desktop
 video/mp4=mpv.desktop
@@ -11,7 +11,7 @@ application/x-gnome-saved-search=nemo.desktop
 video/mpeg=smplayer.desktop
 video/x-flv=smplayer.desktop
 video/quicktime=smplayer.desktop
-audio/mpeg=smplayer.desktop
+audio/mpeg=clementine.desktop
 application/pdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
 application/vnd.adobe.xfdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
 application/vnd.fdf=/opt/Adobe/Reader8/Resource/Support/AdobeReader.desktop
@@ -29,7 +29,7 @@ x-scheme-handler/unknown=google-chrome.desktop
 text/csv=gedit.desktop
 
 [Added Associations]
-video/x-msvideo=vlc.desktop;smplayer.desktop;
+video/x-msvideo=vlc.desktop;smplayer.desktop;mpv.desktop;
 application/vnd.rn-realmedia=vlc.desktop;mpv.desktop;
 video/x-matroska=totem.desktop;vlc.desktop;smplayer.desktop;mpv.desktop;
 video/mp4=vlc.desktop;smplayer.desktop;mplayer.desktop;mpv.desktop;
@@ -37,7 +37,7 @@ video/x-ms-wmv=smplayer.desktop;mpv.desktop;
 video/mpeg=smplayer.desktop;
 video/x-flv=smplayer.desktop;
 video/quicktime=smplayer.desktop;
-audio/mpeg=clementine.desktop;smplayer.desktop;
+audio/mpeg=clementine.desktop;smplayer.desktop;mpv.desktop;
 application/pdf=evince.desktop;
 application/x-php=google-chrome.desktop;firefox.desktop;
 application/xml=gvim.desktop;
