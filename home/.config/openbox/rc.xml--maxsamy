@@ -493,6 +493,18 @@
         </action>
     </keybind>
 
+    <keybind key="W-0x45">
+        <action name="Execute">
+            <command>setxkbmap -layout us -variant intl</command>
+        </action>
+    </keybind>
+    <keybind key="W-0x44">
+        <action name="Execute">
+            <command>setxkbmap -layout us</command>
+        </action>
+    </keybind>
+
+
    <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
