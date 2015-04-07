@@ -1,32 +1,32 @@
 # The destination server is between [...] 
 # The lines below are the paths to backup
 
-[/media/seagate4t/backup/powernote/]
-
-/files/academico
-/files/chessbase
-/files/dupla
-/files/eBooks
-/files/hacks
-/files/musicas
-/files/pessoal -exclude .litecoin 
-/files/pessoal/.litecoin/wallet.dat
-/files/temp
-/media/Toshiba/Softwares
-/media/Toshiba/Videos/Documentarios
-/media/Toshiba/Videos/Eruditos
-/media/Toshiba/Videos/Outros
-/media/Toshiba/Videos/Teatros
-/home/max/ArchC
-/home/max/academico
-/home/max/dev
-/home/max/tests
-
-[ayarrr:/files/backup-powernote/]
-
-/files/pessoal -exclude .litecoin equipamentos fotos audios videos
-/files/pessoal/.litecoin/wallet.dat
-
+#[/media/seagate4t/backup/powernote/]
+#
+#/files/academico
+#/files/chessbase
+#/files/dupla
+#/files/eBooks
+#/files/hacks
+#/files/musicas
+#/files/pessoal -exclude .litecoin 
+#/files/pessoal/.litecoin/wallet.dat
+#/files/temp
+#/media/Toshiba/Softwares
+#/media/Toshiba/Videos/Documentarios
+#/media/Toshiba/Videos/Eruditos
+#/media/Toshiba/Videos/Outros
+#/media/Toshiba/Videos/Teatros
+#/home/max/ArchC
+#/home/max/academico
+#/home/max/dev
+#/home/max/tests
+#
+#[ayarrr:/files/backup-powernote/]
+#
+#/files/pessoal -exclude .litecoin equipamentos fotos audios videos
+#/files/pessoal/.litecoin/wallet.dat
+#
 
 
 
