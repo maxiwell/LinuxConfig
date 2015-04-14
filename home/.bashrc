@@ -6,7 +6,7 @@
 [ -z "$PS1" ] && return
 
 # If .profile exist
-[[ -f ~/.profile ]] && . ~/.profile 
+#[[ -f ~/.profile ]] && . ~/.profile 
 
 # don't put duplicate lines in the history. See bash(1) for more options
 #export HISTCONTROL=ignoredups
@@ -85,9 +85,6 @@ alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc 
 alias ll="ls -lh"
 
 export SVN_SSH="ssh -p 6868"
-
-# for android compiler speedup
-export USE_CCACHE=1
 
 # ssh-agent shared 
 #SSH_ENV="$HOME/.ssh/ssh.env"
