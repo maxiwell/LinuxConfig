@@ -35,6 +35,7 @@ application/x-extension-shtml=userapp-Firefox-I9CLWX.desktop
 application/xhtml+xml=userapp-Firefox-I9CLWX.desktop
 application/x-extension-xhtml=userapp-Firefox-I9CLWX.desktop
 application/x-extension-xht=userapp-Firefox-I9CLWX.desktop
+video/x-ms-asf=mpv.desktop
 
 [Added Associations]
 video/x-msvideo=vlc.desktop;smplayer.desktop;mpv.desktop;
@@ -61,3 +62,4 @@ application/x-extension-shtml=userapp-Firefox-I9CLWX.desktop;
 application/xhtml+xml=userapp-Firefox-I9CLWX.desktop;
 application/x-extension-xhtml=userapp-Firefox-I9CLWX.desktop;
 application/x-extension-xht=userapp-Firefox-I9CLWX.desktop;
+video/x-ms-asf=mpv.desktop;

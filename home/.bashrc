@@ -110,5 +110,5 @@ alias tmux='tmux -u'
 #    PROMPT_COMMAND='echo -ne "\033]0; $(basename $PWD)\007"'
 #fi
 
-
+export USE_CCACHE=1
 
