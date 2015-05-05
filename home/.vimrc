@@ -161,3 +161,7 @@ set runtimepath^=~/.vim/bundle/eclim
 "let g:SuperTabDefaultCompletionType = 'context'
 
 
+if $TMUX == ''
+    set clipboard+=unnamed
+endif
+
