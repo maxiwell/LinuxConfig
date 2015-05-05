@@ -23,8 +23,10 @@ export PATH=$PATH:/home/max/x-tools/powerpc-newlib-elf/bin
 export PATH=$PATH:/home/max/x-tools/sparc-newlib-elf/bin
 export PATH=$PATH:/home/max/x-tools/arm-unknown-linux-gnueabi/bin
 export PATH=$PATH:/home/max/x-tools/mips-unknown-linux-gnu/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/
 export AC_LIBRARY_PATH=$AC_LIBRARY_PATH:/lib/x86_64-linux-gnu
+
+#export PKG_CONFIG_PATH="$HOME/ArchC/archc/master/install/lib/pkgconfig:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/pkgconfig:${PKG_CONFIG_PATH}"
 
 #OVP
 export IMPERAS_HOME=/home/max/ArchC/ovp-env/Imperas.20140127
