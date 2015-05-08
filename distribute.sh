@@ -50,10 +50,10 @@ for k in $allfil; do
 		continue
 	fi
 
-	if [ ./home/$dir$fil -nt $base$dir$fil ]; then # f1 is newer than f2
+#	if [ ./home/$dir$fil -nt $base$dir$fil ]; then # f1 is newer than f2
 		cp -p ./home/$dir$fil $base$dir$fil
 		echo "cp $base$dir$fil"
-	fi
+#	fi
 done
 
 exit 0
