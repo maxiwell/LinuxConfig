@@ -3,9 +3,10 @@ LinuxConfig
 
 * /etc is not in "collect" and "distribute" script.
 
-
 * The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
 
+Reminders
+---------
 
 * Mapping the "comma key" in the "dot numpad".
 
@@ -19,23 +20,10 @@ xmodmap -e "keycode 91 = comma"
  setxkbmap -layout us -variant intl
 ```
 
-* GIT: remove files from the repository based on your .gitignore without deleting them from the local file system
+* GIT: remove files from repository based on .gitignore but not delete them
 
 ```bash
 git rm --cached `git ls-files -i -X .gitignore`
-```
-
-* GIT: Cloning with HTTPS and using the SSH keys
-
-```bash
-git remote set-url origin git@github.com:maxiwell/LinuxConfig.git
-```
-
-* GIT: pull/push from multiple remote locations
-```bash
-git remote add <N> <N-Machine>:/path/to/repo
-git remote update
-# Edit .git/config and change who are the "origin" remote (aka, the default repo).
 ```
 
 * xdg-open don't works with torrent magnet links in the openbox. That only works with gnome, kde, xfce, or lxde.
