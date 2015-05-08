@@ -30,12 +30,12 @@ do
        rm -f excluded.txt  # just in case
        for x in $EXCLUDE_LIST
        do
-           echo $x >> excluded.txt
+           echo $x >> /tmp/excluded.txt
        done
        if [ -e "$P1" ]; then
            echo -e "\n[RSYNC] $P1 -> $SERVER [EXCLUDE] $EXCLUDE_LIST"
            # -C : Ignore like CVS
-           rsync -Rrazp -v  --delete --exclude-from excluded.txt --exclude-from="$FILTER_FILE" -e ssh $P1 $SERVER
+           rsync -Rrazp -v  --delete --exclude-from /tmp/excluded.txt --exclude-from="$FILTER_FILE" -e ssh $P1 $SERVER
        else
            echo -e "ERROR: The path '$line' don't exists\n"
        fi

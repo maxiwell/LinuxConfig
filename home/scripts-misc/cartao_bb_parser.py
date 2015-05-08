@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 # -*- coding: UTF-8 -*-
 
 import re
@@ -66,7 +66,10 @@ def get_cotacao(cartao):
     cotacao = i.next().split()[-3];
 
     cartao.seek(0);
-    return float(format(float(cotacao.replace(",",".")),'.4f'))
+    ret = float(format(float(cotacao.replace(",",".")),'.4f'))
+    print "Cotacao:",ret
+    
+    return ret 
 
 
 #################################################################
@@ -196,14 +199,14 @@ readingFile = cartao.read().split('\n')
 i = iter(readingFile)
 line = i.next();
 
-# REUMO EM REAL eh a ultima linha analisada
+# RESUMO EM REAL eh a ultima linha analisada
 while (line.find("RESUMO EM REAL") == -1):
 
     if "Pagamentos" in line:
         i = Pagamentos(i)
     if "Compras a vista" in line:
         i = Compras(i)
-    if "Compras diversas" in line:
+    if "Compras Diversas" in line:
         i = Compras(i)
     if "Debitos diversos" in line:
         i = Debitos_diversos(i)

@@ -1,7 +1,5 @@
 # filter file for rsync backup
 
-.git/
-.svn/
 *~ 
 #* 
 .#* 

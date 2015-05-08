@@ -5,7 +5,9 @@
 
 /media/linux/files/academico
 /media/linux/files/receita_federal
-/home
+/media/linux/files/.zhackdata
+/home/max -exclude .ssh
+/home/zzz -exclude .ssh
 
 [/media/ntfs/data/backup/powernote]
 
