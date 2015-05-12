@@ -5,12 +5,14 @@ ignorelist="-path /home/max/ArchC -o
             -path /home/max/.cache -o 
             -path /home/max/.local/share/Trash/files"
 
-alldir=`find /home/max/ -type d \( $ignorelist \) -prune -o -print  | egrep -e "\.git$"`
+alldir=`find /home/max/ -type d \( $ignorelist \) -prune -o -print  | grep -e "/\.git$"`
 home=$PWD
 
 red='\033[0;31m'
 yellow='\033[1;33m'
 NC='\033[0m' # No Color
+
+echo $alldir
 
 for k in $alldir; do
         dir=`echo $k | sed -e "s/\/\.git$//"`
