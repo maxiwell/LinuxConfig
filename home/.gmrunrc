@@ -1,6 +1,7 @@
 
 
 
+# Just type 'google:keyword' to use.
 URL_google = google-chrome 'http://www.google.com.ph/search?q=%s'
 
 
