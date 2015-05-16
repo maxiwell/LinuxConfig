@@ -14,17 +14,17 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Android App Dev
-PATH=$PATH:/opt/android/sdks/platform-tools:/opt/android/sdks/tools
+PATH=/opt/android/sdks/platform-tools:/opt/android/sdks/tools:$PATH
 
 #ArchC
-export PATH=$PATH:/home/max/x-tools/mips-newlib-elf/bin
-export PATH=$PATH:/home/max/x-tools/arm-newlib-eabi/bin
-export PATH=$PATH:/home/max/x-tools/powerpc-newlib-elf/bin
-export PATH=$PATH:/home/max/x-tools/sparc-newlib-elf/bin
-export PATH=$PATH:/home/max/x-tools/arm-unknown-linux-gnueabi/bin
-export PATH=$PATH:/home/max/x-tools/mips-unknown-linux-gnu/bin
+export PATH=/home/max/x-tools/mips-newlib-elf/bin:$PATH
+export PATH=/home/max/x-tools/arm-newlib-eabi/bin:$PATH
+export PATH=/home/max/x-tools/powerpc-newlib-elf/bin:$PATH
+export PATH=/home/max/x-tools/sparc-newlib-elf/bin:$PATH
+export PATH=/home/max/x-tools/arm-unknown-linux-gnueabi/bin:$PATH
+export PATH=/home/max/x-tools/mips-unknown-linux-gnu/bin:$PATH
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/
-export AC_LIBRARY_PATH=$AC_LIBRARY_PATH:/lib/x86_64-linux-gnu
+export AC_LIBRARY_PATH=/lib/x86_64-linux-gnu:$AC_LIBRARY_PATH
 
 #export PKG_CONFIG_PATH="$HOME/ArchC/archc/master/install/lib/pkgconfig:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/pkgconfig:${PKG_CONFIG_PATH}"
 
@@ -36,7 +36,7 @@ export IMPERAS_SHRSUF=so
 export IMPERAS_VLNV=$IMPERAS_HOME/lib/$IMPERAS_ARCH/ImperasLib
 #export IMPERAS_RUNTIME=CpuManager
 export IMPERAS_RUNTIME=OVPsim
-export PATH=$PATH:$IMPERAS_HOME/bin/$IMPERAS_ARCH
+export PATH=$IMPERAS_HOME/bin/$IMPERAS_ARCH:$PATH
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$IMPERAS_HOME/bin/$IMPERAS_ARCH:$IMPERAS_HOME/lib/$IMPERAS_ARCH/External/lib
 export LM_LICENSE_FILE=$LM_LICENSE_FILE:$IMPERAS_HOME/OVPsim.lic
 
