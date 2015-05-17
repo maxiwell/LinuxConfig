@@ -42,6 +42,6 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:$IMPERAS_HOME/OVPsim.lic
 
 # Android Build ROM
 export USE_CCACHE=1
-export CCACHE_DIR=/media/btrfiles/.ccache
+export CCACHE_DIR=/media/linux/ssdfiles/.ccache/
 
 
