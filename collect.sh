@@ -48,8 +48,8 @@ for k in $allfil; do
     if [ ! -f $base$dir$fil ]; then
 		echo "$base$dir$fil does not exist"
     else   
-		rsync -razp  --delete --exclude-from="$filter" $base$dir$fil ./home/$dir
-		# cp -p $base$dir$fil ./home/$dir$fil
+		#rsync -razp  --delete --exclude-from="$filter" $base$dir$fil ./home/$dir
+		cp -p $base$dir$fil ./home/$dir$fil
 		# echo "rsync $base$dir$fil"
 	fi
 done
