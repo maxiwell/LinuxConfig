@@ -1,4 +1,4 @@
-*clang_complete.txt*	For Vim version 7.3.  Last change: 2013 Mar 23
+*clang_complete.txt*	For Vim version 7.3.  Last change: 2014 Apr 13
 
 
 		  clang_complete plugin documentation
@@ -55,7 +55,7 @@ some additional kinds of completion along with standard ones (see
 ==============================================================================
 4. Configuration				*clang_complete-configuration*
 
-Each project can have a .clang_complete at his root, containing the compiler
+Each project can have a .clang_complete at its root, containing the compiler
 options. This is useful if you're using some non-standard include paths or
 need to specify particular architecture type, frameworks to use, path to
 precompiled headers, precompiler definitions etc.
@@ -84,6 +84,11 @@ Example .clang_complete file: >
 <
 ==============================================================================
 5. Options					*clang_complete-options*
+
+					*clang_complete-loaded*
+					*g:clang_complete_loaded*
+If set, clang_complete won't be loaded.
+Default: unset.
 
        				       	*clang_complete-auto_select*
 				       	*g:clang_auto_select*
@@ -150,6 +155,14 @@ If equal to 1, clang_complete will add a trailing placeholder after functions
 to let you add you continue writing code faster.
 Default: 0
 
+       				       	*clang_complete-clang_restore_cr_imap*
+       				       	*g:clang_restore_cr_imap*
+This option is used for versions of Vim without the Dictionary version of
+|maparg()| introduced in 7.3.32. The variable is executed after completion to
+restore the insert-mode map of <CR>. Occurrences of "<SID>" in the variable
+are replaced with the appropriate "<SNR>" code based on the original map.
+Default: 'iunmap <buffer> <CR>'
+
        				       	*clang_close-preview*
        				       	*g:clang_close_preview*
 If equal to 1, the preview window will be close automatically after a
@@ -192,7 +205,7 @@ Set sources for user options passed to clang. Available sources are:
 This option is processed and all sources are used on buffer loading, not each
 time before doing completion.
 
-Default: "path, .clang_complete"
+Default: ".clang_complete, path"
 
                                         *clang_complete-compilation_database*
                                         *g:clang_compilation_database*
@@ -213,8 +226,9 @@ Default: 1
 
        				       	*clang_complete-library_path*
        				       	*g:clang_library_path*
-If libclang.[dll/so/dylib] is not in your library search path, set this to the
-absolute path where libclang is available.
+If libclang is not in your library search path, set this to the absolute path
+where libclang is available. This should either be a directory containing a
+file named libclang.[dll/so/dylib] or the clang shared library file itself.
 Default: ""
 
 					*clang_complete-sort_algo*
@@ -237,6 +251,13 @@ Defaut: 0
 					*g:clang_jumpto_declaration_key*
 Set the key used to jump to declaration.
 Defaut: "<C-]>"
+Note: You could use the g:ClangGotoDeclaration() to do the same with a mapping.
+
+					*clang_complete-jumpto_declaration_in_preview_key*
+					*g:clang_jumpto_declaration_in_preview_key*
+Set the key used to jump to declaration in a preview window.
+Defaut: "<C-W>]"
+Note: You could use the g:ClangGotoDeclarationPreview() to do the same with a mapping.
 
 					*clang_complete-jumpto_back_key*
 					*g:clang_jumpto_back_key*
@@ -244,6 +265,12 @@ Set the key used to jump back.
 Note: Effectively this will be remapped to <C-O>. The default value is chosen
 to be coherent with ctags implementation.
 Defaut: "<C-T>"
+
+					*clang_complete-make_default_keymappings*
+					*g:clang_make_default_keymappings*
+If this option is set, the default keymappings will be set by clang_complete.
+Otherwise none are set and the user will have to provide those keymappings.
+Default: 1
 
 ==============================================================================
 6. Known issues					*clang_complete-issues*

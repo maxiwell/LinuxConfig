@@ -36,7 +36,7 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-inoremap { {<CR>}<Esc>ko
+"inoremap { {<CR>}<Esc>ko
 
 " HTML: You can jump a tag to the matching tag by typing %
 runtime macros/matchit.vim
