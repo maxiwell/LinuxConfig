@@ -86,6 +86,8 @@ autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
 set title
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+"-- TagBar ---"
 set runtimepath^=~/.vim/bundle/tagbar
 
 "shortcut to CtrlPTag
@@ -134,6 +136,7 @@ highlight PmenuSel ctermfg=darkgray  ctermbg=white
 set conceallevel=2
 let g:clang_snippets=1
 let g:clang_conceal_snippets=1
+let g:clang_complete_macros = 1
 
 "--clasetag.vim-----------------------------------------------------------------
 
@@ -163,7 +166,5 @@ set runtimepath^=~/.vim/bundle/eclim
 "let g:SuperTabDefaultCompletionType = 'context'
 
 
-if $TMUX == ''
-    set clipboard+=unnamed
-endif
+set clipboard^=unnamed
 

@@ -8,7 +8,7 @@ read CONVERSION
 
 cp $FILE output_${FILE}
 FILE="output_${FILE}"
-grep -n -B 1 -A 2 USD ${FILE} | while read -r GREPLINE; do
+grep -n -B 3 USD ${FILE} | while read -r GREPLINE; do
 
     # Get the GREP output that contains the Currency Value
     if [[ $GREPLINE == *"TRNAMT"* ]]; then
