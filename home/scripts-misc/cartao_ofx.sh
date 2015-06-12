@@ -3,11 +3,13 @@
 FILE=$1
 
 
-echo "Type the conversion BRL->USD: "
-read CONVERSION
+CONVERSION=`grep CURRATE $FILE | uniq | cut -d: -f2 | tr -d "[[:alpha:]]<>/\r"`
+echo "Conversion: $CONVERSION"
 
-cp $FILE output_${FILE}
-FILE="output_${FILE}"
+
+cp $FILE ${FILE}.orig
+
+sed -i '/^[[:space:]]$/d' $FILE
 grep -n -B 3 USD ${FILE} | while read -r GREPLINE; do
 
     # Get the GREP output that contains the Currency Value
