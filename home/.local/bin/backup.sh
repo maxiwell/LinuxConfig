@@ -1,11 +1,8 @@
 #!/bin/bash
-
+# crontab 7 a.m. everyday
+# 0 7 * * * backup.sh
 
 # Working with Local Server or SSH Server
-# 'ayarrr' is a SSH host in ~/.ssh/config file
-
-#SERVER="/backup/_BackupManual_/"
-#SERVER="ayarrr:/home/max/"
 
 SERVER=""
 
@@ -49,22 +46,5 @@ do
     fi
 
 done < "$HOME/.backup"
-
-
-
-
-## That is the old code. It must be moved to 
-## the backup directory and executed from there.
-#
-#SrvDir="/files/"
-#
-#for Dir in $(find * -maxdepth 0 -type d ); 
-#do
-#    rsync -Cravzp $SrvDir/$Dir/ ./$Dir/
-#done
-
-
-
-
 
 

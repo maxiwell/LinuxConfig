@@ -4,13 +4,19 @@
 [/media/linux/data/backup/powernote]
 
 /media/linux/files/academico
+/media/linux/files/chessbase
+/media/linux/files/hacks
 /media/linux/files/receita_federal
 /media/linux/files/.zhackdata
+/media/ntfs/files/.zzz
 /home/max -exclude .ssh
 /home/zzz -exclude .ssh
 
 [/media/ntfs/data/backup/powernote]
 
+/media/ntfs/files/eBooks
+/media/ntfs/files/metodos
+/media/ntfs/files/partituras
 /media/ntfs/files/pessoal
 
 #[ayarrr:/files/backup-powernote/]
