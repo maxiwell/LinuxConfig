@@ -8,9 +8,8 @@
 /media/linux/files/hacks
 /media/linux/files/receita_federal
 /media/linux/files/.zhackdata
-/media/ntfs/files/.zzz
-/home/max -exclude .ssh
-/home/zzz -exclude .ssh
+/home/max -exclude .ssh .cache 
+/home/zzz -exclude .ssh .cache
 
 [/media/ntfs/data/backup/powernote]
 
