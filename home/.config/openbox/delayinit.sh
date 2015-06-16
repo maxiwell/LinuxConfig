@@ -15,3 +15,9 @@ killall ssh-agent
 
 setxkbmap -layout us -variant intl
 
+ENC=`df -t ecryptfs | wc -l` 
+if [ $ENC -gt 0 ]; then
+    gksu /home/max/.local/bin/umountall-ecryptfs.sh
+fi
+
+

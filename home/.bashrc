@@ -102,6 +102,8 @@ alias nemo="nemo --no-desktop"
 alias rm='trash-put'
 alias tmux='tmux -u'
 
+alias sudo='sudo env PATH=$PATH'
+
 # eclim daemon
 #/opt/eclipse/eclimd
 
