@@ -14,7 +14,11 @@ conky  -c $HOME/.conky/conkyrc_seamod &
 killall ssh-agent
 
 setxkbmap -layout us -variant intl
+
 xrdb -merge $HOME/.Xresources
+
+# Map to urxvt works with END/HOME in VIM 
+xmodmap ~/.Xmodmap
 
 ENC=`df -t ecryptfs | wc -l` 
 if [ $ENC -gt 0 ]; then
