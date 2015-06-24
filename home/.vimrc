@@ -168,5 +168,21 @@ set runtimepath^=~/.vim/bundle/eclim
 
 set clipboard^=unnamed
 
+"--------------------------------------------------------------------------------
+" Escape some keys in URXVT
+"
+" To find the vim keycode, in insert mode, press the <CTRL-K>
+" Ot = NUMPED 4
+" Ox = NUMPED 8
+" Ov = NUMPED 6
+" Or = NUMPED 2
+" Ou = NUMPED 5
+
+map  Ot     <Left>
+map  Ox     <Up>
+map  Ov     <Right>
+map  Or     <Down>
+map  Ou     <Nop>
+
 
 
