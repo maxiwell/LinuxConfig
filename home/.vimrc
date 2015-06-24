@@ -168,3 +168,15 @@ set runtimepath^=~/.vim/bundle/eclim
 
 set clipboard^=unnamed
 
+
+map  <Esc>[7~ <Home>
+map  <Esc>[8~ <End>
+imap <Esc>[7~ <Home>
+imap <Esc>[8~ <End>
+
+
+
+
+
+
+

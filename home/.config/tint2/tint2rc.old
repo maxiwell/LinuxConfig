@@ -7,18 +7,18 @@
 #---------------------------------------------
 rounded = 0
 border_width = 1
-background_color = #1A1A1A 0
+background_color = #000000 100
 border_color = #979797 100
 
 rounded = 0
 border_width = 0
-background_color = #ffffff 20
-border_color = #ffffff 20
+background_color = #000000 100
+border_color = #ffffff 100
 
 rounded = 0
 border_width = 0
-background_color = #ffffff 0
-border_color = #ffffff 0
+background_color = #000000 100
+border_color = #ffffff 100
 
 #---------------------------------------------
 # PANEL
@@ -28,13 +28,15 @@ panel_position = bottom center
 panel_size = 92% 28
 panel_margin = 0 0
 panel_padding = 7 0
+panel_items = LTSC
 font_shadow = 0
 panel_background_id = 0
 
 #---------------------------------------------
 # TASKBAR
 #---------------------------------------------
-taskbar_mode = multi_desktop
+#taskbar_mode = multi_desktop
+taskbar_mode = single_desktop
 taskbar_padding = 0 0 0
 taskbar_background_id = 1
 
@@ -44,13 +46,16 @@ taskbar_background_id = 1
 task_icon = 1
 task_text = 0
 task_width = 40
+#task_maximum_size = 140 35
 task_centered = 1
-task_padding = 2 2
+task_padding = 0 0
 task_font = sans 7
 task_font_color = #ffffff 70
 task_active_font_color = #ffffff 85
 task_background_id = 3
 task_active_background_id = 2
+task_icon_asb = 50 0 10
+task_active_icon_asb = 100 0 0
 
 #---------------------------------------------
 # SYSTRAYBAR
@@ -68,6 +73,8 @@ time2_font = sans 6
 clock_font_color = #ffffff 76
 clock_padding = 4 4
 clock_background_id = 1
+clock_rclick_command = wmctrl-show-desktop
+clock_lclick_command = gsimplecal
 
 #---------------------------------------------
 # BATTERY
@@ -90,3 +97,15 @@ mouse_right = none
 mouse_scroll_up = toggle
 mouse_scroll_down = iconify
 
+#------------------------------------------  
+#LAUNCHER  
+#------------------------------------------  
+launcher_icon_theme = areao43  
+launcher_padding = 5 0 10
+launcher_background_id = 1  
+launcher_icon_size = 45
+launcher_item_app = /home/max/.launchers/nautilus.desktop 
+launcher_item_app = /home/max/.launchers/nemo.desktop 
+launcher_item_app = /usr/share/applications/google-chrome-stable.desktop
+launcher_item_app = /usr/share/applications/firefox.desktop  
+launcher_item_app = /home/max/.launchers/unity-control-center.desktop 
