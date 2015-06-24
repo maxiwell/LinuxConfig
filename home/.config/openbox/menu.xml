@@ -67,14 +67,6 @@
 				</startupnotify>
 			</action>
 		</item>
-		<item label="Terminal">
-			<action name="Execute">
-				<command>gnome-terminal</command>
-				<startupnotify>
-					<enabled>yes</enabled>
-				</startupnotify>
-			</action>
-		</item>
 	</menu>
 	<menu id="apps-office-menu" label="Office">
 		<item label="Abiword">
@@ -138,41 +130,60 @@
     </menu>
 
 	<menu id="root-menu" label="Openbox 3">
-		<item label="Terminal">
+		<item label="urxvt">
+			<action name="Execute">
+				<command>urxvt</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+		</item>
+		<item label="xterm">
+			<action name="Execute">
+				<command>xterm</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+            </action>
+        </item>
+		<item label="terminal">
 			<action name="Execute">
 				<command>gnome-terminal</command>
 				<startupnotify>
 					<enabled>yes</enabled>
 				</startupnotify>
 			</action>
-		</item>
-		<item label="Chrome">
+        </item>
+		<separator label="Applications"/>
+		<item label="chrome">
 			<action name="Execute">
 				<command>google-chrome</command>
 				<startupnotify>
 					<enabled>yes</enabled>
 				</startupnotify>
 			</action>
-		</item>
-		<separator label="Applications"/>
-		<menu id="apps-accessories-menu"/>
-		<menu id="apps-net-menu"/>
-		<menu id="apps-multimedia-menu"/>
-		<menu id="apps-office-menu"/>
-		<!--menu id="apps-term-menu"/-->
-		<!--menu id="apps-editors-menu"/-->
-		<!--menu id="apps-graphics-menu"/-->
-		<!--menu id="apps-fileman-menu"/-->
+        </item>
+		<item label="nemo">
+			<action name="Execute">
+				<command>nemo --no-desktop</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+        </item>
+		<item label="nautilus">
+			<action name="Execute">
+				<command>nautilus --no-desktop</command>
+				<startupnotify>
+					<enabled>yes</enabled>
+				</startupnotify>
+			</action>
+        </item>
         <separator label="System"/>
         <menu id="system-menu"/>
         <item label="Sound">
             <action name="Execute">
                 <command>unity-control-center sound</command>
-            </action>
-        </item>
-        <item label="Veromix">
-            <action name="Execute">
-                <command>veromix</command>
             </action>
         </item>
 

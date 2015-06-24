@@ -176,8 +176,9 @@ URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=12,\
             xft:DejaVu Sans Mono:autohint=true:antialias=true,\
             xft:FreeMono:autohint=true:antialias=true,\
             xft:Symbola:autohint=true:antialias=true,\
-            xft:Braille:autohint=true:antialias=true,\
-            -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*,
+            xft:Braille:autohint=true:antialias=true
+
+!  -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*,
 
 !URxvt*boldFont: xft:ubuntu mono:bold:autohint=true:antialias=true:size=12
 !URxvt*italicFont: xft:ubuntu mono:italic:autohint=true:antialias=true:size=12
@@ -185,7 +186,7 @@ URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=12,\
 
 !! EXTENSIONS
 URxvt.perl-lib: ~/.urxvt/ext
-URxvt.perl-ext-common: default,selection-to-clipboard,font-size
+URxvt.perl-ext-common: default,clipboard,font-size
 !!,vtwheel
 URxvt.font-size.step: 1
 
