@@ -32,7 +32,7 @@ URxvt*fadeColor:      D_background
 URxvt*cursorColor:    L_cursor
 URxvt*pointerColorBackground: D_background
 URxvt*pointerColorForeground: L_cursor
-
+URxvt*iconFile: /usr/share/pixmaps/terminal-tango.xpm
 !! black dark/light
 URxvt*color0:         D_black
 URxvt*color8:         L_black
