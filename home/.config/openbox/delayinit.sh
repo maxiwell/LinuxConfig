@@ -12,12 +12,14 @@ killall ssh-agent
 
 setxkbmap -layout us -variant intl
 
+
 xrdb -merge $HOME/.Xresources
+
+sleep 1
 
 # Map to urxvt works with END/HOME in VIM 
 xmodmap ~/.Xmodmap
 
-sleep 1
 conky  -c $HOME/.conky/conkyrc_seamod &
 
 ENC=`df -t ecryptfs | wc -l` 
