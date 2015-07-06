@@ -14,7 +14,10 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 # Android App Dev
-PATH=/opt/android/sdks/platform-tools:/opt/android/sdks/tools:$PATH
+PATH=/opt/android/platform-tools:/opt/android/tools:$PATH
+
+# Eclipse
+PATH=/opt/eclipse/:$PATH
 
 #ArchC
 export PATH=/home/max/x-tools/mips-newlib-elf/bin:$PATH
@@ -25,8 +28,7 @@ export PATH=/home/max/x-tools/arm-unknown-linux-gnueabi/bin:$PATH
 export PATH=/home/max/x-tools/mips-unknown-linux-gnu/bin:$PATH
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/
 export AC_LIBRARY_PATH=/lib/x86_64-linux-gnu:$AC_LIBRARY_PATH
-
-#export PKG_CONFIG_PATH="$HOME/ArchC/archc/master/install/lib/pkgconfig:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/pkgconfig:${PKG_CONFIG_PATH}"
+export PKG_CONFIG_PATH="$HOME/ArchC/archc/master/install/lib/pkgconfig:$HOME/ArchC/tools/systemc/2.3.1/install/lib-linux64/pkgconfig:${PKG_CONFIG_PATH}"
 
 #OVP
 export IMPERAS_HOME=/home/max/ArchC/ovp-env/Imperas.20140127

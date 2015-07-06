@@ -118,7 +118,7 @@ inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 "--clang_complete------------------------------------------------------------
 
 set runtimepath^=~/.vim/bundle/clang_complete
-let g:clang_library_path = '/usr/lib/llvm-3.5/lib'
+let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
 let g:clang_sort_algo = 'alpha'
 
 " If you prefer the Omni-Completion tip window to close when a selection is
