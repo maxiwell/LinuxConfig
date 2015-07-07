@@ -9,7 +9,7 @@
 #    SINK_NAME="alsa_output.pci-0000_00_1b.0.hdmi-stereo"
 #fi 
 
-eval $(pactl stat | awk -F'[ ]' '{if (match($0, "Default Sink")) print "SINK_NAME="$3}')
+eval $(pactl info | awk -F'[ ]' '{if (match($0, "Default Sink")) print "SINK_NAME="$3}')
 
 VOL_STEP="0x01000"
 VOL_NOW=`pacmd dump | grep -P "^set-sink-volume $SINK_NAME\s+" | perl -p -i -e 's/.+\s(.x.+)$/$1/'`
