@@ -1,0 +1,35 @@
+Plugins list with my tips:
+==========================
+
+bundle/clang_complete:
+    - Use the libclang to autocomplete
+    - Ctrl+] to jump to definition symbol
+    - Ctrl+T to go back
+
+bunble/ctrlp.vim
+    - Full path fuzzy file, buffer, tag, ... finder
+    - \+. to call the finder
+
+bundle/tagbar
+    - Read the symbols and splits the vim windows in a symbol's tree
+    - \+b to call the 'tagbar'
+
+bundle/vim-latex
+    - I haven't used for long time and I don't remember any tips
+
+plugin/closetag.vim  
+
+plugin/filebrowser.vim  
+
+plugin/imaps.vim  
+
+plugin/libList.vim  
+
+plugin/remoteOpen.vim  
+
+plugin/SyntaxFolds.vim  
+
+plugin/tex_autoclose.vim
+
+
+

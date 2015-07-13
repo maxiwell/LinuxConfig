@@ -85,14 +85,15 @@ set tags=tags,ctags,.tags,.ctags;
 autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
 set title
 
+"-- ctrlp.vim -------------------------------------------------
+
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+"shortcut to CtrlP
+nnoremap <leader>. :CtrlP<cr> 
 
-"-- TagBar ---"
+"-- TagBar ---------------------------------------------------"
+
 set runtimepath^=~/.vim/bundle/tagbar
-
-"shortcut to CtrlPTag
-nnoremap <leader>. :CtrlPTag<cr> 
-
 "shortcut to TabBar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
