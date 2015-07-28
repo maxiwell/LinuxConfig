@@ -2,5 +2,8 @@
 
 xsetroot -solid "#000000"
 
+xautolock -time 1 -locker "gnome-screensaver-command --lock" &
+
 $HOME/.config/openbox/delayinit.sh &
+
 

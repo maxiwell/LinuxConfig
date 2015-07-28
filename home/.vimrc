@@ -179,6 +179,9 @@ set clipboard^=unnamed
 " Or = NUMPED 2
 " Ou = NUMPED 5
 
+map Ow      <Home>
+map Oq      <End>
+
 map  Ot     <Left>
 map  Ox     <Up>
 map  Ov     <Right>
