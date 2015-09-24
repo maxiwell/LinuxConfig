@@ -120,6 +120,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 "set runtimepath^=~/.vim/bundle/clang_complete
 set runtimepath-=~/.vim/bundle/clang_complete
+
 "let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
 "let g:clang_sort_algo = 'alpha'
 "
