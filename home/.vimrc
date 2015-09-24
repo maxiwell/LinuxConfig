@@ -99,45 +99,46 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 "-- autocomplete with tab: priceless -------------------------------------
 
-set dictionary+=/usr/share/dict/words
-set complete=.,w,k
-
-function AutoCompletar(direcao)
-   let posicao = col(".") - 1
-   if ! posicao || getline(".")[posicao - 1] !~ '\k'
-      return "\<Tab>"
-   elseif a:direcao == "avancar" 
-      return "\<C-n>"
-   else
-      return "\<C-p>"
-   endif
-endfunction
-
-inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
-inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
+" set dictionary+=/usr/share/dict/words
+" set complete=.,w,k
+" 
+" function AutoCompletar(direcao)
+"    let posicao = col(".") - 1
+"    if ! posicao || getline(".")[posicao - 1] !~ '\k'
+"       return "\<Tab>"
+"    elseif a:direcao == "avancar" 
+"       return "\<C-n>"
+"    else
+"       return "\<C-p>"
+"    endif
+" endfunction
+" 
+" inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
+" inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 
 "--clang_complete------------------------------------------------------------
 
-set runtimepath^=~/.vim/bundle/clang_complete
-let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
-let g:clang_sort_algo = 'alpha'
-
-" If you prefer the Omni-Completion tip window to close when a selection is
-" made, these lines close it on movement in insert mode or when leaving
-" insert mode
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-
-"Prevent Pydoc preview window
-set completeopt-=preview
-
-highlight Pmenu ctermfg=white ctermbg=darkgray
-highlight PmenuSel ctermfg=darkgray  ctermbg=white
-
-set conceallevel=2
-let g:clang_snippets=1
-let g:clang_conceal_snippets=1
-let g:clang_complete_macros = 1
+"set runtimepath^=~/.vim/bundle/clang_complete
+set runtimepath-=~/.vim/bundle/clang_complete
+"let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
+"let g:clang_sort_algo = 'alpha'
+"
+"" If you prefer the Omni-Completion tip window to close when a selection is
+"" made, these lines close it on movement in insert mode or when leaving
+"" insert mode
+"autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"
+""Prevent Pydoc preview window
+"set completeopt-=preview
+"
+"highlight Pmenu ctermfg=white ctermbg=darkgray
+"highlight PmenuSel ctermfg=black  ctermbg=white
+"
+"set conceallevel=2
+"let g:clang_snippets=1
+"let g:clang_conceal_snippets=1
+"let g:clang_complete_macros = 1
 
 "--clasetag.vim-----------------------------------------------------------------
 
@@ -188,5 +189,27 @@ map  Ov     <Right>
 map  Or     <Down>
 map  Ou     <Nop>
 
+"--------------------------------------------------------------------------------
+" YouCompleteMe
+
+set runtimepath^=~/.vim/bundle/YouCompleteMe
+"set runtimepath-=~/.vim/bundle/YouCompleteMe
+
+highlight Pmenu ctermfg=white ctermbg=darkgray
+highlight PmenuSel ctermfg=black  ctermbg=white
+
+nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
+nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+" Remove preview window
+let g:ycm_add_preview_to_completeopt = 0
+set completeopt-=preview
+
+" Remove diagnostics for a while
+let g:ycm_enable_diagnostic_signs = 0
+let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_log_level = 'debug'
 
 
