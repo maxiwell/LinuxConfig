@@ -14,8 +14,11 @@ do
 
 	case $cond in
 		ignore)
-			# simply remove the file from find list 
-			allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
+            # simply remove the file from find list if exist 
+            if [ -a $base/$line ]; then
+			    allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
+            fi
+
 			;;
 		unique)
 			# remove the unique files2
@@ -28,7 +31,7 @@ do
 				continue
 			fi
 
-			if [ ! -f $base$fil ] || [ ./home/$fil--$computer -nt $base$fil ]; then
+			if [ ! -f $base$fil ] ; then
 				cp -p ./home/$fil--$computer $base$fil
 				echo "cp $base$fil from $line--$computer"
 			fi
