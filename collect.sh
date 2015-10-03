@@ -33,7 +33,7 @@ do
 			fil="/$line"
 			if [ ! -f $base$fil ]; then
 				echo "$base$fil does not exist"
-			elif [ ! -f ./home/$fil--$computer ] || [ $base$fil -nt ./home/$fil--$computer ]; then
+            else
 				cp -p $base$fil ./home/$fil--$computer
 				echo "cp $base$fil as $line--$computer"	
 			fi
