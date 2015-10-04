@@ -1,11 +1,25 @@
 #!/bin/bash
 
-allfil=`find ./home/ -type f`
 
+config="./special.conf"
 base=$HOME
 computer=$HOSTNAME
-config="./special.conf"
 
+_pwd=$PWD
+
+# -----------------
+
+submodules=`cat .gitmodules | grep submodule | cut -d\" -f2`
+
+# Removing submodules folder from 'allfill' list 
+for i in $submodules; do
+    extract_folders+="-not -path \"./$i/*\" "
+done
+find_command="find ./home/ -type f $extract_folders"
+
+allfil=$(eval $find_command)
+
+# Handling config file (special.conf)
 while read line
 do
 	[[ $line == \#* ]] && continue
@@ -39,6 +53,19 @@ do
 	esac
 done < $config
 
+# Handling submodule cases
+for k in $submodules; do
+	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/home//" | sed -e "s/$/\//"`
+    fil=`basename $k`
+    if [ ! -s $base$dir$fil ]; then
+        ln -s $_pwd/$k $base$dir$fil
+        echo "[submodules] Link created: $_pwd/$k -> $base$dir$fil"
+    else
+        if [ ! -L $base$dir$fil ]; then
+            echo "[submodules] Conflict: The folder $base$dir$fil should be a link to  $_pwd/$k"
+        fi
+    fi
+done
 
 for k in $allfil; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//"`

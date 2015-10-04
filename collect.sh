@@ -1,12 +1,25 @@
 #!/bin/bash
 
-allfil=`find ./home/ -type f`
 
+config="./special.conf"
 base=$HOME
 computer=$HOSTNAME
-config="./special.conf"
 
-filter="$HOME/.rsync-filter"
+_pwd=$PWD
+
+# -----------------
+
+submodules=`cat .gitmodules | grep submodule | cut -d\" -f2`
+
+# Removing submodules folder from 'allfill' list 
+for i in $submodules; do
+    extract_folders+="-not -path \"./$i/*\" "
+done
+find_command="find ./home/ -type f $extract_folders"
+
+allfil=$(eval $find_command)
+
+# filter="$HOME/.rsync-filter"
 
 while read line
 do
