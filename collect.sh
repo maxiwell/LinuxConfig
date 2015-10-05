@@ -48,7 +48,7 @@ do
 				echo "$base$fil does not exist"
             else
 				cp -p $base$fil ./home/$fil--$computer
-				echo "cp $base$fil as $line--$computer"	
+#				echo "cp $base$fil as $line--$computer"	
 			fi
 			;;
 	esac
