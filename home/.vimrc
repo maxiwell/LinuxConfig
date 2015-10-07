@@ -208,9 +208,13 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_add_preview_to_completeopt = 0
 set completeopt-=preview
 
-" Remove diagnostics for a while
+" Remove diagnostics: 'left side symbols'
 let g:ycm_enable_diagnostic_signs = 0
-let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_log_level = 'debug'
+
+" Remove diagnostics: 'text highlighting'
+let g:ycm_show_diagnostics_ui = 0
+
+"let g:ycm_server_use_vim_stdout = 1
+"let g:ycm_server_log_level = 'debug'
 
 
