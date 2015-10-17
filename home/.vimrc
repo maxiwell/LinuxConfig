@@ -1,3 +1,7 @@
+"--------------------------------------------------------------------------------
+" General 
+"--------------------------------------------------------------------------------
+
 set number
 set title
 
@@ -10,37 +14,21 @@ autocmd BufEnter * :syntax sync fromstart
 set encoding=utf-8 
 " set fileencoding=utf-8 
 
-"VIM-LatexSuite
-
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex 
 " can be called correctly.
 set shellslash
 
 set clipboard^=unnamed
 
-" IMPORTANT: grep will sometimes skip displaying the file name if you
-" search in a singe file. This will confuse Latex-Suite. Set your grep
-" program to always generate a file-name.
-
-set grepprg=grep\ -nH\ $*
-
-
 " OPTIONAL: This enables automatic indentation as you type.
 filetype indent on
 
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
 "inoremap { {<CR>}<Esc>ko
 
-" HTML: You can jump a tag to the matching tag by typing %
-runtime macros/matchit.vim
-
+" To navigate in lines without line break (large line)
 imap <up> <esc>gk<insert><right>
 imap <down> <esc>gj<insert><right>
 map <up> gk
@@ -60,16 +48,7 @@ set incsearch
 set wildmode=longest,list,full
 set wildmenu
 
-
 map ´ ''
-
-au BufRead,BufNewFile *.gplot set filetype=gnuplot
-au BufRead,BufNewFile *.gnuplot set filetype=gnuplot
-au BufRead,BufNewFile *.gnu set filetype=gnuplot
-
-augroup filetype
-  au! BufRead,BufNewFile *.ll     set filetype=llvm
-augroup END
 
 " Saving folds
 au BufWinLeave ?* mkview 1
@@ -78,26 +57,75 @@ au BufWinEnter ?* silent loadview 1
 " set the ctags file name
 set tags=tags,ctags,.tags,.ctags;   
 
+set clipboard^=unnamed
+
+" set the viminfo location
+set viminfo+=n~/.vim/viminfo
+
+"--------------------------------------------------------------------------------
+" Tmux Configuration
+"--------------------------------------------------------------------------------
+
 "tmux tabs with name of file open in vim
 "autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
 "autocmd VimLeave * call system("tmux rename-window bash")
+"autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
 
-autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
-set title
+"--------------------------------------------------------------------------------
+" Persistent UNDO 
+"--------------------------------------------------------------------------------
 
-"-- ctrlp.vim -------------------------------------------------
+" set a directory to store the undo history
+set undodir=~/.vim/undo
+" tell it to use an undo file
+set undofile
+" maximum number of changes that can be undone
+"set undolevels=1000
+" maximum number lines to save for undo on a buffer reload
+"set undoreload=10000 
+
+"--------------------------------------------------------------------------------
+" HTML file 
+"--------------------------------------------------------------------------------
+
+" HTML: You can jump a tag to the matching tag by typing %
+" runtime macros/matchit.vim
+
+"--------------------------------------------------------------------------------
+" GnuPlot file 
+"--------------------------------------------------------------------------------
+
+au BufRead,BufNewFile *.gplot set filetype=gnuplot
+au BufRead,BufNewFile *.gnuplot set filetype=gnuplot
+au BufRead,BufNewFile *.gnu set filetype=gnuplot
+
+"--------------------------------------------------------------------------------
+" LLVM file 
+"--------------------------------------------------------------------------------
+
+augroup filetype
+  au! BufRead,BufNewFile *.ll     set filetype=llvm
+augroup END
+
+"--------------------------------------------------------------------------------
+" ctrlp.vim 
+"--------------------------------------------------------------------------------
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 "shortcut to CtrlP
 nnoremap <leader>. :CtrlP<cr> 
 
-"-- TagBar ---------------------------------------------------"
+"--------------------------------------------------------------------------------
+" TagBar 
+"--------------------------------------------------------------------------------
 
 set runtimepath^=~/.vim/bundle/tagbar
 "shortcut to TabBar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
-"-- autocomplete with tab: priceless -------------------------------------
+"--------------------------------------------------------------------------------
+" autocomplete with tab: priceless
+"--------------------------------------------------------------------------------
 
 " set dictionary+=/usr/share/dict/words
 " set complete=.,w,k
@@ -116,7 +144,9 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 " inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
 " inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 
-"--clang_complete------------------------------------------------------------
+"--------------------------------------------------------------------------------
+"clang_complete
+"--------------------------------------------------------------------------------
 
 "set runtimepath^=~/.vim/bundle/clang_complete
 set runtimepath-=~/.vim/bundle/clang_complete
@@ -141,7 +171,9 @@ set runtimepath-=~/.vim/bundle/clang_complete
 "let g:clang_conceal_snippets=1
 "let g:clang_complete_macros = 1
 
-"--clasetag.vim-----------------------------------------------------------------
+"--------------------------------------------------------------------------------
+" clasetag.vim
+"--------------------------------------------------------------------------------
 
 " Hitting ctrl-_ will initiate a search for the most recent open tag above 
 " that is not closed in the intervening space and then insert the matching 
@@ -151,7 +183,15 @@ set runtimepath-=~/.vim/bundle/clang_complete
 " I disabled closetag. I am use omni completation, with <C-X> <C-O>, native
 " support.
 
-"--vim-latex--------------------------------------------------------------------
+"--------------------------------------------------------------------------------
+" Latex files
+"--------------------------------------------------------------------------------
+
+" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
+" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
+" The following changes the default filetype back to 'tex':
+let g:tex_flavor='latex'
+
 
 " set runtimepath^=~/.vim/bundle/vim-latex
 "
@@ -159,20 +199,22 @@ set runtimepath-=~/.vim/bundle/clang_complete
 " <C-\>c close the tex env
 au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
 
-"--eclim------------------------------------------------------------------------
+"--------------------------------------------------------------------------------
+" eclim
+"--------------------------------------------------------------------------------
 
-set runtimepath^=~/.vim/bundle/eclim
+" set runtimepath^=~/.vim/bundle/eclim
 
-"--supertab------------------------------------------------------------------------
+"--------------------------------------------------------------------------------
+" supertab
+"--------------------------------------------------------------------------------
 
 "set runtimepath^=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
-
-set clipboard^=unnamed
-
 "--------------------------------------------------------------------------------
 " Escape some keys in URXVT
+"--------------------------------------------------------------------------------
 "
 " To find the vim keycode, in insert mode, press the <CTRL-K>
 " Ot = NUMPED 4
@@ -192,6 +234,7 @@ map  Ou     <Nop>
 
 "--------------------------------------------------------------------------------
 " YouCompleteMe
+"--------------------------------------------------------------------------------
 
 set runtimepath^=~/.vim/bundle/YouCompleteMe
 "set runtimepath-=~/.vim/bundle/YouCompleteMe
