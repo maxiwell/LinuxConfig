@@ -13,3 +13,18 @@
 [submodule "home/.vim/bundle/YouCompleteMe"]
 	path = home/.vim/bundle/YouCompleteMe
 	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "home/.vim/bundle/vim-airline"]
+	path = home/.vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule "home/.vim/bundle/vim-pathogen"]
+	path = home/.vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "home/.config/oh-my-zsh"]
+	path = home/.config/oh-my-zsh
+	url = git@github.com:robbyrussell/oh-my-zsh.git
+[submodule "home/.config/powerline-fonts"]
+	path = home/.config/powerline-fonts
+	url = git@github.com:powerline/fonts.git
+[submodule "home/.config/tmux-resurrect"]
+	path = home/.config/tmux-resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect.git

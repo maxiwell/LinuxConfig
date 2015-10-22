@@ -62,6 +62,15 @@ set clipboard^=unnamed
 " set the viminfo location
 set viminfo+=n~/.vim/viminfo
 
+" set the default color scheme
+colorscheme peachpuff
+
+" Set a default path to netrw
+let g:netrw_home='~/.vim'
+
+" Use 256 colours
+set t_Co=256
+
 "--------------------------------------------------------------------------------
 " Tmux Configuration
 "--------------------------------------------------------------------------------
@@ -108,10 +117,22 @@ augroup filetype
 augroup END
 
 "--------------------------------------------------------------------------------
+" Pathogen
+"--------------------------------------------------------------------------------
+
+let g:pathogen_disabled = []
+set runtimepath^=~/.vim/bundle/vim-pathogen
+
+" To disable a plugin, add it's bundle name to the following list
+call add(g:pathogen_disabled, '')
+
+call pathogen#infect()
+
+
+"--------------------------------------------------------------------------------
 " ctrlp.vim 
 "--------------------------------------------------------------------------------
 
-set runtimepath^=~/.vim/bundle/ctrlp.vim
 "shortcut to CtrlP
 nnoremap <leader>. :CtrlP<cr> 
 
@@ -119,7 +140,6 @@ nnoremap <leader>. :CtrlP<cr>
 " TagBar 
 "--------------------------------------------------------------------------------
 
-set runtimepath^=~/.vim/bundle/tagbar
 "shortcut to TabBar
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
@@ -148,7 +168,6 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 "clang_complete
 "--------------------------------------------------------------------------------
 
-"set runtimepath^=~/.vim/bundle/clang_complete
 set runtimepath-=~/.vim/bundle/clang_complete
 
 "let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
@@ -193,7 +212,7 @@ set runtimepath-=~/.vim/bundle/clang_complete
 let g:tex_flavor='latex'
 
 
-" set runtimepath^=~/.vim/bundle/vim-latex
+set runtimepath-=~/.vim/bundle/vim-latex
 "
 " I disabled the vim-latex plugin for now. The tex_autoclose.vim is enough
 " <C-\>c close the tex env
@@ -203,13 +222,13 @@ au Filetype tex source ~/.vim/plugin/tex_autoclose.vim
 " eclim
 "--------------------------------------------------------------------------------
 
-" set runtimepath^=~/.vim/bundle/eclim
+set runtimepath-=~/.vim/bundle/eclim
 
 "--------------------------------------------------------------------------------
 " supertab
 "--------------------------------------------------------------------------------
 
-"set runtimepath^=~/.vim/bundle/supertab
+set runtimepath-=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
 "--------------------------------------------------------------------------------
@@ -236,7 +255,6 @@ map  Ou     <Nop>
 " YouCompleteMe
 "--------------------------------------------------------------------------------
 
-set runtimepath^=~/.vim/bundle/YouCompleteMe
 "set runtimepath-=~/.vim/bundle/YouCompleteMe
 
 highlight Pmenu ctermfg=white ctermbg=darkgray
@@ -259,5 +277,36 @@ let g:ycm_show_diagnostics_ui = 0
 
 "let g:ycm_server_use_vim_stdout = 1
 "let g:ycm_server_log_level = 'debug'
+
+"--------------------------------------------------------------------------------
+" vim-airline
+"--------------------------------------------------------------------------------
+
+"set runtimepath-=~/.vim/bundle/vim-airline
+set laststatus=2 
+
+" set the symbol dictionary as the one of powerline
+let g:airline_powerline_fonts = 1
+
+"" powerline symbols
+"if !exists('g:airline_symbols')
+"	let g:airline_symbols = {}
+"endif
+"
+""let g:airline_left_sep = ''
+""let g:airline_left_alt_sep = ''
+""let g:airline_right_sep = ''
+""let g:airline_right_alt_sep = ''
+""let g:airline_symbols.branch = ''
+""let g:airline_symbols.readonly = ''
+""let g:airline_symbols.linenr = ''
+	
+
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
 
 

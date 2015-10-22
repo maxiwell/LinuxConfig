@@ -174,13 +174,13 @@ URxvt*buffered: true
 
 !! FONT
 !URxvt*font: xft:dejavu sans mono:antialias=true:size=10
-URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=12,\
-            xft:DejaVu Sans Mono:autohint=true:antialias=true,\
-            xft:FreeMono:autohint=true:antialias=true,\
-            xft:Symbola:autohint=true:antialias=true,\
-            xft:Braille:autohint=true:antialias=true
+!URxvt*font: xft:Ubuntu Mono:autohint=true:antialias=true:size=12,\
+!            xft:DejaVu Sans Mono:autohint=true:antialias=true,\
+!            xft:FreeMono:autohint=true:antialias=true,\
+!            xft:Symbola:autohint=true:antialias=true,\
+!            xft:Braille:autohint=true:antialias=true
 
-!  -*-fixed-*-*-*-*-*-*-*-*-*-*-*-*,
+URxvt*font: xft:Ubuntu Mono derivative Powerline:antialias=trye:size=12
 
 !URxvt*boldFont: xft:ubuntu mono:bold:autohint=true:antialias=true:size=12
 !URxvt*italicFont: xft:ubuntu mono:italic:autohint=true:antialias=true:size=12
@@ -243,5 +243,8 @@ URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg: 3
 URxvt.tabbed.tab-bg: 0
+
+
+
 
 
