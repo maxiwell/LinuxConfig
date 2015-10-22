@@ -493,8 +493,8 @@
         </action>
     </keybind>
 
-    <!-- F3 -->
-    <keybind key="W-0x45">
+    <!-- F1 -->
+    <keybind key="W-0x43">
         <action name="Execute">
             <command>setxkbmap -layout us -variant intl</command>
         </action>
