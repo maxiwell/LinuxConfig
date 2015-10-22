@@ -94,9 +94,9 @@ zstyle ':completion:*:processes' sort false
 
 bindkey -v
 
-bindkey '^[[1;3C' forward-word
-bindkey '^[[1;3D' backward-word
-
+bindkey '^[[1;3C'   forward-word
+bindkey '^[[1;3D'   backward-word
+bindkey '^R'        history-incremental-search-backward
 
 
 
