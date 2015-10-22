@@ -47,20 +47,21 @@ map <up> gk
 map <down> gj
 
 " C-PageUp and C-PageDown to navigate between buffers in Normal mode
-nnoremap <C-PageUp>     :bp<CR>
-nnoremap <C-PageDown>   :bn<CR>
+    nnoremap <C-PageUp>     :bp<CR>
+    nnoremap <C-PageDown>   :bn<CR>
 " A-PageUp and A-PageDown to navigate between tabs in Normal mode
-nnoremap <M-PageUp>   :tabn<CR>
-nnoremap <M-PageDown> :tabp<CR>
+    nnoremap <M-PageUp>   :tabn<CR>
+    noremap <M-PageDown> :tabp<CR>
 " A-Right and A-Left to jump words in Normal mode
-nnoremap <M-right>  <C-right>h 
-nnoremap <M-left>   <C-left>
+    nnoremap <M-right>  <C-right>
+    nnoremap <M-left>   <C-left>
 " A-Right and A-Left to jump words in Insert mode
-inoremap <M-right>  <C-O>W
-inoremap <M-left>   <C-O>B
+    inoremap <M-right>  <C-O>W
+    inoremap <M-left>   <C-O>B
 " C-L and C-H to jump words in Insert mode
-inoremap <C-L> <C-\><C-O>W
-inoremap <C-H> <C-\><C-O>B
+    inoremap <C-L> <C-\><C-O>W
+    inoremap <C-H> <C-\><C-O>B
+
 
 "--------------------------------------------------------------------------------
 " Pathogen: plugin manager 
@@ -235,7 +236,7 @@ set runtimepath-=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
 "--------------------------------------------------------------------------------
-" Map keys to work with URXVT and TMUX
+" Map keys to work with URXVT+TMUX+SSH
 "--------------------------------------------------------------------------------
 "
 " To find the vim keycode, in insert mode, press the <CTRL-K>
@@ -253,11 +254,23 @@ map  Ov     <Right>
 map  Or     <Down>
 map  Ou     <Nop>
 
-" M-Right, Left, Up and Down inside the TMUX returns this strange codes:
-map   [1;3A  <UP>
-map   [1;3B  <DOWN> 
-map   [1;3C  <M-Right>
-map   [1;3D  <M-Left>
+" Special cases to handler inside urxvt+ssh+tmux
+" This strange codes is picked with Ctrl-K
+    " C-Right and C-Left fixed
+    nnoremap [1;5C   <C-right>
+    nnoremap [1;5D   <C-left>
+    " M-up and M-down fixed
+    map   [1;3A  <M-UP>
+    map   [1;3B  <M-DOWN>
+    "M-Right and M-Left fixed
+    map   [1;3C  <M-Right>
+    map   [1;3D  <M-Left>
+    "M-PageUp and M-PageDown fixed
+    map [5;3~  <M-PageUp>
+    map [6;3~  <M-PageDown>
+    "C-PageUp and C-PageDown fixed
+    map [5;5~  <C-PageUp>
+    map [6;5~  <C-PageDown>
 
 "--------------------------------------------------------------------------------
 " YouCompleteMe
