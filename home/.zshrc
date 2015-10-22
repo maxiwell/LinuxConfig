@@ -92,4 +92,11 @@ zstyle ':completion:*:processes' insert-ids menu yes select
 zstyle ':completion:*:processes-names' command 'NOCOLORS=1 ps xho command|sed "s/://g"'
 zstyle ':completion:*:processes' sort false
 
+bindkey -v
+
+bindkey '^[[1;3C' forward-word
+bindkey '^[[1;3D' backward-word
+
+
+
 

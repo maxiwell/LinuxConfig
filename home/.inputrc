@@ -1,9 +1,10 @@
-
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
-#"\e[5~": beginning-of-history      
-#"\e[6~": end-of-history     
-"\e[7~":  beginning-of-line
-"\e[8~":  end-of-line
-#"\eOy": history-search-backward
-#"\eOs": history-search-forward
+#"\e[1;3C": forward-word 
+#"\e[1;3D": backward-word
+#"\e[1;5C": forward-word
+#"\e[1;5D": backward-word
+##"\e[5~": beginning-of-history      
+##"\e[6~": end-of-history     
+#"\e[7~":  beginning-of-line
+#"\e[8~":  end-of-line
+##"\eOy": history-search-backward
+##"\eOs": history-search-forward

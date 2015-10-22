@@ -1,7 +1,6 @@
 "--------------------------------------------------------------------------------
 " General 
 "--------------------------------------------------------------------------------
-
 set number
 set title
 set smartindent
@@ -47,12 +46,21 @@ imap <down> <esc>gj<insert><right>
 map <up> gk
 map <down> gj
 
-" Remap page up/down to navigate between buffers
+" C-PageUp and C-PageDown to navigate between buffers in Normal mode
 nnoremap <C-PageUp>     :bp<CR>
 nnoremap <C-PageDown>   :bn<CR>
+" A-PageUp and A-PageDown to navigate between tabs in Normal mode
 nnoremap <M-PageUp>   :tabn<CR>
 nnoremap <M-PageDown> :tabp<CR>
-
+" A-Right and A-Left to jump words in Normal mode
+nnoremap <M-right>  <C-right>h 
+nnoremap <M-left>   <C-left>
+" A-Right and A-Left to jump words in Insert mode
+inoremap <M-right>  <C-O>W
+inoremap <M-left>   <C-O>B
+" C-L and C-H to jump words in Insert mode
+inoremap <C-L> <C-\><C-O>W
+inoremap <C-H> <C-\><C-O>B
 
 "--------------------------------------------------------------------------------
 " Pathogen: plugin manager 
@@ -227,7 +235,7 @@ set runtimepath-=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
 "--------------------------------------------------------------------------------
-" Escape some keys in URXVT
+" Map keys to work with URXVT and TMUX
 "--------------------------------------------------------------------------------
 "
 " To find the vim keycode, in insert mode, press the <CTRL-K>
@@ -244,6 +252,12 @@ map  Ox     <Up>
 map  Ov     <Right>
 map  Or     <Down>
 map  Ou     <Nop>
+
+" M-Right, Left, Up and Down inside the TMUX returns this strange codes:
+map   [1;3A  <UP>
+map   [1;3B  <DOWN> 
+map   [1;3C  <M-Right>
+map   [1;3D  <M-Left>
 
 "--------------------------------------------------------------------------------
 " YouCompleteMe
