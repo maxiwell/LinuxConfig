@@ -28,3 +28,9 @@
 [submodule "home/.config/tmux-resurrect"]
 	path = home/.config/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule "home/.vim/bundle/vim-signature"]
+	path = home/.vim/bundle/vim-signature
+	url = git@github.com:kshenoy/vim-signature.git
+[submodule "home/.vim/bundle/molokai"]
+	path = home/.vim/bundle/molokai
+	url = git@github.com:tomasr/molokai.git

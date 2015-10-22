@@ -18,7 +18,6 @@ set t_Co=256                    " Use 256 colours
 let g:netrw_home='~/.vim'
 filetype indent on
 filetype plugin on
-colorscheme peachpuff           " set the default color scheme
 set encoding=utf-8 
 "set fileencoding=utf-8 
 
@@ -53,6 +52,28 @@ nnoremap <C-PageUp>     :bp<CR>
 nnoremap <C-PageDown>   :bn<CR>
 nnoremap <M-PageUp>   :tabn<CR>
 nnoremap <M-PageDown> :tabp<CR>
+
+
+"--------------------------------------------------------------------------------
+" Pathogen: plugin manager 
+"--------------------------------------------------------------------------------
+
+let g:pathogen_disabled = []
+set runtimepath^=~/.vim/bundle/vim-pathogen
+
+" To disable a plugin, add it's bundle name to the following list
+call add(g:pathogen_disabled, '')
+
+" Load and helptags all plugins in ~/.vim/bundle/
+call pathogen#infect()
+
+"--------------------------------------------------------------------------------
+" Colors scheme
+"--------------------------------------------------------------------------------
+
+" set the default color scheme
+colorscheme peachpuff           
+" colorscheme molokai
 
 "--------------------------------------------------------------------------------
 " Tmux Configuration
@@ -98,18 +119,6 @@ au BufRead,BufNewFile *.gnu set filetype=gnuplot
 augroup filetype
   au! BufRead,BufNewFile *.ll     set filetype=llvm
 augroup END
-
-"--------------------------------------------------------------------------------
-" Pathogen
-"--------------------------------------------------------------------------------
-
-let g:pathogen_disabled = []
-set runtimepath^=~/.vim/bundle/vim-pathogen
-
-" To disable a plugin, add it's bundle name to the following list
-call add(g:pathogen_disabled, '')
-
-call pathogen#infect()
 
 
 "--------------------------------------------------------------------------------
@@ -244,6 +253,7 @@ map  Ou     <Nop>
 
 highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=black  ctermbg=white
+highlight clear SignColumn      
 
 nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
@@ -292,6 +302,5 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
 
 
