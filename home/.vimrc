@@ -4,51 +4,33 @@
 
 set number
 set title
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set mouse=a
+"set hlsearch
+set incsearch
+set nobackup
+set clipboard^=unnamed
+set viminfo+=n~/.vim/viminfo    " set the viminfo location
+set t_Co=256                    " Use 256 colours
+let g:netrw_home='~/.vim'
+filetype indent on
+filetype plugin on
+colorscheme peachpuff           " set the default color scheme
+set encoding=utf-8 
+"set fileencoding=utf-8 
+
+" TabComplete like bash
+set wildmode=longest,list,full
+set wildmenu
 
 " Request sudo password to modify root files
 cmap w!! %!sudo tee % > /dev/null 
 
 " Force the highlight from start of file (but slowest result)
 autocmd BufEnter * :syntax sync fromstart
-
-set encoding=utf-8 
-" set fileencoding=utf-8 
-
-" REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
-filetype plugin on
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex 
-" can be called correctly.
-set shellslash
-
-set clipboard^=unnamed
-
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
-"inoremap { {<CR>}<Esc>ko
-
-" To navigate in lines without line break (large line)
-imap <up> <esc>gk<insert><right>
-imap <down> <esc>gj<insert><right>
-map <up> gk
-map <down> gj
-
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-set mouse=a
-
-"set hlsearch
-set incsearch
-
-" TabComplete like bash
-set wildmode=longest,list,full
-set wildmenu
-
-map ´ ''
 
 " Saving folds
 au BufWinLeave ?* mkview 1
@@ -57,19 +39,20 @@ au BufWinEnter ?* silent loadview 1
 " set the ctags file name
 set tags=tags,ctags,.tags,.ctags;   
 
-set clipboard^=unnamed
+" Easy of use with dead key keyboard
+map ´ ''
 
-" set the viminfo location
-set viminfo+=n~/.vim/viminfo
+" To navigate in lines without line break (large line)
+imap <up> <esc>gk<insert><right>
+imap <down> <esc>gj<insert><right>
+map <up> gk
+map <down> gj
 
-" set the default color scheme
-colorscheme peachpuff
-
-" Set a default path to netrw
-let g:netrw_home='~/.vim'
-
-" Use 256 colours
-set t_Co=256
+" Remap page up/down to navigate between buffers
+nnoremap <C-PageUp>     :bp<CR>
+nnoremap <C-PageDown>   :bn<CR>
+nnoremap <M-PageUp>   :tabn<CR>
+nnoremap <M-PageDown> :tabp<CR>
 
 "--------------------------------------------------------------------------------
 " Tmux Configuration
@@ -206,14 +189,17 @@ set runtimepath-=~/.vim/bundle/clang_complete
 " Latex files
 "--------------------------------------------------------------------------------
 
+set runtimepath-=~/.vim/bundle/vim-latex
+
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
+" IMPORTANT: win32 users will need to have 'shellslash' set so that latex 
+" can be called correctly.
+set shellslash
 
-set runtimepath-=~/.vim/bundle/vim-latex
-"
 " I disabled the vim-latex plugin for now. The tex_autoclose.vim is enough
 " <C-\>c close the tex env
 au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
@@ -242,9 +228,8 @@ set runtimepath-=~/.vim/bundle/supertab
 " Or = NUMPED 2
 " Ou = NUMPED 5
 
-map Ow      <Home>
-map Oq      <End>
-
+map  Ow     <Home>
+map  Oq     <End>
 map  Ot     <Left>
 map  Ox     <Up>
 map  Ov     <Right>
