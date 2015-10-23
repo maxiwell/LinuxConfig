@@ -252,7 +252,7 @@ map  Ot     <Left>
 map  Ox     <Up>
 map  Ov     <Right>
 map  Or     <Down>
-map  Ou     <Nop>  
+map  Ou     <Nop>
 
 " Special cases to handler inside urxvt+ssh+tmux
 " This strange codes is picked with Ctrl-K
