@@ -181,7 +181,7 @@ URxvt*buffered: true
 !            xft:Braille:autohint=true:antialias=true
 
 URxvt*font: xft:Ubuntu Mono derivative Powerline:antialias=trye:size=12
-
+URxvt.keysym.C-0: command:\033]710;xft:Ubuntu Mono derivative Powerline:antialias=trye:size=12\007
 !URxvt*boldFont: xft:ubuntu mono:bold:autohint=true:antialias=true:size=12
 !URxvt*italicFont: xft:ubuntu mono:italic:autohint=true:antialias=true:size=12
 !URxvt*boldItalicFont: xft:ubuntu mono:bold:italic:autohint=true:antialias=true:size=12
@@ -193,6 +193,13 @@ URxvt.perl-ext-common: default,font-size,selection-to-clipboard
 URxvt.font-size.step: 1
 
 !! KEYBINDINGS
+
+! Fixed the vim problem with Insert+{Home,End} in Powernote machine
+URxvt.keysym.Home:      \033[1~
+URxvt.keysym.End:       \033[4~
+URxvt.keysym.KP_Home:   \033[1~
+URxvt.keysym.KP_End:    \033[4~
+
 URxvt.keysym.C-equal: perl:font-size:increase
 URxvt.keysym.C-minus: perl:font-size:decrease
 

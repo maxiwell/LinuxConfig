@@ -97,6 +97,7 @@ bindkey -v
 bindkey '^[[1;3C'   forward-word
 bindkey '^[[1;3D'   backward-word
 bindkey '^R'        history-incremental-search-backward
-
+bindkey "^[[1~"   beginning-of-line
+bindkey "^[[4~"   end-of-line
 
 
