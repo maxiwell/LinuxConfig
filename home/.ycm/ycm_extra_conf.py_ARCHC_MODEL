@@ -35,9 +35,9 @@ import ycm_core
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
-'-Wall',
-'-Wextra',
-'-Werror',
+#'-Wall',
+#'-Wextra',
+#'-Werror',
 #'-Wc++98-compat',
 '-Wno-long-long',
 '-Wno-variadic-macros',
@@ -82,6 +82,10 @@ flags = [
 '-isystem',
 './tests/gmock/include',
 ]
+
+import subprocess
+flags += [s.strip() for s in subprocess.check_output(['pkg-config', '--cflags', 'systemc']).strip().split(' ')]
+flags += [s.strip() for s in subprocess.check_output(['pkg-config', '--cflags', 'archc']).strip().split(' ')]
 
 
 # Set this to the absolute path to the folder (NOT the file!) containing the

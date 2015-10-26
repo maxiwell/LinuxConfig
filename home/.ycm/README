@@ -1,0 +1,11 @@
+# YouCompleteMe Configurations
+
+### Description: 
+
+Backup of YCM configurations. 
+
+### How to use: 
+
+Move the file to root folder of the project and rename it to '.ycm_extra_conf.py'
+
+

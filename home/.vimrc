@@ -286,7 +286,7 @@ highlight clear SignColumn
 nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
 
 " Remove preview window
 let g:ycm_add_preview_to_completeopt = 0
@@ -300,6 +300,9 @@ let g:ycm_show_diagnostics_ui = 0
 
 "let g:ycm_server_use_vim_stdout = 1
 "let g:ycm_server_log_level = 'debug'
+
+let g:ycm_confirm_extra_conf = 0
+"let g:loaded_youcompleteme = 1
 
 "--------------------------------------------------------------------------------
 " vim-airline
