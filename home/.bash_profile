@@ -1,7 +1,7 @@
 # set .profile config in 'SSH' and 'su' session
 
-[[ -f ~/.profile ]] && . ~/.profile
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.profile ]] && source ~/.profile
+[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 
 

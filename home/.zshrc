@@ -100,4 +100,5 @@ bindkey '^R'        history-incremental-search-backward
 bindkey "^[[1~"   beginning-of-line
 bindkey "^[[4~"   end-of-line
 
+setopt no_share_history
 
