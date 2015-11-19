@@ -36,7 +36,7 @@ do
 			;;
 		unique)
 			# remove the unique files2
-			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^ ]* ||g'`
+			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
 
 			fil="/$line"
 

@@ -34,7 +34,7 @@ do
 			;;
 		unique)
 			# remove the unique files
-			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^ ]* ||g'`
+			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
 
 			# for first run after inserting a new file in [unique] case
 			# remove the name without $HOSTNAME termination
@@ -54,8 +54,10 @@ do
 	esac
 done < $config
 
+echo $allfil
+
 for k in $allfil; do
-	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//"`
+	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//" `
 	fil=`basename $k`
 
     if [ ! -f $base$dir$fil ]; then
