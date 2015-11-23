@@ -54,8 +54,6 @@ do
 	esac
 done < $config
 
-echo $allfil
-
 for k in $allfil; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//" `
 	fil=`basename $k`
