@@ -1,5 +1,8 @@
 #!/bin/bash
 
+xsetroot -solid "#000000"
+
+#xautolock -time 1 -locker "gnome-screensaver-command --lock" &
 
 hdmi clone &
 tint2 &
@@ -14,18 +17,11 @@ setxkbmap -layout us -variant intl
 
 xrdb -merge $HOME/.Xresources
 
-sleep 2
-
 # Map to urxvt works with END/HOME in VIM 
 xmodmap ~/.Xmodmap
 
 sleep 2
 
 conky  -c $HOME/.conky/conkyrc_seamod &
-
-ENC=`df -t ecryptfs | wc -l` 
-if [ $ENC -gt 0 ]; then
-    gksu /home/max/.local/bin/umountall-ecryptfs.sh
-fi
 
 
