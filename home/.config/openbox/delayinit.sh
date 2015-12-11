@@ -9,10 +9,12 @@ tint2 &
 
 #feh --bg-tile Pictures/Emily_Blunt.jpg &
 
+# Disable nemo desktop
 gsettings set org.nemo.desktop show-desktop-icons
 
 killall ssh-agent
 
+# keyboard to USA with dead keys
 setxkbmap -layout us -variant intl
 
 xrdb -merge $HOME/.Xresources
