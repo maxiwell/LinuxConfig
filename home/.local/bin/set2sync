@@ -5,7 +5,7 @@
 
 # -c : check if files are synchronized
 
-GITDIR=$HOME/.github/LinuxConfig/home
+GITDIR=$HOME/.config/linuxConfig/home
 
 if [[ $1 == '' ]]; then
     echo "File or folder missing..."

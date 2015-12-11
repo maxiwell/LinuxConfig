@@ -71,7 +71,10 @@ let g:pathogen_disabled = []
 set runtimepath^=~/.vim/bundle/vim-pathogen
 
 " To disable a plugin, add it's bundle name to the following list
-call add(g:pathogen_disabled, '')
+call add(g:pathogen_disabled, 'clang_complete')
+call add(g:pathogen_disabled, 'vim-latex')
+call add(g:pathogen_disabled, 'eclim')
+call add(g:pathogen_disabled, 'supertab')
 
 " Load and helptags all plugins in ~/.vim/bundle/
 call pathogen#infect()
@@ -85,15 +88,6 @@ colorscheme peachpuff
 " colorscheme molokai
 
 "--------------------------------------------------------------------------------
-" Tmux Configuration
-"--------------------------------------------------------------------------------
-
-"tmux tabs with name of file open in vim
-"autocmd BufEnter,BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%:t"))
-"autocmd VimLeave * call system("tmux rename-window bash")
-"autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
-
-"--------------------------------------------------------------------------------
 " Persistent UNDO 
 "--------------------------------------------------------------------------------
 
@@ -105,13 +99,6 @@ set undofile
 "set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
 "set undoreload=10000 
-
-"--------------------------------------------------------------------------------
-" HTML file 
-"--------------------------------------------------------------------------------
-
-" HTML: You can jump a tag to the matching tag by typing %
-" runtime macros/matchit.vim
 
 "--------------------------------------------------------------------------------
 " GnuPlot file 
@@ -169,8 +156,6 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 "clang_complete
 "--------------------------------------------------------------------------------
 
-set runtimepath-=~/.vim/bundle/clang_complete
-
 "let g:clang_library_path = '/usr/lib/llvm-3.6/lib'
 "let g:clang_sort_algo = 'alpha'
 "
@@ -192,47 +177,21 @@ set runtimepath-=~/.vim/bundle/clang_complete
 "let g:clang_complete_macros = 1
 
 "--------------------------------------------------------------------------------
-" clasetag.vim
-"--------------------------------------------------------------------------------
-
-" Hitting ctrl-_ will initiate a search for the most recent open tag above 
-" that is not closed in the intervening space and then insert the matching 
-" close tag at the cursor.
-" au Filetype html,xml,xsl source ~/.vim/plugin/closetag.vim 
-
-" I disabled closetag. I am use omni completation, with <C-X> <C-O>, native
-" support.
-
-"--------------------------------------------------------------------------------
 " Latex files
 "--------------------------------------------------------------------------------
 
-set runtimepath-=~/.vim/bundle/vim-latex
-
-" OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
-" 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
-" The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
-
-" IMPORTANT: win32 users will need to have 'shellslash' set so that latex 
-" can be called correctly.
-set shellslash
-
-" I disabled the vim-latex plugin for now. The tex_autoclose.vim is enough
-" <C-\>c close the tex env
-au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
+"" I disabled the vim-latex plugin for now. Using omni completion (native)
+"au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
 
 "--------------------------------------------------------------------------------
 " eclim
 "--------------------------------------------------------------------------------
 
-set runtimepath-=~/.vim/bundle/eclim
 
 "--------------------------------------------------------------------------------
 " supertab
 "--------------------------------------------------------------------------------
 
-set runtimepath-=~/.vim/bundle/supertab
 "let g:SuperTabDefaultCompletionType = 'context'
 
 "--------------------------------------------------------------------------------
@@ -277,8 +236,6 @@ map [6;5~  <C-PageDown>
 " YouCompleteMe
 "--------------------------------------------------------------------------------
 
-"set runtimepath-=~/.vim/bundle/YouCompleteMe
-
 highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=black  ctermbg=white
 highlight clear SignColumn      
@@ -308,7 +265,6 @@ let g:ycm_confirm_extra_conf = 0
 " vim-airline
 "--------------------------------------------------------------------------------
 
-"set runtimepath-=~/.vim/bundle/vim-airline
 set laststatus=2 
 
 " set the symbol dictionary as the one of powerline
@@ -327,11 +283,9 @@ let g:airline_powerline_fonts = 1
 ""let g:airline_symbols.readonly = ''
 ""let g:airline_symbols.linenr = ''
 	
-
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
-
 
