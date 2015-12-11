@@ -1,24 +1,19 @@
 LinuxConfig
 ===========
 
+My dotfiles used with Openbox environment. I clone this repo into **$HOME/.config/linuxConfig** and use 
+the scripts **collect** and **distribute** to organize the files.
+
+Some tips
+----------
+
+* All vim plugins are git submodules; the script **distribute** just create a symlink inside the **$HOME/.vim/bundle/**.
+
+* All executable scripts are in **home/.local/bin/**.
+
 * /etc is not in "collect" and "distribute" script.
 
 * The files **/etc/fail2ban/filter.d/sshd.conf** and **/etc/init.d/firewall** was created to use in Digital Ocean VM. 
-
-Reminders
----------
-
-* Mapping the "comma key" in the "dot numpad".
-
-```bash
-xmodmap -e "keycode 91 = comma"
-``` 
-
-* Config the Powernote keyboard to USA with dead keys
-
-```bash
- setxkbmap -layout us -variant intl
-```
 
 * GIT: remove files from repository based on .gitignore but not delete them
 
@@ -33,19 +28,6 @@ To fix that, find the code below in the file /usr/bin/xdg-open and set **gnome**
 detectDE
 if [ x"$DE" = x"" ]; then
    DE=generic
-```
-
-* Disable nemo desktop
-
-```bash
-gsettings set org.nemo.desktop show-desktop-icons false
-```
-
-* To allow all users to "shutdown" and "reboot" command without sudo pass, added the code below in /etc/sudoers.
-
-```bash
-# replace 'myusers' group by your users group
-%myusers ALL=(ALL) NOPASSWD:/sbin/shutdown,/sbin/halt,/sbin/reboot
 ```
 
 
