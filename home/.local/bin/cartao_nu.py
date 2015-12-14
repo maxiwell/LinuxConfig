@@ -26,7 +26,7 @@ cat_dic = {
 'outros' : '',
 'lazer' : 'Diversao',
 'viagem' : 'Viagens',
-
+'educação' : 'Curso',
 }
 
 def converte_dia (dia):
@@ -72,21 +72,17 @@ else:
 cartao = open(sys.argv[1], 'r')
 result = open("output.csv", "w+")
 
-readingFile = cartao.read().split('\n')
-it_line = iter(readingFile)
-
-# escape the first line
-it_line.next();
-
-for line in it_line:
+next(cartao)
+for line in cartao:
     try:
         cat,desc,valor,data = line.split(',')
 
         data = converte_dia(data)
         result.write(data+';0;;;'+desc+';-'+valor+';'+cat_dic.get(cat)+';\n')
 
-    except:
-        sys.exit(1)
+    except: # catch *all* exceptions
+        e = sys.exc_info()[0]
+        print e 
 
 sys.exit(0)
 
