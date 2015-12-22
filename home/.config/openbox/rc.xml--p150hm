@@ -508,7 +508,7 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>800</width>
+        <width>960</width>
       </action>
       <action name="MoveToEdgeWest"/>
     </keybind>
@@ -516,7 +516,7 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>800</width>
+        <width>960</width>
       </action>
       <action name="MoveToEdgeEast"/>
     </keybind>
