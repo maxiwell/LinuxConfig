@@ -82,7 +82,7 @@ for line in cartao:
 
     except: # catch *all* exceptions
         e = sys.exc_info()[0]
-        print e 
+        print "ERROR: " + line.strip("\n") + " : " + str(e)
 
 sys.exit(0)
 
