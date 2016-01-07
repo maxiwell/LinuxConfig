@@ -27,7 +27,21 @@ cat_dic = {
 'lazer' : 'Diversao',
 'viagem' : 'Viagens',
 'educação' : 'Curso',
+'casa' : ''
 }
+
+memo_dic = {
+'Mc Donalds':'Comida:Besteiras',
+'Burger King':'Comida:Besteiras',
+'Pizza Hut' : 'Comida:Besteiras',
+'Auto Lanche' : 'Comida:Besteiras',
+'Pizzaria' : 'Comida:Besteiras',
+'Pastel' : 'Comida:Besteiras',
+'Lanches' : 'Comida:Besteiras'
+}
+
+
+
 
 def converte_dia (dia):
     dia, mes = dia.split()
@@ -57,7 +71,7 @@ def converte_dia (dia):
     elif mes == 'Dez' :
         mes = '12'
 
-    return dia+'-'+mes+'-'+'15'
+    return dia+'-'+mes+'-'+'16'
 
 ##########################################
 # Main
@@ -78,7 +92,16 @@ for line in cartao:
         cat,desc,valor,data = line.split(',')
 
         data = converte_dia(data)
-        result.write(data+';0;;;'+desc+';-'+valor+';'+cat_dic.get(cat)+';\n')
+        cat  = cat_dic.get(cat)
+
+        # search the place name in the key 
+        for key in memo_dic:
+            if re.match(".*"+key, desc):
+                cat = memo_dic.get(key)
+                break
+ 
+
+        result.write(data+';0;;;'+desc+';-'+valor+';'+cat+';\n')
 
     except: # catch *all* exceptions
         e = sys.exc_info()[0]
