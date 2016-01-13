@@ -208,7 +208,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.3,
 },
 {
-    name='fs_used_perc',           arg='/media/linux/files',                     max_value=100,
+    name='fs_used_perc',           arg='/media/files',                     max_value=100,
     x=70,                          y=470,
     graph_radius=54,
     graph_thickness=7,
