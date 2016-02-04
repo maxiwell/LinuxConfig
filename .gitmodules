@@ -12,7 +12,8 @@
 	url = https://github.com/jcf/vim-latex
 [submodule "home/.vim/bundle/YouCompleteMe"]
 	path = home/.vim/bundle/YouCompleteMe
-	url = git@github.com:Valloric/YouCompleteMe.git
+    url = git@github.com:Valloric/YouCompleteMe.git
+    ignore = dirty
 [submodule "home/.vim/bundle/vim-airline"]
 	path = home/.vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
