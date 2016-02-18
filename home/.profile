@@ -44,7 +44,11 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:$IMPERAS_HOME/OVPsim.lic
 
 # Android Build ROM
 export USE_CCACHE=1
-export CCACHE_DIR=/media/ssdfiles/.ccache/
+if [ "$HOSTNAME" == "powernote" ]; then 
+    export CCACHE_DIR=/media/ssdfiles/.ccache/
+elif [ "$HOSTNAME" == "maxsamy" ]; then
+    export CCACHE_DIR=/files/.ccache/
+fi
 
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1024x768
  

@@ -1,21 +1,24 @@
 LinuxConfig
 ===========
 
-My dotfiles used with Openbox environment. I clone this repo into ``$HOME/.config/linuxConfig`` and use 
+Here you will find my dotfiles used with Openbox environment. I clone this repo into ``$HOME/.config/linuxConfig`` and use 
 the scripts **collect** and **distribute** to organize the files.
 
 Some tips
 ----------
 
-* All vim plugins are git submodules; the script **distribute** just create a symlink inside the ``$HOME/.vim/bundle/``.
+* All vim plugins are git submodules; the script **distribute** just creates a symlink inside the ``$HOME/.vim/bundle/``.
 
-* All executable scripts are in ``home/.local/bin/``.
+* My executable scripts are in ``home/.local/bin/``.
 
 * /etc is not in "collect" and "distribute" script.
 
 * The files ``/etc/fail2ban/filter.d/sshd.conf`` and ``/etc/init.d/firewall`` was created to use in Digital Ocean VM. 
 
 * GIT: remove files from repository based on .gitignore but not delete them
+
+Some notes
+-----------
 
 ```bash
 git rm --cached `git ls-files -i -X .gitignore`
@@ -29,6 +32,5 @@ detectDE
 if [ x"$DE" = x"" ]; then
    DE=generic
 ```
-
 
 
