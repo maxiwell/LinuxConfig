@@ -39,14 +39,14 @@ esac
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
-    ;;
-*)
-    ;;
-esac
-
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+#     ;;
+# *)
+#     ;;
+# esac
+ 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -76,11 +76,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-#if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#    . /etc/bash_completion
-#fi
-
-
 alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
 alias ll="ls -lh"
 
@@ -107,10 +102,31 @@ alias sudo_env='sudo env PATH=$PATH'
 # eclim daemon
 #/opt/eclipse/eclimd
 
-# Test if is into TMUX env
-#if [ ! -z $TMUX ]; then
-#    PROMPT_COMMAND='echo -ne "\033]0; $(basename $PWD)\007"'
-#fi
-
 export USE_CCACHE=1
+
+# Eli Bendersky
+# https://github.com/eliben/code-for-blog/blob/master/2016/persistent-history/add-persistent-history.sh
+export HISTTIMEFORMAT="%F %T  "
+
+log_bash_persistent_history()
+{
+  local rc=$?
+  [[ $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$ ]]
+  local date_part="${BASH_REMATCH[1]}"
+  local command_part="${BASH_REMATCH[2]}"
+  if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
+  then
+    echo $date_part "|" "$command_part" >> ~/.persistent_history
+    export PERSISTENT_HISTORY_LAST="$command_part"
+  fi
+}
+
+# Stuff to do on PROMPT_COMMAND
+run_on_prompt_command()
+{
+    log_bash_persistent_history
+}
+
+PROMPT_COMMAND="run_on_prompt_command"
+
 
