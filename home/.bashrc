@@ -8,8 +8,11 @@
 # If .profile exist
 #[[ -f ~/.profile ]] && . ~/.profile 
 
-# don't put duplicate lines in the history. See bash(1) for more options
-#export HISTCONTROL=ignoredups
+# History control variables
+export HISTCONTROL=ignoredups
+export HISTSIZE=-1
+export HISTFILESIZE=-1
+export HISTTIMEFORMAT="%F %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -106,8 +109,6 @@ export USE_CCACHE=1
 
 # Eli Bendersky
 # https://github.com/eliben/code-for-blog/blob/master/2016/persistent-history/add-persistent-history.sh
-export HISTTIMEFORMAT="%F %T  "
-
 log_bash_persistent_history()
 {
   local rc=$?
@@ -128,5 +129,4 @@ run_on_prompt_command()
 }
 
 PROMPT_COMMAND="run_on_prompt_command"
-
 
