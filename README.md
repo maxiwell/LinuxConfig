@@ -17,7 +17,7 @@ Some tips
 
 * GIT: remove files from repository based on .gitignore but not delete them
 
-Some notes
+Reminders
 -----------
 
 ```bash
