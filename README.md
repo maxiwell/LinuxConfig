@@ -15,10 +15,10 @@ Some tips
 
 * The files ``/etc/fail2ban/filter.d/sshd.conf`` and ``/etc/init.d/firewall`` was created to use in Digital Ocean VM. 
 
-* GIT: remove files from repository based on .gitignore but not delete them
-
 Reminders
 -----------
+
+* GIT: remove files from repository based on .gitignore but not delete them
 
 ```bash
 git rm --cached `git ls-files -i -X .gitignore`
