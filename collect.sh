@@ -15,7 +15,7 @@ submodules=`cat .gitmodules | grep submodule | cut -d\" -f2`
 for i in $submodules; do
     extract_folders+="-not -path \"./$i/*\" "
 done
-find_command="find ./home/ -type f $extract_folders"
+find_command="find  ./home/ -type f  $extract_folders"
 
 allfil=$(eval $find_command)
 
@@ -30,17 +30,17 @@ do
 	case $cond in
 		ignore)
 			# simply remove the file from find list 
-			allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
+			allfil=`echo "$allfil" | sed -e "s@./home/$line@@g"`		
 			;;
 		unique)
 			# remove the unique files
-			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
+			allfil=`echo "$allfil" | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
 
 			# for first run after inserting a new file in [unique] case
 			# remove the name without $HOSTNAME termination
 			if [ -f ./home/$line ]; then
 				rm -f ./home/$line
-				allfil=`echo $allfil | sed -e "s@./home/$line@@g"`
+				allfil=`echo "$allfil" | sed -e "s@./home/$line@@g"`
 			fi
 
 			fil="/$line"
@@ -54,6 +54,7 @@ do
 	esac
 done < $config
 
+IFS=$'\n'
 for k in $allfil; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//" `
 	fil=`basename $k`

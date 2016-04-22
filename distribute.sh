@@ -30,13 +30,13 @@ do
 		ignore)
             # simply remove the file from find list if exist 
             if [ -a $base/$line ]; then
-			    allfil=`echo $allfil | sed -e "s@./home/$line@@g"`		
+			    allfil=`echo "$allfil" | sed -e "s@./home/$line@@g"`		
             fi
 
 			;;
 		unique)
 			# remove the unique files2
-			allfil=`echo $allfil | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
+			allfil=`echo "$allfil" | sed -e 's|\.\/home\/'$line'--[^$ ]*||g'`
 
 			fil="/$line"
 
@@ -67,6 +67,7 @@ for k in $submodules; do
     fi
 done
 
+IFS=$'\n'
 for k in $allfil; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/\/home//" | sed -e "s/$/\//"`
 	fil=`basename $k`

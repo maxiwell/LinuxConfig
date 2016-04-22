@@ -244,6 +244,7 @@ nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 " Remove preview window
 let g:ycm_add_preview_to_completeopt = 0
