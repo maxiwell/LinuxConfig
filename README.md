@@ -1,8 +1,20 @@
 LinuxConfig
 ===========
 
-Here you will find my dotfiles used with Openbox environment. I clone this repo into ``$HOME/.config/linuxConfig`` and use 
+Here you will find my dotfiles used with Openbox environment. I clone this repo into ``~/.config/linuxConfig`` and use 
 the scripts **collect** and **distribute** to organize the files.
+
+Install
+----------
+
+Before use the scripts, it's necessary download all git submodules:
+
+```bash
+cd ~/.config/LinuxConfig
+git submodule update --init --recursive
+```
+Now, you'll able to execute the **collect** and **distribute** scripts
+
 
 Some tips
 ----------
