@@ -58,6 +58,7 @@ for k in $submodules; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/home//" | sed -e "s/$/\//"`
     fil=`basename $k`
     if [ ! -s $base$dir$fil ]; then
+        mkdir -p $bash$dir
         ln -s $_pwd/$k $base$dir$fil
         echo "[submodules] Link created: $_pwd/$k -> $base$dir$fil"
     else
