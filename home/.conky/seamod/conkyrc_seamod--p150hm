@@ -63,15 +63,16 @@ conky.config = {
 
 };
 
+--${offset 15}${font Ubuntu:size=11:style=normal}${color1}${pre_exec lsb_release -d | cut -f 2} - $sysname $kernel
 conky.text = [[
 ${font Ubuntu:size=11:style=bold}${color4}SYSTEM ${hr 2}
-${offset 15}${font Ubuntu:size=11:style=normal}${color1}${pre_exec lsb_release -d | cut -f 2} - $sysname $kernel
+${offset 15}${font Ubuntu:size=11:style=normal}${color1}$sysname $kernel
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Battery:  ${color3}${battery_bar 5,150 BAT0} ${color3}${battery_percent BAT0}%
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Uptime: ${color3}$uptime
 
 # Showing CPU Graph
 ${voffset 20}
-${offset 120}${cpugraph cpu0 40,183 666666 666666 100}${voffset -25}
+${offset 125}${cpugraph cpu0 40,220 666666 666666 -0.5 -l}${voffset -25}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}CPU
 # Showing TOP 5 CPU-consumers
 ${offset 105}${font Ubuntu:size=11:style=normal}${color4}${top name 1}${alignr}${top cpu 1}%
@@ -91,26 +92,27 @@ ${offset 105}${font Ubuntu:size=11:style=normal}${color3}${top_mem name 4}${alig
 
 # Showing disk partitions: root, home and files
 ${voffset 12}
-${offset 180}${color1}${font Ubuntu:size=9:style=bold}Disk Read: ${alignr}${font Ubuntu:size=9:style=normal}${color2}${diskio_read}
-${offset 180}${color1}${font Ubuntu:size=9:style=bold}Disk Write: ${alignr}${font Ubuntu:size=9:style=normal}${color2}${diskio_write}
+${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Read: ${alignr}${font Ubuntu:size=10:style=normal}${color2}${diskio_read}
+${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Write: ${alignr}${font Ubuntu:size=10:style=normal}${color2}${diskio_write}
 ${voffset -30}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}DISKS
-${offset 120}${diskiograph 33,183 666666 666666}${voffset -30}
+${offset 120}${diskiograph 33,220 666666 666666}${voffset -30}
 ${voffset 20}
-${offset 15}${font Ubuntu:size=9:style=bold}${color1}Free: ${font Ubuntu:size=9:style=normal}${fs_free /}${alignr}${font Ubuntu:size=9:style=bold}Used: ${font Ubuntu:size=9:style=normal}${fs_used /}
-${offset 15}${font Ubuntu:size=9:style=bold}${color1}Free: ${font Ubuntu:size=9:style=normal}${fs_free /home}${alignr}${font Ubuntu:size=9:style=bold}Used: ${font Ubuntu:size=9:style=normal}${fs_used /home}
-${offset 15}${font Ubuntu:size=9:style=bold}${color1}Free: ${font Ubuntu:size=9:style=normal}${fs_free /media/files}${alignr}${font Ubuntu:size=9:style=bold}Used: ${font Ubuntu:size=9:style=normal}${fs_used /media/files}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /home}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /home}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /media/files}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /media/files}
 
 # Network data (my desktop have only LAN). ETHERNET ring is mostly useless but looks pretty, main info is in the graphs
-${voffset 10}
-${offset 180}${font Ubuntu:size=11:style=bold}${color1}Lan IP: ${alignr}$color3${addr wlan0} 
-${offset 180}${font Ubuntu:size=11:style=bold}${color1}Ext IP: ${alignr}$color3${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1} 
+${voffset 40}
+${offset 200}${font Ubuntu:size=10:style=bold}${color1}Lan IP: ${alignr}$color3${addr wlan0} 
+${offset 200}${font Ubuntu:size=10:style=bold}${color1}Ext IP: ${alignr}$color3${execi 3600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1} 
+${voffset -30}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}ETHERNET
 ${voffset 40}             
-${offset 15}${color1}${font ubuntu:size=9:style=bold}Up: ${alignr}${font Ubuntu:size=9:style=normal}$color2${upspeed wlan0} / ${totalup wlan0}
-${offset 15}${upspeedgraph wlan0 40,285 4B1B0C FF5C2B 1280KiB -l}
-${offset 15}${color1}${font Ubuntu:size=9:style=bold}Down: ${alignr}${font Ubuntu:size=9:style=normal}$color2${downspeed wlan0} / ${totaldown wlan0}
-${offset 15}${downspeedgraph wlan0 40,285 324D23 77B753 1280KiB -l}
+${offset 15}${color1}${font ubuntu:size=10:style=bold}Up: ${alignr}${font Ubuntu:size=10:style=normal}$color2${upspeed wlan0} / ${totalup wlan0}
+${offset 15}${upspeedgraph wlan0 40,320 4B1B0C FF5C2B 1280KiB -l}
+${offset 15}${color1}${font Ubuntu:size=10:style=bold}Down: ${alignr}${font Ubuntu:size=10:style=normal}$color2${downspeed wlan0} / ${totaldown wlan0}
+${offset 15}${downspeedgraph wlan0 40,320 324D23 77B753 1280KiB -l}
 
 ${color4}${hr 2}
 

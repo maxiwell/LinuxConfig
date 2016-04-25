@@ -24,6 +24,6 @@ xmodmap ~/.Xmodmap
 
 sleep 2
 
-conky  -c $HOME/.conky/conkyrc_seamod &
+conky  -c $HOME/.conky/seamod/conkyrc_seamod &
 
 
