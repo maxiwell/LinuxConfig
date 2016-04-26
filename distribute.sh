@@ -45,10 +45,8 @@ do
 				continue
 			fi
 
-			if [ ! -f $base$fil ] ; then
-				cp -p ./home/$fil--$computer $base$fil
-				echo "cp $base$fil from $line--$computer"
-			fi
+		    cp -p ./home/$fil--$computer $base$fil
+            echo "cp $base$fil from $line--$computer"
 			;;
 	esac
 done < $config
