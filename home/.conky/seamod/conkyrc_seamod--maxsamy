@@ -96,7 +96,7 @@ ${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Read: ${alignr}${fon
 ${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Write: ${alignr}${font Ubuntu:size=10:style=normal}${color2}${diskio_write}
 ${voffset -30}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}DISKS
-${offset 120}${diskiograph 33,220 666666 666666  -l }${voffset -30}
+${offset 120}${diskiograph 33,220 666666 666666  }${voffset -30}
 ${voffset 20}
 ${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /}
 ${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /home}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /home}
