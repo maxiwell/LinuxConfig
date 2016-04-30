@@ -24,6 +24,11 @@ set encoding=utf-8
 set wildmode=longest,list,full
 set wildmenu
 
+" Set this to the name of your terminal that supports mouse codes.
+set ttymouse=xterm2
+" Send more characters for redraws
+set ttyfast
+
 " Request sudo password to modify root files
 cmap w!! %!sudo tee % > /dev/null 
 
