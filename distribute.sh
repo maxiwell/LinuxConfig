@@ -62,6 +62,10 @@ for k in $submodules; do
     else
         if [ ! -L $base$dir$fil ]; then
             echo "[submodules] Conflict: The folder $base$dir$fil should be a link to  $_pwd/$k"
+        elif [ -L $base$dir$fil ]; then
+            rm $base$dir$fil
+            ln -s $_pwd/$k $base$dir$fil
+            echo "[submodules] Link created: $_pwd/$k -> $base$dir$fil"
         fi
     fi
 done
