@@ -7,7 +7,6 @@
 [submodule "home/.config/tmux-resurrect"]
 	path = home/.config/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
-
-[submodule "Vundle.vim"]
-	path = Vundle.vim
+[submodule "home/.vim/bundle/Vundle.vim"]
+	path = home/.vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
