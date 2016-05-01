@@ -15,11 +15,10 @@ git submodule update --init --recursive
 ```
 Now, you'll able to execute the **collect** and **distribute** scripts
 
-
 Some tips
 ----------
 
-* All vim plugins are git submodules; the script **distribute** just creates a symlink inside the ``$HOME/.vim/bundle/``.
+* VIM plugins are controlled by **Vundle.vim** project. So, ``home/.vim/bundle/Vundle.vim`` is a git submodule.  
 
 * My executable scripts are in ``home/.local/bin/``.
 
