@@ -1,25 +1,3 @@
-[submodule "home/.vim/bundle/clang_complete"]
-	path = home/.vim/bundle/clang_complete
-	url = git@github.com:Rip-Rip/clang_complete.git
-[submodule "home/.vim/bundle/ctrlp.vim"]
-	path = home/.vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim
-[submodule "home/.vim/bundle/tagbar"]
-	path = home/.vim/bundle/tagbar
-	url = git@github.com:majutsushi/tagbar.git
-[submodule "home/.vim/bundle/vim-latex"]
-	path = home/.vim/bundle/vim-latex
-	url = https://github.com/jcf/vim-latex
-[submodule "home/.vim/bundle/YouCompleteMe"]
-	path = home/.vim/bundle/YouCompleteMe
-    url = git@github.com:Valloric/YouCompleteMe.git
-    ignore = dirty
-[submodule "home/.vim/bundle/vim-airline"]
-	path = home/.vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule "home/.vim/bundle/vim-pathogen"]
-	path = home/.vim/bundle/vim-pathogen
-	url = https://github.com/tpope/vim-pathogen
 [submodule "home/.config/oh-my-zsh"]
 	path = home/.config/oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
@@ -29,9 +7,4 @@
 [submodule "home/.config/tmux-resurrect"]
 	path = home/.config/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
-[submodule "home/.vim/bundle/vim-signature"]
-	path = home/.vim/bundle/vim-signature
-	url = git@github.com:kshenoy/vim-signature.git
-[submodule "home/.vim/bundle/molokai"]
-	path = home/.vim/bundle/molokai
-	url = git@github.com:tomasr/molokai.git
+
