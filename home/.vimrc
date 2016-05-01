@@ -67,22 +67,34 @@ inoremap <M-left>   <C-O>B
 inoremap <C-L> <C-\><C-O>W
 inoremap <C-H> <C-\><C-O>B
 
-
 "--------------------------------------------------------------------------------
-" Pathogen: plugin manager 
+" Vundle: Plugin Manager
 "--------------------------------------------------------------------------------
 
-let g:pathogen_disabled = []
-set runtimepath^=~/.vim/bundle/vim-pathogen
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" To disable a plugin, add it's bundle name to the following list
-call add(g:pathogen_disabled, 'clang_complete')
-call add(g:pathogen_disabled, 'vim-latex')
-call add(g:pathogen_disabled, 'eclim')
-call add(g:pathogen_disabled, 'supertab')
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" Load and helptags all plugins in ~/.vim/bundle/
-call pathogen#infect()
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" plugin on GitHub
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar.git'
+"Plugin 'jcf/vim-latex'
+Plugin 'Valloric/YouCompleteMe.git'
+Plugin 'bling/vim-airline.git'
+Plugin 'kshenoy/vim-signature.git'
+Plugin 'tomasr/molokai.git'
+"Plugin 'Rip-Rip/clang_complete.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 "--------------------------------------------------------------------------------
 " Colors scheme
