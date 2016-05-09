@@ -83,7 +83,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar.git'
 "Plugin 'jcf/vim-latex'
 Plugin 'Valloric/YouCompleteMe.git'

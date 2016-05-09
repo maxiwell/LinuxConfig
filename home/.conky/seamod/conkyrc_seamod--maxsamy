@@ -72,7 +72,7 @@ ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Uptime: ${color3}$uptime
 
 # Showing CPU Graph
 ${voffset 20}
-${offset 125}${cpugraph cpu0 40,220 666666 666666 -0.5}${voffset -25}
+${offset 125}${cpugraph cpu0 40,220 666666 666666 1}${voffset -25}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}CPU
 # Showing TOP 5 CPU-consumers
 ${offset 105}${font Ubuntu:size=11:style=normal}${color4}${top name 1}${alignr}${top cpu 1}%
