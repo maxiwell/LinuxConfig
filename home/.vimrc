@@ -91,6 +91,7 @@ Plugin 'bling/vim-airline.git'
 Plugin 'kshenoy/vim-signature.git'
 Plugin 'tomasr/molokai.git'
 "Plugin 'Rip-Rip/clang_complete.git'
+Plugin 'rhysd/vim-clang-format'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -306,4 +307,12 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+"--------------------------------------------------------------------------------
+" clang-format
+"--------------------------------------------------------------------------------
+
+let g:clang_format#code_style = 'llvm'
+
+
 
