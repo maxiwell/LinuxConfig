@@ -1,15 +1,15 @@
 [submodule "home/.config/oh-my-zsh"]
-	path = home/.config/oh-my-zsh
+	path = home/.local/opt/oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
 [submodule "home/.config/powerline-fonts"]
-	path = home/.config/powerline-fonts
+	path = home/.local/opt/powerline-fonts
 	url = git@github.com:powerline/fonts.git
-[submodule "home/.config/tmux-resurrect"]
-	path = home/.config/tmux-resurrect
-	url = git@github.com:tmux-plugins/tmux-resurrect.git
 [submodule "home/.vim/bundle/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
 [submodule "home/.local/opt/lightsOn"]
 	path = home/.local/opt/lightsOn
 	url = https://github.com/iye/lightsOn
+[submodule "home/.local/opt/tmux-resurrect"]
+	path = home/.local/opt/tmux-resurrect
+	url = git@github.com:tmux-plugins/tmux-resurrect.git
