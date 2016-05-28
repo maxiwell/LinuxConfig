@@ -23,7 +23,7 @@ sh ~/.xinitrc
 xmodmap ~/.Xmodmap
 
 # Stop xscreensaver if a full-screen display is found
-~/.local/bin/xscreensaverstopper.sh
+~/.local/opt/lightsOn/lightsOn.sh 120
 
 sleep 2
 
