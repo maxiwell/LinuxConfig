@@ -1,7 +1,7 @@
-[submodule "home/.config/oh-my-zsh"]
+[submodule "home/.local/opt/oh-my-zsh"]
 	path = home/.local/opt/oh-my-zsh
 	url = git@github.com:robbyrussell/oh-my-zsh.git
-[submodule "home/.config/powerline-fonts"]
+[submodule "home/.local/opt/powerline-fonts"]
 	path = home/.local/opt/powerline-fonts
 	url = git@github.com:powerline/fonts.git
 [submodule "home/.vim/bundle/Vundle.vim"]
