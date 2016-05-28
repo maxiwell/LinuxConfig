@@ -17,7 +17,7 @@ killall ssh-agent
 # keyboard to USA with dead keys
 setxkbmap -layout us -variant intl
 
-xrdb -merge $HOME/.Xresources
+sh ~/.xinitrc
 
 # Map to urxvt works with END/HOME in VIM 
 xmodmap ~/.Xmodmap
