@@ -56,9 +56,9 @@ for k in $submodules; do
 	dir=`dirname $k | sed -e "s/^\.//" | sed -e "s/home//" | sed -e "s/$/\//"`
     fil=`basename $k`
     if [ ! -s $base$dir$fil ]; then
-        mkdir -p $bash$dir
+        mkdir -p $base$dir
         ln -s $_pwd/$k $base$dir$fil
-        echo "[submodules] Link created: $_pwd/$k -> $base$dir$fil"
+        [ $? == 0 ] && echo "[submodules] Link created: $_pwd/$k -> $base$dir$fil"
     else
         if [ ! -L $base$dir$fil ]; then
             echo "[submodules] Conflict: The folder $base$dir$fil should be a link to  $_pwd/$k"
