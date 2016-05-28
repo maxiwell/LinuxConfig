@@ -22,6 +22,9 @@ sh ~/.xinitrc
 # Map to urxvt works with END/HOME in VIM 
 xmodmap ~/.Xmodmap
 
+# Stop xscreensaver if a full-screen display is found
+~/.local/bin/xscreensaverstopper.sh
+
 sleep 2
 
 conky  -c $HOME/.conky/seamod/conkyrc_seamod &
