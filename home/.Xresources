@@ -188,7 +188,7 @@ URxvt.keysym.C-0: command:\033]710;xft:Ubuntu Mono derivative Powerline:antialia
 
 !! EXTENSIONS
 URxvt.perl-lib: ~/.urxvt/ext
-URxvt.perl-ext-common: default,font-size,selection-to-clipboard
+URxvt.perl-ext-common: default,font-size,selection-to-clipboard,tabbed
 !!,vtwheel
 URxvt.font-size.step: 1
 
