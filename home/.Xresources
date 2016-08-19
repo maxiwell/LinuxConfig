@@ -290,8 +290,10 @@ URxvt.tabbed_new.tabren-bg: 3
 URxvt.tabbed_new.tabdiv-fg: 8
 URxvt.tabbed_new.tabbar-fg: 8
 URxvt.tabbed_new.tabbar-bg: 0
-URxvt.tabbed_new.tabsel-fg: 1
-URxvt.tabbed_new.tabsel-bg: 8
+!URxvt.tabbed_new.tabsel-fg: 1 
+URxvt.tabbed_new.tabsel-fg: 8 
+!URxvt.tabbed_new.tabsel-bg: 8
+URxvt.tabbed_new.tabsel-bg: 0
 URxvt.tabbed_new.tab-fg:    0
 URxvt.tabbed_new.tab-bg:    8
 
