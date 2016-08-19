@@ -92,6 +92,7 @@ Plugin 'kshenoy/vim-signature.git'
 Plugin 'tomasr/molokai.git'
 "Plugin 'Rip-Rip/clang_complete.git'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'will133/vim-dirdiff'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

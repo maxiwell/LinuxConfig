@@ -188,7 +188,7 @@ URxvt.keysym.C-0: command:\033]710;xft:Ubuntu Mono derivative Powerline:antialia
 
 !! EXTENSIONS
 URxvt.perl-lib: ~/.urxvt/ext
-URxvt.perl-ext-common: default,font-size,selection-to-clipboard,tabbed
+URxvt.perl-ext-common: default,font-size,selection-to-clipboard,tabbed_new
 !!,vtwheel
 URxvt.font-size.step: 1
 
@@ -283,6 +283,17 @@ URxvt.tabbed.tabbar-fg: 2
 URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg: 3
 URxvt.tabbed.tab-bg: 0
+
+!!---- Tabbed New ------------------------------------------------------------!!
+
+URxvt.tabbed_new.tabren-bg: 3
+URxvt.tabbed_new.tabdiv-fg: 8
+URxvt.tabbed_new.tabbar-fg: 8
+URxvt.tabbed_new.tabbar-bg: 0
+URxvt.tabbed_new.tabsel-fg: 1
+URxvt.tabbed_new.tabsel-bg: 8
+URxvt.tabbed_new.tab-fg:    0
+URxvt.tabbed_new.tab-bg:    8
 
 !!---- Xscreensaver ----------------------------------------------------------!!
 
