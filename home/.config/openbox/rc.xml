@@ -504,21 +504,18 @@
         <command>setxkbmap -layout us</command>
       </action>
     </keybind>
-    <keybind key="W-Left">
-      <action name="UnmaximizeFull"/>
+    <keybind key="W-C-Right">
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>960</width>
+        <width>50%</width>
+      </action>
+    </keybind>
+    <keybind key="W-C-Left">
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
       </action>
       <action name="MoveToEdgeWest"/>
-    </keybind>
-    <keybind key="W-Right">
-      <action name="UnmaximizeFull"/>
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>960</width>
-      </action>
-      <action name="MoveToEdgeEast"/>
     </keybind>
   </keyboard>
   <mouse>
