@@ -418,8 +418,26 @@
         <direction>down</direction>
       </action>
     </keybind>
+    <keybind key="A-F1">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name/>
+        </startupnotify>
+        <command>nemo --no-desktop</command>
+      </action>
+    </keybind>
     <!-- Keybindings for running applications -->
     <keybind key="A-F2">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name/>
+        </startupnotify>
+        <command>gmrun</command>
+      </action>
+    </keybind>
+    <keybind key="W-r">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -437,13 +455,13 @@
         <command>urxvt</command>
       </action>
     </keybind>
-    <keybind key="A-F1">
+    <keybind key="C-A-t">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name/>
         </startupnotify>
-        <command>nemo --no-desktop</command>
+        <command>urxvt</command>
       </action>
     </keybind>
     <keybind key="C-A-l">
