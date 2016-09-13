@@ -94,6 +94,9 @@ Plugin 'tomasr/molokai.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 
+"Scala Plugin
+Plugin 'derekwyatt/vim-scala'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
