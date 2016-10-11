@@ -29,6 +29,10 @@ set ttymouse=xterm2
 " Send more characters for redraws
 set ttyfast
 
+" Any buffer can be hidden (keeping its changes) without first writing 
+" the buffer to a file
+set hidden 
+
 " Request sudo password to modify root files
 cmap w!! %!sudo tee % > /dev/null 
 
@@ -262,7 +266,7 @@ highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=black  ctermbg=white
 highlight clear SignColumn      
 
-nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
+nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
