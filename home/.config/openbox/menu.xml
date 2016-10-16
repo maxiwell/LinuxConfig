@@ -186,7 +186,11 @@
                 <command>unity-control-center sound</command>
             </action>
         </item>
-
+        <item label="PAVUControl">
+            <action name="Execute">
+                <command>pavucontrol</command>
+            </action>
+        </item>
 
 		<separator/>
 		<item label="Log out">
