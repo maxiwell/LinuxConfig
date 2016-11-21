@@ -40,8 +40,8 @@ cmap w!! %!sudo tee % > /dev/null
 autocmd BufEnter * :syntax sync fromstart
 
 " Saving folds
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
+au BufWinLeave *.* mkview 1
+au BufWinEnter *.* silent loadview 1
 
 " set the ctags file name
 set tags=tags,ctags,.tags,.ctags;   
@@ -112,6 +112,9 @@ filetype plugin indent on    " required
 " set the default color scheme
 colorscheme peachpuff           
 " colorscheme molokai
+
+hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
+hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE
 
 "--------------------------------------------------------------------------------
 " Persistent UNDO 
@@ -322,5 +325,27 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 let g:clang_format#code_style = 'llvm'
 
+"--------------------------------------------------------------------------------
+" Using Silver Searcher AG: https://github.com/ggreer/the_silver_searcher
+" or 'sudo apt-get install silversearcher-ag'
+"--------------------------------------------------------------------------------
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+endif
+
+"--------------------------------------------------------------------------------
+" bind K to grep word under cursor ('grep' is replaced by 'ag', if possible)
+"--------------------------------------------------------------------------------
+
+nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
