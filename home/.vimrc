@@ -1,6 +1,7 @@
 "--------------------------------------------------------------------------------
 " General 
 "--------------------------------------------------------------------------------
+set number
 set relativenumber
 set title
 set smartindent
@@ -269,7 +270,8 @@ highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=black  ctermbg=white
 highlight clear SignColumn      
 
-nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
+"nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
+nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
 nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
