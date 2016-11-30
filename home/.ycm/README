@@ -6,6 +6,5 @@ Backup of YCM configurations.
 
 ### How to use: 
 
-Move the file to root folder of the project
-
+Move the file to root folder of the project and rename to .ycm_extra_conf.py
 
