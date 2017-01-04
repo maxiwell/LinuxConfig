@@ -74,6 +74,7 @@
           - gsimplecal
           - gmrun
           - conky
+          - wmctrl
 
     - name: Python packages
       apt: name={{item}} state=installed
@@ -104,6 +105,11 @@
           - keepass2
           - deluge
           - nemo
+
+    - name: Latex packages
+      apt: name={{item}} state=installed 
+      with_items:
+          - texlive-full
 
     - name: Vim Undo Folder
       file: path='{{local_home}}/.vim/undo' owner={{local_user}} group={{local_user}} mode=775 state=directory
