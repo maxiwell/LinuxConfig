@@ -1,18 +1,37 @@
 LinuxConfig
 ===========
 
-Here you will find my dotfiles used with Openbox environment. I clone this repo into ``~/.config/LinuxConfig`` and use 
-the scripts **collect** and **distribute** to organize the files.
+These dotfiles are used with Ubuntu/Openbox environment. 
 
 Install
 ----------
 
-Before use the scripts, it's necessary download all git submodules:
+* Clone this repository:
+
+```bash
+git clone git@github.com:maxiwell/LinuxConfig.git $HOME/.config/LinuxConfig
+```
+
+* Download git submodules:
 
 ```bash
 cd ~/.config/LinuxConfig
 git submodule update --init --recursive
 ```
+
+* Distribute the files for the first time:
+
+```bash
+./distribute
+```
+
+* Execute the Ansible Playbook
+
+```bash
+cd ~/.config/ansible/
+./ansible
+```
+
 Now, you'll able to execute the **collect** and **distribute** scripts
 
 Some tips
@@ -22,9 +41,7 @@ Some tips
 
 * My executable scripts are in ``home/.local/bin/``.
 
-* /etc is not in "collect" and "distribute" script.
-
-* The files ``/etc/fail2ban/filter.d/sshd.conf`` and ``/etc/init.d/firewall`` was created to use in Digital Ocean VM. 
+* /etc is not touched in "collect" and "distribute" script.
 
 Reminders
 -----------
