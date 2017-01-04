@@ -6,6 +6,8 @@
         repo: ppa:ubuntu-wine/ppa
     - apt_repository:
         repo: ppa:ondrej/php
+    - apt_repository: 
+        repo: ppa:webupd8team/java
 
     - apt_key:
         keyserver: keyserver.ubuntu.com
@@ -61,11 +63,13 @@
           - ghc
           - stack
           - vim-gtk 
+          - tmux
 
     - name: Openbox packages
       apt: name={{item}} state=installed
       with_items:
           - openbox
+          - rxvt-unicode-256color
           - tint2
           - gsimplecal
           - gmrun
@@ -97,13 +101,12 @@
           - dropbox
           - homebank
           - trash-cli
-    
-    - name: Vim Undo Folder
-      file: path='/home/max/.vim/undo' owner='max' group='max' mode=775 state=directory
+          - keepass2
+          - deluge
+          - nemo
 
-    - name: Add Oracle Java Repository
-      become: yes
-      apt_repository: repo='ppa:webupd8team/java'
+    - name: Vim Undo Folder
+      file: path='{{local_home}}/.vim/undo' owner={{local_user}} group={{local_user}} mode=775 state=directory
 
     - name: Accept Java 8 License
       become: yes
