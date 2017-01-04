@@ -13,3 +13,6 @@
 [submodule "home/.local/opt/tmux-resurrect"]
 	path = home/.local/opt/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
+[submodule "home/.local/opt/rxvt-tabbed-new"]
+	path = home/.local/opt/rxvt-tabbed-new
+	url = git@github.com:maxiwell/rxvt-tabbed-new
