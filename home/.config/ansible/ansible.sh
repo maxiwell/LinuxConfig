@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo ansible-playbook -i "localhost," -c local playbook.yml  
+sudo ansible-playbook -i "localhost," -c local playbook.yml $1 

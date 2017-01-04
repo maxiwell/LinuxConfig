@@ -1,5 +1,54 @@
 - hosts: all
   tasks:
+    - apt_repository:
+        repo: ppa:mdoyen/homebank
+    - apt_repository:
+        repo: ppa:ubuntu-wine/ppa
+    - apt_repository:
+        repo: ppa:ondrej/php
+
+    - apt_key:
+        keyserver: keyserver.ubuntu.com
+        id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
+    - apt_repository:
+        repo: 'deb http://repository.spotify.com stable non-free'
+        state: present
+
+    - apt_key:
+        keyserver: pgp.mit.edu
+        id: 5044912E
+    - apt_repository:
+        repo: 'deb http://linux.dropbox.com/ubuntu/ $(lsb_release -cs) main'
+        state: present
+
+    - apt_key:
+        url: "https://www.virtualbox.org/download/oracle_vbox.asc"
+        state: present
+    - apt_repository:
+        repo: 'deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib'
+        state: present
+
+    - apt_key:
+        url: "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+        state: present
+    - apt_repository:
+        repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
+        state: present
+
+    - apt_key:
+        keyserver: p80.pool.sks-keyservers.net
+        id: 58118E89F3A912897C070ADBF76221572C52609D
+    - apt_repository:
+        repo: 'deb https://apt.dockerproject.org/repo ubuntu-$(lsb_release -cs) main'
+        state: present
+
+    - apt_key:
+        url: "https://s3.amazonaws.com/download.fpcomplete.com/ubuntu/fpco.key"
+        state: present
+    - apt_repository:
+        repo: 'deb http://download.fpcomplete.com/ubuntu/$(lsb_release -sc) stable main'
+        state: present
+
     - name: Dev tools
       apt: name={{item}} state=installed
       with_items:
@@ -9,7 +58,9 @@
           - cmake
           - flex
           - bison
-          - vim-gtk
+          - ghc
+          - stack
+          - vim-gtk 
 
     - name: Openbox packages
       apt: name={{item}} state=installed
@@ -20,4 +71,49 @@
           - gmrun
           - conky
 
+    - name: Python packages
+      apt: name={{item}} state=installed
+      with_items:
+          - python-pip 
+          - python3-pip
+
+    - name: PHP
+      apt: name={{item}} state=installed
+      with_items:
+          - php
+          - php-curl
+          - php-xml
+          - php7.0
+          - php7.0-curl
+          - php7.0-xml
+          - php7.0-json
+
+    - name: Other
+      apt: name={{item}} state=installed
+      with_items:
+          - google-chrome-stable
+          - firefox
+          - virtualbox
+          - dropbox
+          - homebank
+          - trash-cli
+    
+    - name: Vim Undo Folder
+      file: path='/home/max/.vim/undo' owner='max' group='max' mode=775 state=directory
+
+    - name: Add Oracle Java Repository
+      become: yes
+      apt_repository: repo='ppa:webupd8team/java'
+
+    - name: Accept Java 8 License
+      become: yes
+      debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
+ 
+    - name: Install Oracle Java 8
+      become: yes
+      apt: name={{item}} state=latest
+      with_items:
+        - oracle-java8-installer
+        - ca-certificates
+        - oracle-java8-set-default
 
