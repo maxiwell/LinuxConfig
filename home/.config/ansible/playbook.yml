@@ -129,3 +129,16 @@
         - ca-certificates
         - oracle-java8-set-default
 
+    - name: Pip2 Packages
+      pip: name={{item}} state=present executable=pip2
+      with_items:
+          - grip
+          - selenium
+          - powerline-status
+
+    - name: Pip3 Packages
+      pip: name={{item}} state=present executable=pip3
+      with_items:
+          - grip
+          - selenium
+          - powerline-status
