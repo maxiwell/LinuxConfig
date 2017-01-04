@@ -1,0 +1,23 @@
+- hosts: all
+  tasks:
+    - name: Dev tools
+      apt: name={{item}} state=installed
+      with_items:
+          - gcc
+          - g++
+          - build-essential
+          - cmake
+          - flex
+          - bison
+          - vim-gtk
+
+    - name: Openbox packages
+      apt: name={{item}} state=installed
+      with_items:
+          - openbox
+          - tint2
+          - gsimplecal
+          - gmrun
+          - conky
+
+
