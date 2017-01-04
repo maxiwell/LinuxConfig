@@ -58,12 +58,15 @@
           - g++
           - build-essential
           - cmake
+          - ninja-build
           - flex
           - bison
           - ghc
           - stack
           - vim-gtk 
           - tmux
+          - git
+          - tig
 
     - name: Openbox packages
       apt: name={{item}} state=installed
@@ -75,6 +78,8 @@
           - gmrun
           - conky
           - wmctrl
+          - htop
+          - pavucontrol
 
     - name: Python packages
       apt: name={{item}} state=installed
@@ -105,6 +110,7 @@
           - keepass2
           - deluge
           - nemo
+          - gparted
 
     - name: Latex packages
       apt: name={{item}} state=installed 
