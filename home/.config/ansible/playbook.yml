@@ -108,6 +108,12 @@
     - name: Vim Undo Folder
       file: path='{{local_home}}/.vim/undo' owner={{local_user}} group={{local_user}} mode=775 state=directory
 
+    - name: RXVT Plugin Install
+      file: 
+          src: '{{local_home}}/.local/opt/rxvt-tabbed-new/tabbed_new' 
+          dest: '{{local_home}}/.urxvt/ext/tabbed_new'
+          state: link
+
     - name: Accept Java 8 License
       become: yes
       debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
