@@ -68,6 +68,13 @@
           - git
           - tig
 
+    - name: Libraries 
+      apt: name={{item}} state=installed
+      with_items:
+          - libofx-dev
+          - libncurses5
+          - libncurses5-dev
+
     - name: Openbox packages
       apt: name={{item}} state=installed
       with_items:
@@ -111,6 +118,8 @@
           - deluge
           - nemo
           - gparted
+          - wine
+          - docker
 
     - name: Latex packages
       apt: name={{item}} state=installed 
