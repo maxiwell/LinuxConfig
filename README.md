@@ -22,17 +22,17 @@ git submodule update --init --recursive
 * Distribute the files for the first time:
 
 ```bash
-./distribute
+./distribute.sh
 ```
 
 * Execute the Ansible Playbook
 
 ```bash
 cd ~/.config/ansible/
-./ansible
+./ansible.sh
 ```
 
-Now, you'll able to execute the **collect** and **distribute** scripts
+Now, you'll able to execute the **collect.sh** and **distribute.sh** scripts
 
 Some tips
 ----------
