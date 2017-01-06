@@ -75,6 +75,11 @@
           - libncurses5
           - libncurses5-dev
 
+    - name: Uninstall packages 
+      apt: name={{item}} state=absent
+      with_items:
+          - gnome-screensaver
+
     - name: Openbox packages
       apt: name={{item}} state=installed
       with_items:
@@ -88,6 +93,12 @@
           - htop
           - pavucontrol
           - xscreensaver
+
+    - name: Make GNOME's lock screen use xscreensaver
+      file: 
+          src: '/usr/bin/xscreensaver-command'
+          dest: '/usr/bin/gnome-screensaver-command'
+          state: link
 
     - name: Python packages
       apt: name={{item}} state=installed
