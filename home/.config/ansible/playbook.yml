@@ -156,10 +156,14 @@
           dest: '{{local_home}}/.urxvt/ext/tabbed_new'
           state: link
 
+    - stat: path='{{local_home}}/.local/share/fonts/Ubuntu Mono derivative Powerline.ttf'
+      register: p
+
     - name: Powerline Fonts Install
       become: yes
       become_user: '{{local_user}}'
       command: chdir={{local_home}}/.local/opt/powerline-fonts ./install.sh
+      when: p.stat.islnk is not defined 
 
     - name: Accept Java 8 License
       become: yes
