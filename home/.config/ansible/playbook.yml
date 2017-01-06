@@ -74,6 +74,10 @@
           - libofx-dev
           - libncurses5
           - libncurses5-dev
+          - libmono-system-xml-linq4.0-cil 
+          - libmono-system-data-datasetextensions4.0-cil 
+          - libmono-system-runtime-serialization4.0-cil 
+          - mono-mcs
 
     - name: Uninstall packages 
       apt: name={{item}} state=absent
@@ -168,6 +172,12 @@
         - oracle-java8-installer
         - ca-certificates
         - oracle-java8-set-default
+
+    - name: Install KeePassHTTP plugin
+      get_url: 
+          url: https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx
+          dest: /usr/lib/keepass2/KeePassHttp.plgx
+          mode: 0644
 
     - name: Pip2 Packages
       pip: name={{item}} state=present executable=pip2
