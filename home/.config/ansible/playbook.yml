@@ -87,6 +87,7 @@
           - wmctrl
           - htop
           - pavucontrol
+          - xscreensaver
 
     - name: Python packages
       apt: name={{item}} state=installed
@@ -120,6 +121,7 @@
           - gparted
           - wine
           - docker
+          - rdesktop
 
     - name: Latex packages
       apt: name={{item}} state=installed 
