@@ -177,6 +177,12 @@
         - ca-certificates
         - oracle-java8-set-default
 
+    - name: Install Oracle Java 8 Firefox Plugin
+      file:
+          src: /usr/lib/jvm/java-8-oracle/jre/lib/amd64/libnpjp2.so
+          dest: /usr/lib/firefox/browser/plugins/libnpjp2.so
+          state: link
+
     - name: Install KeePassHTTP plugin
       get_url: 
           url: https://raw.github.com/pfn/keepasshttp/master/KeePassHttp.plgx
