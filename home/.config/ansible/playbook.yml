@@ -97,6 +97,7 @@
           - htop
           - pavucontrol
           - xscreensaver
+          - xbacklight
 
     - name: Make GNOME's lock screen use xscreensaver
       file: 
