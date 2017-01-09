@@ -203,3 +203,21 @@
           - grip
           - selenium
           - powerline-status
+
+    - name: VIM - Install Plugins using Vundle
+      become: yes
+      become_user: '{{local_user}}'
+      command: vim +BundleInstall +quitall
+      register: res
+      changed_when: "res.rc > 0"
+
+    - stat: path='{{local_home}}/.vim/bundle/YouCompleteMe/third_party/ycmd/ycm_core.so'
+      register: ycm
+
+    - name: VIM - Install YouCompleteMe plugin
+      become: yes
+      become_user: '{{local_user}}'
+      command: chdir={{local_home}}/.vim/bundle/YouCompleteMe ./install.py --clang-completer
+      when: ycm.stat.islnk is not defined
+
+
