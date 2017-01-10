@@ -98,6 +98,7 @@
           - pavucontrol
           - xscreensaver
           - xbacklight
+          - xvfb
 
     - name: Make GNOME's lock screen use xscreensaver
       file: 
@@ -117,10 +118,12 @@
           - php
           - php-curl
           - php-xml
+          - php-mbstring
           - php7.0
           - php7.0-curl
           - php7.0-xml
           - php7.0-json
+          - php7.0-mbstring
 
     - name: Other
       apt: name={{item}} state=installed
