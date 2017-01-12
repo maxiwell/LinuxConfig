@@ -9,7 +9,7 @@
 	url = git@github.com:VundleVim/Vundle.vim.git
 [submodule "home/.local/opt/lightsOn"]
 	path = home/.local/opt/lightsOn
-	url = https://github.com/iye/lightsOn
+	url = https://github.com/maxiwell/lightsOn
 [submodule "home/.local/opt/tmux-resurrect"]
 	path = home/.local/opt/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
