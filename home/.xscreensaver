@@ -21,9 +21,9 @@ font:		*-medium-r-*-140-*-m-*
 mode: blank
 dpmsEnabled:	True
 dpmsQuickOff:	True
-dpmsStandby:	0:10:00
-dpmsSuspend:	0:10:00
-dpmsOff:	    0:10:00
+dpmsStandby:	0:10:10
+dpmsSuspend:	0:10:10
+dpmsOff:	    0:10:10
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
