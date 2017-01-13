@@ -99,21 +99,8 @@
           - xscreensaver
           - xbacklight
           - xvfb
-          - ssh
-          - unrar
-          - lynx
-
-    - name: Make GNOME's lock screen use xscreensaver
-      file: 
-          src: '/usr/bin/xscreensaver-command'
-          dest: '/usr/bin/gnome-screensaver-command'
-          state: link
-
-    - name: Python packages
-      apt: name={{item}} state=installed
-      with_items:
-          - python-pip 
-          - python3-pip
+          - nemo
+          - trash-cli
 
     - name: PHP
       apt: name={{item}} state=installed
@@ -128,6 +115,41 @@
           - php7.0-json
           - php7.0-mbstring
 
+    - name: Network packages
+      apt: name={{item}} state=installed
+      with_items:
+          - inadyn
+          - ssh
+          - lynx
+          - apache2
+
+    - name: Apache2 - Add userdir module
+      apache2_module:
+          state: present
+          name: userdir
+
+    - name: Apache2 - Create public_html folder
+      become: yes
+      become_user: '{{local_user}}'
+      file: path='{{local_home}}/public_html' mode=775 state=directory
+
+    - name: Apache2 - Enable php to userdir
+      synchronize: 
+          src: '{{local_home}}/.config/LinuxConfig/etc/apache2/mods-available/php7.0.conf'
+          dest: '/etc/apache2/mods-available/php7.0.conf'
+
+    - name: Make GNOME's lock screen use xscreensaver
+      file: 
+          src: '/usr/bin/xscreensaver-command'
+          dest: '/usr/bin/gnome-screensaver-command'
+          state: link
+
+    - name: Python packages
+      apt: name={{item}} state=installed
+      with_items:
+          - python-pip 
+          - python3-pip
+
     - name: Other
       apt: name={{item}} state=installed
       with_items:
@@ -136,18 +158,16 @@
           - virtualbox
           - dropbox
           - homebank
-          - trash-cli
           - keepass2
           - deluge
-          - nemo
           - gparted
           - wine
           - docker
           - rdesktop
-          - inadyn
           - mplayer
           - mpv
           - vlc
+          - unrar
 
     - name: Latex packages
       apt: name={{item}} state=installed 
