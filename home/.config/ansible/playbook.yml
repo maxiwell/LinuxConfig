@@ -122,6 +122,7 @@
           - ssh
           - lynx
           - apache2
+          - mosh
 
     - name: Apache2 - Add userdir module
       apache2_module:
