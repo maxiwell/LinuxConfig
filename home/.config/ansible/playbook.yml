@@ -67,6 +67,8 @@
           - tmux
           - git
           - tig
+          - gcc-multilib
+          - g++-multilib
 
     - name: Libraries 
       apt: name={{item}} state=installed
@@ -78,6 +80,7 @@
           - libmono-system-data-datasetextensions4.0-cil 
           - libmono-system-runtime-serialization4.0-cil 
           - mono-mcs
+          - libdw-dev
 
     - name: Uninstall packages 
       apt: name={{item}} state=absent
