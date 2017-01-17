@@ -69,6 +69,7 @@
           - tig
           - gcc-multilib
           - g++-multilib
+          - dwarfdump
 
     - name: Libraries 
       apt: name={{item}} state=installed
