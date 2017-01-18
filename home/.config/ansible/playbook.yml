@@ -1,54 +1,64 @@
 - hosts: all
   tasks:
-    - apt_repository:
+    - name: APT - homebank
+      apt_repository:
         repo: ppa:mdoyen/homebank
-    - apt_repository:
+    - name: APT - wine
+      apt_repository:
         repo: ppa:ubuntu-wine/ppa
-    - apt_repository:
+    - name: APT - php5
+      apt_repository:
         repo: ppa:ondrej/php
-    - apt_repository: 
+    - name: APT - java
+      apt_repository: 
         repo: ppa:webupd8team/java
 
-    - apt_key:
+    - name: APT - spotify
+      apt_key:
         keyserver: keyserver.ubuntu.com
         id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
     - apt_repository:
         repo: 'deb http://repository.spotify.com stable non-free'
         state: present
 
-    - apt_key:
+    - name: APT - dropbox 
+      apt_key:
         keyserver: pgp.mit.edu
         id: 5044912E
     - apt_repository:
-        repo: 'deb http://linux.dropbox.com/ubuntu/ $(lsb_release -cs) main'
+        repo: 'deb http://linux.dropbox.com/ubuntu/ {{ansible_lsb.codename}} main'
         state: present
 
-    - apt_key:
-        url: "https://www.virtualbox.org/download/oracle_vbox.asc"
+    - name: APT - virtualbox 
+      apt_key:
+        url: "http://download.virtualbox.org/virtualbox/debian/oracle_vbox_2016.asc"
         state: present
     - apt_repository:
-        repo: 'deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -cs) contrib'
+        repo: 'deb http://download.virtualbox.org/virtualbox/debian {{ansible_lsb.codename}} contrib'
         state: present
 
-    - apt_key:
+    - name: APT - chrome
+      apt_key:
         url: "https://dl-ssl.google.com/linux/linux_signing_key.pub"
         state: present
     - apt_repository:
         repo: 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main'
         state: present
 
-    - apt_key:
+    - name: APT - docker 
+      apt_key:
         keyserver: p80.pool.sks-keyservers.net
         id: 58118E89F3A912897C070ADBF76221572C52609D
     - apt_repository:
-        repo: 'deb https://apt.dockerproject.org/repo ubuntu-$(lsb_release -cs) main'
+        repo: 'deb https://apt.dockerproject.org/repo ubuntu-{{ansible_lsb.codename}} main'
         state: present
 
-    - apt_key:
+    - name: APT - stack haskell 
+      apt_key:
         url: "https://s3.amazonaws.com/download.fpcomplete.com/ubuntu/fpco.key"
         state: present
     - apt_repository:
-        repo: 'deb http://download.fpcomplete.com/ubuntu/$(lsb_release -sc) stable main'
+        repo: 'deb http://download.fpcomplete.com/ubuntu/{{ansible_lsb.codename}} stable main'
         state: present
 
     - name: Dev tools
