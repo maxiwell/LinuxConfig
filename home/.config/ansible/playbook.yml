@@ -61,6 +61,10 @@
         repo: 'deb http://download.fpcomplete.com/ubuntu/{{ansible_lsb.codename}} stable main'
         state: present
 
+    - name: Update repositories
+      apt:
+          update_cache: yes
+
     - name: Dev tools
       apt: name={{item}} state=installed
       with_items:
