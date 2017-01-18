@@ -173,6 +173,8 @@
           - mpv
           - vlc
           - unrar
+          - spotify-client
+          - gimp
 
     - name: Latex packages
       apt: name={{item}} state=installed 
