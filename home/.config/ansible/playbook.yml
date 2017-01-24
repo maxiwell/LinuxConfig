@@ -254,6 +254,7 @@
           - grip
           - selenium
           - powerline-status
+          - onedrivesdk
 
     - name: VIM - Install Plugins using Vundle
       become: yes
