@@ -272,4 +272,20 @@
       command: chdir={{local_home}}/.vim/bundle/YouCompleteMe ./install.py --clang-completer
       when: ycm.stat.islnk is not defined
 
+    - stat: path='/usr/bin/rclone'
+      register: rclone
+
+    - name: Download rclone 
+      unarchive: 
+          src: http://downloads.rclone.org/rclone-current-linux-amd64.zip
+          dest: /tmp/
+          remote_src: True
+          copy: False
+      when: rclone.stat.islnk is not defined
+
+    - name: Install rclone 
+      copy: src={{item}} dest='/usr/bin/rclone' mode=0755
+      with_fileglob: /tmp/rclone*/rclone
+
+
 
