@@ -9,7 +9,7 @@
 	url = git@github.com:VundleVim/Vundle.vim.git
 [submodule "home/.local/opt/lightsOn"]
 	path = home/.local/opt/lightsOn
-	url = https://github.com/maxiwell/lightsOn
+	url = git@github.com:iye/lightsOn
 [submodule "home/.local/opt/tmux-resurrect"]
 	path = home/.local/opt/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
@@ -18,4 +18,4 @@
 	url = git@github.com:maxiwell/rxvt-tabbed-new
 [submodule "home/.local/opt/gsync-backup"]
 	path = home/.local/opt/gsync-backup
-	url = https://github.com/maxiwell/gsync-backup
+	url = git@github.com:maxiwell/gsync-backup
