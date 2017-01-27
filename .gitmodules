@@ -16,3 +16,6 @@
 [submodule "home/.local/opt/rxvt-tabbed-new"]
 	path = home/.local/opt/rxvt-tabbed-new
 	url = git@github.com:maxiwell/rxvt-tabbed-new
+[submodule "home/.local/opt/gsync-backup"]
+	path = home/.local/opt/gsync-backup
+	url = https://github.com/maxiwell/gsync-backup
