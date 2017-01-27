@@ -290,4 +290,13 @@
       with_fileglob: /tmp/rclone*/rclone
 
 
+    - name: Install gsync-backup
+      become: yes
+      become_user: '{{local_user}}'
+      file: 
+          src: '{{local_home}}/.local/opt/gsync-backup/gsync-backup.sh'
+          dest: '{{local_home}}/.local/bin/gsync-backup.sh'
+          state: link
+
+
 
