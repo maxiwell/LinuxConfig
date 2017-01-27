@@ -41,8 +41,6 @@ Some tips
 
 * My executable scripts are in ``home/.local/bin/``.
 
-* /etc is not touched in "collect" and "distribute" script.
-
 Reminders
 -----------
 
