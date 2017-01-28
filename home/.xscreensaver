@@ -20,9 +20,9 @@ ignoreUninstalledPrograms:False
 mode: blank
 dpmsEnabled:	True
 dpmsQuickOff:	True
-dpmsStandby:	0:10:10
-dpmsSuspend:	0:10:10
-dpmsOff:	    0:10:10
+dpmsStandby:	0:05:00
+dpmsSuspend:	0:05:00
+dpmsOff:	    0:05:00
 grabDesktopImages:  False
 grabVideoFrames:    False
 chooseRandomImages: False
