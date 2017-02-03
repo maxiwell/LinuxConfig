@@ -9,7 +9,7 @@
 #[[ -f ~/.profile ]] && . ~/.profile 
 
 # History control variables
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 export HISTSIZE=-1
 export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%F %T "
