@@ -12,6 +12,9 @@
     - name: APT - java
       apt_repository: 
         repo: ppa:webupd8team/java
+    - name: APT - vim
+      apt_repository:
+        repo: ppa:jonathonf/vim
 
     - name: APT - spotify
       apt_key:
