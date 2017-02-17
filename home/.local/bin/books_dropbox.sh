@@ -1,15 +1,27 @@
 #!/bin/bash
 
 ebooks=/home/max/Dropbox/eBooks/
-pdfs=/home/max/Dropbox/Livros/
+pdfs=/home/max/Dropbox/pdfs/
 
-pushd $ebooks 
-for i in *; do if test $( find /media/files/livros/ -iname "$i" | wc -l) -eq 0 ; then echo $i; fi ; done
-popd
+allbooks=/files/backup/powernote/media/files/livros/
 
-pushd $pdfs
-for i in *; do if test $( find /media/files/livros/ -iname "$i" | wc -l) -eq 0 ; then echo $i; fi ; done
-popd
+cd $ebooks 
+for i in *; 
+    do 
+        if test $( find $allbooks -iname "$i" | wc -l) -eq 0 ; then 
+            echo $i; 
+        fi; 
+    done
+cd - &> /dev/null
+
+cd $pdfs
+for i in *; 
+    do 
+        if test $( find $allbooks -iname "$i" | wc -l) -eq 0 ; then 
+            echo $i; 
+        fi ; 
+    done
+cd - &> /dev/null
 
 
 
