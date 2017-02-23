@@ -253,6 +253,7 @@
           - grip
           - selenium
           - powerline-status
+          - websocket-client
 
     - name: Pip3 Packages
       pip: name={{item}} state=present executable=pip3
@@ -261,6 +262,7 @@
           - selenium
           - powerline-status
           - onedrivesdk
+          - websocket-client
 
     - name: VIM - Install Plugins using Vundle
       become: yes
@@ -301,6 +303,22 @@
           src: '{{local_home}}/.local/opt/gsync-backup/gsync-backup.sh'
           dest: '{{local_home}}/.local/bin/gsync-backup.sh'
           state: link
+
+    - name: WeeChat - Install Buffers
+      become: yes
+      become_user: '{{local_user}}'
+      get_url: 
+          url:  https://weechat.org/files/scripts/buffers.pl
+          dest: '{{local_home}}/.weechat/perl/autoload/buffers.pl'
+          mode: 0644
+
+    - name: WeeChat - Install Wee Slack
+      become: yes
+      become_user: '{{local_user}}'
+      get_url: 
+          url:  https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py
+          dest: '{{local_home}}/.weechat/python/autoload/wee_slack.pl'
+          mode: 0644
 
 
 
