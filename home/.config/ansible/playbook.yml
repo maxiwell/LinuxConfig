@@ -124,6 +124,7 @@
           - trash-cli
           - xclip
           - scrot
+          - tree
 
     - name: PHP
       apt: name={{item}} state=installed
