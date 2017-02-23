@@ -87,6 +87,8 @@
           - gcc-multilib
           - g++-multilib
           - dwarfdump
+          - weechat
+          - znc
 
     - name: Libraries 
       apt: name={{item}} state=installed
@@ -317,8 +319,14 @@
       become_user: '{{local_user}}'
       get_url: 
           url:  https://raw.githubusercontent.com/rawdigits/wee-slack/master/wee_slack.py
-          dest: '{{local_home}}/.weechat/python/autoload/wee_slack.pl'
+          dest: '{{local_home}}/.weechat/python/autoload/wee_slack.py'
           mode: 0644
 
-
+    - name: WeeChat - Install iset
+      become: yes
+      become_user: '{{local_user}}'
+      get_url:
+          url: https://weechat.org/files/scripts/iset.pl
+          dest: '{{local_home}}/.weechat/perl/autoload/iset.pl'
+          mode: 0644
 
