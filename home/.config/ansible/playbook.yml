@@ -306,6 +306,15 @@
           dest: '{{local_home}}/.local/bin/gsync-backup.sh'
           state: link
 
+    - name: Ensures that weechat dir exists
+      become: yes
+      become_user: '{{local_user}}'
+      file: path={{item}} state=directory
+      with_items:
+          - '{{local_home}}/.weechat/perl/autoload'
+          - '{{local_home}}/.weechat/python/autoload'
+
+
     - name: WeeChat - Install Buffers
       become: yes
       become_user: '{{local_user}}'
