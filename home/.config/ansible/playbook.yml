@@ -80,15 +80,11 @@
           - bison
           - ghc
           - stack
-          - vim-gtk 
-          - tmux
           - git
-          - tig
           - gcc-multilib
           - g++-multilib
           - dwarfdump
-          - weechat
-          - znc
+          - autoconf
 
     - name: Libraries 
       apt: name={{item}} state=installed
@@ -126,6 +122,15 @@
           - trash-cli
           - xclip
           - scrot
+
+    - name: Productivity Tools
+      apt: name={{item}} state=installed
+      with_items:
+          - tmux
+          - vim-gtk
+          - tig
+          - weechat
+          - znc
           - tree
 
     - name: PHP
