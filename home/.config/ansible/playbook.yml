@@ -81,6 +81,7 @@
           - ghc
           - stack
           - git
+          - subversion
           - gcc-multilib
           - g++-multilib
           - dwarfdump
@@ -131,6 +132,8 @@
           - tig
           - weechat
           - znc
+          - git-svn
+          - git-bzr
           - tree
 
     - name: PHP
