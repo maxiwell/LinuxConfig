@@ -135,6 +135,7 @@
           - git-svn
           - git-bzr
           - tree
+          - smartmontools
 
     - name: PHP
       apt: name={{item}} state=installed
