@@ -134,6 +134,7 @@
           - znc
           - git-svn
           - git-bzr
+          - git-remote-bzr
           - tree
           - smartmontools
 
