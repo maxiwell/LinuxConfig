@@ -19,3 +19,6 @@
 [submodule "home/.local/opt/gsync-backup"]
 	path = home/.local/opt/gsync-backup
 	url = git@github.com:maxiwell/gsync-backup
+[submodule "home/.local/opt/PureVPN-network-manager"]
+	path = home/.local/opt/PureVPN-network-manager
+	url = git@github.com:maxiwell/PureVPN-network-manager.git
