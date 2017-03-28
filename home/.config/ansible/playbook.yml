@@ -123,6 +123,8 @@
           - trash-cli
           - xclip
           - scrot
+          - network-manager-openvpn
+          - network-manager-openvpn-gnome
 
     - name: Productivity Tools
       apt: name={{item}} state=installed
