@@ -86,6 +86,7 @@
           - g++-multilib
           - dwarfdump
           - autoconf
+          - help2man
 
     - name: Libraries 
       apt: name={{item}} state=installed
