@@ -210,6 +210,7 @@
           - unrar
           - spotify-client
           - gimp
+          - stress
 
     - name: Latex packages
       apt: name={{item}} state=installed 
