@@ -110,6 +110,7 @@
       with_items:
           - openbox
           - rxvt-unicode-256color
+          - terminator
           - tint2
           - gsimplecal
           - gmrun
