@@ -114,9 +114,10 @@
           - tint2
           - gsimplecal
           - gmrun
-          - conky
+          - conky-all
           - wmctrl
           - htop
+          - iotop
           - pavucontrol
           - xscreensaver
           - xbacklight
