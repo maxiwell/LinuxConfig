@@ -129,6 +129,7 @@
           - network-manager-openvpn
           - network-manager-openvpn-gnome
           - human-theme
+          - ecryptfs-utils
 
     - name: Productivity Tools
       apt: name={{item}} state=installed
@@ -143,6 +144,7 @@
           - git-remote-bzr
           - tree
           - smartmontools
+          - shc
 
     - name: PHP
       apt: name={{item}} state=installed
