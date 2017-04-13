@@ -145,6 +145,7 @@
           - tree
           - smartmontools
           - shc
+          - exuberant-ctags
 
     - name: PHP
       apt: name={{item}} state=installed
