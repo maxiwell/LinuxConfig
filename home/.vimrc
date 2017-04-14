@@ -98,6 +98,7 @@ Plugin 'tomasr/molokai.git'
 "Plugin 'Rip-Rip/clang_complete.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
+Plugin 'scrooloose/nerdtree'
 
 "Scala Plugin
 Plugin 'derekwyatt/vim-scala'
@@ -355,4 +356,11 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " equivalent to the Ctrl+W, Shift+J shortcut telling Vim to move a window to
 " the very bottom (see :help :wincmd and :help ^WJ).
 autocmd FileType qf wincmd J
+
+"--------------------------------------------------------------------------------
+" NERDTree
+"--------------------------------------------------------------------------------
+
+" Ctrl-n to open/close NERDTree
+map <C-n> :NERDTreeToggle<CR> 
 
