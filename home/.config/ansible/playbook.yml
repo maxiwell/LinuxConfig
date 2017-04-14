@@ -217,6 +217,7 @@
           - spotify-client
           - gimp
           - stress
+          - mtp-tools
 
     - name: Latex packages
       apt: name={{item}} state=installed 
