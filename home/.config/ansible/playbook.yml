@@ -73,6 +73,7 @@
       with_items:
           - gcc
           - g++
+          - clang
           - build-essential
           - cmake
           - ninja-build
