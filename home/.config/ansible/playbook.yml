@@ -146,6 +146,8 @@
           - smartmontools
           - shc
           - exuberant-ctags
+          - cscope
+          - silversearcher-ag
 
     - name: PHP
       apt: name={{item}} state=installed
