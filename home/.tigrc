@@ -1,6 +1,7 @@
 set main-view = \
-    date:yes \
     id:yes,width:12 \
+    date:yes \
     author:yes \
-    commit-title:graph:yes
+    commit-title:yes,graph,refs
+
 
