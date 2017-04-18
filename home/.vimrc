@@ -334,7 +334,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " clang-format
 "--------------------------------------------------------------------------------
 
-let g:clang_format#code_style = 'llvm'
+let g:clang_format#code_style = 'google'
 
 "--------------------------------------------------------------------------------
 " Using Silver Searcher AG: https://github.com/ggreer/the_silver_searcher
