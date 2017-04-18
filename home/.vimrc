@@ -74,7 +74,7 @@ inoremap <M-left>   <C-O>B
 inoremap <C-L> <C-\><C-O>W
 inoremap <C-H> <C-\><C-O>B
 
-"--------------------------------------------------------------------------------
+"-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
 "--------------------------------------------------------------------------------
 
@@ -101,6 +101,7 @@ Plugin 'tomasr/molokai.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
+Plugin 'pseewald/nerdtree-tagbar-combined'
 
 "Scala Plugin
 Plugin 'derekwyatt/vim-scala'
@@ -119,6 +120,11 @@ colorscheme peachpuff
 
 hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
 hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE
+
+set fillchars+=vert:│
+highlight VertSplit cterm=none gui=none 
+
+
 
 "--------------------------------------------------------------------------------
 " Persistent UNDO 
@@ -364,5 +370,12 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-map <C-n> :NERDTreeToggle<CR> 
+" map <C-n> :NERDTreeToggle<CR> 
+
+"--------------------------------------------------------------------------------
+" NERDTree + TagBar
+"--------------------------------------------------------------------------------
+
+" Ctrl-n to open/close NERDTree + TagBar
+map <C-n> :ToggleNERDTreeAndTagbar<CR>
 
