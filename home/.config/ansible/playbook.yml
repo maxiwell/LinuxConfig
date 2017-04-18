@@ -74,6 +74,7 @@
           - gcc
           - g++
           - clang
+          - clang-format
           - build-essential
           - cmake
           - ninja-build
