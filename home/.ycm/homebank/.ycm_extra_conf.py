@@ -85,8 +85,14 @@ flags = [
 
 import glob
 for file in glob.glob("*.c"):
-    print(file)
-    flags += ['--include='+file]
+    flags += ['--include',file]
+
+
+
+import subprocess
+flags += [s.strip() for s in subprocess.check_output(['pkg-config', '--cflags','glib-2.0']).strip().split(' ')];
+flags += [s.strip() for s in subprocess.check_output(['pkg-config', '--cflags','gtk+-3.0']).strip().split(' ')];
+flags += [s.strip() for s in subprocess.check_output(['pkg-config', '--cflags','pango pangocairo']).strip().split(' ')];
 
 # Set this to the absolute path to the folder (NOT the file!) containing the
 # compile_commands.json file to use that instead of 'flags'. See here for
