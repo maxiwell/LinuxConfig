@@ -103,6 +103,8 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pseewald/nerdtree-tagbar-combined'
 
+Plugin 'rking/ag.vim'
+
 "Scala Plugin
 Plugin 'derekwyatt/vim-scala'
 
@@ -351,13 +353,22 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 
+"  " 'Ag.vim' plugin finds the root project. It uses 'ag' too
+  let g:ag_prg="ag --nogroup --nocolor"
+  let g:ag_working_path_mode="r"
+  let g:ag_format="%f:%l:%m"
+
 endif
 
 "--------------------------------------------------------------------------------
-" bind K to grep word under cursor ('grep' is replaced by 'ag', if possible)
+" bind K to grep word under cursor
 "--------------------------------------------------------------------------------
 
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+if executable('ag')
+    nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR> 
+else
+    nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR> 
+endif
 
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
