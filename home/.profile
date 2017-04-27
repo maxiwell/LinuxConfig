@@ -55,3 +55,5 @@ export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1024x768
 export JAVA_HOME=/usr/lib/jvm/java-8-oracle/
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
+[[ -f ~/env.padtec ]] && source ~/env.padtec
+
