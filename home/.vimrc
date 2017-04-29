@@ -58,21 +58,29 @@ imap <down> <esc>gj<insert><right>
 map <up> gk
 map <down> gj
 
-" C-PageUp and C-PageDown to navigate between buffers in Normal mode
-nnoremap <C-PageUp>     :bp<CR>
-nnoremap <C-PageDown>   :bn<CR>
-" A-PageUp and A-PageDown to navigate between tabs in Normal mode
-nnoremap <M-PageUp>   :tabn<CR>
-noremap <M-PageDown> :tabp<CR>
-" A-Right and A-Left to jump words in Normal mode
-nnoremap <M-right>  <C-right>
-nnoremap <M-left>   <C-left>
-" A-Right and A-Left to jump words in Insert mode
-inoremap <M-right>  <C-O>W
-inoremap <M-left>   <C-O>B
-" C-L and C-H to jump words in Insert mode
-inoremap <C-L> <C-\><C-O>W
-inoremap <C-H> <C-\><C-O>B
+" " C-PageUp and C-PageDown to navigate between buffers in Normal mode
+" nnoremap <C-PageUp>     :bp<CR>
+" nnoremap <C-PageDown>   :bn<CR>
+" " A-PageUp and A-PageDown to navigate between tabs in Normal mode
+" nnoremap <M-PageUp>   :tabn<CR>
+" noremap <M-PageDown>  :tabp<CR>
+" " A-Right and A-Left to jump words in Normal mode
+" nnoremap <M-right>  <C-right>
+" nnoremap <M-left>   <C-left>
+" " A-Right and A-Left to jump words in Insert mode
+" inoremap <M-right>  <C-O>W
+" inoremap <M-left>   <C-O>B
+
+" C-W and C-B to jump words in Insert mode
+inoremap <C-W> <C-\><C-O>W
+inoremap <C-B> <C-\><C-O>B
+
+" C-h and C-l to navigate between buffers 
+nnoremap <silent> <C-h>      :bp<CR>
+nnoremap <silent> <C-l>      :bn<CR>
+inoremap <silent> <C-h>      <ESC>:bp<CR>
+inoremap <silent> <C-l>      <ESC>:bn<CR>
+
 
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
