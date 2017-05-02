@@ -111,6 +111,8 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pseewald/nerdtree-tagbar-combined'
 
+"Plugin 'lyuts/vim-rtags'
+
 Plugin 'rking/ag.vim'
 
 "Scala Plugin
