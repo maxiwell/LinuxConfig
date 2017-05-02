@@ -372,6 +372,7 @@ endif
 " bind K to grep word under cursor
 "--------------------------------------------------------------------------------
 
+"Ag project uses 'ag' from the .git folder (very nice)
 if executable('ag')
     nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR> 
 else
