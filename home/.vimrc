@@ -47,7 +47,7 @@ au BufWinLeave *.* mkview 1
 au BufWinEnter *.* silent loadview 1
 
 " set the ctags file name
-set tags=tags,ctags,.tags,.ctags;   
+set tags=tags,ctags,.tags,.ctags,~/tags.padtec;   
 
 " Easy of use with dead key keyboard
 map ´ ''
@@ -110,8 +110,6 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 Plugin 'pseewald/nerdtree-tagbar-combined'
-
-"Plugin 'lyuts/vim-rtags'
 
 Plugin 'rking/ag.vim'
 
