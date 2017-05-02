@@ -101,6 +101,9 @@
           - libmono-system-runtime-serialization4.0-cil 
           - mono-mcs
           - libdw-dev
+          - libclang-dev
+          - libssl-dev
+          - zlibc
 
     - name: Uninstall packages 
       apt: name={{item}} state=absent
