@@ -173,6 +173,7 @@
           - inadyn
           - ssh
           - lynx
+          - elinks
           - apache2
           - mosh
 
