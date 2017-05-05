@@ -46,9 +46,6 @@ autocmd BufEnter * :syntax sync fromstart
 au BufWinLeave *.* mkview 1
 au BufWinEnter *.* silent loadview 1
 
-" set the ctags file name
-set tags=tags,ctags,.tags,.ctags,~/tags.padtec;   
-
 " Easy of use with dead key keyboard
 map ´ ''
 
@@ -109,7 +106,6 @@ Plugin 'tomasr/molokai.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
-Plugin 'pseewald/nerdtree-tagbar-combined'
 
 Plugin 'rking/ag.vim'
 
@@ -390,12 +386,26 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-" map <C-n> :NERDTreeToggle<CR> 
+map <C-n> :NERDTreeToggle<CR> 
 
 "--------------------------------------------------------------------------------
-" NERDTree + TagBar
+" ctags load
 "--------------------------------------------------------------------------------
 
-" Ctrl-n to open/close NERDTree + TagBar
-map <C-n> :ToggleNERDTreeAndTagbar<CR>
+" set the ctags file name
+set tags=tags,ctags,.tags,.ctags,~/tags.padtec
+
+"--------------------------------------------------------------------------------
+" cscope map
+"--------------------------------------------------------------------------------
+
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+
 
