@@ -389,16 +389,27 @@ autocmd FileType qf wincmd J
 map <C-n> :NERDTreeToggle<CR> 
 
 "--------------------------------------------------------------------------------
-" ctags load
+" ctags and cscope
 "--------------------------------------------------------------------------------
 
 " set the ctags file name
-set tags=tags,ctags,.tags,.ctags,~/tags.padtec
+set tags=tags,ctags,.tags,.ctags
 
-"--------------------------------------------------------------------------------
+" Use .../tags in ancestor of source directory.
+" useful when you have source tree eight fathom deep,
+" an exercise in Vim loops.
+let parent=1
+let local_tags = "ctags"
+let local_cscope = "cscope.out"
+while parent <= 8
+  let local_tags = "../". local_tags
+  let local_cscope = "../". local_cscope
+  exe ":set tags+=".local_tags
+  exe ":cs add ".local_cscope
+  let parent = parent+1
+endwhile
+
 " cscope map
-"--------------------------------------------------------------------------------
-
 nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
 nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
