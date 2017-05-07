@@ -399,8 +399,8 @@ set tags=tags,ctags,.tags,.ctags
 " useful when you have source tree eight fathom deep,
 " an exercise in Vim loops.
 let parent=1
-let local_tags = "ctags"
-let local_cscope = "cscope.out"
+let local_tags = ".tags/ctags"
+let local_cscope = ".tags/cscope.out"
 exe ":set tags+=".local_tags
 exe ":cs add ".local_cscope
 
