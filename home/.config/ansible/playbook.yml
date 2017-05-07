@@ -104,6 +104,8 @@
           - libclang-dev
           - libssl-dev
           - zlibc
+          - libglib2.0-dev
+          - libgtk-3-dev
 
     - name: Uninstall packages 
       apt: name={{item}} state=absent
