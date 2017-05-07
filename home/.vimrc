@@ -401,6 +401,9 @@ set tags=tags,ctags,.tags,.ctags
 let parent=1
 let local_tags = "ctags"
 let local_cscope = "cscope.out"
+exe ":set tags+=".local_tags
+exe ":cs add ".local_cscope
+
 while parent <= 8
   let local_tags = "../". local_tags
   let local_cscope = "../". local_cscope
