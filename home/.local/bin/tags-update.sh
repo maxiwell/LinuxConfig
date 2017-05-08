@@ -8,7 +8,7 @@ if [[ "$1" == "c" ]]; then
     find `pwd` -iname '*.c' | grep -v build\/ > $DIR/tags.files
     CTAGS_EXTRA_ARGS=
 else
-    find `pwd` -iname *.cpp -o -iname *.cc | grep -v build\/ > $DIR/tags.files
+    find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ > $DIR/tags.files
     CTAGS_EXTRA_ARGS="--language-force=C++"
 fi
 
