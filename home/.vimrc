@@ -413,13 +413,24 @@ while parent <= 8
 endwhile
 
 " cscope map
-nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+" s: Find this C symbol
+nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+" g: Find this definition
 nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+" c: Find functions calling this function
 nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+" t: Find this text string
 nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+" e: Find this egrep pattern
 nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+" f: Find this file
 nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+" i: Find files #including this file
 nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+" d: Find functions called by this function
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+" a: Find places where this symbol is assigned a value
+nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
+
 
 
