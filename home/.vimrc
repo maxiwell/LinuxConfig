@@ -431,6 +431,11 @@ nmap <C-\>i :cs find i [/]?<C-R>=expand('%:t')<CR><CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " a: Find places where this symbol is assigned a value
 nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
-" f: Find the file that you type
+
+" Find the file that you type. Some projects copy the header
+" files in different places (/include, /refs, /releases). So 
+" with this shortcut, you can find copies of files using the 
+" CSCOPE database (CtrlP fails when a project has many .git 
+" repository). Use % to search the current filename 
 nmap <C-\>F :cs find f 
 
