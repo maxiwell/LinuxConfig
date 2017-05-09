@@ -426,7 +426,7 @@ nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
 " f: Find this file
 nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
 " i: Find files #including this file
-nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-\>i :cs find i [/]?<C-R>=expand('%:t')<CR><CR>
 " d: Find functions called by this function
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " a: Find places where this symbol is assigned a value
