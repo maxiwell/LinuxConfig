@@ -431,6 +431,6 @@ nmap <C-\>i :cs find i [/]?<C-R>=expand('%:t')<CR><CR>
 nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 " a: Find places where this symbol is assigned a value
 nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
-
-
+" f: Find the file that you type
+nmap <C-\>F :cs find f 
 
