@@ -439,3 +439,17 @@ nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 " repository). Use % to search the current filename 
 nmap <C-\>F :cs find f 
 
+"--------------------------------------------------------------------------------
+" Signature (marks clever) 
+"--------------------------------------------------------------------------------
+
+" Default Shortcuts:
+" m,           Place the next available mark
+" m-           Delete all marks from the current line
+" m<Space>     Delete all marks from the current buffer
+" ]`           Jump to next mark
+" [`           Jump to prev mark
+" m/           Open location list and display marks from current buffer
+" 
+" More here: github.com/kshenoy/vim-signature
+
