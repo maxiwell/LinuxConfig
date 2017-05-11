@@ -15,6 +15,9 @@
     - name: APT - vim
       apt_repository:
         repo: ppa:jonathonf/vim
+    - name: APT - Mozilla 
+      apt_repository:
+        repo: ppa:ubuntu-mozilla-security/ppa
 
     - name: APT - spotify
       apt_key:
@@ -89,6 +92,8 @@
           - dwarfdump
           - autoconf
           - help2man
+          - rustc
+          - cargo
 
     - name: Libraries 
       apt: name={{item}} state=installed

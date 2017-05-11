@@ -57,3 +57,5 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp'
 
 [[ -f ~/env.padtec ]] && source ~/env.padtec
 
+
+export PATH="$HOME/.cargo/bin:$PATH"
