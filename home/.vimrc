@@ -27,6 +27,9 @@ set wildmenu
 
 set autochdir
 
+" Save marks of 1000 files
+set viminfo='1000,f1
+
 " Set this to the name of your terminal that supports mouse codes.
 set ttymouse=xterm2
 " Send more characters for redraws
@@ -77,7 +80,6 @@ nnoremap <silent> <C-h>      :bp<CR>
 nnoremap <silent> <C-l>      :bn<CR>
 inoremap <silent> <C-h>      <ESC>:bp<CR>
 inoremap <silent> <C-l>      <ESC>:bn<CR>
-
 
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
