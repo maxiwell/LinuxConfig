@@ -21,8 +21,9 @@ BASE_FLAGS = [
         '-xc++',
         '-I/usr/lib/',
         '-I/usr/include/',
-        '-I'+dir+'/../../refs/build/include/',
-        '-I'+dir+'/src/'
+        '-I'+dir+'/src/',
+        '-I'+dir+'/include/',
+        '-I'+dir+'/../../refs/build/include/'
         ]
 
 SOURCE_EXTENSIONS = [
