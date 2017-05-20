@@ -1,0 +1,57 @@
+#!/bin/bash
+
+PRIMARY=`xrandr | grep primary | cut -d' '  -f1`
+
+# Get the external output display. 
+# I don't have multiple displays, 
+# but with a little adaption it can work 
+OUT=`xrandr \
+    | awk '/^[0-9a-zA-Z]+ connected [^primary]/ {print echo $1}' \
+    | head -n1`
+
+
+function print_help() {
+    echo -e "HDMI v0.1"
+    echo -e "usage: hdmi [OPT]"
+    echo -e "OPT:"
+    echo -e "  clone, right, left, off, cinema"
+}
+
+function sound_hdmi() {
+    pactl set-card-profile 0 output:hdmi-stereo
+}
+
+OPT=$1
+[[ -z $OPT ]] && OPT='off';
+
+case $OPT in
+    -h|--help)
+        print_help
+        ;;
+    
+    clone)
+        xrandr --output $OUT --auto --same-as $PRIMARY --auto
+        sound_hdmi
+        ;;
+    
+    right)
+        xrandr --output $OUT --auto --right-of $PRIMARY --auto
+        sound_hdmi
+        ;;
+    
+    left)
+        xrandr --output $OUT --auto --left-of $PRIMARY --auto
+        sound_hdmi
+        ;;
+    
+    off)
+        xrandr --output $PRIMARY --auto --output $OUT --off
+        ;;
+    
+    cinema)
+        xrandr --output $PRIMARY --off --output $OUT --auto
+        sound_hdmi
+        ;;
+esac
+
+
