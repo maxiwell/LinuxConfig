@@ -7,6 +7,7 @@ xsetroot -solid "#000000"
 hdmi clone &
 tint2 &
 xscreensaver &
+xscreensaverstopper.sh &
 
 #feh --bg-tile Pictures/Emily_Blunt.jpg &
 
