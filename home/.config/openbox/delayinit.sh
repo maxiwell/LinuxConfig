@@ -4,7 +4,6 @@ xsetroot -solid "#000000"
 
 #xautolock -time 1 -locker "gnome-screensaver-command --lock" &
 
-hdmi clone &
 tint2 &
 xscreensaver &
 xscreensaverstopper.sh &
