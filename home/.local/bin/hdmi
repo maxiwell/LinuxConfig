@@ -46,6 +46,11 @@ case $OPT in
     
     off)
         xrandr --output $PRIMARY --auto --output $OUT --off
+        
+        # The Screen keeps in FullHD (after a clone, for example) even when the 
+        # Primary output is set (BUG?). So, we need set the screen resolution with the
+        # first index of Primary 
+        xrandr -s 0
         ;;
     
     cinema)
