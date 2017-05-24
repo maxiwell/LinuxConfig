@@ -184,6 +184,7 @@
           - apache2
           - mosh
           - nmap
+          - cifs-utils
 
     - name: Apache2 - Add userdir module
       apache2_module:
