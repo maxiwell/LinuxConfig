@@ -7,9 +7,6 @@
 [submodule "home/.vim/bundle/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
-[submodule "home/.local/opt/lightsOn"]
-	path = home/.local/opt/lightsOn
-	url = git@github.com:iye/lightsOn
 [submodule "home/.local/opt/tmux-resurrect"]
 	path = home/.local/opt/tmux-resurrect
 	url = git@github.com:tmux-plugins/tmux-resurrect.git
