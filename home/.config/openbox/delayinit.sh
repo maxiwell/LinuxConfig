@@ -6,7 +6,7 @@ xsetroot -solid "#000000"
 
 tint2 &
 xscreensaver &
-xscreensaverstopper.sh &
+xscreensaverstopper.sh & > /tmp/xscreensaverstopper.log
 
 #feh --bg-tile Pictures/Emily_Blunt.jpg &
 
