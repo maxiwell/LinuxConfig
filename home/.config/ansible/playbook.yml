@@ -160,6 +160,7 @@
           - exuberant-ctags
           - cscope
           - silversearcher-ag
+          - jq
 
     - name: PHP
       apt: name={{item}} state=installed
