@@ -1,21 +1,21 @@
 [submodule "home/.local/opt/oh-my-zsh"]
 	path = home/.local/opt/oh-my-zsh
-	url = git@github.com:robbyrussell/oh-my-zsh.git
+	url = https://github.com/robbyrussell/oh-my-zsh.git
 [submodule "home/.local/opt/powerline-fonts"]
 	path = home/.local/opt/powerline-fonts
-	url = git@github.com:powerline/fonts.git
+	url = https://github.com/powerline/fonts.git
 [submodule "home/.vim/bundle/Vundle.vim"]
 	path = home/.vim/bundle/Vundle.vim
-	url = git@github.com:VundleVim/Vundle.vim.git
+	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule "home/.local/opt/tmux-resurrect"]
 	path = home/.local/opt/tmux-resurrect
-	url = git@github.com:tmux-plugins/tmux-resurrect.git
+	url = https://github.com/tmux-plugins/tmux-resurrect.git
 [submodule "home/.local/opt/rxvt-tabbed-new"]
 	path = home/.local/opt/rxvt-tabbed-new
-	url = git@github.com:maxiwell/rxvt-tabbed-new
+	url = https://github.com/maxiwell/rxvt-tabbed-new
 [submodule "home/.local/opt/gsync-backup"]
 	path = home/.local/opt/gsync-backup
-	url = git@github.com:maxiwell/gsync-backup
+	url = https://github.com/maxiwell/gsync-backup
 [submodule "home/.local/opt/PureVPN-network-manager"]
 	path = home/.local/opt/PureVPN-network-manager
-	url = git@github.com:maxiwell/PureVPN-network-manager.git
+	url = https://github.com/maxiwell/PureVPN-network-manager.git

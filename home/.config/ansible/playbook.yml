@@ -197,11 +197,6 @@
       become_user: '{{local_user}}'
       file: path='{{local_home}}/public_html' mode=775 state=directory
 
-    - name: Apache2 - Enable php to userdir
-      synchronize: 
-          src: '{{local_home}}/.config/PersonalConfig/etc/apache2/mods-available/php7.0.conf'
-          dest: '/etc/apache2/mods-available/php7.0.conf'
-
     - name: Make GNOME's lock screen use xscreensaver
       file: 
           src: '/usr/bin/xscreensaver-command'
