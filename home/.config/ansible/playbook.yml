@@ -94,6 +94,7 @@
           - help2man
           - rustc
           - cargo
+          - uuid-dev
 
     - name: Libraries 
       apt: name={{item}} state=installed
@@ -111,6 +112,7 @@
           - zlibc
           - libglib2.0-dev
           - libgtk-3-dev
+          - libnss3-tools
 
     - name: Uninstall packages 
       apt: name={{item}} state=absent
