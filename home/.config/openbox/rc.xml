@@ -247,6 +247,20 @@
     <keybind key="W-A-Right">
       <action name="MoveToEdgeEast"/>
     </keybind>
+    <keybind key="W-C-Right">
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdgeEast"/>
+    </keybind>
+    <keybind key="W-C-Left">
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdgeWest"/>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="C-A-Left">
       <action name="GoToDesktop">
@@ -521,19 +535,6 @@
       <action name="Execute">
         <command>setxkbmap -layout us</command>
       </action>
-    </keybind>
-    <keybind key="W-C-Right">
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-    </keybind>
-    <keybind key="W-C-Left">
-      <action name="MaximizeVert"/>
-      <action name="MoveResizeTo">
-        <width>50%</width>
-      </action>
-      <action name="MoveToEdgeWest"/>
     </keybind>
   </keyboard>
   <mouse>
