@@ -109,6 +109,8 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 
+Plugin 'vim-scripts/Conque-GDB'
+
 Plugin 'rking/ag.vim'
 
 "Scala Plugin
