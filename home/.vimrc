@@ -457,3 +457,22 @@ nmap <C-\>F :cs find f
 " 
 " More here: github.com/kshenoy/vim-signature
 
+"--------------------------------------------------------------------------------
+" ConqueGDB
+"--------------------------------------------------------------------------------
+
+let g:ConqueGdb_Leader = '\\' 
+
+" Default Shortcuts:
+" \\r            Run program mapping 
+" \\c            Continue program mapping
+" \\n            Next line mapping
+" \\s            Step line mapping
+" \\p            Print identifier under cursor
+" \\b            Toggle break point mapping
+" \\d            Delete break point mapping 
+" \\f            Finish mapping
+" \\t            Backtrace mapping
+"
+" More here: https://github.com/vim-scripts/Conque-GDB
+
