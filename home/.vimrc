@@ -443,6 +443,9 @@ nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 " repository). Use % to search the current filename 
 nmap <C-\>F :cs find f 
 
+" You can add your own expression
+nmap <C-\>E :cs find e <C-R>=expand("<cword>")<CR><CR>	
+
 "--------------------------------------------------------------------------------
 " Signature (marks clever) 
 "--------------------------------------------------------------------------------

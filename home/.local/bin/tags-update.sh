@@ -17,7 +17,7 @@ collecting_ctags() {
 
     if [[ "$2" != "c" ]]; then
         find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ > $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --extra=+q --language-force=C++"
+        CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++"
         ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
     fi
 
