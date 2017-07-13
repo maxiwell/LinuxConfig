@@ -171,7 +171,8 @@ augroup END
 "--------------------------------------------------------------------------------
 
 "shortcut to CtrlP
-nnoremap <leader>. :CtrlP<cr> 
+nnoremap <C-p>f     :CtrlP<cr>
+nnoremap <C-p>b     :CtrlPBuffer<cr>
 
 "--------------------------------------------------------------------------------
 " TagBar 
