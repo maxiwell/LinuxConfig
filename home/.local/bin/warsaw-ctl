@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#
+# Author: João Paulo Labegalini de Carvalho <jaopaulolc@gmail.com>
+# 
+
+
+NAME=core
+DAEMON=/usr/local/bin/warsaw/$NAME
+PIDFILE=/var/run/${NAME}.pid
+
+case "$1" in
+    start)
+        echo "Starting "$NAME" "
+        /usr/local/bin/warsaw/wscertmgr
+        $DAEMON > /dev/null 2>&1 &
+        exit $?
+        ;;
+    stop)
+        echo "Stopping "$NAME" "
+        if [ -f $PIDFILE ]
+        then
+            kill -15 $(cat $PIDFILE)
+            rm -f $PIDFILE
+        fi
+        exit $?
+        ;;
+    restart)
+        echo "Restarting "$NAME" "
+	$0 stop
+        $0 start
+        exit $?
+        ;;
+    *)
+        exit 1
+        ;;
+esac
+
+exit 0
