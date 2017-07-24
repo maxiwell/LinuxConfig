@@ -449,7 +449,7 @@ nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>F :cs find f 
 
 " You can add your own expression
-nmap <C-\>E :cs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-\>E :cs find e 
 
 "--------------------------------------------------------------------------------
 " Signature (marks clever) 
