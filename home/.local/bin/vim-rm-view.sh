@@ -1,5 +1,5 @@
 #!/bin/bash
 
-rm -rf ~/.vim/view/*${1}*
+rm  ~/.vim/view/*${1}*
 
 

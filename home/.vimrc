@@ -42,8 +42,12 @@ set hidden
 " Request sudo password to modify root files
 cmap w!! %!sudo tee % > /dev/null 
 
+" Remove ALL autocommands for the current group
+autocmd!   
+
 " Force the highlight from start of file (but slowest result)
-autocmd BufEnter * :syntax sync fromstart
+"autocmd BufEnter * :syntax sync fromstart
+syntax on
 
 " Saving folds
 au BufWinLeave *.* mkview 1
@@ -409,7 +413,7 @@ let local_cscope = ".tags/cscope.out"
 exe ":set tags+=".local_tags
 exe ":cs add ".local_cscope
 
-while parent <= 8
+while parent <= 15
   let local_tags = "../". local_tags
   let local_cscope = "../". local_cscope
   exe ":set tags+=".local_tags
