@@ -112,10 +112,9 @@ Plugin 'tomasr/molokai.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
-
 Plugin 'vim-scripts/Conque-GDB'
-
 Plugin 'rking/ag.vim'
+"Plugin 'terryma/vim-multiple-cursors'
 
 "Scala Plugin
 Plugin 'derekwyatt/vim-scala'
@@ -175,8 +174,10 @@ augroup END
 "--------------------------------------------------------------------------------
 
 "shortcut to CtrlP
-nnoremap <C-p>f     :CtrlP<cr>
-nnoremap <C-p>b     :CtrlPBuffer<cr>
+nnoremap <Leader>p     :CtrlP<cr>
+nnoremap <Leader>o     :CtrlPBuffer<cr>
+nnoremap <Leader>ta    :CtrlPTag<cr>
+nnoremap <Leader>tb    :CtrlPBufTag<cr>
 
 "--------------------------------------------------------------------------------
 " TagBar 
@@ -395,7 +396,7 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-map <C-n> :NERDTreeToggle<CR> 
+"map <C-n> :NERDTreeToggle<CR> 
 
 "--------------------------------------------------------------------------------
 " ctags and cscope
@@ -483,4 +484,14 @@ let g:ConqueGdb_Leader = '\\'
 " \\t            Backtrace mapping
 "
 " More here: https://github.com/vim-scripts/Conque-GDB
+
+"--------------------------------------------------------------------------------
+" multiple-cursors
+"--------------------------------------------------------------------------------
+"let g:multi_cursor_use_default_mapping=0
+"
+"let g:multi_cursor_next_key='<C-n>'
+"let g:multi_cursor_prev_key='<C-p>'
+"let g:multi_cursor_skip_key='<C-x>'
+"let g:multi_cursor_quit_key='<Esc>'
 
