@@ -116,8 +116,11 @@ Plugin 'vim-scripts/Conque-GDB'
 Plugin 'rking/ag.vim'
 "Plugin 'terryma/vim-multiple-cursors'
 
+" GIT wrapper
+Plugin 'tpope/vim-fugitive'
+
 "Scala Plugin
-Plugin 'derekwyatt/vim-scala'
+"Plugin 'derekwyatt/vim-scala'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -176,8 +179,8 @@ augroup END
 "shortcut to CtrlP
 nnoremap <Leader>p     :CtrlP<cr>
 nnoremap <Leader>o     :CtrlPBuffer<cr>
-nnoremap <Leader>ta    :CtrlPTag<cr>
-nnoremap <Leader>tb    :CtrlPBufTag<cr>
+"nnoremap <Leader>ta     :CtrlPTag<cr>
+"nnoremap <Leader>tb    :CtrlPBufTag<cr>
 
 "--------------------------------------------------------------------------------
 " TagBar 
@@ -396,7 +399,7 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-"map <C-n> :NERDTreeToggle<CR> 
+map <C-n> :NERDTreeToggle<CR> 
 
 "--------------------------------------------------------------------------------
 " ctags and cscope
