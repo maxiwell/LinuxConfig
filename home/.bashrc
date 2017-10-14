@@ -10,7 +10,7 @@
 
 # History control variables
 export HISTCONTROL=ignoreboth
-export HISTSIZE=-1
+export HISTSIZE=30000
 export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%F %T "
 
@@ -80,9 +80,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
-alias ll="ls -lh"
-
 export SVN_SSH="ssh -p 6868"
 
 # ssh-agent shared 
@@ -103,6 +100,8 @@ alias tmux='tmux -u'
 alias grep='grep --color'
 alias egrep='egrep --color'
 alias sudo_env='sudo env PATH=$PATH'
+alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
+alias ll="ls -lh"
 
 # eclim daemon
 #/opt/eclipse/eclimd
