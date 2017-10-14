@@ -25,7 +25,10 @@ set encoding=utf-8
 set wildmode=longest,list,full
 set wildmenu
 
+" set working directory to the current file
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 set autochdir
+autocmd BufEnter * lcd %:p:h
 
 " Save marks of 1000 files
 set viminfo='1000,f1
@@ -179,7 +182,9 @@ augroup END
 "shortcut to CtrlP
 nnoremap <Leader>p     :CtrlP<cr>
 nnoremap <Leader>o     :CtrlPBuffer<cr>
-"nnoremap <Leader>ta     :CtrlPTag<cr>
+nnoremap <Leader>l     :CtrlPMRU<cr>
+nnoremap <Leader>;     :CtrlPMixed<cr>
+"nnoremap <Leader>ta    :CtrlPTag<cr>
 "nnoremap <Leader>tb    :CtrlPBufTag<cr>
 
 "--------------------------------------------------------------------------------
@@ -399,7 +404,14 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-map <C-n> :NERDTreeToggle<CR> 
+map <C-n>     :NERDTreeToggle<CR> 
+
+" Update NERDTree path using the Buffer path
+map <Leader>f :NERDTreeFind<CR>
+
+" Shortcuts:
+" s     Open a file with vsplit
+" i     Open a file with hsplit
 
 "--------------------------------------------------------------------------------
 " ctags and cscope
