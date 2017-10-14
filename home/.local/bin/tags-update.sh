@@ -1,9 +1,6 @@
 #!/bin/bash
 
 DIR=`pwd`'/.tags'
-rm -rf  ${DIR}_bkp
-mv $DIR ${DIR}_bkp
-mkdir -p $DIR
 
 collecting_ctags() {
     cd $1
@@ -51,12 +48,21 @@ usage() {
     echo ""
 }
 
+# -----
+# MAIN
+# -----
+
+ARGS="all"
+
+rm -rf  ${DIR}_bkp
+mv $DIR ${DIR}_bkp &> /dev/null
+mkdir -p $DIR
+
 if [ $# -eq 0 ]; then
     usage
     exit 1
 fi
 
-ARGS="all"
 for i in $@; do
 
     case "$i" in
