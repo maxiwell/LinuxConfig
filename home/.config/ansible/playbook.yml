@@ -67,9 +67,9 @@
         repo: 'deb http://download.fpcomplete.com/ubuntu/{{ansible_lsb.codename}} stable main'
         state: present
 
-    - name: Update repositories
-      apt:
-          update_cache: yes
+      #- name: Update repositories
+      #- apt:
+      #-     update_cache: yes
 
     - name: Dev tools
       apt: name={{item}} state=installed
@@ -95,6 +95,7 @@
           - rustc
           - cargo
           - uuid-dev
+          - ccache
 
     - name: Libraries 
       apt: name={{item}} state=installed
@@ -235,6 +236,9 @@
           - gimp
           - stress
           - mtp-tools
+          - mtd-tools
+          - lzop
+          - lzma
 
     - name: Latex packages
       apt: name={{item}} state=installed 
