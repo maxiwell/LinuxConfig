@@ -13,6 +13,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
+if [ -d "/usr/lib/ccache" ]; then
+    export PATH=/usr/lib/ccache:$PATH
+fi
+
 # Android App Dev
 PATH=/opt/android/platform-tools:/opt/android/tools:$PATH
 
@@ -44,10 +48,12 @@ export LM_LICENSE_FILE=$LM_LICENSE_FILE:$IMPERAS_HOME/OVPsim.lic
 
 # Android Build ROM
 export USE_CCACHE=1
-if [ "$HOSTNAME" == "powernote" ]; then 
+if   [ "$HOSTNAME" == "powernote" ]; then 
     export CCACHE_DIR=/media/ssdfiles/.ccache/
 elif [ "$HOSTNAME" == "maxsamy" ]; then
     export CCACHE_DIR=/files/.ccache/
+elif [ "$HOSTNAME" == "brcpsdmagarcia-l" ]; then
+    export CCACHE_DIR=$HOME/.ccache/
 fi
 
 export CHROME_REMOTE_DESKTOP_DEFAULT_DESKTOP_SIZES=1024x768
