@@ -409,6 +409,8 @@ map <C-n>     :NERDTreeToggle<CR>
 " Update NERDTree path using the Buffer path
 map <Leader>f :NERDTreeFind<CR>
 
+map <Leader>F :NERDTree %:p:h<CR>
+
 " Shortcuts:
 " s     Open a file with vsplit
 " i     Open a file with hsplit
