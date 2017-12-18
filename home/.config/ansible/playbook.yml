@@ -303,6 +303,7 @@
           - selenium
           - powerline-status
           - websocket-client
+          - simplejson
 
     - name: Pip3 Packages
       pip: name={{item}} state=present executable=pip3
@@ -312,6 +313,7 @@
           - powerline-status
           - onedrivesdk
           - websocket-client
+          - simplejson
 
     - name: VIM - Install Plugins using Vundle
       become: yes
