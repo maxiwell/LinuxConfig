@@ -215,6 +215,7 @@
           - python-pip 
           - python3-pip
           - python-smbc
+          - python-qt4
 
     - name: Other
       apt: name={{item}} state=installed
@@ -304,6 +305,7 @@
           - powerline-status
           - websocket-client
           - simplejson
+          - pyftpdlib 
 
     - name: Pip3 Packages
       pip: name={{item}} state=present executable=pip3
