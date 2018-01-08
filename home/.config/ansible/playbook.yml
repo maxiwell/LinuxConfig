@@ -96,6 +96,7 @@
           - cargo
           - uuid-dev
           - ccache
+          - golang-go
 
     - name: Libraries 
       apt: name={{item}} state=installed
