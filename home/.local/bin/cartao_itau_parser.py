@@ -9,13 +9,12 @@
 #
 # ENTRADA: Um TXT criado manualmente com os lançamentos 
 # SAIDA: Um CSV formatado para o HomeBank
-#
 # --------------------------------------------------------------
 
 
 
-import re
-import sys
+import re,sys
+import datetime as dt
 
 
 if len(sys.argv) <= 1 :
@@ -36,7 +35,7 @@ i = iter(readingFile)
 while True:
     try:
         lsplit = i.next().split("  ")
-        lsplit[0] = lsplit[0].replace("/","-") + "-17"
+        lsplit[0] = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
         line = lsplit[0]+";1;;;"+lsplit[1][1:]+";-"+lsplit[-1].replace(" ","")+";"
         line = line.replace("(","").replace(")","")
         result.write(line+";\n")
