@@ -1,12 +1,11 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-# NAO USO DESDE MAI/2015
 # --------------------------------------------------------------
-# A Caixa nao exporta em fatura em nenhum formato. Então eu 
-# seleciono todos lancamentos da fatura no Browser e colo em 
-# um arquivo texto. Este script parseia essas entradas e monta
-# um CSV correto para o HomeBank
+# O Itau exporta a fatura do Cartao de Credito apenas em PDF.
+# Então eu seleciono todos lancamentos da fatura no Browser 
+# e colo em um arquivo texto. Este script parseia essas entradas 
+# e monta um CSV correto para o HomeBank
 #
 # ENTRADA: Um TXT criado manualmente com os lançamentos 
 # SAIDA: Um CSV formatado para o HomeBank
