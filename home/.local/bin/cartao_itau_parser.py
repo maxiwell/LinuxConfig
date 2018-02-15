@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # --------------------------------------------------------------
@@ -18,10 +18,10 @@ import datetime as dt
 
 
 if len(sys.argv) <= 1 :
-    print 'Falando o parametro'
+    print('Falando o parametro')
     sys.exit(1)
 else:
-    print 'Carregando: ', sys.argv[1]
+    print('Carregando: ', sys.argv[1]);
 
 result = open(sys.argv[1]+".csv", "w")
 
@@ -34,12 +34,14 @@ i = iter(readingFile)
 #for l in readingFile:
 while True:
     try:
-        lsplit = i.next().split("  ")
-        lsplit[0] = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
-        line = lsplit[0]+";1;;;"+lsplit[1][1:]+";-"+lsplit[-1].replace(" ","")+";"
-        line = line.replace("(","").replace(")","")
+        lsplit = next(i).split(" ")
+        date = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
+        del lsplit[0];
+        value = lsplit[-1].replace(" ","");
+        del lsplit[-1];
+        line = date+";1;;;"+" ".join(str(p) for p in lsplit)+";-"+value+";"
         result.write(line+";\n")
-        print line
+        print(line)
     except StopIteration:
         break
     
