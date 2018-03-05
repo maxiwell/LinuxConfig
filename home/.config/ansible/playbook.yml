@@ -141,7 +141,6 @@
           - xscreensaver
           - xbacklight
           - xvfb
-          - nemo
           - trash-cli
           - xclip
           - scrot

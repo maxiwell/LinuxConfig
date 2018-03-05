@@ -163,14 +163,6 @@
 				</startupnotify>
 			</action>
         </item>
-		<item label="nemo">
-			<action name="Execute">
-				<command>nemo --no-desktop</command>
-				<startupnotify>
-					<enabled>yes</enabled>
-				</startupnotify>
-			</action>
-        </item>
 		<item label="nautilus">
 			<action name="Execute">
 				<command>nautilus --no-desktop</command>
