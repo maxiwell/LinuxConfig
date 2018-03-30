@@ -19,14 +19,6 @@
       apt_repository:
         repo: ppa:ubuntu-mozilla-security/ppa
 
-    - name: APT - spotify
-      apt_key:
-        keyserver: keyserver.ubuntu.com
-        id: BBEBDCB318AD50EC6865090613B00F1FD2C19886
-    - apt_repository:
-        repo: 'deb http://repository.spotify.com stable non-free'
-        state: present
-
     - name: APT - dropbox 
       apt_key:
         keyserver: pgp.mit.edu
@@ -235,7 +227,6 @@
           - mpv
           - vlc
           - unrar
-          - spotify-client
           - gimp
           - stress
           - mtp-tools
