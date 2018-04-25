@@ -3,6 +3,9 @@
     - name: APT - homebank
       apt_repository:
         repo: ppa:mdoyen/homebank
+    - name: APT - terminator
+      apt_repository:
+        repo: ppa:gnome-terminator/nightly-gtk3
     - name: APT - wine
       apt_repository:
         repo: ppa:ubuntu-wine/ppa
