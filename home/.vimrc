@@ -92,6 +92,7 @@ inoremap <silent> <C-l>      <ESC>:bn<CR>
 " C/C++: Fix { } indent inside 'switch' statement
 set cino=l1
 
+
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
 "--------------------------------------------------------------------------------
@@ -147,6 +148,7 @@ hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE
 set fillchars+=vert:│
 highlight VertSplit cterm=none gui=none 
 
+hi SpellBad cterm=NONE,undercurl gui=NONE,undercurl ctermfg=NONE guifg=NONE ctermbg=NONE
 
 
 "--------------------------------------------------------------------------------
@@ -491,7 +493,7 @@ nmap <C-\>E :cs find e
 " ConqueGDB
 "--------------------------------------------------------------------------------
 
-let g:ConqueGdb_Leader = '\\' 
+" let g:ConqueGdb_Leader = '\\'
 
 " Default Shortcuts:
 " \\r            Run program mapping 
