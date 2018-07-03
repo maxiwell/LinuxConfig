@@ -80,7 +80,7 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export SVN_SSH="ssh -p 6868"
+#export SVN_SSH="ssh -p 6868"
 
 # ssh-agent shared 
 #SSH_ENV="$HOME/.ssh/ssh.env"
