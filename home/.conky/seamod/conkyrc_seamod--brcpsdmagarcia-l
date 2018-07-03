@@ -67,7 +67,6 @@ conky.config = {
 conky.text = [[
 ${font Ubuntu:size=11:style=bold}${color4}SYSTEM ${hr 2}
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}$sysname $kernel
-${offset 15}${font Ubuntu:size=11:style=normal}${color1}Battery:  ${color3}${battery_bar 5,150 BAT0} ${color3}${battery_percent BAT0}%
 ${offset 15}${font Ubuntu:size=11:style=normal}${color1}Uptime: ${color3}$uptime
 
 # Showing CPU Graph
