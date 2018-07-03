@@ -6,17 +6,17 @@ collecting_ctags() {
     cd $1
 
     if [[ "$2" != "c++" ]]; then
-        # Only c/cpp/cc is important for ctags. The YouCompleteMe/CSCOPE will take care of the rest =)
-        find `pwd` -iname '*.c' | grep -v build\/ > $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--fields=+iaS --extra=+q"
-        ctags $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
+        # Only c/cpp/cc is important for ctags. The YouCompleteMe/CSCOPE will take care of headers
+        find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/ctags.files
+        CTAGS_EXTRA_ARGS="--fields=+iaS --extras=+q"
     fi
 
     if [[ "$2" != "c" ]]; then
-        find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ > $DIR/ctags.files
+        find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/ctags.files
         CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++"
-        ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
     fi
+
+    ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
 
     cd - &> /dev/null
 }
@@ -26,11 +26,15 @@ collecting_cscope() {
     cd $1
 
     if [[ "$2" != "c++" ]]; then
-        find `pwd` -iname '*.c' -o -iname '*.h' | grep -v build\/ > $DIR/cscope.files
+        find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/cscope.files
     fi
+
     if [[ "$2" != "c" ]]; then
-        find `pwd` -iname '*.cpp' -o -iname '*.cc' -o -iname '*.h' | grep -v build\/ >> $DIR/cscope.files
+        find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/cscope.files
     fi
+
+    find `pwd` -iname '*.h' | grep -v build\/ >> $DIR/cscope.files
+
     cscope -b -q -i $DIR/cscope.files
     mv cscope.* $DIR
 
