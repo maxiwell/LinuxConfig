@@ -120,7 +120,7 @@ Plugin 'tomasr/molokai.git'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/Conque-GDB'
+"Plugin 'vim-scripts/Conque-GDB'
 Plugin 'rking/ag.vim'
 "Plugin 'terryma/vim-multiple-cursors'
 
