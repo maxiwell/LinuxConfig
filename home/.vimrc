@@ -1,5 +1,5 @@
 "--------------------------------------------------------------------------------
-" General 
+" General
 "--------------------------------------------------------------------------------
 set number
 set relativenumber
@@ -18,8 +18,8 @@ set t_Co=256                    " Use 256 colours
 let g:netrw_home='~/.vim'
 filetype indent on
 filetype plugin on
-set encoding=utf-8 
-"set fileencoding=utf-8 
+set encoding=utf-8
+"set fileencoding=utf-8
 
 " TabComplete like bash
 set wildmode=longest,list,full
@@ -38,15 +38,15 @@ set ttymouse=xterm2
 " Send more characters for redraws
 set ttyfast
 
-" Any buffer can be hidden (keeping its changes) without first writing 
+" Any buffer can be hidden (keeping its changes) without first writing
 " the buffer to a file
-set hidden 
+set hidden
 
 " Request sudo password to modify root files
-cmap w!! %!sudo tee % > /dev/null 
+cmap w!! %!sudo tee % > /dev/null
 
 " Remove ALL autocommands for the current group
-autocmd!   
+autocmd!
 
 " Force the highlight from start of file (but slowest result)
 "autocmd BufEnter * :syntax sync fromstart
@@ -82,7 +82,7 @@ map <down> gj
 inoremap <C-W> <C-\><C-O>W
 inoremap <C-B> <C-\><C-O>B
 
-" C-h and C-l to navigate between buffers 
+" C-h and C-l to navigate between buffers
 nnoremap <silent> <C-h>      :bp<CR>
 nnoremap <silent> <C-l>      :bn<CR>
 inoremap <silent> <C-h>      <ESC>:bp<CR>
@@ -121,7 +121,6 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'vim-scripts/Conque-GDB'
-Plugin 'rking/ag.vim'
 "Plugin 'terryma/vim-multiple-cursors'
 
 " GIT wrapper
@@ -139,20 +138,20 @@ filetype plugin indent on    " required
 "--------------------------------------------------------------------------------
 
 " set the default color scheme
-colorscheme peachpuff           
+colorscheme peachpuff
 " colorscheme molokai
 
 hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
 hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE
 
 set fillchars+=vert:│
-highlight VertSplit cterm=none gui=none 
+highlight VertSplit cterm=none gui=none
 
 hi SpellBad cterm=NONE,undercurl gui=NONE,undercurl ctermfg=NONE guifg=NONE ctermbg=NONE
 
 
 "--------------------------------------------------------------------------------
-" Persistent UNDO 
+" Persistent UNDO
 "--------------------------------------------------------------------------------
 
 " set a directory to store the undo history
@@ -162,10 +161,10 @@ set undofile
 " maximum number of changes that can be undone
 "set undolevels=1000
 " maximum number lines to save for undo on a buffer reload
-"set undoreload=10000 
+"set undoreload=10000
 
 "--------------------------------------------------------------------------------
-" GnuPlot file 
+" GnuPlot file
 "--------------------------------------------------------------------------------
 
 au BufRead,BufNewFile *.gplot set filetype=gnuplot
@@ -173,7 +172,7 @@ au BufRead,BufNewFile *.gnuplot set filetype=gnuplot
 au BufRead,BufNewFile *.gnu set filetype=gnuplot
 
 "--------------------------------------------------------------------------------
-" LLVM file 
+" LLVM file
 "--------------------------------------------------------------------------------
 
 augroup filetype
@@ -182,7 +181,7 @@ augroup END
 
 
 "--------------------------------------------------------------------------------
-" ctrlp.vim 
+" ctrlp.vim
 "--------------------------------------------------------------------------------
 
 "shortcut to CtrlP
@@ -194,7 +193,7 @@ nnoremap <Leader>;     :CtrlPMixed<cr>
 "nnoremap <Leader>tb    :CtrlPBufTag<cr>
 
 "--------------------------------------------------------------------------------
-" TagBar 
+" TagBar
 "--------------------------------------------------------------------------------
 
 "shortcut to TabBar
@@ -206,18 +205,18 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " set dictionary+=/usr/share/dict/words
 " set complete=.,w,k
-" 
+"
 " function AutoCompletar(direcao)
 "    let posicao = col(".") - 1
 "    if ! posicao || getline(".")[posicao - 1] !~ '\k'
 "       return "\<Tab>"
-"    elseif a:direcao == "avancar" 
+"    elseif a:direcao == "avancar"
 "       return "\<C-n>"
 "    else
 "       return "\<C-p>"
 "    endif
 " endfunction
-" 
+"
 " inoremap <Tab> <C-R>=AutoCompletar("avancar")<CR>
 " inoremap <S-Tab> <C-R>=AutoCompletar("voltar")<CR>
 
@@ -250,7 +249,7 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 "--------------------------------------------------------------------------------
 
 "" I disabled the vim-latex plugin for now. Using omni completion (native)
-"au Filetype tex source ~/.vim/plugin/tex_autoclose.vim 
+"au Filetype tex source ~/.vim/plugin/tex_autoclose.vim
 
 "--------------------------------------------------------------------------------
 " eclim
@@ -307,7 +306,7 @@ map [6;5~  <C-PageDown>
 
 highlight Pmenu ctermfg=white ctermbg=darkgray
 highlight PmenuSel ctermfg=black  ctermbg=white
-highlight clear SignColumn      
+highlight clear SignColumn
 
 "nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
 nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
@@ -336,7 +335,7 @@ let g:ycm_confirm_extra_conf = 0
 " vim-airline
 "--------------------------------------------------------------------------------
 
-set laststatus=2 
+set laststatus=2
 
 " set the symbol dictionary as the one of powerline
 " let g:airline_powerline_fonts = 1
@@ -367,37 +366,11 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:clang_format#code_style = 'llvm'
 
 "--------------------------------------------------------------------------------
-" Using Silver Searcher AG: https://github.com/ggreer/the_silver_searcher
-" or 'sudo apt-get install silversearcher-ag'
-"--------------------------------------------------------------------------------
-
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-"  " 'Ag.vim' plugin finds the root project. It uses 'ag' too
-  let g:ag_prg="ag --nogroup --nocolor"
-  let g:ag_working_path_mode="r"
-  let g:ag_format="%f:%l:%m"
-
-endif
-
-"--------------------------------------------------------------------------------
 " bind K to grep word under cursor
 "--------------------------------------------------------------------------------
 
-"Ag project uses 'ag' from the .git folder (very nice)
-if executable('ag')
-    nnoremap K :Ag! "\b<C-R><C-W>\b"<CR>:cw<CR> 
-else
-    nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR> 
-endif
+nnoremap <leader>g :grep! "\b<C-R><C-W>\b" `git ls-files`<CR>:cw<CR>
+nnoremap K :grep! "\b<C-R><C-W>\b" *.*<CR>:cw<CR>
 
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
@@ -410,7 +383,7 @@ autocmd FileType qf wincmd J
 "--------------------------------------------------------------------------------
 
 " Ctrl-n to open/close NERDTree
-map <C-n>     :NERDTreeToggle<CR> 
+map <C-n>     :NERDTreeToggle<CR>
 
 " Update NERDTree path using the Buffer path
 "map <Leader>f :NERDTreeFind<CR>
@@ -466,17 +439,17 @@ nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 
 " Find the file that you type. Some projects copy the header
-" files in different places (/include, /refs, /releases). So 
-" with this shortcut, you can find copies of files using the 
-" CSCOPE database (CtrlP fails when a project has many .git 
-" repository). Use % to search the current filename 
-nmap <C-\>F :cs find f 
+" files in different places (/include, /refs, /releases). So
+" with this shortcut, you can find copies of files using the
+" CSCOPE database (CtrlP fails when a project has many .git
+" repository). Use % to search the current filename
+nmap <C-\>F :cs find f
 
 " You can add your own expression
-nmap <C-\>E :cs find e 
+nmap <C-\>E :cs find e
 
 "--------------------------------------------------------------------------------
-" Signature (marks clever) 
+" Signature (marks clever)
 "--------------------------------------------------------------------------------
 
 " Default Shortcuts:
@@ -486,27 +459,8 @@ nmap <C-\>E :cs find e
 " ]`           Jump to next mark
 " [`           Jump to prev mark
 " m/           Open location list and display marks from current buffer
-" 
-" More here: github.com/kshenoy/vim-signature
-
-"--------------------------------------------------------------------------------
-" ConqueGDB
-"--------------------------------------------------------------------------------
-
-" let g:ConqueGdb_Leader = '\\'
-
-" Default Shortcuts:
-" \\r            Run program mapping 
-" \\c            Continue program mapping
-" \\n            Next line mapping
-" \\s            Step line mapping
-" \\p            Print identifier under cursor
-" \\b            Toggle break point mapping
-" \\d            Delete break point mapping 
-" \\f            Finish mapping
-" \\t            Backtrace mapping
 "
-" More here: https://github.com/vim-scripts/Conque-GDB
+" More here: github.com/kshenoy/vim-signature
 
 "--------------------------------------------------------------------------------
 " multiple-cursors
@@ -517,4 +471,9 @@ nmap <C-\>E :cs find e
 "let g:multi_cursor_prev_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
+
+"--------------------------------------------------------------------------------
+" Fugitive
+"--------------------------------------------------------------------------------
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 
