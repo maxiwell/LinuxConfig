@@ -366,11 +366,42 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:clang_format#code_style = 'llvm'
 
 "--------------------------------------------------------------------------------
-" bind K to grep word under cursor
+" Fugitive
+"--------------------------------------------------------------------------------
+command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
+
+"--------------------------------------------------------------------------------
+" Using Silver Searcher AG: https://github.com/ggreer/the_silver_searcher
+" or 'sudo apt-get install silversearcher-ag'
 "--------------------------------------------------------------------------------
 
-nnoremap <leader>g :grep! "\b<C-R><C-W>\b" `git ls-files`<CR>:cw<CR>
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+
+  let g:ag_prg="ag --nogroup --nocolor"
+  let g:ag_working_path_mode="r"
+  let g:ag_format="%f:%l:%m"
+endif
+
+"--------------------------------------------------------------------------------
+" grep word under cursor
+"--------------------------------------------------------------------------------
+
+" K: Search only in PWD path
 nnoremap K :grep! "\b<C-R><C-W>\b" *.*<CR>:cw<CR>
+
+" \g: Search in c/cpp/h git-files using Fugitive Ggrep
+nnoremap <leader>g :Ggr <C-R><C-W> -- *.c *.cc *.cpp *.h *.hpp<CR>
+
+" \a: Search in all git-file using Fugitive Ggrep
+nnoremap <leader>a :Ggr <C-R><C-W><CR>
 
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
@@ -443,10 +474,10 @@ nmap <C-\>a :cs find a <C-R>=expand("<cword>")<CR><CR>
 " with this shortcut, you can find copies of files using the
 " CSCOPE database (CtrlP fails when a project has many .git
 " repository). Use % to search the current filename
-nmap <C-\>F :cs find f
+nmap <C-\>F :cs find f 
 
 " You can add your own expression
-nmap <C-\>E :cs find e
+nmap <C-\>E :cs find e 
 
 "--------------------------------------------------------------------------------
 " Signature (marks clever)
@@ -471,9 +502,4 @@ nmap <C-\>E :cs find e
 "let g:multi_cursor_prev_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
-
-"--------------------------------------------------------------------------------
-" Fugitive
-"--------------------------------------------------------------------------------
-command -nargs=+ Ggr execute 'silent Ggrep!' <q-args> | cw | redraw!
 
