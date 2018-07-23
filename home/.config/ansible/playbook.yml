@@ -162,6 +162,7 @@
           - cscope
           - silversearcher-ag
           - jq
+          - gawk
 
     - name: PHP
       apt: name={{item}} state=installed
