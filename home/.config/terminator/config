@@ -1,6 +1,7 @@
 [global_config]
   borderless = True
   homogeneous_tabbar = False
+  inactive_color_offset = 1.0
   scroll_tabbar = True
   suppress_multiple_term_dialog = True
   tab_position = hidden
@@ -25,9 +26,11 @@
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#202020"
+    foreground_color = "#d0d090"
     copy_on_selection = True
     cursor_color = "#aaaaaa"
-    font = Ubuntu Mono derivative Powerline 12
+    font = Ubuntu Mono derivative Powerline 10
     scroll_on_keystroke = False
     scrollbar_position = hidden
     show_titlebar = False
