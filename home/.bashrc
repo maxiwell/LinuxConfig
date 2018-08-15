@@ -102,6 +102,7 @@ alias egrep='egrep --color'
 alias sudo_env='sudo env PATH=$PATH'
 alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
 alias ll="ls -lh"
+alias f="find . -iname "
 
 # eclim daemon
 #/opt/eclipse/eclimd
