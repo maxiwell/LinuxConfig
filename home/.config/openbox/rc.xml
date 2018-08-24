@@ -361,6 +361,11 @@
     <keybind key="C-A-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
+    <keybind key="C-A-q">
+      <action name="execute">
+         <execute>turnoff-display.sh</execute>
+      </action>
+    </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
       <action name="Close"/>

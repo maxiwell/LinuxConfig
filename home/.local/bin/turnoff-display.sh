@@ -1,16 +1,20 @@
 #!/bin/bash
 
-DEVICE="ETPS/2 Elantech Touchpad"
+SAVE_FILE=/tmp/.xbacklight.old
 
-toggle_enable_disable_device() {
-    if xinput list "$1" | grep "disabled" &> /dev/null; then
-        xinput enable "$1"
+
+toggle_enable_disable_monitor() {
+    if (( $(echo $(xbacklight -get)'>'0 | bc -l) )); then
+        xbacklight -get > $SAVE_FILE
+        xbacklight = 0;
     else
-        xinput disable "$1"
-        xset dpms force standby
+        if [ -f $SAVE_FILE ]; then
+            xbacklight = $(cat $SAVE_FILE);
+        else
+            xbacklight = 100;
+        fi
     fi
 }
 
-toggle_enable_disable_device "Logitech USB Gaming Mouse"
-toggle_enable_disable_device "ETPS/2 Elantech Touchpad"
+toggle_enable_disable_monitor
 
