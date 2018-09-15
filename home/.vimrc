@@ -25,6 +25,12 @@ set encoding=utf-8
 set wildmode=longest,list,full
 set wildmenu
 
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$/
+
+set list
+set listchars=trail:$
+
 " set working directory to the current file
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 set autochdir
