@@ -471,7 +471,7 @@
           <enabled>true</enabled>
           <name/>
         </startupnotify>
-        <command>urxvt</command>
+        <command>terminator</command>
       </action>
     </keybind>
     <keybind key="C-A-t">
@@ -480,7 +480,7 @@
           <enabled>true</enabled>
           <name/>
         </startupnotify>
-        <command>urxvt</command>
+        <command>gnome-terminal</command>
       </action>
     </keybind>
     <keybind key="C-A-l">
