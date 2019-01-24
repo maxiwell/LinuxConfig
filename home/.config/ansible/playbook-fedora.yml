@@ -1,0 +1,88 @@
+- hosts: all
+  tasks:
+    - name: Libs and Dev Tools
+      package: name={{item}} state=installed
+      with_items:
+          - gcc
+          - gcc-c++
+          - clang
+          - cmake
+          - ninja-build
+          - flex
+          - bison
+          - ghc
+          - autoconf
+          - automake
+          - libtool
+          - help2man
+          - rustc
+          - cargo
+          - ccache
+          - mpfr
+          - mpfr-devel
+          - gmp
+          - gmp-devel
+          - libmpc
+          - libmpc-devel
+          - gtk2-devel
+          - ncurses-devel
+          - bc
+          - libguestfs-tools
+
+    - name: PowerPC Packages
+      package: name={{item}} state=installed
+      with_items:
+          - binutils-powerpc64-linux-gnu
+          - gcc-powerpc64-linux-gnu
+          - gcc-c++-powerpc64-linux-gnu
+
+    - name: Openbox Packages
+      package: name={{item}} state=installed
+      with_items:
+          - openbox
+          - rxvt-unicode-256color
+          - terminator
+          - tint2
+          - gmrun
+          - conky
+          - wmctrl
+          - htop
+          - iotop
+          - pavucontrol
+          - xscreensaver
+          - xbacklight
+          - trash-cli
+          - xclip
+          - scrot
+          - notification-daemon
+
+    - name: Productivity Tools
+      package: name={{item}} state=installed
+      with_items:
+          - tmux
+          - subversion
+          - git
+          - tig
+          - weechat
+          - hexchat
+          - znc
+          - tree
+          - cscope
+          - ctags
+          - jq
+          - gawk
+          - hexchat
+          - redhat-rpm-config
+          - expect
+          - unar
+          - mutt
+          - getmail
+          - offlineimap
+          - mailcap
+          - lynx
+
+    - name: Personal Stuffs
+      package: name={{item}} state=installed
+      with_items:
+          - homebank
+          - keepass
