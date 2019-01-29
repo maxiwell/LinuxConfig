@@ -23,6 +23,7 @@ border_color = #ffffff 0
 #---------------------------------------------
 # PANEL
 #---------------------------------------------
+panel_items = TSCB
 panel_monitor = all
 panel_position = bottom center
 panel_size = 95% 28
@@ -74,15 +75,13 @@ clock_lclick_command = gsimplecal
 #---------------------------------------------
 # BATTERY
 #---------------------------------------------
-#battery = 0
-#battery_low_status = 7
-#battery_low_cmd = notify-send "battery low"
-#bat1_font = sans 8
-#bat2_font = sans 6
-#battery_font_color = #ffffff 76
-#battery_padding = 1 0
-#battery_background_id = 0
-
+battery_low_status = 20
+battery_low_cmd = notify-send "battery low"
+#battery_hide = 96
+bat1_font = Monospace 8
+battery_font_color = #b5b5b5 100
+battery_padding = 2 0
+battery_background_id = 0
 
 #---------------------------------------------
 # MOUSE ACTION ON TASK
