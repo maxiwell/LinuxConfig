@@ -30,21 +30,24 @@ readingFile = cartao.read()
 readingFile = readingFile.split('\n')
 
 i = iter(readingFile)
+total = 0
 
 #for l in readingFile:
 while True:
-    try:
-        lsplit = next(i).split(" ")
-        date = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
-        del lsplit[0];
-        value = lsplit[-1].replace(" ","");
-        del lsplit[-1];
-        line = date+";1;;;"+" ".join(str(p) for p in lsplit)+";-"+value+";"
-        result.write(line+";\n")
-        print(line)
-    except StopIteration:
+    lsplit = next(i).split()
+    if not lsplit:
         break
-    
+    date = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
+    del lsplit[0];
+    value = ("-"+lsplit[-1].replace(" ","")).replace('--','');
+    del lsplit[-1];
+    line = date+";1;;;"+" ".join(str(p) for p in lsplit)+";"+value+";"
+    total = total + float(value.strip().replace('.','').replace(",","."))
+    result.write(line+";\n")
+    print(line)
+
+print("O total da fatura é R$ %.2f" % total)
+
 cartao.close()
 result.close()
 
