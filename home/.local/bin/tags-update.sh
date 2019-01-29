@@ -8,12 +8,12 @@ collecting_ctags() {
     if [[ "$2" != "c++" ]]; then
         # Only c/cpp/cc is important for ctags. The YouCompleteMe/CSCOPE will take care of headers
         find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--fields=+iaS --extras=+q"
+        CTAGS_EXTRA_ARGS="--fields=+iaS"
     fi
 
     if [[ "$2" != "c" ]]; then
         find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --extras=+q --language-force=C++"
+        CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --language-force=C++"
     fi
 
     ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
