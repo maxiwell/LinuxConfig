@@ -1,15 +1,13 @@
 "--------------------------------------------------------------------------------
 " General
 "--------------------------------------------------------------------------------
-set number
-set relativenumber
 set title
 set smartindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
 "set mouse=a
-"set hlsearch
+set nohlsearch
 set incsearch
 set nobackup
 set clipboard^=unnamed
@@ -29,7 +27,7 @@ set wildmenu
 "match ExtraWhitespace /\s\+$/
 
 set list
-set listchars=trail:$
+set listchars=trail:$,tab:\ \ 
 
 " set working directory to the current file
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
@@ -94,10 +92,34 @@ nnoremap <silent> <C-l>      :bn<CR>
 inoremap <silent> <C-h>      <ESC>:bp<CR>
 inoremap <silent> <C-l>      <ESC>:bn<CR>
 
-
 " C/C++: Fix { } indent inside 'switch' statement
 set cino=l1
 
+function NumberNo()
+    set nonumber
+    set norelativenumber
+    map <F12> :call NumberYes()<CR>
+endfunction
+
+function NumberYes()
+    set number
+    set relativenumber
+    map <F12> :call NumberNo()<CR>
+endfunction
+
+call NumberYes()
+
+function PasteModeOn()
+    set paste
+    map <F10> :call PasteModeOff()<CR>
+endfunction
+
+function PasteModeOff()
+    set nopaste
+    map <F10> :call PasteModeOn()<CR>
+endfunction
+
+call PasteModeOff()
 
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
@@ -443,17 +465,31 @@ set tags=tags,ctags,.tags,.ctags
 " an exercise in Vim loops.
 let parent=1
 let local_tags = ".tags/ctags"
-let local_cscope = ".tags/cscope.out"
-exe ":set tags+=".local_tags
-exe ":cs add ".local_cscope
+let local_cscope = ".tags/"
 
-while parent <= 15
-  let local_tags = "../". local_tags
-  let local_cscope = "../". local_cscope
-  exe ":set tags+=".local_tags
-  exe ":cs add ".local_cscope
-  let parent = parent+1
-endwhile
+let cscope_file = findfile("cscope.out", ".tags/;")
+let ctags_file = findfile("ctags", ".tags/;")
+
+if (!empty(cscope_file))
+    exe ":silent cs add ".cscope_file
+endif
+
+if (!empty(ctags_file))
+    exe ":set tags+=".ctags_file
+endif
+
+" while parent <= 15
+"   exe ":set tags+=".local_tags
+" 
+"   " Newer vim shows an error if the cscope.out file doesn't exist
+"   if (!empty(findfile("cscope.out", local_cscope.";")))
+"     exe ":cs add ".local_cscope."cscope.out"
+"   endif
+" 
+"   let local_tags = "../". local_tags
+"   let local_cscope = "../". local_cscope
+"   let parent = parent+1
+" endwhile
 
 " cscope map
 " s: Find this C symbol
@@ -508,4 +544,5 @@ nmap <C-\>E :cs find e
 "let g:multi_cursor_prev_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
+
 
