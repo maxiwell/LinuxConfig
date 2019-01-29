@@ -13,6 +13,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     export PATH=$HOME/.local/bin:$PATH
 fi
 
+if [ -d "$HOME/.local/usr/bin" ] ; then
+    export PATH=$HOME/.local/usr/bin:$PATH
+fi
+
 if [ -d "/usr/lib/ccache" ]; then
     export PATH=/usr/lib/ccache:$PATH
 fi
