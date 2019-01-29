@@ -28,6 +28,9 @@
           - ncurses-devel
           - bc
           - libguestfs-tools
+          - lttng-ust
+          - lttng-tools
+          - babeltrace
 
     - name: PowerPC Packages
       package: name={{item}} state=installed
