@@ -175,11 +175,6 @@
         <menu id="system-menu"/>
         <item label="Sound">
             <action name="Execute">
-                <command>unity-control-center sound</command>
-            </action>
-        </item>
-        <item label="PAVUControl">
-            <action name="Execute">
                 <command>pavucontrol</command>
             </action>
         </item>
