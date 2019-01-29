@@ -1,7 +1,7 @@
 LinuxConfig
 ===========
 
-These dotfiles are used with Ubuntu/Openbox environment. 
+These dotfiles are used with Ubuntu/Fedora and Openbox environment. 
 
 Install
 ----------
