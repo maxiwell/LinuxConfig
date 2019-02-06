@@ -79,10 +79,13 @@
           - expect
           - unar
           - mutt
+          - neomutt
+          - notmuch
           - getmail
           - offlineimap
           - mailcap
           - lynx
+          - socat
 
     - name: Personal Stuffs
       package: name={{item}} state=installed
