@@ -1,0 +1,111 @@
+# Behaviour
+set menu_scroll = yes
+set pager_stop = yes
+set read_inc = 0
+set resolve = no
+set quit = ask-yes
+set editor='vim + -c "set textwidth=72" -c "set wrap" -c "set spell spelllang=en"'
+set include=yes
+set fast_reply
+set sleep_time=0
+set imap_check_subscribed
+
+set header_cache = "~/.cache/neomutt/"
+set message_cachedir = "~/.cache/neomutt/"
+
+# - Treat mail as plain when possible
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# Threads
+set sort = 'threads'
+set sort_aux = 'reverse-last-date-received'
+set smart_wrap
+folder-hook . "exec collapse-all"
+
+# - Display the number of hidden message if the thread is collapsed
+set index_format = "%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?{%.20y}? %s (%c)"
+
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
+set pager_index_lines=8
+
+ignore *
+unignore From To Reply-To Cc Bcc Subject Date Organization X-Label X-Mailer User-Agent
+
+# Visualization
+color quoted cyan default
+color quoted1 yellow default
+color quoted2 magenta default
+color quoted3 blue default
+color quoted4 blue default
+color quoted5 blue default
+color quoted6 blue default
+color quoted7 blue default
+color quoted8 blue default
+color quoted9 blue default
+set quote_regexp = "^([ \t]*[|>:}])+"
+set markers = no
+set mark_old = no
+
+# Patch syntax highlighting
+color   indicator   white           default
+color   status      white           default
+color   normal      white           default
+color   attachment  brightyellow    default
+color   hdrdefault  cyan            default
+color   indicator   black           cyan
+color   markers     brightred       default
+color   quoted      green           default
+color   signature   cyan            default
+color   status      brightgreen     default
+color   tilde       blue            default
+color   tree        red             default
+
+color   index       blue            default "~A!~N!~T!~p!~Q!~F!~D!~P" # the rest
+color   index       yellow          default "~A~N!~T!~p!~Q!~F!~D" # the rest, new
+color   index       red             default ~A
+color   index       red             default "~D(!~p|~p)"
+color   index       yellow          default "~E"         # expired messages
+color   index       blue            default "~N"         # new messages
+color   index       blue            default "~O"         # old messages
+color   index       yellow          default "~Q"         # messages that have been replied to
+color   index       white           default "~R"         # read messages
+color   index       green           default "~U"         # unread messages
+color   index       green           default "~U~$"       # unread, unreferenced messages
+color   index       cyan            default "~v"         # messages part of a collapsed thread
+color   index       cyan            default "~P"         # messages from me
+color   index       magenta         default "~p!~F"      # messages to me
+color   index       white           default "~N~p!~F"    # new messages to me
+color   index       white           default "~U~p!~F"    # unread messages to me
+color   index       cyan            default "~R~p!~F"    # messages to me
+color   index       red             default "~F"         # flagged messages
+color   index       red             default "~F~p"       # flagged messages to me
+color   index       red             default "~N~F"       # new flagged messages
+color   index       red             default "~N~F~p"     # new flagged messages to me
+color   index       red             default "~U~F~p"     # new flagged messages to me
+color   index       red             default "~D"         # deleted messages
+color   index       white           default "~v~(!~N)"   # collapsed thread with no unread
+color   index       yellow          default "~v~(~N)"    # collapsed thread with some unread
+color   index       green           default "~N~v~(~N)"  # collapsed thread with unread parent
+
+color   header      brightgreen     default ^From:
+color   header      brightcyan      default ^To:
+color   header      brightcyan      default ^Reply-To:
+color   header      brightcyan      default ^Cc:
+color   header      brightblue      default ^Subject:
+
+color   body        brightred       default [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color   body        brightblue      default (https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+
+color   body        brightwhite     default ^[[:space:]].*
+color   body        brightwhite     default ^(diff).*
+color   body        white           default ^[\-\-\-].*
+color   body        white           default ^[\+\+\+].*
+color   body        green           default ^[\+].*
+color   body        red             default ^[\-].*
+color   body        brightblue      default [@@].*
+color   body        brightwhite     default ^(\s).*
+color   body        brightwhite     default ^(Signed-off-by).*
+color   body        brightwhite     default ^(Cc)
+
