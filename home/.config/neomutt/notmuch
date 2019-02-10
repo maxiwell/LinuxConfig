@@ -1,0 +1,18 @@
+# General notmuch config, shortcuts and virtual mailboxes
+folder-hook $HOME/.cache/mutt_results "exec expand-all"
+
+# set 'yes' to open neomutt directly in virtual-mailboxes mode
+set virtual_spoolfile=no
+
+macro index <F7> "<sidebar-toggle-virtual><sidebar-open>"
+macro index <F8> \
+  "<enter-command>unset wait_key<enter><shell-escape>~/.config/neomutt/notmuch-helper --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>"
+macro index <F9> \
+  "<enter-command>unset wait_key<enter><pipe-message>~/.config/neomutt/notmuch-helper thread<enter><change-folder-readonly>~/.cache/mutt_results<enter><enter-command>set wait_key<enter>"
+macro index <F10> \
+  "<enter-command>unset wait_key<enter><pipe-message>~/.config/neomutt/notmuch-helper track<enter><enter-command>source ~/.config/neomutt/neomuttrc<enter>"
+
+unvirtual-mailboxes "Tracking"
+virtual-mailboxes "Tracking" "notmuch://?query=\
+`cat $HOME/.cache/virtual-mailboxes-Tracking | tr -d '\n'` \
+thread:{id:finish}"

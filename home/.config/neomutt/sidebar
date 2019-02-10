@@ -1,0 +1,26 @@
+# Mutt config file for the sidebar feature.
+
+# Look and feel
+set sidebar_visible = yes
+set sidebar_width = 40
+set sidebar_divider_char = '|'
+set sidebar_short_path = no
+set sidebar_new_mail_only = no
+set sidebar_sort_method = 'path'
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
+set mail_check_stats
+set sidebar_next_new_wrap = no
+
+# Shortcuts
+macro index,pager \Ck '<sidebar-prev><sidebar-open>'
+macro index,pager \Cj '<sidebar-next><sidebar-open>'
+bind index,pager B sidebar-toggle-visible
+
+# Colors
+# Note: All color operations are of the form:
+#       color OBJECT FOREGROUND BACKGROUND
+color sidebar_highlight black color8
+color sidebar_flagged red black
+color sidebar_new green black
+
+# vim: syntax=muttrc

@@ -1,0 +1,18 @@
+# Personal information
+set realname = "Maxiwell S. Garcia"
+
+# Maildir settings
+set mbox_type = Maildir
+set folder = $HOME/Mail
+
+# Set account specific options on folder change
+folder-hook IBM/* source $HOME/.config/neomutt/accounts/ibm
+
+# Load accounts
+source $HOME/.config/neomutt/accounts/ibm
+
+## Other configurations
+source $HOME/.config/neomutt/interface
+source $HOME/.config/neomutt/sidebar
+source $HOME/.config/neomutt/shortcuts
+source $HOME/.config/neomutt/notmuch

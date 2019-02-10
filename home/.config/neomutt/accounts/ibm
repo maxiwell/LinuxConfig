@@ -1,0 +1,13 @@
+# Account information
+set from =  <maxiwell@linux.ibm.com>
+set sendmail = "/usr/bin/msmtp -a ibm"
+
+# Folder settings
+set spoolfile = "+ibm/INBOX"
+set postponed = "+ibm/Drafts"
+set record = "+ibm/Sent"
+macro index,pager d \
+  ":set confirmappend=no\n<save-message>+ibm/Trash<enter>"
+
+# Display settings
+mailboxes `find ~/Mail/ibm -type d -name cur -not -empty -printf '%h '`

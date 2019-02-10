@@ -1,0 +1,54 @@
+# Disabling shortcuts must be the first thing,
+# so that they can be reused.
+bind index d noop
+bind index \cD noop
+bind index \eD noop
+bind pager d noop
+bind pager \cD noop
+bind pager \eD noop
+
+#bind index,pager \Ck sidebar-prev
+#bind index,pager \Cj sidebar-next
+#bind index,pager \Cl sidebar-open
+#bind index,pager \Cn sidebar-scroll-up
+#bind index,pager \Cv sidebar-scroll-down
+#bind index,pager \Ct sidebar-toggle
+#macro index,pager \Cn '<sidebar-scroll-up><sidebar-open>'
+#macro index,pager \Cv '<sidebar-scroll-down><sidebar-open>'
+
+bind index l display-message
+bind index K first-entry
+bind index J last-entry
+bind index - collapse-thread
+bind index _ collapse-all
+bind index o display-message
+
+bind browser l select-entry
+bind browser L view-file
+bind browser gg first-entry
+bind browser G last-entry
+
+bind attach h exit
+bind attach e edit-type # Edit MIME Types
+bind attach l view-attach
+
+bind index,pager R group-reply
+
+bind generic,index \cd next-page
+bind generic,index \cu previous-page
+bind generic,index \ce next-line
+bind generic,index \cy previous-line
+
+macro index 2 "<clear-flag>O<set-flag>N"
+macro index 1 "<clear-flag>N<clear-flag>O"
+
+bind pager ] next-entry
+bind pager [ previous-entry
+bind pager \cd next-page
+bind pager \cu previous-page
+bind pager j next-line
+bind pager \ce next-line
+bind pager k previous-line
+bind pager \cy previous-line
+
+
