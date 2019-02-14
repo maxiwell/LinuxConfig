@@ -135,3 +135,6 @@ run_on_prompt_command()
 
 PROMPT_COMMAND="run_on_prompt_command"
 
+# Remove PATH duplicates
+PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '{ if (!arr[$0]++) { print $0 } }')
+
