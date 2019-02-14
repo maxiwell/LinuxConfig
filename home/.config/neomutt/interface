@@ -9,6 +9,7 @@ set include=yes
 set fast_reply
 set sleep_time=0
 set imap_check_subscribed
+set arrow_cursor = yes
 
 set header_cache = "~/.cache/neomutt/"
 set message_cachedir = "~/.cache/neomutt/"
@@ -50,12 +51,13 @@ set markers = no
 set mark_old = no
 
 # Patch syntax highlighting
-color   indicator   white           default
+#color   indicator   white           default
+#color   indicator   black           cyan
+color   indicator   brightyellow    default
 color   status      white           default
 color   normal      white           default
 color   attachment  brightyellow    default
 color   hdrdefault  cyan            default
-color   indicator   black           cyan
 color   markers     brightred       default
 color   quoted      green           default
 color   signature   cyan            default

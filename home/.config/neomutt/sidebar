@@ -19,8 +19,8 @@ bind index,pager B sidebar-toggle-visible
 # Colors
 # Note: All color operations are of the form:
 #       color OBJECT FOREGROUND BACKGROUND
-color sidebar_highlight black color8
-color sidebar_flagged red black
-color sidebar_new green black
+color sidebar_highlight black   default
+color sidebar_flagged   red     default
+color sidebar_new       green   default
 
 # vim: syntax=muttrc
