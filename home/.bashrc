@@ -135,21 +135,3 @@ run_on_prompt_command()
 
 PROMPT_COMMAND="run_on_prompt_command"
 
-# IBM
-qemubuildppcfamily()
-{
-    ../configure --target-list=ppc-linux-user,ppc64-linux-user,ppc64le-linux-user,ppc-softmmu,ppc64-softmmu \
-                 --enable-debug-info --enable-trace-backends=ust && make -j $(nproc)
-}
-
-qemubuildx86family()
-{
-    ../configure --target-list=x86_64-linux-user,x86_64-softmmu \
-                 --enable-debug-info --enable-trace-backends=ust && make -j $(nproc)
-}
-
-alias qemuclean='gitdir=$(git rev-parse --show-toplevel) && cd $gitdir &&
-                 git submodule deinit -f --all && git clean -dfx &&
-                 mkdir build && cd build'
-
-
