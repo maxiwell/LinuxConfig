@@ -58,9 +58,8 @@ usage() {
 
 ARGS="all"
 
-rm -rf  ${DIR}_bkp
-mv $DIR ${DIR}_bkp &> /dev/null
-mkdir -p $DIR
+rm -rf ${DIR}
+mkdir -p ${DIR}
 
 if [ $# -eq 0 ]; then
     usage
