@@ -16,3 +16,12 @@ unvirtual-mailboxes "Tracking"
 virtual-mailboxes "Tracking" "notmuch://?query=\
 `cat $HOME/.cache/virtual-mailboxes-Tracking | tr -d '\n'` \
 thread:{id:finish}"
+
+virtual-mailboxes "LTC KVM" "notmuch://?query=( thread:{'from:farosas@.*ibm.com'} \
+                                             || thread:{'from:muriloo@.*ibm.com'} \
+                                             || thread:{'from:leonardo@.*ibm.com'} \
+                                             || thread:{'from:joserz@.*ibm.com'} \
+                                             || thread:{'from:lagarcia@.*ibm.com'} \
+                                             || thread:{'from:danielhb413'} )"
+
+

@@ -21,6 +21,7 @@ alternative_order text/plain text/enriched text/html
 # Threads
 set sort = 'threads'
 set sort_aux = 'reverse-last-date-received'
+
 set smart_wrap
 folder-hook . "exec collapse-all"
 
@@ -79,9 +80,9 @@ color   index       green           default "~U~$"       # unread, unreferenced 
 color   index       cyan            default "~v"         # messages part of a collapsed thread
 color   index       cyan            default "~P"         # messages from me
 color   index       magenta         default "~p!~F"      # messages to me
-color   index       white           default "~N~p!~F"    # new messages to me
-color   index       white           default "~U~p!~F"    # unread messages to me
-color   index       cyan            default "~R~p!~F"    # messages to me
+color   index       green           default "~N~p!~F"    # new messages to me
+color   index       red             default "~U~p!~F"    # unread messages to me
+color   index       white           default "~R~p!~F"    # messages to me
 color   index       red             default "~F"         # flagged messages
 color   index       red             default "~F~p"       # flagged messages to me
 color   index       red             default "~N~F"       # new flagged messages
