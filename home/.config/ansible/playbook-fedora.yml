@@ -58,6 +58,7 @@
           - xclip
           - scrot
           - notification-daemon
+          - network-manager-applet
 
     - name: Productivity Tools
       package: name={{item}} state=installed
