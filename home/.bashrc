@@ -103,9 +103,11 @@ alias sudo_env='sudo env PATH=$PATH'
 alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc -silent"
 alias ll="ls -lh"
 alias f="find . -iname "
+alias emacs="emacs -nw"
 
-# Fedora
-alias vim='vimx'
+if [ -x "$(command -v vimx)" ]; then
+   alias vim="vimx"
+fi
 
 # eclim daemon
 #/opt/eclipse/eclimd
