@@ -31,6 +31,8 @@
           - lttng-ust
           - lttng-tools
           - babeltrace
+          - python2-devel
+          - python3-devel
 
     - name: PowerPC Packages
       package: name={{item}} state=installed
@@ -81,16 +83,31 @@
           - expect
           - unar
           - mutt
-          - neomutt
           - notmuch
           - getmail
           - offlineimap
           - mailcap
           - lynx
           - socat
+          - python
+          - python2
+          - python3
 
     - name: Personal Stuffs
       package: name={{item}} state=installed
       with_items:
           - homebank
           - keepass
+
+    - name: IBM Packages
+      package: name={{item}} state=installed
+      with_items:
+          - '@IBM Client Base'
+          - '@IBM Licensed'
+          - '@IBM Lotus Mobility Connect'
+          - '@IBM Notes'
+          - '@IBM Openconnect'
+          - '@IBM Security Compliance'
+          - ibm-ca-certificates
+          - ibm-lotus-notes
+          - CrashPlan
