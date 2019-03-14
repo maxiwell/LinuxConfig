@@ -95,7 +95,7 @@ fi
 # Nautilus desktop crash openbox
 alias nautilus="nautilus --no-desktop"
 alias nemo="nemo --no-desktop"
-#alias rm='trash-put'
+alias rm='trash-put'
 alias tmux='tmux -u'
 alias grep='grep --color'
 alias egrep='egrep --color'
