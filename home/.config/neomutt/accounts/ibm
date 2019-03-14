@@ -12,3 +12,4 @@ macro index,pager d \
 
 # Display settings
 mailboxes `find ~/Mail/ibm -type d -name cur -not -empty -printf '%h '`
+mailboxes `find ~/Mail/ibm -type d -name new -not -empty -printf '%h '`
