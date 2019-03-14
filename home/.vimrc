@@ -183,6 +183,7 @@ hi SpellBad cterm=NONE,undercurl gui=NONE,undercurl ctermfg=NONE guifg=NONE cter
 "--------------------------------------------------------------------------------
 
 " set a directory to store the undo history
+silent !mkdir ~/.vim/undo > /dev/null 2>&1
 set undodir=~/.vim/undo
 " tell it to use an undo file
 set undofile
