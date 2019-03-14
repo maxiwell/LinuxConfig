@@ -1,7 +1,7 @@
 # Disabling shortcuts must be the first thing,
 # so that they can be reused.
-bind index d noop
-bind index \cD noop
+# bind index d noop
+bind index D purge-message
 bind index \eD noop
 bind pager d noop
 bind pager \cD noop
