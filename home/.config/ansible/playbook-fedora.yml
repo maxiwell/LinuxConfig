@@ -98,6 +98,8 @@
       with_items:
           - homebank
           - keepass
+          - inadyn
+          - duplicity
 
     - name: IBM Packages
       package: name={{item}} state=installed
@@ -111,3 +113,5 @@
           - ibm-ca-certificates
           - ibm-lotus-notes
           - CrashPlan
+          - ecpinstall
+          - ecpdelegate
