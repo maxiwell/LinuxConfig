@@ -97,7 +97,7 @@
       package: name={{item}} state=installed
       with_items:
           - homebank
-          - keepass
+          - keepassxc
           - inadyn
           - duplicity
 
