@@ -33,6 +33,13 @@
           - babeltrace
           - python2-devel
           - python3-devel
+          - libxml2-devel
+          - libnl3-devel
+          - gnutls-devel
+          - rpcgen
+          - device-mapper-devel
+          - libtirpc-devel
+          - libpciaccess-devel
 
     - name: PowerPC Packages
       package: name={{item}} state=installed
@@ -92,6 +99,7 @@
           - python
           - python2
           - python3
+          - valgrind
 
     - name: Personal Stuffs
       package: name={{item}} state=installed
@@ -110,6 +118,8 @@
           - '@IBM Notes'
           - '@IBM Openconnect'
           - '@IBM Security Compliance'
+          - '@Development Tools'
+          - '@C Development Tools and Libraries'
           - ibm-ca-certificates
           - ibm-lotus-notes
           - CrashPlan
