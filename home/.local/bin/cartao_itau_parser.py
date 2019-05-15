@@ -11,11 +11,8 @@
 # SAIDA: Um CSV formatado para o HomeBank
 # --------------------------------------------------------------
 
-
-
 import re,sys
 import datetime as dt
-
 
 if len(sys.argv) <= 1 :
     print('Falando o parametro')
@@ -32,16 +29,27 @@ readingFile = readingFile.split('\n')
 i = iter(readingFile)
 total = 0
 
-#for l in readingFile:
 while True:
-    lsplit = next(i).split()
-    if not lsplit:
+    try:
+        lsplit = next(i).split()
+    except StopIteration:
         break
+
+    if not lsplit:
+        continue
+
+    if re.search(r'[0-9]*/[0-9]*', lsplit[0]) is None:
+        continue
+
     date = lsplit[0].replace("/","-") + "-" + str(dt.datetime.now().year)[2:]
     del lsplit[0];
     value = ("-"+lsplit[-1].replace(" ","")).replace('--','');
     del lsplit[-1];
     line = date+";1;;;"+" ".join(str(p) for p in lsplit)+";"+value+";"
+
+    if re.search(r'PAGAMENTO EFETUADO', line) is not None:
+        continue
+
     total = total + float(value.strip().replace('.','').replace(",","."))
     result.write(line+";\n")
     print(line)
@@ -50,7 +58,4 @@ print("O total da fatura é R$ %.2f" % total)
 
 cartao.close()
 result.close()
-
-
-
 
