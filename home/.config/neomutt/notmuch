@@ -22,6 +22,6 @@ virtual-mailboxes "LTC KVM" "notmuch://?query=( thread:{'from:farosas@.*ibm.com'
                                              || thread:{'from:leonardo@.*ibm.com'} \
                                              || thread:{'from:joserz@.*ibm.com'} \
                                              || thread:{'from:lagarcia@.*ibm.com'} \
+                                             || thread:{'from:cclaudio@.*ibm.com'} \
                                              || thread:{'from:danielhb413'} )"
-
 
