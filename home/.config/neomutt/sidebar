@@ -12,14 +12,16 @@ set mail_check_stats
 set sidebar_next_new_wrap = no
 
 # Shortcuts
-macro index,pager \Ck '<sidebar-prev><sidebar-open>'
-macro index,pager \Cj '<sidebar-next><sidebar-open>'
+macro index,pager \Ck '<sidebar-prev>'
+macro index,pager \Cj '<sidebar-next>'
 bind index,pager B sidebar-toggle-visible
+
+macro index,pager \Co '<sidebar-open>'
 
 # Colors
 # Note: All color operations are of the form:
 #       color OBJECT FOREGROUND BACKGROUND
-color sidebar_highlight black   default
+color sidebar_highlight blue   default
 color sidebar_flagged   red     default
 color sidebar_new       green   default
 
