@@ -121,6 +121,12 @@ endfunction
 
 call PasteModeOff()
 
+function KernelMode()
+    set shiftwidth=8
+    set tabstop=8
+    set noexpandtab
+endfunction
+
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
 "--------------------------------------------------------------------------------
