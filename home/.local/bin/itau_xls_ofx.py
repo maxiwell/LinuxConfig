@@ -2,9 +2,29 @@
 
 import re,sys
 import xlrd
+from datetime import date as dt
+
+def get_date_fixed(sheet, row_i, start_day):
+    date = sheet.cell(row_i, 0).value.split("/")
+
+    date_venc = sheet.cell(9, 2).value
+    month = date_venc.split("/")[1]
+    year = date_venc.split("/")[2]
+
+    if (int(date[0]) >= int(start_day)):
+        month = str(int(month) - 1).zfill(2)
+
+    if (int(date[1]) != int(month)):
+        print("   - month changed: " + date[1]);
+
+    if (int(date[2]) != int(year)):
+        print("   - year changed: " + date[2]);
+
+    date = date[0] + "-" + month + "-" + year
+    return date
 
 def write_csv_line(sheet, row_i, hbcsv):
-    date = sheet.cell(row_i, 0).value.replace("/","-");
+    date = get_date_fixed(sheet, row_i, "06")
     memo = sheet.cell(row_i, 1).value
     value = str(sheet.cell(row_i, 3).value * -1)
 
