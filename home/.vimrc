@@ -146,7 +146,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar.git'
 "Plugin 'jcf/vim-latex'
-Plugin 'Valloric/YouCompleteMe.git'
+"Plugin 'Valloric/YouCompleteMe.git'
 Plugin 'bling/vim-airline.git'
 Plugin 'kshenoy/vim-signature.git'
 Plugin 'tomasr/molokai.git'
@@ -339,32 +339,32 @@ map [6;5~  <C-PageDown>
 " YouCompleteMe
 "--------------------------------------------------------------------------------
 
-highlight Pmenu ctermfg=white ctermbg=darkgray
-highlight PmenuSel ctermfg=black  ctermbg=white
-highlight clear SignColumn
-
-"nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
-nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
-nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-
-let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-
-" Remove preview window
-let g:ycm_add_preview_to_completeopt = 0
-set completeopt-=preview
-
-" Remove diagnostics: 'left side symbols'
-let g:ycm_enable_diagnostic_signs = 0
-
-" Remove diagnostics: 'text highlighting'
-let g:ycm_show_diagnostics_ui = 0
-
-"let g:ycm_server_use_vim_stdout = 1
-"let g:ycm_server_log_level = 'debug'
-
-let g:ycm_confirm_extra_conf = 0
-"let g:loaded_youcompleteme = 1
+"highlight Pmenu ctermfg=white ctermbg=darkgray
+"highlight PmenuSel ctermfg=black  ctermbg=white
+"highlight clear SignColumn
+"
+""nnoremap <silent>  <C-]>  :YcmCompleter GoToImprecise<CR>
+"nnoremap <silent>  <C-]>  :YcmCompleter GoTo<CR>
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+"
+"let g:ycm_global_ycm_extra_conf = '~/.ycm/ycm_extra_conf.py'
+"let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+"
+"" Remove preview window
+"let g:ycm_add_preview_to_completeopt = 0
+"set completeopt-=preview
+"
+"" Remove diagnostics: 'left side symbols'
+"let g:ycm_enable_diagnostic_signs = 0
+"
+"" Remove diagnostics: 'text highlighting'
+"let g:ycm_show_diagnostics_ui = 0
+"
+""let g:ycm_server_use_vim_stdout = 1
+""let g:ycm_server_log_level = 'debug'
+"
+"let g:ycm_confirm_extra_conf = 0
+""let g:loaded_youcompleteme = 1
 
 "--------------------------------------------------------------------------------
 " vim-airline
