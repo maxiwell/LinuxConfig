@@ -110,6 +110,7 @@
           - keepassxc
           - inadyn
           - duplicity
+          - samba
 
     - name: IBM Packages
       package: name={{item}} state=installed
