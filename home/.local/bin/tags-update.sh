@@ -91,7 +91,7 @@ for i in $@; do
             ;;
         *)
             echo "Collecting $ARGS files from $i"
-            collecting_ctags $i $ARGS
+            #collecting_ctags $i $ARGS
             collecting_cscope $i $ARGS
     esac
 done
