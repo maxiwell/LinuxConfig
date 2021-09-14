@@ -4,6 +4,8 @@ folder-hook $HOME/.cache/mutt_results "exec expand-all"
 # set 'yes' to open neomutt directly in virtual-mailboxes mode
 set virtual_spoolfile=no
 
+set nm_query_type = threads
+
 macro index <F7> "<sidebar-toggle-virtual><sidebar-open>"
 macro index <F8> \
   "<enter-command>unset wait_key<enter><shell-escape>~/.config/neomutt/notmuch-helper --prompt search<enter><change-folder-readonly>~/.cache/mutt_results<enter>"
@@ -12,14 +14,3 @@ macro index <F9> \
 macro index <F10> \
   "<enter-command>unset wait_key<enter><pipe-message>~/.config/neomutt/notmuch-helper track<enter><enter-command>source ~/.config/neomutt/neomuttrc<enter>"
 
-unvirtual-mailboxes "Tracking"
-virtual-mailboxes "Tracking" "notmuch://?query=\
-`cat $HOME/.cache/virtual-mailboxes-Tracking | tr -d '\n'` \
-thread:{id:finish}"
-
-virtual-mailboxes "LTC KVM" 'notmuch://?query=( thread:{from:"/farosas@.*ibm.com/"} \
-                                             || thread:{from:"/muriloo@.*ibm.com/"} \
-                                             || thread:{from:"/leonardo@.*ibm.com/"} \
-                                             || thread:{from:"/lagarcia@.*ibm.com/"} \
-                                             || thread:{from:"/cclaudio@.*ibm.com/"} \
-                                             || thread:{from:"/danielhb413/"} )'
