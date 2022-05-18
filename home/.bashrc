@@ -105,9 +105,9 @@ alias ll="ls -lh"
 alias f="find . -iname "
 alias emacs="emacs -nw"
 
-if [ -x "$(command -v vimx)" ]; then
-   alias vim="vimx"
-fi
+#if [ -x "$(command -v vimx)" ]; then
+#   alias vim="vimx"
+#fi
 
 # eclim daemon
 #/opt/eclipse/eclimd
