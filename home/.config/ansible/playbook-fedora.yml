@@ -1,5 +1,13 @@
 - hosts: all
   tasks:
+    - rpm_key:
+        state: present
+        key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    - command:
+        cmd: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+        warn: false
+        creates: /etc/yum.repos.d/brave-browser-rpm-release.s3.brave.com_x86_64_.repo
+
     - name: Libs and Dev Tools
       package: name={{item}} state=installed
       with_items:
@@ -55,7 +63,6 @@
           - openbox
           - terminator
           - tint2
-          - gmrun
           - conky
           - wmctrl
           - htop
@@ -68,6 +75,7 @@
           - scrot
           - notification-daemon
           - network-manager-applet
+          - xrandr
 
     - name: Productivity Tools
       package: name={{item}} state=installed
@@ -96,10 +104,10 @@
           - lynx
           - socat
           - python
-          - python2
           - python3
           - valgrind
           - ipmitool
+          - xsetroot
 
     - name: Personal Stuffs
       package: name={{item}} state=installed
@@ -109,6 +117,13 @@
           - inadyn
           - duplicity
           - samba
+          - brave-browser
+
+    - rpm_key:
+        state: present
+        key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
+    - name: gmrun
+      yum: name=https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/g/gmrun-0.9.2-29.el7.x86_64.rpm
 
     - name: IBM Packages
       package: name={{item}} state=installed

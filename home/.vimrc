@@ -172,8 +172,8 @@ filetype plugin indent on    " required
 "--------------------------------------------------------------------------------
 
 " set the default color scheme
-colorscheme peachpuff
-" colorscheme molokai
+" colorscheme peachpuff
+"colorscheme molokai
 
 hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
 hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE

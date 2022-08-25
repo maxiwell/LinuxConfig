@@ -65,9 +65,3 @@ awk -F '[ :]+|->' '$NF == "(ESTABLISHED)" && $11 != "127.0.0.1" {
         printf ("${offset 15}${color4}%s${goto 110}${color4}%s${goto 150}%d${goto 200}${color4}%s${goto 310}${color4}%s\n", $1, $8, $10, $11, $12);
     }
 }'
-
-
-
-
-
-
