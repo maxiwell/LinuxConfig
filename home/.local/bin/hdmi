@@ -5,10 +5,11 @@ PRIMARY=`xrandr | grep primary | cut -d' '  -f1`
 # Get the external output display.
 # I don't have multiple displays,
 # but with a little adaption it can work
-OUT=`xrandr \
-    | awk '/^[0-9a-zA-Z]+ connected [^primary]/ {print echo $1}' \
-    | head -n1`
+#OUT=`xrandr \
+#    | awk '/^[0-9a-zA-Z]+ connected [^primary]/ {print echo $1}' \
+#    | head -n1`
 
+OUT=HDMI-1
 
 function print_help() {
     echo -e "HDMI v0.1"

@@ -14,6 +14,9 @@ export HISTSIZE=30000
 export HISTFILESIZE=-1
 export HISTTIMEFORMAT="%F %T "
 
+export EDITOR=vim
+export SYSTEMD_EDITOR=vim
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -72,7 +75,6 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-alias calc=gnome-calculator
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

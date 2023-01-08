@@ -39,8 +39,6 @@
           - lttng-ust
           - lttng-tools
           - babeltrace
-          - python2-devel
-          - python3-devel
           - libxml2-devel
           - libnl3-devel
           - gnutls-devel
@@ -67,7 +65,6 @@
           - wmctrl
           - htop
           - iotop
-          - pavucontrol
           - xscreensaver
           - xbacklight
           - trash-cli
@@ -103,7 +100,6 @@
           - mailcap
           - lynx
           - socat
-          - python
           - python3
           - valgrind
           - ipmitool
@@ -119,12 +115,39 @@
           - samba
           - brave-browser
           - texlive-scheme-full
+          - x2goclient
+          - ecryptfs-utils
+
+    - name: Plugins and Players
+      package: name={{item}} state=installed
+      with_items:
+          - mpv
+          - gstreamer1-vaapi
+          - gstreamer1-libav
+          - libva-intel-driver
+          - libva
+          - libva-utils
+          - libvdpau-va-gl
+          - fdk-aac
+
+    - name: Python Packages
+      package: name={{item}} state=installed
+      with_items:
+          - python3-devel
+          - python3-xlrd
 
     - rpm_key:
         state: present
         key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
     - name: gmrun
       yum: name=https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/g/gmrun-0.9.2-29.el7.x86_64.rpm
+
+    - rpm_key:
+        state: present
+        key: https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc
+    - name: Install TeamViewer
+      yum:
+        name: https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 
       #- name: IBM Packages
       #  package: name={{item}} state=installed

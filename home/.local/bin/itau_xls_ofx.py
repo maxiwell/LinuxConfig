@@ -4,35 +4,56 @@ import re,sys
 import xlrd
 from datetime import date as dt
 
-def get_date_fixed(sheet, row_i, start_day):
-    date = sheet.cell(row_i, 0).value.split("/")
+def get_date(value):
+    date = value.split("/")
+    try:
+        date = date[0] + "-" + date[1] + "-" + date[2]
+    except:
+        return False
 
-    #date_venc = sheet.cell(9, 2).value
-    #month = date_venc.split("/")[1]
-    #year = date_venc.split("/")[2]
+    memo = sheet.cell(row_i, 1).value
+    if memo == "":
+        return False
 
-    #if (int(date[0]) >= start_day):
-    #    month = str(int(month) - 1).zfill(2)
-
-    #if (int(date[1]) != int(month)):
-    #    print("   - month changed: " + date[1]);
-
-    #if (int(date[2]) != int(year)):
-    #    print("   - year changed: " + date[2]);
-
-    #date = date[0] + "-" + month + "-" + year
-
-    date = date[0] + "-" + date[1] + "-" + date[2]
     return date
 
-def write_csv_line(sheet, row_i, hbcsv, start_day):
-    date = get_date_fixed(sheet, row_i, start_day)
-    memo = sheet.cell(row_i, 1).value
-    value = str(sheet.cell(row_i, 3).value * -1)
+def write_csv_usd_line(sheet, row_i, hbcsv):
+    cotacao_offset = 0
+    brl_value_offset = 1
+    usd_value_offset = 2
+    iof = 6.38/100
 
-    line = (date + ";1;;;" + memo + ";" + value + ";;")
+    if (sheet.cell(row_i + brl_value_offset, 1).value == "Estorno Custo De Iof"):
+        return 0
+
+    date = get_date(sheet.cell(row_i, 0).value)
+    usd_cotacao = sheet.cell(row_i + cotacao_offset, 3).value
+    usd_value = sheet.cell(row_i + usd_value_offset, 3).value
+    brl_value = sheet.cell(row_i + brl_value_offset, 3).value
+    brl_iof = round(brl_value * iof, 2)
+
+    memo = sheet.cell(row_i + brl_value_offset, 1).value
+    memo += " (USD: " + str(usd_value * -1) + ", cotacao: " + str(usd_cotacao) + ", IOF: " + str(brl_iof) + ")"
+
+    value = round((brl_value + brl_iof) * -1, 2)
+    line = (date + ";1;;;" + memo + ";" + str(value) + ";;")
     hbcsv.write(line + "\n")
+
     print(line)
+    return brl_value + brl_iof
+
+
+def write_csv_line(sheet, row_i, hbcsv):
+    date = get_date(sheet.cell(row_i, 0).value)
+    memo = sheet.cell(row_i, 1).value
+    value = sheet.cell(row_i, 3).value
+
+    line = (date + ";1;;;" + memo + ";" + str(value * -1) + ";;")
+    hbcsv.write(line + "\n")
+
+    print(line)
+    return value
+
 
 # Main
 # -------
@@ -46,39 +67,32 @@ else:
 workbook = xlrd.open_workbook(sys.argv[1]);
 sheet = workbook.sheet_by_index(0);
 
-date_count = 0
 csv_name = "generic"
-start_day = 0
 for row_i in range(1, sheet.nrows):
     colA = sheet.cell(row_i, 0).value
-    if (colA == "data"):
-        date_count = date_count + 1
     if "3561" in colA:
         csv_name = "black"
-        start_day = 6
     if "6213" in colA:
         csv_name = "person"
-        start_day = 5
 
 hbcsv = open(csv_name + ".csv", "w")
 
 total = 0
 row_i = 0
-for date_i in range(0, date_count):
-    for row_i in range(row_i + 1, sheet.nrows):
-        if (sheet.cell(row_i, 1).value == "CREDITO DE IOF"):
-            write_csv_line(sheet, row_i, hbcsv, start_day)
-            total = total + sheet.cell(row_i, 3).value
-        if (sheet.cell(row_i, 0).value == "data"):
-            break
+usd = False
 
-    for row_i in range(row_i + 1, sheet.nrows):
-        if (sheet.cell(row_i, 0).value == ""):
-            break;
+for row_i in range(1, sheet.nrows):
+    if (sheet.cell(row_i, 0).value == ""):
+        continue;
 
-        write_csv_line(sheet, row_i, hbcsv, start_day)
-        total = total + sheet.cell(row_i, 3).value
+    if (sheet.cell(row_i, 0).value == "lançamentos internacionais"):
+        usd = True
+
+    if date := get_date(sheet.cell(row_i, 0).value):
+        if (usd):
+            total += write_csv_usd_line(sheet, row_i, hbcsv)
+        else:
+            total += write_csv_line(sheet, row_i, hbcsv)
 
 print("Total da fatura: " + str(round(total, 2)))
-
 

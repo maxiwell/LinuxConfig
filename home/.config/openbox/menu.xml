@@ -175,7 +175,7 @@
         <menu id="system-menu"/>
         <item label="Sound">
             <action name="Execute">
-                <command>pavucontrol</command>
+                <command>gnome-control-center audio</command>
             </action>
         </item>
 
