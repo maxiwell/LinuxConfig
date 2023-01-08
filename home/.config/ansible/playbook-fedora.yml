@@ -5,7 +5,6 @@
         key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     - command:
         cmd: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-        warn: false
         creates: /etc/yum.repos.d/brave-browser-rpm-release.s3.brave.com_x86_64_.repo
 
     - name: Libs and Dev Tools
@@ -108,6 +107,7 @@
     - name: Personal Stuffs
       package: name={{item}} state=installed
       with_items:
+          - mpv
           - homebank
           - keepassxc
           - inadyn
@@ -117,18 +117,6 @@
           - texlive-scheme-full
           - x2goclient
           - ecryptfs-utils
-
-    - name: Plugins and Players
-      package: name={{item}} state=installed
-      with_items:
-          - mpv
-          - gstreamer1-vaapi
-          - gstreamer1-libav
-          - libva-intel-driver
-          - libva
-          - libva-utils
-          - libvdpau-va-gl
-          - fdk-aac
 
     - name: Python Packages
       package: name={{item}} state=installed
