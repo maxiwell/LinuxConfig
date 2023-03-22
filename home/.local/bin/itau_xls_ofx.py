@@ -74,6 +74,10 @@ for row_i in range(1, sheet.nrows):
         csv_name = "black"
     if "6213" in colA:
         csv_name = "person"
+    if "0069" in colA:
+        csv_name = "person-visa-infinite"
+    if "1769" in colA:
+        csv_name = "person-mc-black"
 
 hbcsv = open(csv_name + ".csv", "w")
 
