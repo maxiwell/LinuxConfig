@@ -20,7 +20,7 @@
     icon_bell = False
     background_color = "#202020"
     cursor_color = "#aaaaaa"
-    font = Monospace 12
+    font = Monospace 14
     foreground_color = "#d0d090"
     show_titlebar = False
     scrollbar_position = hidden
