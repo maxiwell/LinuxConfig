@@ -975,11 +975,21 @@
   </application>
 
   # end of the example
--->
-  </applications>
+  -->
+
   <application name="xv" class="MPlayer">
     <decor>no</decor>
     <desktop>all</desktop>
     <layer>above</layer>
   </application>
+
+  <application name="keepassxc">
+    <layer>normal</layer>
+  </application>
+
+  <application name="code">
+    <decor>no</decor>
+  </application>
+</applications>
+
 </openbox_config>
