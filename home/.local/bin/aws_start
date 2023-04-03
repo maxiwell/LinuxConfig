@@ -1,0 +1,4 @@
+#!/bin/bash
+
+aws ec2 start-instances --instance-ids \
+    $(aws ec2 describe-instances --filters "Name=tag:Name,Values=$1" --output text  --query "Reservations[*].Instances[*].InstanceId")
