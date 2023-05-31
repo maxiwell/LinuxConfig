@@ -5,6 +5,7 @@
         key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     - command:
         cmd: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
+        warn: false
         creates: /etc/yum.repos.d/brave-browser-rpm-release.s3.brave.com_x86_64_.repo
 
     - name: Libs and Dev Tools
@@ -103,6 +104,7 @@
           - valgrind
           - ipmitool
           - xsetroot
+          - docker
 
     - name: Personal Stuffs
       package: name={{item}} state=installed
