@@ -5,21 +5,24 @@ import sys
 import datetime
 
 
-def parseDesc(string):
-    if not "CRED EVENTO B3" in string:
+def parseDesc(cat, desc):
+    cat = cat.upper()
+    desc = desc.upper()
+
+    if not "EVENTO B3" in cat:
         return False, False
 
-    words = string.split()
+    words = desc.split()
     sticker = words[-1]
 
-    if "JUROS S/CAPITAL" in string:
+    if "JUROS S/CAPITAL" in desc:
         tipo = "JSCP"
-    elif "RENDIMENTO" in string:
+    elif "RENDIMENTO" in desc:
         tipo = "RENDIMENTO"
-    elif "DIVIDENDOS" in string:
-        tipo = "DIVIDENDOS"
+    elif "DIVIDENDOS" in desc:
+        tipo = "DIVIDENDO"
     else:
-        tipo = "Desconhecido"
+        tipo = "DESCONHECIDO"
 
     return tipo, sticker
 
@@ -48,17 +51,18 @@ for row in reader:
         continue
 
     data = row[0]
-    desc = row[1]
-    valor = row[2]
-    saldo = row[3]
+    cat  = row[1]
+    desc = row[2]
+    valor = row[3]
+    #saldo = row[4]
     irrf = "0"
 
-    if (not saldo_acc):
-        saldo_acc = brl(saldo) - brl(valor)
+    #if (not saldo_acc):
+    #    saldo_acc = brl(saldo) - brl(valor)
 
-    saldo_acc += brl(valor)
+    #saldo_acc += brl(valor)
 
-    tipo, sticker = parseDesc(desc)
+    tipo, sticker = parseDesc(cat, desc)
     if (not tipo):
         continue
 
@@ -77,7 +81,7 @@ for row in reader:
     output.write(line + "\n")
 
 
-if (round(saldo_acc, 2) == round(saldo_final, 2)):
-    print("Saldo OK: " + str(saldo_final))
-else:
-    print("Saldo ERRADO: " + str(saldo_acc) + " vs " + str(saldo_final))
+#if (round(saldo_acc, 2) == round(saldo_final, 2)):
+#    print("Saldo OK: " + str(saldo_final))
+#else:
+#    print("Saldo ERRADO: " + str(saldo_acc) + " vs " + str(saldo_final))
