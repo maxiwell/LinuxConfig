@@ -3,7 +3,7 @@
 # Screenshot to Clipboard
 
 
-scrot -s /tmp/foo.png
-xclip -t image/png -selection c -i /tmp/foo.png
+scrot -s $HOME/screenshot/foo.png
+xclip -t image/png -selection c -i $HOME/screenshot/foo.png
 
 
