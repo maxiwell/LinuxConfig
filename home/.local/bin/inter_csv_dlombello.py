@@ -21,6 +21,8 @@ def parseDesc(cat, desc):
         tipo = "RENDIMENTO"
     elif "DIVIDENDOS" in desc:
         tipo = "DIVIDENDO"
+    elif "FRAÇÕES" in desc:
+        tipo = "V.FRACAO"
     else:
         tipo = "DESCONHECIDO"
 
