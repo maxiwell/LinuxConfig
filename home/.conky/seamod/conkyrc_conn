@@ -57,7 +57,7 @@ ${font Ubuntu:size=10,weight:bold}${color4}CONNECTIONS ${hr 2}
 ${offset 15}${alignr}${color1}Total:  ${color2}${tcp_portmon 1 65535 count}
 
 ${offset 15}${color}Process${goto 110}${goto 200}${color}Dest.
-${execpi 1 lsof -n -i | awk 'NR >= 0 && NR <= 50 { print }' | 
+${execpi 1 lsof -n -i | awk 'NR >= 0 && NR <= 50 { print }' |
 awk -F '[ :]+|->' '$NF == "(ESTABLISHED)" && $11 != "127.0.0.1" {
     if ( $10 > 32768 ) {
         printf ("${offset 15}${color5}%s${goto 110}${color2}%s${goto 150}%d${goto 200}${color3}%s${goto 310}${color3}%s\n", $1, $8, $10, $11, $12);

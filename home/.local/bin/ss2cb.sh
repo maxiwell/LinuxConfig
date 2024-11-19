@@ -2,8 +2,8 @@
 
 # Screenshot to Clipboard
 
-mkdir -p $HOME/screenshot
-scrot -s $HOME/screenshot/foo.png
-xclip -t image/png -selection c -i $HOME/screenshot/foo.png
+DIR=$HOME/screenshot
 
-
+mkdir -p $DIR
+scrot -s $DIR/foo.png
+xclip -t image/png -selection c -i $DIR/`ls -t $DIR | head -n1`
