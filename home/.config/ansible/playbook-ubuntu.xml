@@ -139,6 +139,7 @@
           - trash-cli
           - xclip
           - scrot
+          - flameshot
           - network-manager-openvpn
           - network-manager-openvpn-gnome
           - human-theme

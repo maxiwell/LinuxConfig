@@ -73,6 +73,7 @@
           - notification-daemon
           - network-manager-applet
           - xrandr
+          - flameshot
 
     - name: Productivity Tools
       package: name={{item}} state=installed
