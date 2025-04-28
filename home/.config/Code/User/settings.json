@@ -1,0 +1,64 @@
+{
+    "editor.inlineSuggest.enabled": true,
+    "php.suggest.basic": false,
+    "github.copilot.advanced": {},
+    "terminal.integrated.fontSize": 15,
+    "breadcrumbs.symbolSortOrder": "name",
+    "outline.showVariables": false,
+    "outline.showNamespaces": false,
+    "files.watcherExclude": {
+        "**/vendor/**": true,
+        "**/public/lib/**": true,
+        "**/public/assets/js/third/**": true
+    },
+    "editor.renderWhitespace": "all",
+    "settingsSync.ignoredExtensions": [],
+    "settingsSync.ignoredSettings": [],
+    "git.enableStatusBarSync": false,
+    "git.confirmSync": false,
+    "git.autorefresh": false,
+    "git.autoRepositoryDetection": false,
+    "git.decorations.enabled": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
+    "git.suggestSmartCommit": false,
+    "vim.smartRelativeLine": true,
+    "git.timeline.showUncommitted": true,
+    "vim.useSystemClipboard": true,
+    "workbench.startupEditor": "none",
+    "extensions.ignoreRecommendations": true,
+    "editor.codeActionsOnSave": {},
+    "copyOnSelect.copyOnKeyboardSelection": false,
+    "copyOnSelect.copyOnMouseSelection": true,
+    "copyOnSelect.trimStart": false,
+    "copyOnSelect.trimEnd": true,
+    "editor.insertSpaces": true,
+    "workbench.activityBar.location": "hidden",
+    "security.workspace.trust.untrustedFiles": "open",
+    "workbench.colorCustomizations": {
+
+    },
+    "editor.matchBrackets": false,
+    "subtleBrackets.style": {
+
+        "borderWidth": "2px",
+        "borderStyle": "none none solid none",
+        "backgroundColor": "white"
+    },
+    "window.newWindowDimensions": "maximized",
+    "workbench.editor.enablePreview": false,
+    "workbench.panel.opensMaximized": "always",
+    "editor.stickyScroll.enabled": false,
+    "window.menuBarVisibility": "hidden",
+    "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "simplyblame.dateFormat": "DD/MM/YYYY",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "geminicodeassist.inlineSuggestions.enableAuto": true,
+    "github.copilot.selectedCompletionModel": ""
+}
