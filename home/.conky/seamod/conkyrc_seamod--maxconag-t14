@@ -110,9 +110,9 @@ ${voffset -60}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}ETHER
 ${voffset 40}
 ${offset 15}${color1}${font ubuntu:size=10:style=bold}Up: ${alignr}${font Ubuntu:size=10:style=normal}$color2${upspeed wlp3s0} / ${totalup wlp3s0}
-${offset 15}${upspeedgraph wlp3s0 40,320 4B1B0C FF5C2B 1280KiB -l}
+${offset 15}${upspeedgraph wlp3s0 40,320 4B1B0C FF5C2B 1000000 }
 ${offset 15}${color1}${font Ubuntu:size=10:style=bold}Down: ${alignr}${font Ubuntu:size=10:style=normal}$color2${downspeed wlp3s0} / ${totaldown wlp3s0}
-${offset 15}${downspeedgraph wlp3s0 40,320 324D23 77B753 1280KiB -l}
+${offset 15}${downspeedgraph wlp3s0 40,320 324D23 77B753 1000000 }
 ${endif} ${if_existing /sys/class/net/wlp3s0/operstate up}
 
 ${endif}

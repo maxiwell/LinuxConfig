@@ -98,7 +98,7 @@ fi
 # Nautilus desktop crash openbox
 alias nautilus="nautilus --no-desktop"
 alias nemo="nemo --no-desktop"
-alias rm='trash-put'
+#alias rm='trash-put'
 alias tmux='tmux -u'
 alias grep='grep --color'
 alias egrep='egrep --color'
@@ -107,6 +107,7 @@ alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc 
 alias ll="ls -lh"
 alias f="find . -iname "
 alias emacs="emacs -nw"
+alias gedit="gnome-text-editor"
 
 #if [ -x "$(command -v vimx)" ]; then
 #   alias vim="vimx"
@@ -144,3 +145,10 @@ PROMPT_COMMAND="run_on_prompt_command"
 PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '{ if (!arr[$0]++) { print $0 } }')
 
 source ~/.private_bashrc
+
+# VSCode
+alias v='code -r'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
