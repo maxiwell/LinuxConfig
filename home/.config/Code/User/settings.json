@@ -33,7 +33,7 @@
     "copyOnSelect.trimStart": false,
     "copyOnSelect.trimEnd": true,
     "editor.insertSpaces": true,
-    "workbench.activityBar.location": "hidden",
+    "workbench.activityBar.location": "top",
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorCustomizations": {
 
