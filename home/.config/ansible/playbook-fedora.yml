@@ -5,8 +5,17 @@
         key: https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
     - command:
         cmd: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-        warn: false
         creates: /etc/yum.repos.d/brave-browser-rpm-release.s3.brave.com_x86_64_.repo
+
+    - name: Habilitar RPM Fusion Free
+      dnf:
+        name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+        state: present
+
+    - name: Habilitar RPM Fusion Non-Free
+      dnf:
+        name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+        state: present
 
     - name: Libs and Dev Tools
       package: name={{item}} state=installed
@@ -47,13 +56,7 @@
           - libtirpc-devel
           - libpciaccess-devel
           - readline-devel
-
-    - name: PowerPC Packages
-      package: name={{item}} state=installed
-      with_items:
-          - binutils-powerpc64-linux-gnu
-          - gcc-powerpc64-linux-gnu
-          - gcc-c++-powerpc64-linux-gnu
+          - gmrun
 
     - name: Openbox Packages
       package: name={{item}} state=installed
@@ -129,27 +132,42 @@
 
     - rpm_key:
         state: present
-        key: https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-7
-    - name: gmrun
-      yum: name=https://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/g/gmrun-0.9.2-29.el7.x86_64.rpm
-
-    - rpm_key:
-        state: present
         key: https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc
     - name: Install TeamViewer
       yum:
         name: https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm
 
-      #- name: IBM Packages
-      #  package: name={{item}} state=installed
-      #  with_items:
-      #      - '@IBM Client Base'
-      #      - '@IBM Licensed'
-      #      - '@IBM Notes'
-      #      - '@Development Tools'
-      #      - '@C Development Tools and Libraries'
-      #      - ibm-ca-certificates
-      #      - CrashPlan
-      #      - ecpinstall
-      #      - ecpdelegate
-      #      - ibm-dnf-plugins
+
+- name: Instalar ffmpeg com libx264 no Fedora removendo conflitos
+  hosts: localhost
+  become: true
+  tasks:
+
+    - name: Remover pacotes conflitantes do ffmpeg-free
+      dnf:
+        name:
+          - ffmpeg-free
+          - libswscale-free
+          - libavcodec-free
+          - libavformat-free
+          - libavutil-free
+        state: absent
+        autoremove: true
+
+    - name: Adicionar RPM Fusion Free repository
+      dnf:
+        name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+        state: present
+
+    - name: Adicionar RPM Fusion Non-Free repository
+      dnf:
+        name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_facts['distribution_major_version'] }}.noarch.rpm"
+        state: present
+
+    - name: Instalar ffmpeg com suporte a libx264
+      dnf:
+        name:
+          - ffmpeg
+          - ffmpeg-libs
+        state: present
+        allowerasing: true

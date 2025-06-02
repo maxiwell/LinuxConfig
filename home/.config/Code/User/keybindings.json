@@ -264,5 +264,13 @@
         "args": {
           "after": ["<C-u>"]
         }
-      }
+    },
+    {
+        "key": "` i",
+        "command": "outline.focus"
+    },
+    {
+        "key":"ctrl+alt+[",
+        "command": "editor.emmet.action.matchTag"
+    }
 ]

@@ -107,7 +107,6 @@ alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc 
 alias ll="ls -lh"
 alias f="find . -iname "
 alias emacs="emacs -nw"
-alias gedit="gnome-text-editor"
 
 #if [ -x "$(command -v vimx)" ]; then
 #   alias vim="vimx"

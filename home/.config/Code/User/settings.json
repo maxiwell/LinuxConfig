@@ -16,8 +16,8 @@
     "settingsSync.ignoredSettings": [],
     "git.enableStatusBarSync": false,
     "git.confirmSync": false,
-    "git.autorefresh": false,
-    "git.autoRepositoryDetection": false,
+    "git.autorefresh": true,
+    "git.autoRepositoryDetection": true,
     "git.decorations.enabled": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
@@ -54,11 +54,13 @@
     "editor.autoClosingBrackets": "beforeWhitespace",
     "simplyblame.dateFormat": "DD/MM/YYYY",
     "github.copilot.enable": {
-        "*": false,
+        "*": true,
         "plaintext": false,
         "markdown": false,
-        "scminput": false
+        "scminput": false,
+        "php": true
     },
-    "geminicodeassist.inlineSuggestions.enableAuto": true,
-    "github.copilot.selectedCompletionModel": ""
+    "geminicodeassist.inlineSuggestions.enableAuto": false,
+    "github.copilot.selectedCompletionModel": "",
+    "github.copilot.nextEditSuggestions.enabled": true
 }

@@ -85,12 +85,20 @@ total = 0
 row_i = 0
 usd = False
 
+lancamentos_nacionais_row = False
+
 for row_i in range(1, sheet.nrows):
     if (sheet.cell(row_i, 0).value == ""):
         continue;
 
     if (sheet.cell(row_i, 0).value == "lançamentos internacionais"):
         usd = True
+
+    if (sheet.cell(row_i, 0).value == "lançamentos nacionais"):
+        lancamentos_nacionais_row = True
+
+    if (not lancamentos_nacionais_row):
+        continue
 
     if date := get_date(sheet.cell(row_i, 0).value):
         if (usd):
