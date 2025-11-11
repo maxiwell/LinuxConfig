@@ -163,6 +163,23 @@
         "args": { "text": "`" }
     },
     {
+        "key": "` space",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "`" },
+        "when": "terminalFocus"
+    },
+    {
+        "key": "` a",
+        "command": "type",
+        "args": { "text": "à" }
+    },
+    {
+        "key": "` a",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": { "text": "à" },
+        "when": "terminalFocus"
+    },
+    {
         "key": "` `",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
@@ -272,5 +289,45 @@
     {
         "key":"ctrl+alt+[",
         "command": "editor.emmet.action.matchTag"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+alt+-",
+        "command": "-workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    {
+        "key": "ctrl+k ctrl+]",
+        "command": "editor.unfold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+shift+]",
+        "command": "-editor.unfold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+k ctrl+[",
+        "command": "editor.fold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "ctrl+shift+[",
+        "command": "-editor.fold",
+        "when": "editorTextFocus && foldingEnabled"
     }
 ]

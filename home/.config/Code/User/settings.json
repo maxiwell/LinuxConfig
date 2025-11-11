@@ -22,9 +22,9 @@
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.enableMultiLinePasteWarning": "never",
     "git.suggestSmartCommit": false,
-    "vim.smartRelativeLine": true,
     "git.timeline.showUncommitted": true,
     "vim.useSystemClipboard": true,
+    "vim.smartRelativeLine": true,
     "workbench.startupEditor": "none",
     "extensions.ignoreRecommendations": true,
     "editor.codeActionsOnSave": {},
@@ -38,7 +38,7 @@
     "workbench.colorCustomizations": {
 
     },
-    "editor.matchBrackets": false,
+    "editor.matchBrackets": "never",
     "subtleBrackets.style": {
 
         "borderWidth": "2px",
@@ -62,5 +62,6 @@
     },
     "geminicodeassist.inlineSuggestions.enableAuto": false,
     "github.copilot.selectedCompletionModel": "",
-    "github.copilot.nextEditSuggestions.enabled": true
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "diffEditor.codeLens": true,
 }
