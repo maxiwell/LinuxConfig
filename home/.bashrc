@@ -107,6 +107,7 @@ alias latexmkspeciale="grep -l '\\documentclass' *tex | xargs latexmk -pdf -pvc 
 alias ll="ls -lh"
 alias f="find . -iname "
 alias emacs="emacs -nw"
+alias lslru="find . -type f -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2-"
 
 #if [ -x "$(command -v vimx)" ]; then
 #   alias vim="vimx"

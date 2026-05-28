@@ -38,7 +38,7 @@
     "workbench.colorCustomizations": {
 
     },
-    "editor.matchBrackets": "never",
+    "editor.matchBrackets": false,
     "subtleBrackets.style": {
 
         "borderWidth": "2px",
@@ -49,7 +49,6 @@
     "workbench.editor.enablePreview": false,
     "workbench.panel.opensMaximized": "always",
     "editor.stickyScroll.enabled": false,
-    "window.menuBarVisibility": "hidden",
     "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "simplyblame.dateFormat": "DD/MM/YYYY",
@@ -64,4 +63,9 @@
     "github.copilot.selectedCompletionModel": "",
     "github.copilot.nextEditSuggestions.enabled": true,
     "diffEditor.codeLens": true,
+    "terminal.integrated.tabs.enabled": false,
+    "python.analysis.typeCheckingMode": "standard",
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.colorTheme": "Dark Modern",
+    "claudeCode.preferredLocation": "panel",
 }
