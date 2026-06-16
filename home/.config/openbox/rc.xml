@@ -184,6 +184,9 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="A-F7">
+      <action name="ToggleOmnipresent"/>
+    </keybind>
     <!-- raoni @ Sun Apr 22 20:22:27 BRT 2012
         Keybindings for show menus -->
     <keybind key="C-Menu">
@@ -986,6 +989,13 @@
     </application>
     <application name="code">
       <decor>no</decor>
+    </application>
+    <application class="Gmrun">
+      <position force="yes">
+        <x>center</x>
+        <y>center</y>
+        <monitor>1</monitor>
+      </position>
     </application>
   </applications>
 </openbox_config>

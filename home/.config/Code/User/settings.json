@@ -63,9 +63,9 @@
     "github.copilot.selectedCompletionModel": "",
     "github.copilot.nextEditSuggestions.enabled": true,
     "diffEditor.codeLens": true,
-    "terminal.integrated.tabs.enabled": false,
     "python.analysis.typeCheckingMode": "standard",
     "chat.viewSessions.orientation": "stacked",
     "workbench.colorTheme": "Dark Modern",
     "claudeCode.preferredLocation": "panel",
+    "git.openRepositoryInParentFolders": "never",
 }

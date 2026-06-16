@@ -27,3 +27,6 @@ sleep 2
 
 conky  -c $HOME/.conky/seamod/conkyrc_seamod &
 copyq &
+
+# watcher de hotplug de monitor (azorpa no DisplayPort-1)
+"$HOME/.local/bin/monitor-watch.sh" &

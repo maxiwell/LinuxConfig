@@ -58,6 +58,7 @@ task_active_background_id = 2
 #---------------------------------------------
 systray_padding = 4 2 3
 systray_background_id = 1
+systray_monitor = primary
 
 #---------------------------------------------
 # CLOCK
