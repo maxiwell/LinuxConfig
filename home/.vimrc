@@ -10,7 +10,7 @@ set expandtab
 set nohlsearch
 set incsearch
 set nobackup
-set clipboard^=unnamed
+set clipboard^=unnamed,unnamedplus
 set viminfo+=n~/.vim/viminfo    " set the viminfo location
 set t_Co=256                    " Use 256 colours
 let g:netrw_home='~/.vim'

@@ -4,7 +4,7 @@
 # Idempotente: se o DP-1 já estiver off, o eDP não se desloca e nada é mexido.
 
 PRIMARY=eDP
-SECOND=DisplayPort-1
+SECOND=DisplayPort-0
 
 geom_x() { xrandr --query | awk -v o="$1" '$1==o && /\+/{ for(i=1;i<=NF;i++) if($i ~ /^[0-9]+x[0-9]+\+/){ split($i,a,"+"); print a[2]; exit } }'; }
 

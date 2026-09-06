@@ -6,7 +6,7 @@
 # Uso: dp1-left.sh [resistencia_px]   (resistência da borda do mouse; padrão 50)
 
 PRIMARY=eDP
-SECOND=DisplayPort-1
+SECOND=DisplayPort-0
 RESIST=${1:-1080}
 
 # x do primary ANTES de aplicar o layout

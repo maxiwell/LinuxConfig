@@ -38,7 +38,7 @@
     "workbench.colorCustomizations": {
 
     },
-    "editor.matchBrackets": false,
+    "editor.matchBrackets": "never",
     "subtleBrackets.style": {
 
         "borderWidth": "2px",

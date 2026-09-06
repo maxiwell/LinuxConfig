@@ -109,9 +109,9 @@ alias f="find . -iname "
 alias emacs="emacs -nw"
 alias lslru="find . -type f -printf '%T@ %p\n' | sort -nr | cut -d' ' -f2-"
 
-#if [ -x "$(command -v vimx)" ]; then
-#   alias vim="vimx"
-#fi
+if [ -x "$(command -v vimx)" ]; then
+   alias vim="vimx"
+fi
 
 # eclim daemon
 #/opt/eclipse/eclimd
