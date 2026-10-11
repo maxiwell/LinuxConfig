@@ -1,0 +1,41 @@
+-----------------------------------------------------------------------------
+--  nocturne — painel de sistema desenhado todo em Lua/cairo (nocturne.lua)
+-----------------------------------------------------------------------------
+
+conky.config = {
+	background = true,
+	update_interval = 1,
+	double_buffer = true,
+	no_buffers = true,
+	text_buffer_size = 2048,
+
+	-- monitor externo (DisplayPort); head 0 = eDP (primary)
+	xinerama_head = 1,
+	alignment = 'top_right',
+	gap_x = 40,
+	gap_y = 30,
+	minimum_width = 340, maximum_width = 340,
+	minimum_height = 1012,
+
+	own_window = true,
+	own_window_type = 'override',
+	own_window_class = 'conky-nocturne',
+	own_window_transparent = true,
+	own_window_argb_visual = true,
+	own_window_hints = 'undecorated,sticky,skip_taskbar,skip_pager,below',
+	border_inner_margin = 0,
+	border_outer_margin = 0,
+
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+	use_xft = true,
+	font = 'Ubuntu:size=1',
+
+	lua_load = '/home/maxiwell/.conky/nocturne/nocturne.lua',
+	lua_draw_hook_pre = 'main',
+};
+
+-- texto vazio: tudo é desenhado pelo Lua. Os objetos "top" ficam aqui
+-- (nunca exibidos) só para manter a coleta de processos do conky ativa.
+conky.text = [[${if_match 0 == 1}${top name 1}${top_mem name 1}${endif}]];
