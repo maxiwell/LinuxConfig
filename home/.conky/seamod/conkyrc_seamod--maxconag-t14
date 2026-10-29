@@ -34,6 +34,8 @@ conky.config = {
 	border_inner_margin = 0,
 	border_outer_margin = 0,
 	alignment = 'top_right',
+-- monitor externo (DisplayPort); head 0 = eDP (primary)
+	xinerama_head = 1,
 
 
 	draw_shades = false,
@@ -58,7 +60,7 @@ conky.config = {
 -- Green
 	color5 = '#77B753',
 -- Loading lua script for drawning rings
-	lua_load = '~/.conky/seamod/seamod_rings.lua',
+	lua_load = '/home/maxiwell/.conky/seamod/seamod_rings.lua',
 	lua_draw_hook_pre = 'main',
 
 };
@@ -66,59 +68,49 @@ conky.config = {
 --${offset 15}${font Ubuntu:size=11:style=normal}${color1}${pre_exec lsb_release -d | cut -f 2} - $sysname $kernel
 conky.text = [[
 ${font Ubuntu:size=11:style=bold}${color4}SYSTEM ${hr 2}
-${offset 15}${font Ubuntu:size=11:style=normal}${color1}Battery 0:  ${color3}${battery_bar 5,210 BAT0} ${color3}${battery_percent BAT0}%
-${offset 15}${font Ubuntu:size=11:style=normal}${color1}$sysname $kernel
-${offset 15}${font Ubuntu:size=11:style=normal}${color1}Uptime: ${color3}$uptime
+${voffset 6}${offset 15}${font Ubuntu:size=11:style=normal}${color1}Kernel${goto 100}${color3}$sysname $kernel
+${voffset 6}${offset 15}${color1}Uptime${goto 100}${color3}$uptime
+${voffset 6}${offset 15}${color1}Load${goto 100}${color3}${loadavg 1}${goto 160}${loadavg 2}${goto 220}${loadavg 3}
+${voffset 6}${offset 15}${color1}Battery${goto 100}${color3}${battery_bar 6,190 BAT0}${alignr}${battery_percent BAT0}%
 
 # Showing CPU Graph
-${voffset -17}
-${offset 125}${cpugraph cpu0 40,220 666666 666666 -0.3}${voffset -15}
+${voffset -18}
+${offset 125}${cpugraph cpu0 40,220 666666 AAAAAA}${voffset -15}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}CPU
 # Showing TOP 5 CPU-consumers
 ${offset 105}${font Ubuntu:size=11:style=normal}${color4}${top name 1}${alignr}${top cpu 1}%
-${offset 105}${font Ubuntu:size=11:style=normal}${color1}${top name 2}${alignr}${top cpu 2}%
-${offset 105}${font Ubuntu:size=11:style=normal}${color2}${top name 3}${alignr}${top cpu 3}%
-${offset 105}${font Ubuntu:size=11:style=normal}${color3}${top name 4}${alignr}${top cpu 4}%
-${offset 105}${font Ubuntu:size=11:style=normal}${color3}${top name 5}${alignr}${top cpu 5}%
+${offset 105}${color1}${top name 2}${alignr}${top cpu 2}%
+${offset 105}${color2}${top name 3}${alignr}${top cpu 3}%
+${offset 105}${color3}${top name 4}${alignr}${top cpu 4}%
+${offset 105}${color3}${top name 5}${alignr}${top cpu 5}%
 
 #Showing memory part with TOP 5
 ${voffset 20}
-${offset 90}${font Ubuntu:size=11:style=bold}${color5}MEM
+${offset 90}${font Ubuntu:size=11:style=bold}${color5}MEM${font Ubuntu:size=10:style=normal}${color3}${alignr}$mem / $memmax
 ${offset 105}${font Ubuntu:size=11:style=normal}${color4}${top_mem name 1}${alignr}${top_mem mem_res 1}
-${offset 105}${font Ubuntu:size=11:style=normal}${color1}${top_mem name 2}${alignr}${top_mem mem_res 2}
-${offset 105}${font Ubuntu:size=11:style=normal}${color2}${top_mem name 3}${alignr}${top_mem mem_res 3}
-${offset 105}${font Ubuntu:size=11:style=normal}${color3}${top_mem name 4}${alignr}${top_mem mem_res 4}
-${offset 105}${font Ubuntu:size=11:style=normal}${color3}${top_mem name 4}${alignr}${top_mem mem_res 5}
+${offset 105}${color1}${top_mem name 2}${alignr}${top_mem mem_res 2}
+${offset 105}${color2}${top_mem name 3}${alignr}${top_mem mem_res 3}
+${offset 105}${color3}${top_mem name 4}${alignr}${top_mem mem_res 4}
+${offset 105}${color3}${top_mem name 5}${alignr}${top_mem mem_res 5}
 
 # Showing disk partitions: root, home
-${voffset 2}
-${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Read: ${alignr}${font Ubuntu:size=10:style=normal}${color2}${diskio_read}
-${offset 180}${color1}${font Ubuntu:size=10:style=bold}Disk Write: ${alignr}${font Ubuntu:size=10:style=normal}${color2}${diskio_write}
-${voffset -35}
+${voffset 20}
 ${offset 90}${font Ubuntu:size=11:style=bold}${color5}DISKS
-${offset 120}${diskiograph 40,220 666666 666666 -0.5}${voffset -30}
-${voffset 10}
-${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /}
-#${offset 15}${font Ubuntu:size=10:style=bold}${color1}Free: $color3${font Ubuntu:size=10:style=normal}${fs_free /home}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used: $color3${font Ubuntu:size=10:style=normal}${fs_used /home}
+${offset 130}${font Ubuntu:size=10:style=bold}${color1}Read${goto 180}${font Ubuntu:size=10:style=normal}${color2}${diskio_read}${alignr}${font Ubuntu:size=10:style=bold}${color1}Write  ${font Ubuntu:size=10:style=normal}${color2}${diskio_write}
+${offset 130}${diskiograph 30,220 666666 AAAAAA}
+${voffset 8}
+${offset 130}${font Ubuntu:size=10:style=bold}${color1}Free  ${color3}${font Ubuntu:size=10:style=normal}${fs_free /}${alignr}${font Ubuntu:size=10:style=bold}${color1}Used  ${color3}${font Ubuntu:size=10:style=normal}${fs_used /}
 
-${if_existing /sys/class/net/wlp3s0/operstate up}
-${offset 200}${font Ubuntu:size=10:style=bold}${color1}Lan IP: ${alignr}$color3${addr wlp3s0}
-${offset 200}${font Ubuntu:size=10:style=bold}${color1}Ext IP: ${alignr}$color3${execi 600 wget -qO- http://ipecho.net/plain}
-${offset 190}${font Ubuntu:size=10:style=bold}${alignr}$color3${execi 1000 wget -q -O /dev/stdout https://www.dnsleaktest.com/ | grep from | grep -o '<p>.*<img' | grep -o '>.*<' | grep -oEi '[a-zA-Z0-9 ,]+'}
-
-${voffset -60}
-${offset 90}${font Ubuntu:size=11:style=bold}${color5}ETHER
-${voffset 40}
-${offset 15}${color1}${font ubuntu:size=10:style=bold}Up: ${alignr}${font Ubuntu:size=10:style=normal}$color2${upspeed wlp3s0} / ${totalup wlp3s0}
-${offset 15}${upspeedgraph wlp3s0 40,320 4B1B0C FF5C2B 1000000 }
-${offset 15}${color1}${font Ubuntu:size=10:style=bold}Down: ${alignr}${font Ubuntu:size=10:style=normal}$color2${downspeed wlp3s0} / ${totaldown wlp3s0}
-${offset 15}${downspeedgraph wlp3s0 40,320 324D23 77B753 1000000 }
-${endif} ${if_existing /sys/class/net/wlp3s0/operstate up}
-
+${if_existing /sys/class/net/wlp3s0/operstate up}${voffset 10}
+${offset 90}${font Ubuntu:size=11:style=bold}${color5}NETWORK
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Lan IP${goto 100}${font Ubuntu:size=10:style=normal}${color3}${addr wlp3s0}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Ext IP${goto 100}${font Ubuntu:size=10:style=normal}${color3}${execi 600 wget -qO- http://ipecho.net/plain}
+${voffset 8}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Up${goto 100}${font Ubuntu:size=10:style=normal}${color2}${upspeed wlp3s0}${alignr}${color3}total ${totalup wlp3s0}
+${offset 15}${upspeedgraph wlp3s0 35,335 4B1B0C FF5C2B 1000000}
+${voffset 4}
+${offset 15}${font Ubuntu:size=10:style=bold}${color1}Down${goto 100}${font Ubuntu:size=10:style=normal}${color2}${downspeed wlp3s0}${alignr}${color3}total ${totaldown wlp3s0}
+${offset 15}${downspeedgraph wlp3s0 35,335 324D23 77B753 1000000}
 ${endif}
-
-${voffset -120}
-
 ${color4}${hr 2}
-
 ]];

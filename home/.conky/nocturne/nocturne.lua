@@ -14,7 +14,7 @@ local STATE = '/tmp/conky-nocturne-' .. (os.getenv('USER') or 'user')
 
 local W    = 340   -- largura do painel
 local PAD  = 18    -- margem interna dos cards
-local GAP  = 10    -- espaço entre cards
+local GAP  = 8     -- espaço entre cards
 local HIST = 60    -- amostras (segundos) nos gráficos
 
 ------------------------------------------------------------------------------
@@ -466,15 +466,15 @@ local MESES = { 'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'jul
 local function sec_header(y)
     local t = os.date('*t')
     font(F_THIN, 64)
-    text(2, y + 58, os.date('%H:%M'), C.text1)
+    text(2, y + 52, os.date('%H:%M'), C.text1)
     font(F_REG, 13)
-    text(W - 2, y + 28, DIAS[t.wday], C.text1, 'r')
+    text(W - 2, y + 22, DIAS[t.wday], C.text1, 'r')
     font(F_LIGHT, 13)
-    text(W - 2, y + 47, string.format('%d de %s', t.day, MESES[t.month]), C.text2, 'r')
+    text(W - 2, y + 41, string.format('%d de %s', t.day, MESES[t.month]), C.text2, 'r')
     font(F_REG, 10)
     local info = string.format('%s  ·  %s  ·  kernel %s', static.host, static.distro, static.kernel)
-    text(4, y + 84, info, C.text3)
-    return y + 92
+    text(4, y + 74, info, C.text3)
+    return y + 82
 end
 
 local function sec_quick(y)
@@ -535,7 +535,7 @@ local function sec_quick(y)
 end
 
 local function sec_cpu(y)
-    local h = 188
+    local h = 184
     card(y, h, C.cpu)
     local meta = #S.cores .. ' threads'
     if S.cpu_temp then meta = meta .. string.format('  ·  %.0f°C', S.cpu_temp) end
@@ -567,7 +567,7 @@ local function sec_cpu(y)
 
     local list = {}
     for i, p in ipairs(S.top_cpu) do list[i] = { p[1], string.format('%.1f%%', p[2]) } end
-    procs(y + 142, list, C.cpu)
+    procs(y + 138, list, C.cpu)
     return y + h + GAP
 end
 
@@ -594,7 +594,7 @@ local function sec_gpu(y)
 end
 
 local function sec_mem(y)
-    local h = 182
+    local h = 178
     card(y, h, C.mem)
     header(y + 26, 'MEMÓRIA', C.mem, fmt_bytes(S.mem_total, 1) .. ' total')
 
@@ -619,13 +619,13 @@ local function sec_mem(y)
     lx = lx + 10 + text(lx + 10, y + 105, 'cache ' .. fmt_bytes(S.mem_cache), C.text3)
     text(W - PAD, y + 105, 'swap ' .. fmt_bytes(S.swap_used) .. ' / ' .. fmt_bytes(S.swap_total), C.text3, 'r')
 
-    hline(PAD, y + 118, W - 2 * PAD, C.border)
-    procs(y + 138, S.top_mem, C.mem)
+    hline(PAD, y + 116, W - 2 * PAD, C.border)
+    procs(y + 134, S.top_mem, C.mem)
     return y + h + GAP
 end
 
 local function sec_disk(y)
-    local h = 150
+    local h = 144
     local sl = S.slow
     card(y, h, C.disk)
     local meta = static.disk
@@ -644,7 +644,7 @@ local function sec_disk(y)
     end
 
     -- E/S: leitura para cima, escrita para baixo
-    local gy, gh = y + 92, 22
+    local gy, gh = y + 88, 22
     local m = math.max(buf_max(S.hist_rd, S.hist_wr), 1024 * 1024)
     local gx, gw = PAD + 96, W - 2 * PAD - 96
     hline(gx, gy + gh, gw, C.grid)
@@ -658,13 +658,53 @@ local function sec_disk(y)
     return y + h + GAP
 end
 
+-- texto em sequência separado por '·'; cada item é { texto, cor }
+local function chain(x, y, items)
+    for i, it in ipairs(items) do
+        if i > 1 then x = x + text(x, y, '  ·  ', C.grid) end
+        x = x + text(x, y, it[1], it[2] or C.text2)
+    end
+    return x
+end
+
 local function sec_net(y)
-    local h = 178
     local sl = S.slow
+    local freq = tonumber(sl.wfreq)
+    local wifi = sl.ssid and sl.ssid ~= '' and freq
+    local ex = wifi and 34 or 0   -- altura extra das linhas de Wi-Fi
+    local h = 172 + ex
+    local y0 = y
     card(y, h, C.down)
     local meta = S.iface or 'offline'
     if sl.ssid and sl.ssid ~= '' then meta = sl.ssid .. '  ·  ' .. (sl.signal or '?') .. '%' end
     header(y + 26, 'REDE', C.down, meta)
+
+    if wifi then
+        local band = freq < 3000 and '2,4 GHz' or freq < 5925 and '5 GHz' or '6 GHz'
+        local wy = y + 48
+        font(F_REG, 10)
+        chain(PAD, wy, {
+            { band, C.down },
+            { freq .. ' MHz' },
+            { 'canal ' .. (sl.wchan or '?') },
+            { (sl.wwidth or '?') .. ' MHz' },
+        })
+        if sl.wstd and sl.wstd ~= '' then text(W - PAD, wy, sl.wstd, C.text2, 'r') end
+
+        wy = wy + 16
+        local dbm = tonumber(sl.wdbm)
+        local qcol = not dbm and C.text3 or dbm >= -60 and C.ok or dbm >= -70 and C.warn or C.crit
+        dot(PAD + 3, wy - 3.5, 3, qcol)
+        text(PAD + 11, wy, dbm and (dbm .. ' dBm') or '— dBm', C.text3)
+        if sl.wrx then
+            local rx = W - PAD - text(W - PAD, wy, (sl.wtx or '?') .. ' Mbit/s', C.text3, 'r')
+            arrow(rx - 7, wy - 3.5, 3, C.up, false)
+            rx = rx - 16 - text(rx - 16, wy, sl.wrx, C.text3, 'r')
+            arrow(rx - 7, wy - 3.5, 3, C.down, true)
+            text(rx - 16, wy, 'enlace', C.text3, 'r')
+        end
+        y = y + ex
+    end
 
     -- velocidades atuais
     font(F_LIGHT, 17)
@@ -683,7 +723,7 @@ local function sec_net(y)
     text(W - PAD, gy + 8, 'pico ' .. fmt_rate(m), C.text3, 'r')
 
     -- endereços
-    local ry = y + 146
+    local ry = y + 140
     local function kv(x, yy, k, v, vc)
         font(F_MED, 8.5)
         local kw = spaced(x, yy, k, C.text3, 1.3) - x
@@ -710,7 +750,7 @@ local function sec_net(y)
     tx = tx - 18 - text(tx - 18, vy, fmt_bytes(S.rx_total or 0), C.text3, 'r')
     arrow(tx - 7, vy - 3.5, 3, C.down, true)
     text(tx - 16, vy, 'total', C.text3, 'r')
-    return y + h
+    return y0 + h
 end
 
 ------------------------------------------------------------------------------
