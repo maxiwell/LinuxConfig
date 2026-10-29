@@ -2,3 +2,5 @@
 .ycm_*
 ~*
 *.swp
+
+**/.claude/settings.local.json

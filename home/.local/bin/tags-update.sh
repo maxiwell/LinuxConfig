@@ -2,43 +2,18 @@
 
 DIR=`pwd`'/.tags'
 
-collecting_ctags() {
-    cd $1
 
-    if [[ "$2" != "c++" ]]; then
-        # Only c/cpp/cc is important for ctags. The YouCompleteMe/CSCOPE will take care of headers
-        find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--fields=+iaS"
-    fi
-
-    if [[ "$2" != "c" ]]; then
-        find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/ctags.files
-        CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --language-force=C++"
-    fi
-
-    ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/ctags.files -o $DIR/ctags
-
-    cd - &> /dev/null
+collect_cscope() {
+    cscope -b -q -i $DIR/files
+    mv cscope.* $DIR
 }
 
 
-collecting_cscope() {
-    cd $1
+collect_ctags() {
+    #CTAGS_EXTRA_ARGS="--c++-kinds=+p --fields=+iaS --language-force=C++"
+    CTAGS_EXTRA_ARGS="--fields=+iaS"
 
-    if [[ "$2" != "c++" ]]; then
-        find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/cscope.files
-    fi
-
-    if [[ "$2" != "c" ]]; then
-        find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/cscope.files
-    fi
-
-    find `pwd` -iname '*.h' | grep -v build\/ >> $DIR/cscope.files
-
-    cscope -b -q -i $DIR/cscope.files
-    mv cscope.* $DIR
-
-    cd - &> /dev/null
+    ctags --append=yes $CTAGS_EXTRA_ARGS -L $DIR/files -o $DIR/ctags
 }
 
 
@@ -46,9 +21,10 @@ usage() {
     echo "$(basename $0) <option> ./path_1 ./path_N"
     echo ""
     echo "   options:"
-    echo "      --only-c   : Find only .c and .h files"
-    echo "      --only-c++ : Find only .cpp, .cc, and .h files"
-    echo "      --all      : Find c and c++ files (default)"
+    echo "      -c   : Find only .c and .h files"
+    echo "      -c++ : Find only .cpp, .cc, and .h files"
+    echo "      -py  : Find only .py files"
+    echo "      -php : Find only .php files"
     echo ""
 }
 
@@ -56,10 +32,9 @@ usage() {
 # MAIN
 # -----
 
-ARGS="all"
-
 rm -rf ${DIR}
 mkdir -p ${DIR}
+ARGS=""
 
 if [ $# -eq 0 ]; then
     usage
@@ -69,15 +44,20 @@ fi
 for i in $@; do
 
     case "$i" in
-        --only-c)
-            ARGS="c"
+        -c)
+            ARGS="${ARGS} c "
             shift
             ;;
-        --only-c++)
-            ARGS="c++"
+        -c++)
+            ARGS="${ARGS} cpp "
             shift
             ;;
-        --all)
+        -py)
+            ARGS="${ARGS} py "
+            shift
+            ;;
+        -php)
+            ARGS="${ARGS} php "
             shift
             ;;
         --help|-h)
@@ -90,9 +70,31 @@ for i in $@; do
             exit 2
             ;;
         *)
-            echo "Collecting $ARGS files from $i"
-            #collecting_ctags $i $ARGS
-            collecting_cscope $i $ARGS
+            if [[ $ARGS == "" ]]; then
+                usage
+                exit 1
+            fi
+
+            cd $i
+            if [[ $ARGS == *" c "* ]]; then
+                find `pwd` -iname '*.c' | grep -v build\/ >> $DIR/files
+                find `pwd` -iname '*.h' | grep -v build\/ >> $DIR/files
+            fi
+            if [[ $ARGS == *" cpp "* ]]; then
+                find `pwd` -iname '*.cpp' -o -iname '*.cc' | grep -v build\/ >> $DIR/files
+                find `pwd` -iname '*.h' | grep -v build\/ >> $DIR/files
+            fi
+            if [[ $ARGS == *" py "* ]]; then
+                find `pwd` -iname '*.py' | grep -v build\/ >> $DIR/files
+            fi
+            if [[ $ARGS == *" php "* ]]; then
+                find `pwd` -iname '*.php' | grep -v build | grep -v vendor >> $DIR/files
+            fi
+            cd - &> /dev/null
+
+            echo "Collecting tags..."
+            collect_ctags
+            collect_cscope
     esac
 done
 

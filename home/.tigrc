@@ -4,4 +4,3 @@ set main-view = \
     author:yes \
     commit-title:yes,graph,refs
 
-

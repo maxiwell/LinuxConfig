@@ -25,7 +25,7 @@ xmodmap ~/.Xmodmap
 
 sleep 2
 
-conky  -c $HOME/.conky/seamod/conkyrc_seamod &
+conky -c $HOME/.conky/nocturne/conkyrc &
 copyq &
 
 # watcher de hotplug de monitor (azorpa no DisplayPort-1)

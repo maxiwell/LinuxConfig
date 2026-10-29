@@ -10,7 +10,7 @@ set expandtab
 set nohlsearch
 set incsearch
 set nobackup
-set clipboard^=unnamed,unnamedplus
+set clipboard^=unnamed
 set viminfo+=n~/.vim/viminfo    " set the viminfo location
 set t_Co=256                    " Use 256 colours
 let g:netrw_home='~/.vim'
@@ -22,6 +22,9 @@ set encoding=utf-8
 " TabComplete like bash
 set wildmode=longest,list,full
 set wildmenu
+
+" The <leader> is the key \
+vnoremap <leader>y :w !xclip -selection clipboard<CR><CR>
 
 "highlight ExtraWhitespace ctermbg=red guibg=red
 "match ExtraWhitespace /\s\+$/
@@ -41,6 +44,15 @@ set viminfo='1000,f1
 set ttymouse=xterm2
 " Send more characters for redraws
 set ttyfast
+
+" Bracketed paste: faz o vim reconhecer os marcadores de colagem mesmo dentro
+" de tmux/screen e quando aberto como editor externo (ex.: Ctrl+G do Claude
+" Code). Sem isso, Shift+Insert manda ESC[200~ que o vim lê como <Esc> e sai
+" do modo de inserção, embaralhando o texto (e nem :set paste resolve).
+let &t_BE = "\<Esc>[?2004h"
+let &t_BD = "\<Esc>[?2004l"
+let &t_PS = "\<Esc>[200~"
+let &t_PE = "\<Esc>[201~"
 
 " Any buffer can be hidden (keeping its changes) without first writing
 " the buffer to a file
@@ -94,6 +106,8 @@ inoremap <silent> <C-l>      <ESC>:bn<CR>
 
 " C/C++: Fix { } indent inside 'switch' statement
 set cino=l1
+" Fix arguments indentation
+set cino+=(0
 
 function NumberNo()
     set nonumber
@@ -127,6 +141,7 @@ function KernelMode()
     set noexpandtab
 endfunction
 
+
 "-------------------------------------------------------------------------------
 " Vundle: Plugin Manager
 "--------------------------------------------------------------------------------
@@ -138,9 +153,6 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
 
 " plugin on GitHub
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -156,9 +168,12 @@ Plugin 'will133/vim-dirdiff'
 Plugin 'scrooloose/nerdtree'
 "Plugin 'vim-scripts/Conque-GDB'
 "Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ojroques/vim-oscyank'
 
 " GIT wrapper
 Plugin 'tpope/vim-fugitive'
+
+Plugin 'tpope/vim-tbone'
 
 "Scala Plugin
 "Plugin 'derekwyatt/vim-scala'
@@ -173,7 +188,7 @@ filetype plugin indent on    " required
 
 " set the default color scheme
 " colorscheme peachpuff
-"colorscheme molokai
+" colorscheme molokai
 
 hi Visual cterm=reverse ctermfg=NONE ctermbg=NONE
 hi Search cterm=bold,reverse ctermfg=NONE ctermbg=NONE
@@ -189,7 +204,6 @@ hi SpellBad cterm=NONE,undercurl gui=NONE,undercurl ctermfg=NONE guifg=NONE cter
 "--------------------------------------------------------------------------------
 
 " set a directory to store the undo history
-silent !mkdir ~/.vim/undo > /dev/null 2>&1
 set undodir=~/.vim/undo
 " tell it to use an undo file
 set undofile
@@ -226,6 +240,13 @@ nnoremap <Leader>l     :CtrlPMRU<cr>
 nnoremap <Leader>;     :CtrlPMixed<cr>
 "nnoremap <Leader>ta    :CtrlPTag<cr>
 "nnoremap <Leader>tb    :CtrlPBufTag<cr>
+
+let g:ctrlp_custom_ignore = 'node_modules\|git\|vendor'
+
+" open the file in the current window, even if it is NERDTree/help/quickfix
+" (by default CtrlP opens a vertical split when there is no normal window)
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|nerdtree'
+
 
 "--------------------------------------------------------------------------------
 " TagBar
@@ -433,10 +454,10 @@ endif
 nnoremap K :grep! "\b<C-R><C-W>\b" *.*<CR>:cw<CR>
 
 " \g: Search in c/cpp/h git-files using Fugitive Ggrep
-nnoremap <leader>g :Ggr <C-R><C-W> -- *.c *.cc *.cpp *.h *.hpp<CR>
+nnoremap <Leader>g :Ggr <C-R><C-W> -- *.c *.cc *.cpp *.h *.hpp<CR>
 
 " \a: Search in all git-file using Fugitive Ggrep
-nnoremap <leader>a :Ggr <C-R><C-W><CR>
+nnoremap <Leader>a :Ggr <C-R><C-W><CR>
 
 " This trigger takes advantage of the fact that the quickfix window can be
 " easily distinguished by its file-type, qf. The wincmd J command is
@@ -529,7 +550,7 @@ nmap <C-\>F :cs find f
 nmap <C-\>E :cs find e 
 
 "--------------------------------------------------------------------------------
-" Signature (marks clever)
+" signature (marks clever)
 "--------------------------------------------------------------------------------
 
 " Default Shortcuts:
@@ -542,6 +563,10 @@ nmap <C-\>E :cs find e
 "
 " More here: github.com/kshenoy/vim-signature
 
+highlight SignatureMarkText ctermbg=Brown ctermfg=Black
+hi SignColumn ctermbg=none
+
+
 "--------------------------------------------------------------------------------
 " multiple-cursors
 "--------------------------------------------------------------------------------
@@ -551,3 +576,9 @@ nmap <C-\>E :cs find e
 "let g:multi_cursor_prev_key='<C-p>'
 "let g:multi_cursor_skip_key='<C-x>'
 "let g:multi_cursor_quit_key='<Esc>'
+
+"--------------------------------------------------------------------------------
+" tbone
+"--------------------------------------------------------------------------------
+vnoremap ty :Tyank<CR>
+nnoremap tp :Tput<CR>

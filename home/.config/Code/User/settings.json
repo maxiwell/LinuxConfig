@@ -68,4 +68,5 @@
     "workbench.colorTheme": "Dark Modern",
     "claudeCode.preferredLocation": "panel",
     "git.openRepositoryInParentFolders": "never",
+    "claudeCode.hideOnboarding": true,
 }
